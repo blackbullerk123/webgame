@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\back\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\back\ProductController;
 use App\Http\Controllers\back\CheckoutController;
@@ -19,5 +20,9 @@ Route::get('/', function () {
     return view('layout_index.index');
 });
 
+//Admin
+Route::get('/admin',[AdminController::class,'index'])->name('admin');
+
+//Page
 Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
