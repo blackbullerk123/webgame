@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,5 @@ Route::get('/', function () {
     return view('layout_index.index');
 });
 
-Route::get('index',[ProductController::class,'getDetail'])->name('product.detail');
+Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
+Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
