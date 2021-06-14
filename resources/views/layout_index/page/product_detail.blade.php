@@ -2,13 +2,14 @@
 @section('content')
 <style>
 #img1{
-    height: 8%;
+    height: 10%;
     width: 15%;
     position: absolute;
 }
 @media only screen and (max-width: 762px) {
     #img1{
-        height: 3%;
+        width: 27%;
+        height: 6%;
     }
 }
 
@@ -72,7 +73,7 @@
     <!-- START: Posts FullWidth -->
    <h4>IOS - Yong Heroes</h4>
     <div class="nk-blog-fullwidth">
-    <img id="img1" src="https://www.afkarena.com/m/images/slogimg2_no.jpg?v=0208" alt="We found a witch! May we burn her?" >
+    <img id="img1" src="https://gamemobile.io/assets/uploads/1618905948.png" alt="We found a witch! May we burn her?" >
         
         <!-- START: Post -->
         <table class="table table-striped custom-table float-left" style="margin-left: 31%">
