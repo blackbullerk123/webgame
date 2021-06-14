@@ -141,10 +141,10 @@
 
     <!-- START: Latest News -->
     <div class="nk-gap-2"></div>
-    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">Latest</span> News</span></h3>
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games</span></h3>
     <div class="nk-gap"></div>
 
-    <div class="nk-news-box">
+    {{-- <div class="nk-news-box">
         <div class="nk-news-box-list">
             <div class="nano">
                 <div class="nano-content">
@@ -287,9 +287,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="nk-gap-2"></div>
+    {{-- <div class="nk-gap-2"></div> --}}
     <div class="nk-blog-grid">
         <div class="row">
             

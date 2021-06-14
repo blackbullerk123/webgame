@@ -1,78 +1,4 @@
-<!DOCTYPE html>
 
-    
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>GoodGames | Community and Store HTML Game Template</title>
-
-    <meta name="description" content="GoodGames - Bootstrap template for communities and games store">
-    <meta name="keywords" content="game, gaming, template, HTML template, responsive, Bootstrap, premium">
-    <meta name="author" content="_nK">
-
-    <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- START: Styles -->
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet" type="text/css">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
-
-    <!-- FontAwesome -->
-    <script defer src="{{asset('assets/vendor/fontawesome-free/js/all.js')}}"></script>
-    <script defer src="{{asset('assets/vendor/fontawesome-free/js/v4-shims.js')}}"></script>
-
-    <!-- IonIcons -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/ionicons/css/ionicons.min.css')}}">
-
-    <!-- Flickity -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/flflickity/dist/flickity.min.css')}}">
-
-    <!-- Photoswipe -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/photoswipe/dist/photoswipe.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/photoswipe/dist/default-skin/default-skin.css')}}">
-
-    <!-- Seiyria Bootstrap Slider -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css')}}">
-
-    <!-- Summernote -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/summernote/dist/summernote-bs4.css')}}">
-
-    <!-- GoodGames -->
-    <link rel="stylesheet" href="{{asset('assets/css/goodgames.css')}}">
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    
-    <!-- END: Styles -->
-
-    <!-- jQuery -->
-    <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-    
-    
-</head>
-
-
-<!--
-    Additional Classes:
-        .nk-page-boxed
--->
-<body>
-    
-        
-
-
-
-<!--
-    Additional Classes:
-        .nk-header-opaque
--->
 <header class="nk-header nk-header-opaque">
 
     
@@ -132,7 +58,7 @@
                     </a>
                 </li>
                 
-                
+{{--                 
                 <li>
                     <span class="nk-cart-toggle">
                         <span class="fa fa-shopping-cart"></span>
@@ -170,7 +96,7 @@
                         </div>
                     </div>
                 </li>
-                
+                 --}}
             </ul>
         </div>
     </div>
@@ -197,191 +123,30 @@
                 
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
                     
-        <li class=" nk-drop-item">
+        <li class=" nk-item">
             <a href="{{ url('/') }}">
-                Trang Chủ
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="elements.html">
-                Elements (Shortcodes)
-                
+                Trang Chủ              
             </a>
         </li>
-        <li class=" nk-drop-item">
-            <a href="forum.html">
-                Forum
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="forum.html">
-                Forum
-                
-            </a>
-        </li>
-        <li>
-            <a href="forum-topics.html">
-                Topics
-                
-            </a>
-        </li>
-        <li>
-            <a href="forum-single-topic.html">
-                Single Topic
-                
-            </a>
-        </li>
-                    </ul>
-        </li>
-        <li>
-            <a href="widgets.html">
-                Widgets
-                
-            </a>
-        </li>
-        <li>
-            <a href="coming-soon.html">
-                Coming Soon
-                
-            </a>
-        </li>
-        <li>
-            <a href="offline.html">
-                Offline
-                
-            </a>
-        </li>
-        <li>
-            <a href="404.html">
-                404
-                
-            </a>
-        </li>
-                    </ul>
-        </li>
-        <li class=" nk-drop-item">
+        <li class=" nk-item">
             <a href="blog-list.html">
-                Tất cả các game
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="news.html">
-                News
-                
+                Tất cả các game          
             </a>
-        </li>
-        <li class=" nk-drop-item">
-            <a href="blog-grid.html">
-                Blog With Sidebar
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="blog-grid.html">
-                Blog Grid
-                
-            </a>
-        </li>
-        <li>
-            <a href="blog-list.html">
-                Blog List
-                
-            </a>
-        </li>
-                    </ul>
-        </li>
-        <li>
-            <a href="blog-fullwidth.html">
-                Blog Fullwidth
-                
-            </a>
-        </li>
-        <li>
-            <a href="blog-article.html">
-                Blog Article
-                
-            </a>
-        </li>
-                    </ul>
         </li>
         <li>
             <a href="gallery.html">
-                Hướng dẫn sử dụng
-                
+                Hướng dẫn sử dụng               
             </a>
         </li>
-        <li class=" nk-drop-item">
+        <li class=" nk-item">
             <a href="tournaments.html">
-                Về chúng tôi
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="tournaments.html">
-                Tournament
-                
+                Về chúng tôi               
             </a>
         </li>
-        <li>
-            <a href="tournaments-teams.html">
-                Teams
-                
-            </a>
-        </li>
-        <li>
-            <a href="tournaments-teammate.html">
-                Teammate
-                
-            </a>
-        </li>
-                    </ul>
-        </li>
-        <li class=" nk-drop-item">
+        <li class=" nk-item">
             <a href="store.html">
-                 Liên hệ
-                
-            </a><ul class="dropdown">
-                        
-        <li>
-            <a href="store.html">
-                Store
-                
+                 Liên hệ               
             </a>
-        </li>
-        <li>
-            <a href="store-product.html">
-                Product
-                
-            </a>
-        </li>
-        <li>
-            <a href="store-catalog.html">
-                Catalog
-                
-            </a>
-        </li>
-        <li>
-            <a href="store-catalog-alt.html">
-                Catalog Alt
-                
-            </a>
-        </li>
-        <li>
-            <a href="store-checkout.html">
-                Checkout
-                
-            </a>
-        </li>
-        <li>
-            <a href="store-cart.html">
-                Cart
-                
-            </a>
-        </li>
-                    </ul>
         </li>
                 </ul>
                 <ul class="nk-nav nk-nav-right nk-nav-icons">
