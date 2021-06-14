@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\back\ProductController;
+use App\Http\Controllers\back\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
