@@ -1,6 +1,43 @@
+<style>
+  .wordart {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wordart.horizon .text {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-style: oblique;
+      background: #7286a7;
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+      background: -moz-linear-gradient(top, #e8ecf3 0%, #e8ecf3 13%, #ffffff 50%, #cdd82e 56%, #ffffff 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7286a7), color-stop(13%, #7286a7), color-stop(50%, #ffffff), color-stop(56%, #812f30), color-stop(100%, #ffffff));
+      background: -webkit-linear-gradient(top, #e8ecf3 0%, #e8ecf3 13%, #ffffff 50%, #cdd82e 56%, #ffffff 100%);
+      background: -o-linear-gradient(top, #e8ecf3 0%, #e8ecf3 13%, #ffffff 50%, #cdd82e 56%, #ffffff 100%);
+      background: -ms-linear-gradient(top, #e8ecf3 0%, #e8ecf3 13%, #ffffff 50%, #cdd82e 56%, #ffffff 100%);
+      background: linear-gradient(to bottom, #e8ecf3 0%, #e8ecf3 13%, #ffffff 50%, #cdd82e 56%, #ffffff 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7286a7', endColorstr='#ffffff', GradientType=0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  .wordart.horizon .text:before {
+      content: attr(data-text);
+      position: absolute;
+      z-index: -1;
+      text-shadow: 0.01em 0em 0 #161616, 0em 0.01em 0 #8d8d8d, 0.02em 0.01em 0 #161616, 0.01em 0.02em 0 #8d8d8d, 0.03em 0.02em 0 #161616, 0.02em 0.03em 0 #8d8d8d, 0.04em 0.03em 0 #161616, 0.03em 0.04em 0 #8d8d8d, 0.05em 0.04em 0 #161616, 0.04em 0.05em 0 #8d8d8d, 0.06em 0.05em 0 #161616, 0.05em 0.06em 0 #8d8d8d, 0.07em 0.06em 0 #161616, 0.06em 0.07em 0 #8d8d8d, 0.08em 0.07em 0 #161616, 0.07em 0.08em 0 #8d8d8d, 0.09em 0.08em 0 #161616, 0.08em 0.09em 0 #8d8d8d, 0.1em 0.09em 0 #161616, 0.09em 0.1em 0 #8d8d8d;
+  }
+</style>
 <header class="main-header">
   <!-- Logo --> 
-  <a href="index2.html" class="logo">
+  <a href="{{ route('admin') }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>A</b>LT</span>
     <!-- logo for regular state and mobile devices -->
@@ -9,87 +46,14 @@
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
     <!-- Sidebar toggle button-->
+    <div class="wordart horizon">
+      <span class="text">Hệ thống top up game</span>
+    </div>
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
     </a>
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <!-- Messages: style can be found in dropdown.less-->
-        <li class="dropdown messages-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">4</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have 4 messages</li>
-            <li>
-              <!-- inner menu: contains the actual data -->
-              <ul class="menu">
-                <li><!-- start message -->
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-                    </div>
-                    <h4>
-                      Support Team
-                      <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li><!-- end message -->
-                <li>
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
-                    </div>
-                    <h4>
-                      AdminLTE Design Team
-                      <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
-                    </div>
-                    <h4>
-                      Developers
-                      <small><i class="fa fa-clock-o"></i> Today</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
-                    </div>
-                    <h4>
-                      Sales Department
-                      <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
-                    </div>
-                    <h4>
-                      Reviewers
-                      <small><i class="fa fa-clock-o"></i> 2 days</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="footer"><a href="#">See All Messages</a></li>
-          </ul>
-        </li>
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -132,80 +96,10 @@
             <li class="footer"><a href="#">View all</a></li>
           </ul>
         </li>
-        <!-- Tasks: style can be found in dropdown.less -->
-        <li class="dropdown tasks-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-flag-o"></i>
-            <span class="label label-danger">9</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have 9 tasks</li>
-            <li>
-              <!-- inner menu: contains the actual data -->
-              <ul class="menu">
-                <li><!-- Task item -->
-                  <a href="#">
-                    <h3>
-                      Design some buttons
-                      <small class="pull-right">20%</small>
-                    </h3>
-                    <div class="progress xs">
-                      <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">20% Complete</span>
-                      </div>
-                    </div>
-                  </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                  <a href="#">
-                    <h3>
-                      Create a nice theme
-                      <small class="pull-right">40%</small>
-                    </h3>
-                    <div class="progress xs">
-                      <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">40% Complete</span>
-                      </div>
-                    </div>
-                  </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                  <a href="#">
-                    <h3>
-                      Some task I need to do
-                      <small class="pull-right">60%</small>
-                    </h3>
-                    <div class="progress xs">
-                      <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">60% Complete</span>
-                      </div>
-                    </div>
-                  </a>
-                </li><!-- end task item -->
-                <li><!-- Task item -->
-                  <a href="#">
-                    <h3>
-                      Make beautiful transitions
-                      <small class="pull-right">80%</small>
-                    </h3>
-                    <div class="progress xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">80% Complete</span>
-                      </div>
-                    </div>
-                  </a>
-                </li><!-- end task item -->
-              </ul>
-            </li>
-            <li class="footer">
-              <a href="#">View all tasks</a>
-            </li>
-          </ul>
-        </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+            <img src="{{ asset('adminlte2/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image"/>
             <span class="hidden-xs">Alexander Pierce</span>
           </a>
           <ul class="dropdown-menu">
@@ -216,19 +110,7 @@
                 Alexander Pierce - Web Developer
                 <small>Member since Nov. 2012</small>
               </p>
-            </li>
-            <!-- Menu Body -->
-            <li class="user-body">
-              <div class="col-xs-4 text-center">
-                <a href="#">Followers</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a href="#">Sales</a>
-              </div>
-              <div class="col-xs-4 text-center">
-                <a href="#">Friends</a>
-              </div>
-            </li>
+            </li> 
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
