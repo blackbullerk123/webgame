@@ -2,7 +2,7 @@
 @section('content')
 <style>
 #img1{
-    height: 10%;
+    height: 9%;
     width: 15%;
     position: absolute;
 }
@@ -65,23 +65,21 @@
 </div>
 <div class="nk-gap-1"></div>
 <!-- END: Breadcrumbs -->
-
-        
-
-        
+    
 <div class="container">
     <!-- START: Posts FullWidth -->
    <h4>IOS - Yong Heroes</h4>
-    <div class="nk-blog-fullwidth">
+    <div class="nk-blog-post">
     <img id="img1" src="https://gamemobile.io/assets/uploads/1618905948.png" alt="We found a witch! May we burn her?" >
-        
+    </div>
         <!-- START: Post -->
-        <table class="table table-striped custom-table float-left" style="margin-left: 31%">
+    <div class="col-sm-9" style="margin-left: 26%">
+        <table class="table table-striped custom-table float-left">
                 <thead>
                 
                     <tr>
                     <th scope="col" style="width: 15%;">Order</th>
-                    <th scope="col" style="width: 15%;">Name</th>
+                    <th scope="col" style="width: 37%;">Name</th>
                     <th scope="col" style="width: 15%;">Giá trị</th>
                     <th scope="col" style="width: 15%;">Point</th>
                     <th scope="col" style="width: 15%;">Education</th>
@@ -99,14 +97,54 @@
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
                     
                     </tr>            
+                    <tr scope="row">
+
+                    
+                        <td> 1392</td>
+                        <td><a href="#">James Yates</a></td>
+                        <td>0.99$</td>
+                        <td>19,800</td>
+                        <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                
+                </tr>            
+                <tr scope="row">
+
+                    
+                    <td> 1392</td>
+                    <td><a href="#">James Yates</a></td>
+                    <td>0.99$</td>
+                    <td>19,800</td>
+                    <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+            
+            </tr>            
+            <tr scope="row">
+
+                    
+                <td> 1392</td>
+                <td><a href="#">James Yates</a></td>
+                <td>0.99$</td>
+                <td>19,800</td>
+                <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+        
+        </tr>            
+        <tr scope="row">
+
+                    
+            <td> 1392</td>
+            <td><a href="#">James Yates</a></td>
+            <td>0.99$</td>
+            <td>19,800</td>
+            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+    
+    </tr>                    
                     
                 </tbody>
             </table>
-
+    </div>
         <div class="nk-blog-post">
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">
-                <div class="col-md-8 col-lg-9"><br><br><br><br><br><br><br>
+                <div class="col-md-8 col-lg-9">
                     <h2 class="nk-post-title h4"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h2>
                     <div class="nk-gap"></div>
                     <div class="nk-post-text">

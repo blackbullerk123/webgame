@@ -55,10 +55,10 @@
                     
                     <div id="new_chq"></div>
                     <input type="hidden" value="1" id="total_chq">
-                    <br>
-                    <div class="text-center">
-                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm" class="btn  btn-warning btnthem btn-lg">
-                    </div>
+                    <br>            
+                </div>
+                <div class="text-center">
+                    <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm" class="btn  btn-warning btnthem btn-lg">
                 </div>
             </form>
             <button onclick="add()">Add</button>
@@ -78,8 +78,10 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $('#img').click(function() {
-        $('#fImages').click();
+    $(document).ready(function() {
+        $('#img').click(function() {
+            $('#fImages').click();
+        });
     });
     function add(){
       var new_chq_no = parseInt($('#total_chq').val())+1;
