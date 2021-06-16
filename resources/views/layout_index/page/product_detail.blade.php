@@ -2,7 +2,7 @@
 @section('content')
 <style>
 #img1{
-    height: 9%;
+    height: 10%;
     width: 15%;
     position: absolute;
 }
@@ -80,7 +80,7 @@
                     <tr>
                     <th scope="col" style="width: 15%;">Order</th>
                     <th scope="col" style="width: 37%;">Name</th>
-                    <th scope="col" style="width: 15%;">Giá trị</th>
+                    <th scope="col" style="width: 15%;">Value</th>
                     <th scope="col" style="width: 15%;">Point</th>
                     <th scope="col" style="width: 15%;">Education</th>
                     <th scope="col"></th>

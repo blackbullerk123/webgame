@@ -4,11 +4,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tất cả game
+        Tất cả banner
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Hệ thống</a></li>
-        <li><a href="#">Games</a></li>
+        <li><a href="#">Banner</a></li>
         <li class="active">Danh sách</li>
       </ol>
     </section>
@@ -20,19 +20,19 @@
           <div class="box">
             <div class="box-header">
                 <div class="col-md-4 pull-right">
-                    <a href="{{ route('product.create') }}">
+                    <a href="{{ route('slide.create') }}">
                         <button class="btn btn btn-warning" style="float: right;;margin-bottom:5px;margin-left:2px;border:none; background-color:#4a4235;">
-                            <i class="fa fa-plus"> Thêm game mới </i></button>
+                            <i class="fa fa-plus"> Thêm banner mới </i></button>
                     </a>
                 </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="product_table" class="table table-striped table-bordered" style="width:100%">
+                <table id="slide_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th style="text-align: center">Tên game</th>
-                            <th style="text-align: center">Loại game</th>
+                            <th style="text-align: center">Tên banner</th>
+                            <th style="text-align: center">Ảnh banner</th>
                             <th style="text-align: center">Thao tác</th>
                         </tr>
                     </thead>
@@ -63,7 +63,7 @@
 @section('script')
 <script>
   $(function() {
-    $('#product_table').DataTable({
+    $('#slide_table').DataTable({
       "sDom": '<"row view-filter"<"col-sm-12"<"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"pull-left"l><"pull-right"p><"text-center"i>>>',
       'paging': true,
       'searching': true,

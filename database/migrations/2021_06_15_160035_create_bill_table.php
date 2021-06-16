@@ -18,6 +18,7 @@ class CreateBillTable extends Migration
             $table->string('product_id');
             $table->string('product_total')->nullable();
             $table->string('bill_total')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

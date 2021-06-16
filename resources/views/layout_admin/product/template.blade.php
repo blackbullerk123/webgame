@@ -9,10 +9,10 @@
         <div style="color: red"> {{ $message }} </div>
     @enderror
     <br>
-    <h4><b> Hệ điều hành game : </b></h4>
+    <h4><b> Loại game : </b></h4>
     <div class="input-group">
         <div class="col-sm-14">
-                <select class="select2" multiple="multiple" data-placeholder="Chọn hệ điều hành" style="width: 800px;">
+                <select class="select2" multiple="multiple" data-placeholder="Chọn loại game" style="width: 800px;">
                     <option>Alabama</option>
                     <option>Alaska</option>
                     <option>California</option>

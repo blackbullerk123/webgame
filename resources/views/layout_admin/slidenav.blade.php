@@ -14,11 +14,11 @@
             <li class="treeview">
               <a href="{{ route('product') }}">
                 <i class="fa fa-files-o"></i>
-                <span>Sản phẩm</span>
+                <span>Tất cả games</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="{{ route('bills') }}">
                 <i class="fa fa-th"></i> <span>Hóa đơn</span>
               </a>
             </li>
@@ -26,7 +26,7 @@
               <span style="font-size:18px ;color:rgb(238, 238, 238)"> THIẾT LẬP</span>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="{{ route('slide') }}">
                 <i class="fa fa-pie-chart"></i>
                 <span>Banner</span>
               </a>
