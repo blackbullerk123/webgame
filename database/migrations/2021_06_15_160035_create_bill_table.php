@@ -16,6 +16,7 @@ class CreateBillTable extends Migration
         Schema::create('bill', function (Blueprint $table) {
             $table->id();
             $table->string('product_id');
+            $table->string('user_id');
             $table->string('product_total')->nullable();
             $table->string('bill_total')->nullable();
             $table->integer('status')->default(0);

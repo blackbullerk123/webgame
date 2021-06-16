@@ -15,7 +15,6 @@ class CreateOperatingSystemTable extends Migration
     {
         Schema::create('operating_system', function (Blueprint $table) {
             $table->id();
-            $table->string('product_id');
             $table->string('name');
             $table->timestamps();
         });

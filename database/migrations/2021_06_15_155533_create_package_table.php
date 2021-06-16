@@ -16,6 +16,7 @@ class CreatePackageTable extends Migration
         Schema::create('package', function (Blueprint $table) {
             $table->id();
             $table->string('product_id');
+            $table->string('package_image')->nullable();
             $table->string('package_name')->nullable();
             $table->string('package_price')->nullable();
             $table->string('point_number')->nullable();
