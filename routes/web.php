@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\back\ProductController;
 use App\Http\Controllers\back\CheckoutController;
 use App\Http\Controllers\back\SlideController;
+use App\Http\Controllers\front\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,5 @@ Route::get('/banner-create',[SlideController::class,'create'])->name('slide.crea
 //Page
 Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+
+Route::post('login',[FrontendController::class,'postLogin'])->name('login');
