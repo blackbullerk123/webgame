@@ -17,6 +17,11 @@ class ProductController extends Controller
         return view('layout_admin.product.create');
     }
 
+    public function edit()
+    {
+        return view('layout_admin.product.edit');
+    }
+
     public function getDetail()
     {
         return view('layout_index.page.product_detail');

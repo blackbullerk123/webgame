@@ -4,13 +4,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Thêm game
+                Sửa game
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Hệ thống</a></li>
                 <li><a href="#">Game</a></li>
-                <li class="active">Thêm game</li>
+                <li class="active">sửa game</li>
             </ol>
         </section>
 
@@ -26,7 +26,7 @@
                     @csrf
                     @include('layout_admin.product.template')
                     <div class="text-center">
-                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm"
+                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Cập nhật"
                             class="btn  btn-warning btnthem btn-lg">
                     </div>
                 </form>

@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
+Route::get('/product/edit',[ProductController::class,'edit'])->name('product.edit');
 
 //Page
 Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');

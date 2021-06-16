@@ -31,7 +31,11 @@
   <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('adminlte2/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
-
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('adminlte2/plugins/summernote/summernote-bs4.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('adminlte2/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('adminlte2/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -90,6 +94,10 @@
     <script src="{{ asset('adminlte2/bower_components/fastclick/lib/fastclick.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte2/dist/js/adminlte.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('adminlte2/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('adminlte2/plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script src="{{ asset('adminlte2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('adminlte2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
@@ -100,7 +108,17 @@
     <script>
   $(document).ready(function() {
     $('#example').DataTable();
-} );
+  });
+  $(function() {
+      // Summernote
+      $('#summernote').summernote()
+      // Select2
+      $('.select2').select2()
+
+      $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
 </script>
 @yield('script')
 </body>
