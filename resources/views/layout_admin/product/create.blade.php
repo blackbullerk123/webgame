@@ -26,7 +26,7 @@
             <form action="#" method="" enctype="multipart/form-data">
                 @csrf
                 <div class="box-body">
-                    <h4> Tên game : </h4>
+                    <h4><b> Tên game : </b></h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
                         <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}" placeholder="Tên game . . . . . . . . .">
@@ -34,28 +34,34 @@
                     @error('name')
                     <div style="color: red"> {{ $message }} </div>
                     @enderror
-                    <h4> Gói nạp game : </h4>
-                    <div class="col-sm-1">
-                        <label>Ảnh: </label>
+                    <div class="input-group">
+                        <h4><b> Avatar :</b><h4> 
                         <input id="fImages" type="file" name="avatar" class="form-control hidden" onchange="changeImg(this)">
-                            <img id="img" class="img" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">
+                            <img id="img" class="thumbnail" style="width: 200px; height: 150px;" src="{{ asset('images/no_img.jpg') }}">
                     </div>
+                    <h4><b> Gói nạp game : </b><h4> 
+                    <div class="input-group">
                     <div class="col-sm-2">
-                        <label>Tên gói: </label>
-                        <input id="package" name="package" type="text" class="form-control" value="{{ old('package') }}" placeholder="Tên gói. . . . . . . . .">
+                        <p>Ảnh: </p>
+                        <input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">
+                            <img id="thum" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">
                     </div>
-                    <div class="col-sm-2">
-                        <label>Giá trị: </label>
-                        <input id="value" name="value" type="text" class="form-control" value="{{ old('value') }}" placeholder="Giá trị. . . . . . . . .">
+                    <div class="col-sm-3">
+                        <p>Tên gói: </p>
+                        <input id="package" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">
                     </div>
-                    <div class="col-sm-2">
-                        <label>Points: </label>
-                        <input id="point" name="point" type="text" class="form-control" value="{{ old('point') }}" placeholder="Point. . . . . . . . .">
+                    <div class="col-sm-3">
+                        <p>Giá trị: </p>
+                        <input id="value" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">
                     </div>
-                    
+                    <div class="col-sm-3">
+                        <p>Points: </p>
+                        <input id="point" name="point" type="text" class="form-control"placeholder="Point. . . . . . . . .">
+                    </div>
+                    </div>
                     <div id="new_chq"></div>
                     <input type="hidden" value="1" id="total_chq">
-                    <br>            
+                               
                 </div>
                 <div class="text-center">
                     <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm" class="btn  btn-warning btnthem btn-lg">
@@ -69,6 +75,7 @@
 @endsection
 @section('script')
 <script>
+    $.noConflict();
     function changeImg(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -83,15 +90,47 @@
             $('#fImages').click();
         });
     });
+
+    function changeThumbnail(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#thum').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(document).ready(function() {
+        $('#thum').click(function() {
+            $('#thumbnail').click();
+        });
+    });
+
     function add(){
       var new_chq_no = parseInt($('#total_chq').val())+1;
-      var new_input="<input id='package"+new_chq_no+"'name='package' type='text' class='form-control' value='{{ old('package') }}' placeholder='Tên gói. . . . . . . . .''> <input type='text' id='new_"+new_chq_no+"'>";
+      var new_input='<div class="input-group" id="new_"' + new_chq_no + '"><div class="col-sm-2">'
+                        +'<p>Ảnh: </p>'+
+                        '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">'+
+                            '<img id="thum" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset("images/no_img.jpg") }}">'+
+                    '</div>'+
+                    '<div class="col-sm-3">'+
+                        '<p>Tên gói: </p>'+
+                        '<input id="package" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">'+
+                    '</div>'+
+                    '<div class="col-sm-3">'+
+                        '<p>Giá trị: </p>'+
+                        '<input id="value" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">'+
+                    '</div>'+
+                    '<div class="col-sm-3">'+
+                        '<p>Points: </p>'+
+                        '<input id="point" name="point" type="text" class="form-control" placeholder="Point. . . . . . . . .">'+
+                    '</div></div>';
       $('#new_chq').append(new_input);
       $('#total_chq').val(new_chq_no)
     }
     function remove(){
-      var last_chq_no = $('#total_chq').val();
-      if(last_chq_no>1){
+      var last_chq_no = $('.input-group').val();
+      if(last_chq_no > 1){
         $('#new_'+last_chq_no).remove();
         $('#total_chq').val(last_chq_no-1);
       }

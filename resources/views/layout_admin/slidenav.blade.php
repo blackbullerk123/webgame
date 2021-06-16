@@ -5,7 +5,7 @@
           <ul class="sidebar-menu">
             <li class="treeview">
               <a href="{{ route('admin') }}">
-                <i class="fa fa-dashboard"></i> <span>Bảng điều khiển</span>
+                <h4><i class="fa fa-dashboard"></i> <span>Bảng điều khiển</span></h4>
               </a>
             </li>
             <li class="header ">
