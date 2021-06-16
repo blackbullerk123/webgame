@@ -37,13 +37,13 @@
                     <div class="input-group">
                         <h4><b> Avatar :</b><h4> 
                         <input id="fImages" type="file" name="avatar" class="form-control hidden" onchange="changeImg(this)">
-                            <img id="img" class="thumbnail" style="width: 200px; height: 150px;" src="{{ asset('images/no_img.jpg') }}">
+                            <img id="img" class="img" style="width: 200px; height: 150px;" src="{{ asset('images/no_img.jpg') }}">
                     </div>
                     <h4><b> Gói nạp game : </b><h4> 
                     <div class="input-group">
                     <div class="col-sm-2">
                         <p>Ảnh: </p>
-                        <input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">
+                        <input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">
                             <img id="thum" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">
                     </div>
                     <div class="col-sm-3">
@@ -75,7 +75,7 @@
 @endsection
 @section('script')
 <script>
-    function changeImg(input) {
+function changeImg(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -84,33 +84,48 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $(document).ready(function() {
         $('#img').click(function() {
             $('#fImages').click();
-        });
     });
 
-    function changeThumbnail(input) {
+    function changeThumbnail(input,thum) {
+        var file= input.files[0];
+        var name = input.files[0].name;
+        var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
+        var validExtensions = ['jpg','png','jpeg', 'JPG', 'JPEG', 'PNG', 'jfif'];
+        if ($.inArray(fileNameExt, validExtensions) < 0) {
+            swal.fire(image_file+" "+validExtensions.join(', '));
+        return false;
+      }
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#thum').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $(document).ready(function() {
-        $('#thum').click(function() {
-            $('#thumbnail').click();
-        });
-    });
+	    var reader = new FileReader();
 
-    function add(){
+	    reader.onload = function(e) {
+	      $('#'+thum).attr('src', e.target.result);
+	    }
+
+	    reader.readAsDataURL(input.files[0]);
+	  }
+        // if (input.files && input.files[0]) {
+        //     var reader = new FileReader();
+        //     reader.onload = function(e) {
+        //         $('#'+thum).attr('src', e.target.result);
+        //     }
+        //     reader.readAsDataURL(input.files[0]);
+        // }
+    }
+    //     $('#thum').click(function() {
+    //         $('#thumbnail').click();
+    // });
+    
+    function add(){   
+      var thum_id = 0;
+      thum_id++;
       var new_chq_no = parseInt($('#total_chq').val())+1;
       var new_input='<div class="input-group" id="new_'+ new_chq_no + '"><div class="col-sm-2">'
                         +'<p>Ảnh: </p>'+
-                        '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">'+
-                            '<img id="thum" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset("images/no_img.jpg") }}">'+
+                        '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">'+
+                            '<img id="thum'+thum_id+'" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset("images/no_img.jpg") }}">'+
                     '</div>'+
                     '<div class="col-sm-3">'+
                         '<p>Tên gói: </p>'+
@@ -135,3 +150,4 @@
       }
     }
 </script>
+@stop
