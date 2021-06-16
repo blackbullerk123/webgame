@@ -75,7 +75,6 @@
 @endsection
 @section('script')
 <script>
-    $.noConflict();
     function changeImg(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -108,7 +107,7 @@
 
     function add(){
       var new_chq_no = parseInt($('#total_chq').val())+1;
-      var new_input='<div class="input-group" id="new_"' + new_chq_no + '"><div class="col-sm-2">'
+      var new_input='<div class="input-group" id="new_'+ new_chq_no + '"><div class="col-sm-2">'
                         +'<p>Ảnh: </p>'+
                         '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">'+
                             '<img id="thum" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset("images/no_img.jpg") }}">'+
@@ -129,7 +128,7 @@
       $('#total_chq').val(new_chq_no)
     }
     function remove(){
-      var last_chq_no = $('.input-group').val();
+      var last_chq_no = $('#total_chq').val();
       if(last_chq_no > 1){
         $('#new_'+last_chq_no).remove();
         $('#total_chq').val(last_chq_no-1);
