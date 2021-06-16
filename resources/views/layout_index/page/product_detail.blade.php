@@ -73,7 +73,7 @@
     <img id="img1" src="https://gamemobile.io/assets/uploads/1618905948.png" alt="We found a witch! May we burn her?" >
     </div>
         <!-- START: Post -->
-    <div class="col-sm-9" style="margin-left: 26%">
+    <div class="col-sm-9 " style="margin-left: 26%">
         <table class="table table-striped custom-table float-left">
                 <thead>
                 

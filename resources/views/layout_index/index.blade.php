@@ -46,7 +46,7 @@
                 
                     <h3 class="h4">As we Passed, I remarked</h3>
                     <p class="text-white">As we passed, I remarked a beautiful church-spire rising above some old elms in the park; and before them, in the midst of a lawn, chimneys covered with ivy, and the windows shining in the sun.</p>
-                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">ORDER</a>
                 
             </div>
             
@@ -59,7 +59,7 @@
                 
                     <h3 class="h4">He made his passenger captain of one</h3>
                     <p class="text-white">Now the races of these two have been for some ages utterly extinct, and besides to discourse any further of them would not be at all to my purpose. But the concern I have most at heart is for our Corporation of Poets, from whom I am preparing a petition to your Highness,  to be subscribed with the names of one...</p>
-                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">ORDER</a>
                 
             </div>
             
@@ -77,7 +77,7 @@
                 
                     <h3 class="h4">At length one of them called out in a clear</h3>
                     <p class="text-white">TJust then her head struck against the roof of the hall: in fact she was now more than nine feet high...</p>
-                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">ORDER</a>
                 
             </div>
             
@@ -91,7 +91,7 @@
                     <h3 class="h4">For good, too though, in consequence</h3>
                     <p class="text-white">She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey for having been born on a Friday. The word was appropriate to the moment.</p>
                     <p class="text-white">My mother was so much worse that Peggotty, coming in with the teaboard and candles, and seeing at a glance how ill she was, - as Miss Betsey might have done sooner if there had been light enough, - conveyed her upstairs to her own room with all speed; and immediately dispatched Ham Peggotty, her nephew, who had been for some days past secreted in the house...</p>
-                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">Read More</a>
+                    <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-hover-color-main-1">ORDER</a>
                 
             </div>
             
@@ -117,10 +117,10 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="{{ asset('assets/images/icon-gamepad.png') }}" alt="">
+                    <img src="{{ asset('images/android.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">PS4</a></h3>
+                    <h3 class="nk-feature-title"><a href="#">ANDROID</a></h3>
                     <h4 class="nk-feature-title text-main-1"><a href="#">View Games</a></h4>
                 </div>
             </div>
@@ -128,10 +128,10 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="{{ asset('assets/images/icon-gamepad-2.png') }}" alt="">
+                    <img src="{{ asset('images/ios.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">Xbox</a></h3>
+                    <h3 class="nk-feature-title"><a href="#">IOS</a></h3>
                     <h4 class="nk-feature-title text-main-1"><a href="#">View Games</a></h4>
                 </div>
             </div>
@@ -152,9 +152,9 @@
                     
                     <div class="nk-news-box-item nk-news-box-item-active">
                         <div class="nk-news-box-item-img">
-                            <img src="{{ asset('assets/images/post-1-sm.jpg')}}" alt="Smell magic in the air. Or maybe barbecue">
+                            <img src="https://gamemobile.io/assets/uploads/1618562274.png" alt="Smell magic in the air. Or maybe barbecue">
                         </div>
-                        <img src="{{ asset('assets/images/post-1.jpg')}}" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
+                        <img src="https://muathe123.vn/pictures/images/game-Goddess-MUA%20(8).jpg" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
                         <h3 class="nk-news-box-item-title">Smell magic in the air. Or maybe barbecue</h3>
                         
                         <span class="nk-news-box-item-categories">
@@ -164,14 +164,14 @@
                         <div class="nk-news-box-item-text">
                             <p>With what mingled joy and sorrow do I take up the pen to write to my dearest friend! Oh, what a change between to-day and yesterday! Now I am friendless and alone...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Sep 18, 2018</div>
                     </div>
                     
                     
                     <div class="nk-news-box-item">
                         <div class="nk-news-box-item-img">
-                            <img src="{{ asset('assets/images/post-2-sm.jpg')}}" alt="Grab your sword and fight the Horde">
+                            <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="Grab your sword and fight the Horde">
                         </div>
                         <img src="{{ asset('assets/images/post-2.jpg')}}" alt="Grab your sword and fight the Horde" class="nk-news-box-item-full-img">
                         <h3 class="nk-news-box-item-title">Grab your sword and fight the Horde</h3>
@@ -183,7 +183,7 @@
                         <div class="nk-news-box-item-text">
                             <p>For good, too; though, in consequence of my previous emotions, I was still occasionally seized with a stormy sob . After we had jogged on for some little time, I asked the carrier...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Sep 5, 2018</div>
                     </div>
                     
@@ -202,7 +202,7 @@
                         <div class="nk-news-box-item-text">
                             <p>And she went on planning to herself how she would manage it. `They must go by the carrier,' she thought; `and how funny it'll seem, sending presents to one's own feet!...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Aug 27, 2018</div>
                     </div>
                     
@@ -221,7 +221,7 @@
                         <div class="nk-news-box-item-text">
                             <p>This little wandering journey, without settled place of abode, had been so unpleasant to me, that my own house, as I called it to myself, was a perfect settlement to me compared to that...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Aug 14, 2018</div>
                     </div>
                     
@@ -240,7 +240,7 @@
                         <div class="nk-news-box-item-text">
                             <p>Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
                     </div>
                     
@@ -259,7 +259,7 @@
                         <div class="nk-news-box-item-text">
                             <p>This little wandering journey, without settled place of abode, had been so unpleasant to me, that my own house, as I called it to myself, was a perfect settlement to me compared to that...</p>
                         </div>
-                        <a href="blog-article.html" class="nk-news-box-item-url">Read More</a>
+                        <a href="{{ route('product.detail') }}" class="nk-news-box-item-url">ORDER</a>
                         <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
                     </div>
                     
@@ -280,7 +280,7 @@
                     <div class="nk-news-box-item-text">
                         <p>With what mingled joy and sorrow do I take up the pen to write to my dearest friend! Oh, what a change between to-day and yesterday! Now I am friendless and alone...</p>
                     </div>
-                    <a href="blog-article.html" class="nk-news-box-item-more">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-news-box-item-more">ORDER</a>
                     <div class="nk-news-box-item-date">
                         <span class="fa fa-calendar"></span> Sep 18, 2018
                     </div>
@@ -300,7 +300,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="{{ asset('assets/images/post-5-mid.jpg')}}" alt="He made his passenger captain of one">
+                        <img src="https://gamemobile.io/assets/uploads/1618905948.png" alt="He made his passenger captain of one">
                         <span class="nk-post-comments-count">13</span>
                         
                         <span class="nk-post-categories">
@@ -309,12 +309,10 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">He made his passenger captain of one</a></h2>
-                    <div class="nk-post-text">
-                        <p>Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door...</p>
-                    </div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">honkai impact 3 </a></h2>
+                    
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
                 </div>
                 <!-- END: Post -->
@@ -324,7 +322,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="{{ asset('assets/images/post-5-mid.jpg')}}" alt="He made his passenger captain of one">
+                        <img src="https://gamemobile.io/assets/uploads/1618903461.png" alt="He made his passenger captain of one">
                         <span class="nk-post-comments-count">13</span>
                         
                         <span class="nk-post-categories">
@@ -333,12 +331,9 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">He made his passenger captain of one</a></h2>
-                    <div class="nk-post-text">
-                        <p>Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door...</p>
-                    </div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">tap tap heroes: void cage</a></h2>
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
                 </div>
                 <!-- END: Post -->
@@ -348,7 +343,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="assets/images/post-6-mid.jpg" alt="At first, for some time, I was not able to answer">
+                        <img src="https://gamemobile.io/assets/uploads/1618902360.png" alt="At first, for some time, I was not able to answer">
                         <span class="nk-post-comments-count">0</span>
                         
                         <span class="nk-post-categories">
@@ -357,12 +352,9 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">At first, for some time, I was not able to answer</a></h2>
-                    <div class="nk-post-text">
-                        <p>This little wandering journey, without settled place of abode, had been so unpleasant to me, that my own house, as I called it to myself, was a perfect settlement to me compared to that...</p>
-                    </div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Date A Live: Spirit Pledge</a></h2>
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
                 </div>
                 <!-- END: Post -->
@@ -373,7 +365,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="{{ asset('assets/images/post-7-mid.jpg')}}" alt="At length one of them called out in a clear">
+                        <img src="https://gamemobile.io/assets/uploads/1618642684.png" alt="At length one of them called out in a clear">
                         <span class="nk-post-comments-count">0</span>
                         
                         <span class="nk-post-categories">
@@ -382,12 +374,9 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">At length one of them called out in a clear</a></h2>
-                    <div class="nk-post-text">
-                        <p>TJust then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door...</p>
-                    </div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Clash of Kings - CoK</a></h2>
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
                 </div>
                 <!-- END: Post -->
@@ -398,7 +387,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="{{ asset('assets/images/post-8-mid.jpg')}}" alt="For good, too though, in consequence">
+                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
                         <span class="nk-post-comments-count">0</span>
                         
                         <span class="nk-post-categories">
@@ -407,17 +396,76 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">For good, too though, in consequence</a></h2>
-                    <div class="nk-post-text">
-                        <p>This little wandering journey, without settled place of abode, had been so unpleasant to me, that my own house, as I called it to myself, was a perfect settlement to me compared to that...</p>
-                    </div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Read More</a>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
                 </div>
                 <!-- END: Post -->
             </div>
-            
+
+            <div class="col-md-6 col-lg-3">
+                <!-- START: Post -->
+                <div class="nk-blog-post">
+                    <a href="{{ route('product.detail') }}" class="nk-post-img">
+                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
+                        <span class="nk-post-comments-count">0</span>
+                        
+                        <span class="nk-post-categories">
+                                    <span class="bg-main-2">Adventure</span>
+                                </span>
+                        
+                    </a>
+                    <div class="nk-gap"></div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
+                    <div class="nk-gap"></div>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
+                </div>
+                <!-- END: Post -->
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <!-- START: Post -->
+                <div class="nk-blog-post">
+                    <a href="{{ route('product.detail') }}" class="nk-post-img">
+                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
+                        <span class="nk-post-comments-count">0</span>
+                        
+                        <span class="nk-post-categories">
+                                    <span class="bg-main-2">Adventure</span>
+                                </span>
+                        
+                    </a>
+                    <div class="nk-gap"></div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
+                    <div class="nk-gap"></div>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
+                </div>
+                <!-- END: Post -->
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <!-- START: Post -->
+                <div class="nk-blog-post">
+                    <a href="{{ route('product.detail') }}" class="nk-post-img">
+                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
+                        <span class="nk-post-comments-count">0</span>
+                        
+                        <span class="nk-post-categories">
+                                    <span class="bg-main-2">Adventure</span>
+                                </span>
+                        
+                    </a>
+                    <div class="nk-gap"></div>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
+                    <div class="nk-gap"></div>
+                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
+                </div>
+                <!-- END: Post -->
+            </div>          
         </div>
     </div>
     <!-- END: Latest News -->
@@ -580,26 +628,26 @@
     <div class="nk-widget-content">
         
             <div class="nk-widget-post">
-                <a href="blog-article.html" class="nk-post-image">
-                    <img src="{{ asset('assets/images/post-1-sm.jpg')}}" alt="">
+                <a href="{{ route('product.detail') }}" class="nk-post-image">
+                    <img src="https://gamemobile.io/assets/uploads/1618562274.png" alt="">
                 </a>
-                <h3 class="nk-post-title"><a href="blog-article.html">Smell magic in the air. Or maybe barbecue</a></h3>
+                <h3 class="nk-post-title"><a href="{{ route('product.detail') }}">Smell magic in the air. Or maybe barbecue</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 18, 2018</div>
             </div>
         
             <div class="nk-widget-post">
-                <a href="blog-article.html" class="nk-post-image">
+                <a href="{{ route('product.detail') }}" class="nk-post-image">
                     <img src="{{ asset('assets/images/post-2-sm.jpg')}}" alt="">
                 </a>
-                <h3 class="nk-post-title"><a href="blog-article.html">Grab your sword and fight the Horde</a></h3>
+                <h3 class="nk-post-title"><a href="{{ route('product.detail') }}">Grab your sword and fight the Horde</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Sep 5, 2018</div>
             </div>
         
             <div class="nk-widget-post">
-                <a href="blog-article.html" class="nk-post-image">
+                <a href="{{ route('product.detail') }}" class="nk-post-image">
                     <img src="{{ asset('assets/images/post-3-sm.jpg')}}" alt="">
                 </a>
-                <h3 class="nk-post-title"><a href="blog-article.html">We found a witch! May we burn her?</a></h3>
+                <h3 class="nk-post-title"><a href="{{ route('product.detail') }}">We found a witch! May we burn her?</a></h3>
                 <div class="nk-post-date"><span class="fa fa-calendar"></span> Aug 27, 2018</div>
             </div>
         
