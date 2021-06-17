@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>GoodGames | Community and Store HTML Game Template</title>
 
@@ -50,20 +51,16 @@
 
     <!-- Seiyria Bootstrap Slider -->
     <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css')}}">
-
     <!-- Summernote -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/summernote/dist/summernote-bs4.css')}}">
-
     <!-- GoodGames -->
     <link rel="stylesheet" href="{{asset('assets/css/goodgames.css')}}">
-
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    
-    <!-- END: Styles -->
-
+    <link rel="stylesheet" href="{{asset('js/toastr/toastr.min.css')}}">
     <!-- jQuery -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+
     
     
 </head>
@@ -74,8 +71,136 @@
         .nk-page-boxed
 -->
 <body>
+<!-- START: Search Modal -->
+<div class="nk-modal modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="ion-android-close"></span>
+                </button>
     
-        
+                <h4 class="mb-0">Search</h4>
+    
+                <div class="nk-gap-1"></div>
+                <form action="#" class="nk-form nk-form-style-1">
+                    <input type="text" value="" name="search" class="form-control" placeholder="Type something and press Enter" autofocus>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- END: Search Modal -->
+        <!-- START: Login Modal -->
+        <div class="nk-modal modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="ion-android-close"></span>
+                        </button>
+            
+                        <h4 class="mb-0"><span class="text-main-1">Sign</span> In</h4>
+            
+                        <div class="nk-gap-1"></div>
+                        <form action="{{route('login')}}" method="post" class="nk-form text-white">
+                            @csrf
+                            <div class="row vertical-gap">
+                                <div class="col-md-6">
+                                    Use email and password:
+            
+                                    <div class="nk-gap"></div>
+                                    <input type="email" value="" name="email" class="required form-control" placeholder="Email">
+                                    @error('email')
+							            <p style="color:red">{{ $message }}</p>
+							        @enderror
+                                    <div class="nk-gap"></div>
+                                    <input type="password" value="" name="password" class="required form-control" placeholder="Password">
+                                    @error('password')
+							            <p style="color:red">{{ $message }}</p>
+							        @enderror
+                                </div>
+                                <div class="col-md-6">
+                                    Or social account:
+            
+                                    <div class="nk-gap"></div>
+            
+                                    <ul class="nk-social-links-2">
+                                        <li><a class="nk-social-facebook" href="#"><span class="fab fa-facebook"></span></a></li>
+                                        <li><a class="nk-social-google-plus" href="#"><span class="fab fa-google-plus"></span></a></li>
+                                        <li><a class="nk-social-twitter" href="#"><span class="fab fa-twitter"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+            
+                            <div class="nk-gap-1"></div>
+                            <div class="row vertical-gap">
+                                <div class="col-md-6">
+                                    <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block login">Sign In</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mnt-5">
+                                        <small><a href="#">Forgot your password?</a></small>
+                                    </div>
+                                    <div class="mnt-5">
+                                        <small><a href="#" onclick="signUp()" data-toggle="modal" data-target="#modalRegister">Not a member? Sign up</a></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- END: Login Modal -->
+            <!-- START: Reg Modal -->
+            <div class="nk-modal modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="ion-android-close"></span>
+                            </button>
+                
+                            <h4 class="mb-0"><span class="text-main-1">Register</span></h4>
+                
+                            <div class="nk-gap-1"></div>
+                            <form action="{{route('signup')}}" method="post" class="nk-form text-white">
+                                @csrf
+                                <div class="row vertical-gap">
+                                    <div class="col-md-8">
+                                        <div class="nk-gap"></div>
+                                        <label >Name:</label>
+                                        <input type="text" value="" name="name" class="required form-control" placeholder="Name">           
+                                        <div class="nk-gap"></div>
+                                        <label >Email:</label>
+                                        <input type="email" value="" name="email" class="required form-control" placeholder="Email">
+                                        <div class="nk-gap"></div>
+                                        <label >Password:</label>
+                                        <input type="password" value="" name="password" class="required form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                
+                                <div class="nk-gap-1"></div>
+                                <div class="row vertical-gap">
+                                    <div class="col-md-6">
+                                        <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Sign Up</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mnt-5">
+                                            <small><a href="#">Forgot your password?</a></small>
+                                        </div>
+                                        <div class="mnt-5">
+                                            <small><a href="#" data-toggle="modal" data-target="#modalLogin">Is a member? Sign In</a></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Reg Modal -->
 
 
 
@@ -160,8 +285,15 @@
 <script src="{{ asset('assets/js/goodgames.min.js')}}"></script>
 <script src="{{ asset('assets/js/goodgames-init.js')}}"></script>
 <!-- END: Scripts -->
-
-
-
+<script src="{{asset('js/toastr/toastr.min.js')}}"></script>
+<script>
+    function signUp(){
+        $('.show').hide(1, function() {
+                $('.show').hide(1);
+                $('#modalRegister').show(1);
+            });
+    }
+</script>
+@yield('script')
 </body>
 </html>

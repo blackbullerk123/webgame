@@ -3,7 +3,7 @@
 <style>
 #img1{
     height: 10%;
-    width: 15%;
+    width: 16%;
     position: absolute;
 }
 @media only screen and (max-width: 762px) {
@@ -73,13 +73,12 @@
     <img id="img1" src="https://gamemobile.io/assets/uploads/1618905948.png" alt="We found a witch! May we burn her?" >
     </div>
         <!-- START: Post -->
-    <div class="col-sm-9 " style="margin-left: 26%">
+    <div class="col-sm-7" style="margin-left: 25%">
         <table class="table table-striped custom-table float-left">
-                <thead>
-                
+                <thead>              
                     <tr>
                     <th scope="col" style="width: 15%;">Order</th>
-                    <th scope="col" style="width: 37%;">Name</th>
+                    <th scope="col" style="width: 35%;">Name</th>
                     <th scope="col" style="width: 15%;">Value</th>
                     <th scope="col" style="width: 15%;">Point</th>
                     <th scope="col" style="width: 15%;">Education</th>

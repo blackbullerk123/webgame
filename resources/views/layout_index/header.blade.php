@@ -1,7 +1,5 @@
 
 <header class="nk-header nk-header-opaque">
-
-    
     
 <!-- START: Top Contacts -->
 <div class="nk-contacts-top">
@@ -50,14 +48,39 @@
                         <span class="fa fa-search"></span>
                     </a>
                 </li>
-                
-                
+                @if(Auth::check())
+                @if (Auth::user()->email == 'admin@webgame.com')
+                <li>
+                <a href="#" id="tg-currenty" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-user"></i>
+                    <a href="{{ route('admin') }}"><span style="font-weight: bold;">{{ Auth::user()->name }}</span></a>
+                </a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}" id="tg-currenty" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-sign-out"></i>
+                    </a>
+                </li>
+                @else
+                <li>
+                    <a href="#" id="tg-currenty" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-user"></i>
+                        <a href="{{ route('order') }}"><span style="font-weight: bold;">{{ Auth::user()->name }}</span></a>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}" id="tg-currenty" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                    </li>
+                @endif
+                @else
                 <li>
                     <a href="#" data-toggle="modal" data-target="#modalLogin">
                         <span class="fa fa-user"></span>
                     </a>
                 </li>
-                
+                @endif
 {{--                 
                 <li>
                     <span class="nk-cart-toggle">
@@ -169,3 +192,6 @@
     <!-- END: Navbar -->
 
 </header>
+@section('script')
+
+@stop

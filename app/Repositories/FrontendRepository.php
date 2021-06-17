@@ -2,6 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Models\Product;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class FrontendRepository
 {
@@ -10,7 +14,7 @@ class FrontendRepository
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function store($request)
+    public function store(Request $request)
     {
         $image="";
        if($request->hasfile('avatar'))
@@ -22,6 +26,13 @@ class FrontendRepository
        }
        $product = new Product();
 
-       
+    }
+    public function createUser(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = hash::make($request->password);
+        $user->save();
     }
 }
