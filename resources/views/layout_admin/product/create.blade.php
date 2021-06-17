@@ -22,16 +22,14 @@
                 @endif
             </div>
             <div class="box box-info">
-                <form action="#" method="" enctype="multipart/form-data">
+                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data" id="form_data">
                     @csrf
                     @include('layout_admin.product.template')
                     <div class="text-center">
-                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm"
+                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" id="submit" value="Thêm"
                             class="btn  btn-warning btnthem btn-lg">
                     </div>
                 </form>
-                <button onclick="add()">Add</button>
-                <button onclick="remove()">remove</button>
             </div>
         </section><!-- /.content -->
     </div>
@@ -51,69 +49,197 @@
             $('#fImages').click();
         });
 
-        function changeThumbnail(input, thum) {
-            var file = input.files[0];
-            var name = input.files[0].name;
-            var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
-            var validExtensions = ['jpg', 'png', 'jpeg', 'JPG', 'JPEG', 'PNG', 'jfif'];
-            if ($.inArray(fileNameExt, validExtensions) < 0) {
-                swal.fire(image_file + " " + validExtensions.join(', '));
-                return false;
-            }
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+        // function changeThumbnail(input, thum) {
+        //     var file = input.files[0];
+        //     var name = input.files[0].name;
+        //     var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
+        //     var validExtensions = ['jpg', 'png', 'jpeg', 'JPG', 'JPEG', 'PNG', 'jfif'];
+        //     if ($.inArray(fileNameExt, validExtensions) < 0) {
+        //         swal.fire(image_file + " " + validExtensions.join(', '));
+        //         return false;
+        //     }
+        //     if (input.files && input.files[0]) {
+        //         var reader = new FileReader();
 
-                reader.onload = function(e) {
-                    $('#' + thum).attr('src', e.target.result);
-                }
+        //         reader.onload = function(e) {
+        //             $('#' + thum).attr('src', e.target.result);
+        //         }
 
-                reader.readAsDataURL(input.files[0]);
-            }
-            // if (input.files && input.files[0]) {
-            //     var reader = new FileReader();
-            //     reader.onload = function(e) {
-            //         $('#'+thum).attr('src', e.target.result);
-            //     }
-            //     reader.readAsDataURL(input.files[0]);
-            // }
-        }
+        //         reader.readAsDataURL(input.files[0]);
+        //     }
+        //     // if (input.files && input.files[0]) {
+        //     //     var reader = new FileReader();
+        //     //     reader.onload = function(e) {
+        //     //         $('#'+thum).attr('src', e.target.result);
+        //     //     }
+        //     //     reader.readAsDataURL(input.files[0]);
+        //     // }
+        // }
         //     $('#thum').click(function() {
         //         $('#thumbnail').click();
         // });
 
-        function add() {
-            var thum_id = 0;
-            thum_id++;
-            var new_chq_no = parseInt($('#total_chq').val()) + 1;
-            var new_input = '<div class="input-group" id="new_' + new_chq_no + '"><div class="col-sm-2">' +
-                '<p>Ảnh: </p>' +
-                '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">' +
-                '<img id="thum' + thum_id +
-                '" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Tên gói: </p>' +
-                '<input id="package" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Giá trị: </p>' +
-                '<input id="value" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Points: </p>' +
-                '<input id="point" name="point" type="text" class="form-control" placeholder="Point. . . . . . . . .">' +
-                '</div></div>';
-            $('#new_chq').append(new_input);
-            $('#total_chq').val(new_chq_no)
-        }
+        // function add() {
+        //     var thum_id = 0;
+        //     thum_id++;
+        //     var new_chq_no = parseInt($('#total_chq').val()) + 1;
+        //     var new_input = '<div class="input-group" id="new_' + new_chq_no + '"><div class="col-sm-2">' +
+        //         '<p>Ảnh: </p>' +
+        //         '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">' +
+        //         '<img id="thum' + thum_id +
+        //         '" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">' +
+        //         '</div>' +
+        //         '<div class="col-sm-3">' +
+        //         '<p>Tên gói: </p>' +
+        //         '<input id="package" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">' +
+        //         '</div>' +
+        //         '<div class="col-sm-3">' +
+        //         '<p>Giá trị: </p>' +
+        //         '<input id="value" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">' +
+        //         '</div>' +
+        //         '<div class="col-sm-3">' +
+        //         '<p>Points: </p>' +
+        //         '<input id="point" name="point" type="text" class="form-control" placeholder="Point. . . . . . . . .">' +
+        //         '</div></div>';
+        //     $('#new_chq').append(new_input);
+        //     $('#total_chq').val(new_chq_no)
+        // }
 
-        function remove() {
-            var last_chq_no = $('#total_chq').val();
-            if (last_chq_no > 1) {
-                $('#new_' + last_chq_no).remove();
-                $('#total_chq').val(last_chq_no - 1);
+        // function remove() {
+        //     var last_chq_no = $('#total_chq').val();
+        //     if (last_chq_no > 1) {
+        //         $('#new_' + last_chq_no).remove();
+        //         $('#total_chq').val(last_chq_no - 1);
+        //     }
+        // }
+        $(document).ready(function(){
+
+            var count = 1;
+            
+            function data_form(number) {
+                var html = '<div class="input-group" id="row'+count+'">';
+                    html += "<div class='col-sm-3'>";
+                    html += ' <p>Tên gói: </p>';
+                    html += "<input name='package[]' type='text' class='form-control' placeholder='Tên gói. . . . . . . . .'>";
+                    html += '</div>';
+                    html += "<div class='col-sm-3'>";
+                    html += '<p>Giá trị: </p>';
+                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .'>";
+                    html += '</div>';
+                    html += '<div class="col-sm-3">';
+                    html += '<p>Points: </p>';
+                    html += '<input name="point[]" type="text" class="form-control" placeholder="Point. . . . . . . . .">';
+                    html += '</div>';
+                    html += '<div class="col-sm-3">';
+                    html += '<p>Thao tác:</p>';
+                    html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="'+count+'"><i class="glyphicon glyphicon-trash"></i></button>';
+                    html += '</div>';
+                    html += '</div>';
+
+                    $('#new_chq').append(html);
+
             }
-        }
 
+            $('#add_btn').click(function() {
+                count++;
+                data_form(count);
+            }); 
+
+           $(document).on('click', '.btn_remove', function() {
+               var button_id = $(this).attr('id');
+               $('#row'+button_id+'').remove();
+           });
+
+        //    $('#submit').click(function() {
+        //        $.ajax({
+        //             url:"product.create",
+        //             method:"POST",
+        //             data:$('#form_data').serialize(),
+        //             success:function(data) {
+        //                 alert(data);
+        //                 $('#form_data')[0].reset();
+        //             }
+        //        });
+        //    });
+                
+    //         $("#addButton").click(function () {
+                        
+    //         if(counter>10){
+    //                 alert("Only 10 textboxes allow");
+    //                 return false;
+    //         }   
+                
+    //         // var newTextBoxDiv = $(document.createElement('div'))
+    //         //     .attr("id", 'TextBoxDiv' + counter);
+                        
+    //         var newTextBoxDiv = '<div class="input-group" id="new_' + counter + '"><div class="col-sm-2">' +
+    //             '<p>Ảnh: </p>' +
+    //             '<input id="thumbnail'+counter+'" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">' +
+    //             '<img id="thum' + counter +
+    //             '" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">' +
+    //             '</div>' +
+    //             '<div class="col-sm-3">' +
+    //             '<p>Tên gói: </p>' +
+    //             '<input id="package'+counter+'" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">' +
+    //             '</div>' +
+    //             '<div class="col-sm-3">' +
+    //             '<p>Giá trị: </p>' +
+    //             '<input id="value'+counter+'" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">' +
+    //             '</div>' +
+    //             '<div class="col-sm-3">' +
+    //             '<p>Points: </p>' +
+    //             '<input id="point'+counter+'" name="point" type="text" class="form-control" placeholder="Point. . . . . . . . .">' +
+    //             '</div></div>';
+                    
+    //             $('#new_chq').append(newTextBoxDiv);
+
+                        
+    //         counter++;
+    //         });
+
+    //         $("#removeButton").click(function () {
+    //             if(counter==1){
+    //                 alert("No more textbox to remove");
+    //                 return false;
+    //             }   
+                
+    //             counter--;
+                    
+    //             $('#new_' + counter).remove();
+                    
+    //         });
+                
+    //         $("#addButton").click(function () {
+                
+    //             var msg1 = '';
+    //             var msg2 = '';
+    //             var msg3 = '';
+    //             for(i=1; i<counter; i++){
+    //                 msg1 +=  ','+$('#package' + i).val();
+    //                 msg2 +=  ','+$('#value' + i).val();
+    //                 msg3 +=  ','+$('#point' + i).val();
+    //             }
+    //                 console.log(msg1.split(','), msg2.split(','), msg3.split(','));
+    //         });
+
+    //         // $('#addButton').click(function () {
+    //         //     console.log(counter - 1)
+    //         // })
+            
+    //     //     function changeThumbnail(input) {
+    //     //         var id_thumb_number = counter - 1;
+    //     //         if (input.files && input.files[0]) {
+    //     //             var reader = new FileReader();
+    //     //             reader.onload = function(e) {
+    //     //                 $('#thum'+id_thumb_number+'').attr('src', e.target.result);
+    //     //             }
+    //     //             reader.readAsDataURL(input.files[0]);
+    //     //         }
+    //     //     }
+
+    //     //     $('#thum'+counter - 1+'').click(function() {
+    //     //     $('#thumbnail'+count     - 1+'').click();
+    //     // });
+    });
     </script>
 @stop

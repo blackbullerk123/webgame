@@ -17,6 +17,12 @@ class ProductController extends Controller
         return view('layout_admin.product.create');
     }
 
+    public function store(Request $request)
+    {
+        dd($request->all());
+        return view('layout_admin.product.index');
+    }
+
     public function edit()
     {
         return view('layout_admin.product.edit');

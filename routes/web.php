@@ -29,6 +29,7 @@ Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
+Route::post('/product-create/edit',[ProductController::class,'store'])->name('product.store');
 Route::get('/product-edit',[ProductController::class,'edit'])->name('product.edit');
 
 //Bills

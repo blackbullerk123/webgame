@@ -25,6 +25,32 @@
           </div>
     </div>
    <br>
+   <h4><b> Gói nạp game : </b>
+        <h4>
+            <div class="input-group">
+                <div class="col-sm-3">
+                    <p>Tên gói: </p>
+                    <input name="package[]" id="package" type="text" class="form-control"
+                        placeholder="Tên gói. . . . . . . . .">
+                </div>
+                <div class="col-sm-3">
+                    <p>Giá trị: </p>
+                    <input name="value[]" id="value" type="text" class="form-control"
+                        placeholder="Giá trị. . . . . . . . .">
+                </div>
+                <div class="col-sm-3">
+                    <p>Points: </p>
+                    <input name="point[]" id="point" type="text" class="form-control"
+                        placeholder="Point. . . . . . . . .">
+                </div>
+                <div class="col-sm-3">
+                    <p>Thao tác:</p>
+                    <button type="button" class="btn btn-primary float-left" name="add_btn" id="add_btn"><i class="glyphicon glyphicon-plus"></i></button>
+                </div>
+            </div>
+        <div id="new_chq"></div>
+        <input type="hidden" value="1" id="total_chq">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">
@@ -49,26 +75,4 @@
                         src="{{ asset('images/no_img.jpg') }}">
         </div><br>
         <!-- ./row -->
-    <h4><b> Gói nạp game : </b>
-        <h4>
-            <div class="input-group">
-                <div class="col-sm-3">
-                    <p>Tên gói: </p>
-                    <input id="package" name="package" type="text" class="form-control"
-                        placeholder="Tên gói. . . . . . . . .">
-                </div>
-                <div class="col-sm-3">
-                    <p>Giá trị: </p>
-                    <input id="value" name="value" type="text" class="form-control"
-                        placeholder="Giá trị. . . . . . . . .">
-                </div>
-                <div class="col-sm-3">
-                    <p>Points: </p>
-                    <input id="point" name="point" type="text" class="form-control"
-                        placeholder="Point. . . . . . . . .">
-                </div>
-            </div>
-            <div id="new_chq"></div>
-            <input type="hidden" value="1" id="total_chq">
-
 </div>
