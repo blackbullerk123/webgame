@@ -52,13 +52,6 @@
     <h4><b> Gói nạp game : </b>
         <h4>
             <div class="input-group">
-                <div class="col-sm-2">
-                    <p>Ảnh: </p>
-                    <input id="thumbnail" type="file" name="thumbnail" class="form-control hidden"
-                        onchange="changeThumbnail(this)">
-                    <img id="thum" class="thumbnail" style="width: 50px; height: 40px;"
-                        src="{{ asset('images/no_img.jpg') }}">
-                </div>
                 <div class="col-sm-3">
                     <p>Tên gói: </p>
                     <input id="package" name="package" type="text" class="form-control"
