@@ -6,6 +6,11 @@
     width: 16%;
     position: absolute;
 }
+.btn-secondary{
+    background-color: #293139;
+    border-color: #293139;
+    margin-top: 8px;
+}
 @media only screen and (max-width: 762px) {
     #img1{
         width: 27%;
@@ -54,59 +59,45 @@
                     </span>            
                     <div class="list-group">
                     <ul class="list-group list-group-flush">
-                        <li class="nk-match">
-                            <a href="#" class="aiz-side-nav-link">
+
+                            <a href="#" class="btn btn-secondary">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">Dashboard</span>
                             </a>
-                        </li>       
-                            <li class="nk-match">
-                                <a href="#" class="aiz-side-nav-link">
+                                <a href="#" class="btn btn-secondary">
                                     <i class="las la-hourglass-half aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">
                                         Assigned Delivery
                                     </span>
                                 </a>
-                            </li>
-                            <li class="nk-match">
-                                <a href="#" class="aiz-side-nav-link">
+                                <a href="#" class="btn btn-secondary">
                                     <i class="las la-luggage-cart aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">
                                         Pickup Delivery
                                     </span>
                                 </a>
-                            </li>
-                            <li class="nk-match">
-                                <a href="#" class="aiz-side-nav-link">
+                                <a href="#" class="btn btn-secondary">
                                     <i class="las la-check-circle aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">
                                         Completed Delivery
                                     </span>
                                 </a>
-                            </li>
-                            <li class="nk-match">
-                                <a href="#" class="aiz-side-nav-link">
+                                <a href="#" class="btn btn-secondary">
                                     <i class="las la-clock aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">
                                         Pending Delivery
                                     </span>
                                 </a>
-                            </li>
-                            <li class="nk-match">
-                                <a href="#" class="aiz-side-nav-link">
+                                <a href="#" class="btn btn-secondary">
                                     <i class="las la-times-circle aiz-side-nav-icon"></i>
                                     <span class="aiz-side-nav-text">
                                         Cancelled Delivery
                                     </span>
                                 </a>
-                            </li>
-                        <li class="nk-match">
-                            <a href="#" class="aiz-side-nav-link">
+                            <a href="#" class="btn btn-secondary">
                                 <i class="las la-user aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">Manage Profile</span>
-                            </a>
-                        </li>
-        
+                            </a>    
                     </ul>
                     </div>
                 </div>
