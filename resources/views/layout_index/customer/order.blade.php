@@ -56,10 +56,15 @@
                 <div class="px-4 text-center mb-4">
                     <span class="avatar avatar-md mb-3">                   
                         <img src="https://gamemobile.io/assets/uploads/1618905948.png" style="height: 80px; width: 80px" class="image rounded-circle">
-                    </span>            
-                    <div class="list-group">
+                    </span>      
+                    <div style="margin-top: 10px">
+                        <p class="mb-0">Surplus: <span class="text-main-1">0</span> Points</p>
+                        <p>Hello, <b></b> <br>
+                        <a href="{{ route('logout') }}" id="tg-currenty" aria-haspopup="true" aria-expanded="false">
+                            Đăng xuất
+                        </a></p>
+                    </div>
                     <ul class="list-group list-group-flush">
-
                             <a href="#" class="btn btn-secondary">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">Dashboard</span>
@@ -99,7 +104,6 @@
                                 <span class="aiz-side-nav-text">Manage Profile</span>
                             </a>    
                     </ul>
-                    </div>
                 </div>
             </div>
             <!-- END: Now Playing -->
