@@ -1,6 +1,5 @@
-            <!-- START: Footer -->
-            <footer class="nk-footer">
-
+<!-- START: Footer -->
+<footer class="nk-footer">
 <div class="container">
     <div class="nk-gap-3"></div>
     <div class="row vertical-gap">

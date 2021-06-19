@@ -24,7 +24,6 @@ Route::get('/',[FrontendController::class,'index'])->name('index');
 
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
-//Frontend Page
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
@@ -36,16 +35,23 @@ Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
 //Slide
 Route::get('/banner',[SlideController::class,'index'])->name('slide');
 Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
+
+//Frontend Page
 //Page
+//Contact
+Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
+//Order
 Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
 //Login
-Route::post('login',[FrontendController::class,'postLogin'])->name('login');
+Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 //SignUp
-Route::post('signup',[FrontendController::class,'postSignup'])->name('signup');
+Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
-Route::get('logout',[FrontendController::class,'postLogout'])->name('logout');
+Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 //Page Customer
-Route::get('order',[UserController::class,'order'])->name('order');
-Route::get('purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
+Route::get('/order',[UserController::class,'order'])->name('order');
+Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
+Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
+Route::get('/profile',[UserController::class,'profile'])->name('profile');
 

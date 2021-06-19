@@ -1,14 +1,14 @@
 @extends('layout_index.master')
 @section('content')
     <!--
-            START: Navbar Mobile
+                START: Navbar Mobile
 
-            Additional Classes:
-                .nk-navbar-left-side
-                .nk-navbar-right-side
-                .nk-navbar-lg
-                .nk-navbar-overlay-content
-        -->
+                Additional Classes:
+                    .nk-navbar-left-side
+                    .nk-navbar-right-side
+                    .nk-navbar-lg
+                    .nk-navbar-overlay-content
+            -->
     <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
         <div class="nano">
             <div class="nano-content">
@@ -39,9 +39,9 @@
                 <!-- START: Tabs  -->
                 <div class="nk-tabs">
                     <!--
-                            Additional Classes:
-                                .nav-tabs-fill
-                        -->
+                                Additional Classes:
+                                    .nav-tabs-fill
+                            -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" href="#tabs-1-1" role="tab" data-toggle="tab">Bank</a>
@@ -60,6 +60,38 @@
                             <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
                                 transfer content recorded in the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
+                            <div class="form-group"> 
+                                <p>Points to purchase:</p> 
+                                <select class="form-control"id="amount_dep_bank">
+                                    <option value="7600">7,600</option>
+                                    <option value="15200">15,200</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="22800">22,800</option>
+                                    <option value="38000">38,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="76000">76,000</option>
+                                    <option value="100000">100,000</option>
+                                    <option value="152000">152,000</option>
+                                    <option value="200000">200,000</option>
+                                    <option value="228000">228,000</option>
+                                    <option value="300000">300,000</option>
+                                    <option value="365000">365,000</option>
+                                    <option value="400000">400,000</option>
+                                    <option value="500000">500,000</option>
+                                    <option value="600000">600,000</option>
+                                    <option value="700000">700,000</option>
+                                    <option value="730000">730,000</option>
+                                    <option value="800000">800,000</option>
+                                    <option value="900000">900,000</option>
+                                    <option value="1000000">1,000,000</option>
+                                    <option value="2000000">2,000,000</option>
+                                    <option value="5000000">5,000,000</option>
+                                    <option value="10000000">10,000,000</option>
+                                    <option value="20000000">20,000,000</option>
+                                    <option value="50000000">50,000,000</option>
+                                    <option value="100000000">100,000,000</option>
+                                </select> 
+                            </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
                             <div class="nk-gap"></div>
@@ -67,17 +99,50 @@
                             <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
                                 the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
+                            <div class="form-group"> 
+                                <p>Points to purchase:</p> 
+                                <select class="form-control"id="amount_dep_bank">
+                                    <option value="7600">7,600</option>
+                                    <option value="15200">15,200</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="22800">22,800</option>
+                                    <option value="38000">38,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="76000">76,000</option>
+                                    <option value="100000">100,000</option>
+                                    <option value="152000">152,000</option>
+                                    <option value="200000">200,000</option>
+                                    <option value="228000">228,000</option>
+                                    <option value="300000">300,000</option>
+                                    <option value="365000">365,000</option>
+                                    <option value="400000">400,000</option>
+                                    <option value="500000">500,000</option>
+                                    <option value="600000">600,000</option>
+                                    <option value="700000">700,000</option>
+                                    <option value="730000">730,000</option>
+                                    <option value="800000">800,000</option>
+                                    <option value="900000">900,000</option>
+                                    <option value="1000000">1,000,000</option>
+                                    <option value="2000000">2,000,000</option>
+                                    <option value="5000000">5,000,000</option>
+                                    <option value="10000000">10,000,000</option>
+                                    <option value="20000000">20,000,000</option>
+                                    <option value="50000000">50,000,000</option>
+                                    <option value="100000000">100,000,000</option>
+                                </select> 
+                            </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
                             <div class="nk-gap"></div>
-                            <p>- Tỷ lệ quy đổi:</p>
+                            <h4>Vui lòng liên hệ với page hỗ trợ nạp: <a href="https://www.facebook.com/napgamesales/">https://www.facebook.com/napgamesales/ </a></h4>
+                            <p>- Conversion rate:</p>
                             <div class="nk-gap"></div>
                             <div class="col-lg-9">
                                 <table class="table table-striped custom-table float-left">
                                     <thead>
                                         <tr>
-                                            <th scope="col" style="width: 35%;">Network</th>
-                                            <th scope="col" style="width: 35%;">Denominations</th>
+                                            <th scope="col" style="width: 30%;">Network</th>
+                                            <th scope="col" style="width: 30%;">Denominations</th>
                                             <th scope="col" style="width: 30%;">Points</th>
                                             <th scope="col"></th>
                                         </tr>

@@ -97,8 +97,8 @@
     </div>
     <!-- END: Search Modal -->
     <!-- START: Login Modal -->
-    <div class="nk-modal modal fade" id="modalLogin" aria-hidden="true" aria-labelledby="modalLogin">
-        <div class="modal-dialog modal-sm" role="document">
+    <div class="modal fade" id="modalLogin" aria-hidden="true" aria-labelledby="modalLogin">
+        <div class="modal-dialog modal-sm-8" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,15 +165,15 @@
     </div>
     <!-- END: Login Modal -->
     <!-- START: Reg Modal -->
-    <div class="nk-modal modal fade" id="modalRegister" aria-hidden="true" aria-labelledby="modalRegister" tabindex="-1">
-        <div class="modal-dialog modal-sm" role="document">
+    <div class="modal fade" id="modalRegister" aria-hidden="true" aria-labelledby="modalRegister" tabindex="-1">
+        <div class="modal-dialog modal-sm-8" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span class="ion-android-close"></span>
                     </button>
 
-                    <h4 class="mb-0"><span class="text-main-1">Register</span></h4>
+                    <h4 class="mb-0"><span class="text-main-1">Sign</span> Up</h4>
 
                     <div class="nk-gap-1"></div>
                     <form action="{{ route('signup') }}" method="post" class="nk-form text-white">

@@ -15,4 +15,14 @@ class UserController extends Controller
     {
         return view('layout_index.customer.purchase_points');
     }
+
+    public function transactionHistory()
+    {
+        return view('layout_index.customer.transaction_history');
+    }
+
+    public function profile()
+    {
+        return view('layout_index.customer.profile');
+    }
 }

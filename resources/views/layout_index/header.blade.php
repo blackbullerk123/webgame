@@ -144,31 +144,31 @@
                     <img src="{{asset('assets/images/logo.png')}}" alt="GoodGames" width="199">
                 </a>
                 
-                <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
+        <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
                     
         <li class=" nk-item">
             <a href="{{ url('/') }}">
-                Trang Chủ              
+                Home              
             </a>
         </li>
         <li class=" nk-item">
             <a href="blog-list.html">
-                Tất cả các game          
+                All Games          
             </a>
         </li>
         <li>
             <a href="gallery.html">
-                Hướng dẫn sử dụng               
+               Document              
             </a>
         </li>
         <li class=" nk-item">
             <a href="tournaments.html">
-                Về chúng tôi               
+                About us               
             </a>
         </li>
         <li class=" nk-item">
-            <a href="store.html">
-                 Liên hệ               
+            <a href="{{ route('contact') }}">
+                 Contact Us               
             </a>
         </li>
                 </ul>

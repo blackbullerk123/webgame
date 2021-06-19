@@ -37,6 +37,11 @@ class FrontendController extends Controller
         return view('layout_index.index');
     }
 
+    public function contact()
+    {
+        return view('layout_index.page.contact_us');
+    }
+
     public function postLogin(Request $request)
     {
         $credentaials = array('email' => $request->email, 'password' => $request->password);
@@ -58,5 +63,5 @@ class FrontendController extends Controller
         Auth::logout();
         return redirect()->route('index');
     }
-    
+
 }

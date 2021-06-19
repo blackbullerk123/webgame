@@ -39,12 +39,11 @@
                 <table class="table table-striped custom-table float-left">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 10%;">#ID</th>
-                            <th scope="col" style="width: 25%;">Product</th>
-                            <th scope="col" style="width: 15%;">Quantity</th>
-                            <th scope="col" style="width: 15%;">Date</th>
-                            <th scope="col" style="width: 15%;">Status</th>
-                            <th scope="col" style="width: 15%;">Total point</th>
+                            <th scope="col" style="width: 15%;">Order</th>
+                            <th scope="col" style="width: 35%;">Name</th>
+                            <th scope="col" style="width: 15%;">Value</th>
+                            <th scope="col" style="width: 15%;">Point</th>
+                            <th scope="col" style="width: 15%;">Education</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -56,7 +55,6 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td></td>
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
 
                         </tr>
@@ -67,7 +65,6 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td></td>
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
 
                         </tr>
@@ -78,7 +75,6 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td></td>
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
 
                         </tr>
@@ -89,7 +85,6 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td></td>
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
 
                         </tr>
@@ -100,7 +95,6 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td></td>
                             <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
 
                         </tr>
