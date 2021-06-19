@@ -5,6 +5,7 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+Use Alert;
 
 class ProductController extends Controller
 {
@@ -17,12 +18,30 @@ class ProductController extends Controller
 
     public function index()
     {
-        return view('layout_admin.product.index');
+        $product = $this->repository->getProducts();
+        return view('layout_admin.product.index', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $update_product = $this->repository->update($request ,$id);
+        if ($update_product) {
+            Alert::success('Cập Nhật', 'Cập nhật thành công!');
+        }else{
+            Alert::error('Cập Nhật', 'Cập nhật thất bại!');
+        }
+        return redirect()->back();
+    }
+
+    public function deletePackage(Request $request, $id)
+    {
+        return $this->repository->AjaxDeletePackage($request, $id);
     }
 
     public function create()
     {
-        return view('layout_admin.product.create');
+        $os_type = $this->repository->getOsType();
+        return view('layout_admin.product.create', compact('os_type'));
     }
 
     public function store(Request $request)
@@ -35,9 +54,11 @@ class ProductController extends Controller
     //     return view('layout_admin.product.index');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('layout_admin.product.edit');
+        $product = $this->repository->getProductById($id);
+        $package_by_id = $this->repository->getPackageByIdProduct($product->id);
+        return view('layout_admin.product.edit', compact('product', 'package_by_id'));
     }
     public function getDetail()
     {

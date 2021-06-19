@@ -99,6 +99,8 @@
     <!-- Select2 -->
     <script src="{{ asset('adminlte2/plugins/select2/js/select2.full.min.js') }}"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="{{ asset('adminlte2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('adminlte2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

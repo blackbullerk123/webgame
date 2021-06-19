@@ -22,22 +22,25 @@
                 @endif
             </div>
             <div class="box box-info">
-                <form action="#" method="" enctype="multipart/form-data">
+                <form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data" id="form_data">
                     @csrf
                     @include('layout_admin.product.template')
                     <div class="text-center">
                         <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Cập nhật"
-                            class="btn  btn-warning btnthem btn-lg">
+                            class="btn  btn-warning btnthem btn-lg" id="update">
+                            <input style="border:none; background-color:#4a4235;" type="submit2" name="submit2" value="Cập dsdnhật"
+                            class="btn  btn-warning btnthem btn-lg" id="update2">
                     </div>
                 </form>
-                <button onclick="add()">Add</button>
-                <button onclick="remove()">remove</button>
             </div>
         </section><!-- /.content -->
     </div>
 @endsection
 @section('script')
-    <script>
+    <script>       
+    $('#update2').click(function() {
+       
+    })        
         function changeImg(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -51,69 +54,102 @@
             $('#fImages').click();
         });
 
-        function changeThumbnail(input, thum) {
-            var file = input.files[0];
-            var name = input.files[0].name;
-            var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
-            var validExtensions = ['jpg', 'png', 'jpeg', 'JPG', 'JPEG', 'PNG', 'jfif'];
-            if ($.inArray(fileNameExt, validExtensions) < 0) {
-                swal.fire(image_file + " " + validExtensions.join(', '));
-                return false;
-            }
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+        $(document).ready(function(){
+            
+           <?php if (isset($package_by_id->package_name)) {?>
+                var arr_number = '{{ count(explode(",", $package_by_id->package_name)) }}';
+                var count = '{{ count(explode(",", $package_by_id->package_name)) }}';
+           <?php }else { ?>
+                var arr_number = 0;
+                var count = 1;
+           <?php } ?>                       
+            function data_form(number) {
+                var html = '<div class="input-group" id="row'+count+'">';
+                    html += "<div class='col-sm-3'>";
+                    html += ' <p>Tên gói: </p>';
+                    html += "<input name='package[]' type='text' class='form-control' placeholder='Tên gói. . . . . . . . .'>";
+                    html += '</div>';
+                    html += "<div class='col-sm-3'>";
+                    html += '<p>Giá trị: </p>';
+                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .'>";
+                    html += '</div>';
+                    html += '<div class="col-sm-3">';
+                    html += '<p>Points: </p>';
+                    html += '<input name="point[]" type="text" class="form-control" placeholder="Point. . . . . . . . .">';
+                    html += '</div>';
+                    html += '<div class="col-sm-3">';
+                    html += '<p>Thao tác:</p>';
+                    html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="'+count+'"><i class="glyphicon glyphicon-trash"></i></button>';
+                    html += '</div>';
+                    html += '</div>';
 
-                reader.onload = function(e) {
-                    $('#' + thum).attr('src', e.target.result);
+                    $('#new_chq').append(html);
+
+            }
+
+            $('#add_btn').click(function() {
+                count++;
+                data_form(count);
+                console.log($("input[name='package[]']").val());
+            }); 
+
+           $(document).on('click', '.btn_remove', function() {
+               var button_id = $(this).attr('id');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-            // if (input.files && input.files[0]) {
-            //     var reader = new FileReader();
-            //     reader.onload = function(e) {
-            //         $('#'+thum).attr('src', e.target.result);
-            //     }
-            //     reader.readAsDataURL(input.files[0]);
-            // }
-        }
-        //     $('#thum').click(function() {
-        //         $('#thumbnail').click();
-        // });
-
-        function add() {
-            var thum_id = 0;
-            thum_id++;
-            var new_chq_no = parseInt($('#total_chq').val()) + 1;
-            var new_input = '<div class="input-group" id="new_' + new_chq_no + '"><div class="col-sm-2">' +
-                '<p>Ảnh: </p>' +
-                '<input id="thumbnail" type="file" name="thumbnail" class="form-control hidden" onchange="changeThumbnail(this)">' +
-                '<img id="thum' + thum_id +
-                '" class="thumbnail" style="width: 50px; height: 40px;" src="{{ asset('images/no_img.jpg') }}">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Tên gói: </p>' +
-                '<input id="package" name="package" type="text" class="form-control" placeholder="Tên gói. . . . . . . . .">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Giá trị: </p>' +
-                '<input id="value" name="value" type="text" class="form-control" placeholder="Giá trị. . . . . . . . .">' +
-                '</div>' +
-                '<div class="col-sm-3">' +
-                '<p>Points: </p>' +
-                '<input id="point" name="point" type="text" class="form-control" placeholder="Point. . . . . . . . .">' +
-                '</div></div>';
-            $('#new_chq').append(new_input);
-            $('#total_chq').val(new_chq_no)
-        }
-
-        function remove() {
-            var last_chq_no = $('#total_chq').val();
-            if (last_chq_no > 1) {
-                $('#new_' + last_chq_no).remove();
-                $('#total_chq').val(last_chq_no - 1);
-            }
-        }
-
+            });
+            Swal.fire({
+                title: 'Bạn có chắc chắn muốn xoá?',
+                text: "Bạn không thể hoàn tác sau khi xoá!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xoá!',
+                cancelButtonText: 'Huỷ' 
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    if (button_id == 1 && arr_number != 0) {
+                        $("#package").val('');
+                        $("#value").val('');
+                        $("#point").val('');
+                    }else{
+                        $('#row'+button_id+'').remove();
+                    }
+                    $.ajax({
+                        url: "{{ route('product.package.update', $product->id) }}",
+                        method: 'POST',
+                        data: $('#form_data').serialize(),
+                        dataType: 'json',
+                        success: function (data) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                                )
+                            window.location.reload();
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                                footer: '<a href="">Why do I have this issue?</a>'
+                            })
+                        }
+                    });
+                    // Swal.fire(
+                    // 'Deleted!',
+                    // 'Your file has been deleted.',
+                    // 'success'
+                    // )
+                    // $('#row'+button_id+'').remove();
+                }
+            })
+               
+           });
+    });
     </script>
 @stop

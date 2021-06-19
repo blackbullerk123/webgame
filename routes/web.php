@@ -27,8 +27,10 @@ Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
-Route::post('/product-create/edit',[ProductController::class,'store'])->name('product.store');
-Route::get('/product-edit',[ProductController::class,'edit'])->name('product.edit');
+Route::post('/product-create/save',[ProductController::class,'store'])->name('product.store');
+Route::get('/product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+Route::post('/product-edit/update/{id}',[ProductController::class,'update'])->name('product.update');
+Route::post('/product-edit/delete-package/{id}',[ProductController::class,'deletePackage'])->name('product.package.update');
 //Bills
 Route::get('/bills',[BillController::class,'index'])->name('bills');
 Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
