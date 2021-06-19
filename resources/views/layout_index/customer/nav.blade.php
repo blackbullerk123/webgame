@@ -32,7 +32,7 @@
         </span>
         <div style="margin-top: 10px">
             <p class="mb-0">Surplus: <span class="text-main-1">0</span> Points</p>
-            <p>Hello, <b></b> <br>
+            <p>Hello, <b style="color: #dd163b">{{ Auth::user()->name }}</b> <br>
                 <a href="{{ route('logout') }}" id="tg-currenty" aria-haspopup="true" aria-expanded="false">
                     Logout
                 </a>

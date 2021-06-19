@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Repositories\FrontendRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -44,7 +45,7 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('layout_index.page.about_us');
+        return view('layout_index.page.contact_us');
     }
 
     public function postLogin(Request $request)
@@ -57,10 +58,12 @@ class FrontendController extends Controller
         }
     }
 
-    public function postSignup(Request $request)
+    public function postSignup(RegisterRequest $request)
     {
         $this->repository->createuser($request);
-        return redirect()->back();
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function postLogout()

@@ -32,7 +32,9 @@
             <div class="nk-gap-2"></div>
         
 
-        
+        @if (session('status'))
+            {{session('status')}}
+        @endif
 <div class="container">
 
     <!-- START: Image Slider -->

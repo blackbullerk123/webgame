@@ -50,7 +50,7 @@ Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
 //Login
 Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 //SignUp
-Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
+Route::put('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 //Page Customer

@@ -176,8 +176,8 @@
                     <h4 class="mb-0"><span class="text-main-1">Sign</span> Up</h4>
 
                     <div class="nk-gap-1"></div>
-                    <form action="{{ route('signup') }}" method="post" class="nk-form text-white">
-                        @csrf
+                    <form action="{{route('signup')}}" method="get" id="signup_form" class="nk-form text-white">
+                        <input type="hidden" name="_token" id="csrf-token" />
                         <div class="row vertical-gap">
                             <div class="col-md-8">
                                 <div class="nk-gap"></div>
@@ -186,12 +186,17 @@
                                     placeholder="Name">
                                 <div class="nk-gap"></div>
                                 <label>Email:</label>
-                                <input type="email" value="" name="email" class="required form-control"
+                                <input type="email" value="" name="email" id="email" class="required form-control"
                                     placeholder="Email">
-                                <div class="nk-gap"></div>
+                                <p id="error-email" style="color:red"></p>
                                 <label>Password:</label>
-                                <input type="password" value="" name="password" class="required form-control"
+                                <input type="password" value="" name="password" id="password" class="required form-control"
                                     placeholder="Password">
+                                <p id="error-pass" style="color:red"></p>
+                                <label>Confirm Password:</label>
+                                <input type="password" value="" name="confirm_password" id="confirm_password" class="required form-control"
+                                    placeholder="Password">
+                                <p id="error-confirm" style="color:red"></p>   
                             </div>
                         </div>
 
@@ -307,6 +312,67 @@
             });
     }
 </script> --}}
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    function changeImg(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#img').click(function() {
+        $('#fImages').click();
+    });
+
+    $("#signup_form").submit(function(e) {
+        e.preventDefault();
+        let email = $("#email").val();
+        let password = $("#password").val();
+        let confirm_password = $("#confirm_password").val();
+        $.ajax({
+            url: "{{ route('signup') }}",
+            type: "PUT",
+            data: {
+                email: email,
+                password: password,
+                confirm_password: confirm_password,
+            },
+            success: function(response) {
+                if(response){                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Đã thêm thành công',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                }
+            },
+            error: function(response){
+                $('#signup_form').find('input').each(function(){
+                    $(this).next('p').text('');
+                });
+                let error = response.responseJSON['errors'];
+                if($.isEmptyObject(error.errors) == false) {
+                    $.each(error.errors, function (key, value) {
+                        $('#signup_form').find('input[name="' + key + '"]').next('p').text(value[0]);
+                    });
+                }
+                // for (const key in errors) {
+                //     $('#error-email').append(errors[key][0]);
+                //     $('#error-pass').append(errors[key][1]);
+                //     $('#error-confirm').append(errors[key][2]);
+                // }
+            }
+        });
+    });
+  </script>
     @yield('script')
 </body>
 
