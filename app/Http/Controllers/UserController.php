@@ -10,4 +10,9 @@ class UserController extends Controller
     {
         return view('layout_index.customer.order');
     }
+
+    public function loadPoints()
+    {
+        return view('layout_index.customer.purchase_points');
+    }
 }

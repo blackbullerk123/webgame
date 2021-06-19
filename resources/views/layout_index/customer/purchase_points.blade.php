@@ -1,0 +1,280 @@
+@extends('layout_index.master')
+@section('content')
+    <!--
+            START: Navbar Mobile
+
+            Additional Classes:
+                .nk-navbar-left-side
+                .nk-navbar-right-side
+                .nk-navbar-lg
+                .nk-navbar-overlay-content
+        -->
+    <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
+        <div class="nano">
+            <div class="nano-content">
+                <a href="index.html" class="nk-nav-logo">
+                    <img src="assets/images/logo.png" alt="" width="120">
+                </a>
+                <div class="nk-navbar-mobile-content">
+                    <ul class="nk-nav">
+                        <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Navbar Mobile -->
+
+    <div class="nk-gap-1"></div>
+    <!-- END: Breadcrumbs -->
+
+    <div class="container">
+        <div class="row vertical-gap">
+            <div class="col-lg-3">
+                @include('layout_index.customer.nav')
+            </div>
+            <div class="col-lg-9">
+                <h3 class="text-main-1">Load points</h3>
+                <div class="nk-gap"></div>
+                <!-- START: Tabs  -->
+                <div class="nk-tabs">
+                    <!--
+                            Additional Classes:
+                                .nav-tabs-fill
+                        -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#tabs-1-1" role="tab" data-toggle="tab">Bank</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tabs-1-2" role="tab" data-toggle="tab">Momo wallet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tabs-1-3" role="tab" data-toggle="tab">Phone card</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade show active" id="tabs-1-1">
+                            <div class="nk-gap"></div>
+                            <p>- Conversion rate: 1000 VND = 1000 Points.</p>
+                            <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
+                                transfer content recorded in the Deposit - Withdrawal history table.</p>
+                            <div class="nk-gap"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
+                            <div class="nk-gap"></div>
+                            <p>- Conversion rate: 1000 VND = 1000 Points.</p>
+                            <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
+                                the Deposit - Withdrawal history table.</p>
+                            <div class="nk-gap"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
+                            <div class="nk-gap"></div>
+                            <p>- Tỷ lệ quy đổi:</p>
+                            <div class="nk-gap"></div>
+                            <div class="col-lg-9">
+                                <table class="table table-striped custom-table float-left">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 35%;">Network</th>
+                                            <th scope="col" style="width: 35%;">Denominations</th>
+                                            <th scope="col" style="width: 30%;">Points</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>10,000</td>
+                                            <td>7,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>20,000</td>
+                                            <td>15,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>30,000</td>
+                                            <td>22,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>50,000</td>
+                                            <td>38,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>100,000</td>
+                                            <td>76,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>200,000</td>
+                                            <td>152,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>300,000</td>
+                                            <td>228,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>500,000</td>
+                                            <td>365,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viettel</td>
+                                            <td>1,000,000</td>
+                                            <td>730,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>10,000</td>
+                                            <td>7,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>20,000</td>
+                                            <td>15,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>30,000</td>
+                                            <td>22,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>50,000</td>
+                                            <td>37,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>100,000</td>
+                                            <td>75,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>200,000</td>
+                                            <td>150,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>300,000</td>
+                                            <td>225,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>500,000</td>
+                                            <td>365,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobifone</td>
+                                            <td>1,000,000</td>
+                                            <td>730,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>10,000</td>
+                                            <td>7,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>20,000</td>
+                                            <td>15,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>30,000</td>
+                                            <td>22,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>50,000</td>
+                                            <td>37,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>100,000</td>
+                                            <td>75,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>200,000</td>
+                                            <td>150,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>300,000</td>
+                                            <td>225,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>500,000</td>
+                                            <td>365,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinaphone</td>
+                                            <td>1,000,000</td>
+                                            <td>730,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>10,000</td>
+                                            <td>8,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>20,000</td>
+                                            <td>16,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>30,000</td>
+                                            <td>24,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>50,000</td>
+                                            <td>40,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>100,000</td>
+                                            <td>80,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>200,000</td>
+                                            <td>160,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>300,000</td>
+                                            <td>240,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>500,000</td>
+                                            <td>400,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vietnam Mobile</td>
+                                            <td>1,000,000</td>
+                                            <td>800,000</td>
+                                        </tr>
+                                        <tr> </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Tabs -->
+            </div>
+        </div>
+    </div>
+
+    <div class="nk-gap-2"></div>
+
+@endsection

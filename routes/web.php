@@ -47,3 +47,5 @@ Route::post('signup',[FrontendController::class,'postSignup'])->name('signup');
 Route::get('logout',[FrontendController::class,'postLogout'])->name('logout');
 //Page Customer
 Route::get('order',[UserController::class,'order'])->name('order');
+Route::get('purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
+
