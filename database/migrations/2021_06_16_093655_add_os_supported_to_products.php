@@ -14,7 +14,7 @@ class AddOsSupportedToProducts extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('os_supported')->nullable()->after('name');
+            $table->string('os_supported_id')->nullable()->after('name');
         });
     }
 

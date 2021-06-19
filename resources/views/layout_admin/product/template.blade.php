@@ -12,14 +12,9 @@
     <h4><b> Loại game : </b></h4>
     <div class="input-group">
         <div class="col-sm-14">
-                <select class="select2" multiple="multiple" data-placeholder="Chọn loại game" style="width: 800px;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
+                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;">
+                    <option value="1">Alabama</option>
+                    <option value="2">Alaska</option>
                   </select>
             <!-- /.form-group -->
           </div>
@@ -59,7 +54,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="width:800px">
-                        <textarea id="summernote" >
+                        <textarea id="summernote" name="content">
                         </textarea>
                     </div>
                 </div>
