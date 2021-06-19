@@ -40,6 +40,8 @@ Route::get('/banner-create',[SlideController::class,'create'])->name('slide.crea
 //Page
 //Contact
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
+//About
+Route::get('/about',[FrontendController::class,'about'])->name('about');
 //Order
 Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
