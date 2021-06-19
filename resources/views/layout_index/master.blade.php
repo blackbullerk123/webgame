@@ -176,25 +176,26 @@
                     <h4 class="mb-0"><span class="text-main-1">Sign</span> Up</h4>
 
                     <div class="nk-gap-1"></div>
-                    <form action="{{route('signup')}}" method="get" id="signup_form" class="nk-form text-white">
+                    <form action="#" method="get" id="signup_form" class="nk-form text-white">
                         <input type="hidden" name="_token" id="csrf-token" />
                         <div class="row vertical-gap">
                             <div class="col-md-8">
                                 <div class="nk-gap"></div>
                                 <label>Name:</label>
-                                <input type="text" value="" name="name" class="required form-control"
+                                <input type="text" value="" name="name" id="name" class="form-control"
                                     placeholder="Name">
+                                <p id="error-name" style="color:red"></p>
                                 <div class="nk-gap"></div>
                                 <label>Email:</label>
-                                <input type="email" value="" name="email" id="email" class="required form-control"
+                                <input type="email" value="" name="email" id="email" class="form-control"
                                     placeholder="Email">
                                 <p id="error-email" style="color:red"></p>
                                 <label>Password:</label>
-                                <input type="password" value="" name="password" id="password" class="required form-control"
+                                <input type="password" value="" name="password" id="password" class="form-control"
                                     placeholder="Password">
                                 <p id="error-pass" style="color:red"></p>
                                 <label>Confirm Password:</label>
-                                <input type="password" value="" name="confirm_password" id="confirm_password" class="required form-control"
+                                <input type="password" value="" name="confirm_password" id="confirm_password" class="form-control"
                                     placeholder="Password">
                                 <p id="error-confirm" style="color:red"></p>   
                             </div>
@@ -333,6 +334,7 @@
 
     $("#signup_form").submit(function(e) {
         e.preventDefault();
+        let name = $("#name").val();
         let email = $("#email").val();
         let password = $("#password").val();
         let confirm_password = $("#confirm_password").val();
@@ -340,12 +342,13 @@
             url: "{{ route('signup') }}",
             type: "PUT",
             data: {
+                name: name,
                 email: email,
                 password: password,
-                confirm_password: confirm_password,
+                confirm_password: confirm_password
             },
             success: function(response) {
-                if(response){                
+                if(response.success == 200){                
                 Swal.fire({
                     icon: 'success',
                     title: 'Đã thêm thành công',
@@ -358,17 +361,12 @@
                 $('#signup_form').find('input').each(function(){
                     $(this).next('p').text('');
                 });
-                let error = response.responseJSON['errors'];
-                if($.isEmptyObject(error.errors) == false) {
-                    $.each(error.errors, function (key, value) {
+            	var data = response.responseJSON;
+                if($.isEmptyObject(data.errors) == false) {
+                    $.each(data.errors, function (key, value) {
                         $('#signup_form').find('input[name="' + key + '"]').next('p').text(value[0]);
                     });
                 }
-                // for (const key in errors) {
-                //     $('#error-email').append(errors[key][0]);
-                //     $('#error-pass').append(errors[key][1]);
-                //     $('#error-confirm').append(errors[key][2]);
-                // }
             }
         });
     });
