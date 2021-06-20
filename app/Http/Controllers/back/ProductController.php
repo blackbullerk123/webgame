@@ -45,7 +45,7 @@ class ProductController extends Controller
     {
  
            $this->repository->store($request);
-           return back()->withSuccess("Thêm game thành công!")->withInput();
+           return redirect()->back()->with('information', 'Thêm thành công');
     //     return back()->withError("Lỗi hệ thống! Chưa chọn loại sách")->withInput();
     //    }
     //     return view('layout_admin.product.index');
