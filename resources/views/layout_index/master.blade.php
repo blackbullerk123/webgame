@@ -296,12 +296,14 @@
     <!-- nK Share -->
     <script src="{{ asset('assets/plugins/nk-share/nk-share.js') }}"></script>
 
+    
+    <script src="{{ asset('js/toastr/toastr.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- GoodGames -->
     <script src="{{ asset('assets/js/goodgames.min.js') }}"></script>
     <script src="{{ asset('assets/js/goodgames-init.js') }}"></script>
     <!-- END: Scripts -->
-    <script src="{{ asset('js/toastr/toastr.min.js') }}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $.ajaxSetup({
             headers: {
