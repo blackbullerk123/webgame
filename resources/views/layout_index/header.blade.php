@@ -40,7 +40,7 @@
                 -->
                 </ul>
             </div>
-            <div class="nk-contacts-right">
+            <div class="nk-contacts-right index">
                 <ul class="nk-contacts-icons">
 
                     <li>
