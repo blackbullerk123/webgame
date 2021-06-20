@@ -350,7 +350,7 @@
             success: function(response) {
                 if(response.success == 200){                
                 Swal.fire({
-                    icon: 'success',
+                    type: 'success',
                     title: 'Đã thêm thành công',
                     showConfirmButton: false,
                     timer: 1500

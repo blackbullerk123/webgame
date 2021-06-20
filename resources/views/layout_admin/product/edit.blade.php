@@ -41,18 +41,6 @@
     $('#update2').click(function() {
        
     })        
-        function changeImg(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $('#img').click(function() {
-            $('#fImages').click();
-        });
 
         $(document).ready(function(){
             
