@@ -61,7 +61,10 @@
         <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
-
+    <!-- Jquery validation -->
+    <script src="{{ asset('js/jquery-validation/lib/jquery.js')}}"></script>
+	  <script src="{{ asset('js/jquery-validation/dist/jquery.validate.js')}}"></script>
+    
     
     <script src="{{ asset('adminlte2/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -72,9 +75,8 @@
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('adminlte2/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <!-- Morris.js charts -->
-    <script src="{{ asset('adminlte2/bower_components/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('adminlte2/bower_components/morris.js/morris.min.js') }}"></script>
+    
+    
     <!-- Sparkline -->
     <script src="{{ asset('adminlte2/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
     <!-- jvectormap -->
@@ -101,13 +103,17 @@
     <script src="{{ asset('adminlte2/plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <!-- Morris.js charts -->
+    <script src="{{ asset('adminlte2/bower_components/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('adminlte2/bower_components/morris.js/morris.min.js') }}"></script>
+    
     <script src="{{ asset('adminlte2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('adminlte2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('adminlte2/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte2/dist/js/demo.js') }}"></script>
+    
     <script>
   $(document).ready(function() {
     $('#example').DataTable();

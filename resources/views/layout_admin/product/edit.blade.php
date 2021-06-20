@@ -136,6 +136,8 @@
                     // $('#row'+button_id+'').remove();
                 }
             })
+
+            $('#form_data').validate();
                
            });
     });

@@ -3,7 +3,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
         <input id="name" name="name" type="text" class="form-control" value="{{ isset($product) ? $product->name : old('name') }}"
-            placeholder="Tên game . . . . . . . . ." style="width: 760px;">
+            placeholder="Tên game . . . . . . . . ." style="width: 760px;" required >
     </div>
     @error('name')
         <div style="color: red"> {{ $message }} </div>
@@ -12,7 +12,7 @@
     <h4><b> Loại game : </b></h4>
     <div class="input-group">
         <div class="col-sm-14">
-                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;">
+                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;" required>
                     @if(isset($product))
                         @for ($i = 0; $i < count(explode(",", $product->os_supported)); $i++)
                             <option value="{{ explode(',', $product->os_supported)[$i] }}" selected>{{ explode(",", $product->os_supported)[$i] }}</option>
@@ -41,17 +41,17 @@
                             <div class="col-sm-3">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"
-                                    placeholder="Tên gói. . . . . . . . ." value="{{ explode(',', $package_by_id->package_name)[$i] }}">
+                                    placeholder="Tên gói. . . . . . . . ." value="{{ explode(',', $package_by_id->package_name)[$i] }}" required>
                             </div>
                             <div class="col-sm-3">
                                 <p>Giá trị: </p>
                                 <input name="value[]" id="value" type="text" class="form-control"
-                                    placeholder="Giá trị. . . . . . . . ." value="{{ explode(',', $package_by_id->package_price)[$i] }}">
+                                    placeholder="Giá trị. . . . . . . . ." value="{{ explode(',', $package_by_id->package_price)[$i] }}" required>
                             </div>
                             <div class="col-sm-3">
                                 <p>Points: </p>
                                 <input name="point[]" id="point" type="text" class="form-control"
-                                    placeholder="Point. . . . . . . . ." value="{{ explode(',', $package_by_id->point_number)[$i] }}">
+                                    placeholder="Point. . . . . . . . ." value="{{ explode(',', $package_by_id->point_number)[$i] }}" required>
                             </div>
                             <div class="col-sm-3">
                                 <p>Thao tác:</p>
@@ -95,7 +95,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="width:800px">
-                        <textarea id="summernote" name="content">{{ isset($product) ? $product->content_1 : '' }}</textarea>
+                        <textarea id="summernote" name="content" required>{{ isset($product) ? $product->content_1 : '' }}</textarea>
                         </textarea>
                     </div>
                 </div>

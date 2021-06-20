@@ -48,7 +48,7 @@
                     html += '</div>';
                     html += "<div class='col-sm-3'>";
                     html += '<p>Giá trị: </p>';
-                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required";
+                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
                     html += '</div>';
                     html += '<div class="col-sm-3">';
                     html += '<p>Points: </p>';
