@@ -26,6 +26,8 @@ Route::get('/', function () {
 });
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
+Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
+Route::put('/admin/profile/update{id}',[AdminController::class,'update'])->name('admin.profile.update');
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
@@ -64,5 +66,6 @@ Route::get('/order',[UserController::class,'order'])->name('order');
 Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
 Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
 Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
-Route::get('/profile',[UserController::class,'profile'])->name('profile');
-
+Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
+Route::post('/profile/update/{id}',[UserController::class,'updateInfo'])->name('profile.update.info');
+Route::post('/profile/change/{id}',[UserController::class,'changePass'])->name('profile.change_pass');

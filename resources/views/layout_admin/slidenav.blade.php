@@ -32,7 +32,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="{{ route('logout') }}">
                 <i class="fa fa-laptop"></i>
                 <span>Đăng xuất</span>
               </a>
