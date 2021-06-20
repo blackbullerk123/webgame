@@ -107,17 +107,24 @@
                     <h4 class="mb-0"><span class="text-main-1">Sign</span> In</h4>
 
                     <div class="nk-gap-1"></div>
-                    <form action="#" method="post" id="signin_form" class="nk-form text-white">
-                        <input type="hidden" name="_token" id="csrf-token" />
+                    <form action="{{ route('login') }}" method="post" class="nk-form text-white">
+                        @csrf
                         <div class="row vertical-gap">
                             <div class="col-md-6">
                                 Use email and password:
+
                                 <div class="nk-gap"></div>
                                 <input type="email" value="" id="email" name="email" class="required form-control"
                                     placeholder="Email">
+                                @error('email')
+                                    <p style="color:red">{{ $message }}</p>
+                                @enderror
                                 <div class="nk-gap"></div>
                                 <input type="password" value="" id="password" name="password" class="required form-control"
                                     placeholder="Password">
+                                @error('password')
+                                    <p style="color:red">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 Or social account:
@@ -169,7 +176,7 @@
                     <h4 class="mb-0"><span class="text-main-1">Sign</span> Up</h4>
 
                     <div class="nk-gap-1"></div>
-                    <form action="#" method="post" id="signup_form" class="nk-form text-white">
+                    <form action="#" method="get" id="signup_form" class="nk-form text-white">
                         <input type="hidden" name="_token" id="csrf-token" />
                         <div class="row vertical-gap">
                             <div class="col-md-8">
@@ -178,8 +185,9 @@
                                 <input type="text" value="" name="name" id="name" class="form-control"
                                     placeholder="Name">
                                 <p id="error-name" style="color:red"></p>
+                                <div class="nk-gap"></div>
                                 <label>Email:</label>
-                                <input type="text" value="" name="email" id="email" class="form-control"
+                                <input type="email" value="" name="email" id="email" class="form-control"
                                     placeholder="Email">
                                 <p id="error-email" style="color:red"></p>
                                 <label>Password:</label>
@@ -187,9 +195,9 @@
                                     placeholder="Password">
                                 <p id="error-pass" style="color:red"></p>
                                 <label>Confirm Password:</label>
-                                <input type="password" value="" name="confirm_password" id="confirm_password"
-                                    class="form-control" placeholder="Password">
-                                <p id="error-confirm" style="color:red"></p>
+                                <input type="password" value="" name="confirm_password" id="confirm_password" class="form-control"
+                                    placeholder="Password">
+                                <p id="error-confirm" style="color:red"></p>   
                             </div>
                         </div>
 
@@ -297,67 +305,67 @@
     <script src="{{ asset('assets/js/goodgames-init.js') }}"></script>
     <!-- END: Scripts -->
     <script src="{{ asset('js/toastr/toastr.min.js') }}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        function changeImg(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
+    {{-- <script>
+    function signUp(){
+        $('.show').hide(1, function() {
+                $('.show').hide(1);
+                $('#modalRegister').show(1);
+            });
+    }
+</script> --}}
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-        $('#img').click(function() {
-            $('#fImages').click();
-        });
+    });
+    function changeImg(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#img').click(function() {
+        $('#fImages').click();
+    });
 
-        $("#signup_form").submit(function(e) {
-            e.preventDefault();
-            let name = $("#name").val();
-            let email = $("#email").val();
-            let password = $("#password").val();
-            let confirm_password = $("#confirm_password").val();
-            $.ajax({
-                url: "{{ route('signup') }}",
-                type: "post",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    name: name,
-                    email: email,
-                    password: password,
-                    confirm_password: confirm_password
-                },
-                success: function(response) {
-                    $('#signup_form').find('input').each(function() {
-                            $(this).val('');
-                            $(this).next('p').text('');
-                        }),
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Added successfully',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    $('#modalRegister').modal('hide');
-                },
-                error: function(response) {
-                    $('#signup_form').find('input').each(function() {
-                        $(this).next('p').text('');
+    $("#signup_form").submit(function(e) {
+        e.preventDefault();
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
+        let confirm_password = $("#confirm_password").val();
+        $.ajax({
+            url: "{{ route('signup') }}",
+            type: "PUT",
+            data: {
+                name: name,
+                email: email,
+                password: password,
+                confirm_password: confirm_password
+            },
+            success: function(response) {
+                if(response.success == 200){                
+                Swal.fire({
+                    type: 'success',
+                    title: 'Đã thêm thành công',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                }
+            },
+            error: function(response){
+                $('#signup_form').find('input').each(function(){
+                    $(this).next('p').text('');
+                });
+            	var data = response.responseJSON;
+                if($.isEmptyObject(data.errors) == false) {
+                    $.each(data.errors, function (key, value) {
+                        $('#signup_form').find('input[name="' + key + '"]').next('p').text(value[0]);
                     });
-                    var data = response.responseJSON;
-                    if ($.isEmptyObject(data.errors) == false) {
-                        $.each(data.errors, function(key, value) {
-                            $('#signup_form').find('input[name="' + key + '"]').next('p')
-                                .text(value[0]);
-                        });
-                    }
                 }
             });
         });
@@ -401,8 +409,8 @@
                 // }
             });
         });
-
-    </script>
+    });
+  </script>
     @yield('script')
 </body>
 

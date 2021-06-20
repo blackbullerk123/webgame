@@ -27,10 +27,15 @@
 
     
 
-<div class="nk-main">
+    <div class="nk-main">
         
-<div class="nk-gap-2"></div>
-<div class="container" id="index">
+            <div class="nk-gap-2"></div>
+        
+
+        @if (session('status'))
+            {{session('status')}}
+        @endif
+<div class="container">
 
     <!-- START: Image Slider -->
     <div class="nk-image-slider" data-autoplay="8000">

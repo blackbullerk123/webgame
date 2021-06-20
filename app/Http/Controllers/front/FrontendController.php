@@ -52,13 +52,9 @@ class FrontendController extends Controller
     {
         $credentaials = array('email' => $request->email, 'password' => $request->password);
         if (Auth::attempt($credentaials)) {
-            return response()->json([
-                'success' => true
-            ]);
+            return redirect()->back()->with(['flag' => 'success', 'messege' => 'Đăng nhập thành công']);
         } else {
-            return response()->json([
-                'success' => false
-            ]);
+            return redirect()->back()->with(['flag' => 'danger', 'messege' => 'Đăng nhập không thành công']);
         }
     }
 
@@ -67,7 +63,7 @@ class FrontendController extends Controller
         $this->repository->createuser($request);
         return response()->json([
             'success' => true
-        ],200);
+        ]);
     }
 
     public function postLogout()
