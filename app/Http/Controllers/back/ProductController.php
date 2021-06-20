@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 Use Alert;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -23,14 +24,10 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, $id)
+
     {
-        $update_product = $this->repository->update($request ,$id);
-        if ($update_product) {
-            Alert::success('Cập Nhật', 'Cập nhật thành công!');
-        }else{
-            Alert::error('Cập Nhật', 'Cập nhật thất bại!');
-        }
-        return redirect()->back();
+        $this->repository->update($request ,$id);
+        return redirect()->back()->with('information', 'Cập nhật thành công');
     }
 
     public function deletePackage(Request $request, $id)

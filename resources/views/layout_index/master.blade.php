@@ -114,10 +114,10 @@
                                 Use email and password:
                                 <div class="nk-gap"></div>
                                 <input type="email" value="" name="email" class="required form-control"
-                                    placeholder="Email">
+                                    placeholder="Email" id="email">
                                 <div class="nk-gap"></div>
                                 <input type="password" value="" name="password" class="required form-control"
-                                    placeholder="Password">
+                                    placeholder="Password" id="password">
                             </div>
                             <div class="col-md-6">
                                 Or social account:
@@ -374,7 +374,7 @@
                     password: password,
                 },
                 success: function(response) {
-                    if(response == 200){
+                    if(response.success == true){
                         Swal.fire({
                             icon: 'success',
                             title: 'Logged in successfully',
@@ -382,6 +382,7 @@
                             timer: 2000
                         })
                         $('#modalLogin').modal('hide');
+                        window.location.reload();
                     }
                         
                     
