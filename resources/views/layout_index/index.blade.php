@@ -103,11 +103,11 @@
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
-                    <img src="{{ asset('assets/images/icon-mouse.png')}}" alt="">
+                    <img src="{{ asset('images/card-itunes.png')}}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">PC</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="#">View Games</a></h4>
+                    <h3 class="nk-feature-title"><a href="#">Card</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="#">View Card</a></h4>
                 </div>
             </div>
         </div>

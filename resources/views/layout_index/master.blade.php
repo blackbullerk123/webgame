@@ -113,10 +113,10 @@
                             <div class="col-md-6">
                                 Use email and password:
                                 <div class="nk-gap"></div>
-                                <input type="email" value="" name="email" class="required form-control"
+                                <input type="email" value="" id="email" name="email" class="required form-control"
                                     placeholder="Email">
                                 <div class="nk-gap"></div>
-                                <input type="password" value="" name="password" class="required form-control"
+                                <input type="password" value="" id="password" name="password" class="required form-control"
                                     placeholder="Password">
                             </div>
                             <div class="col-md-6">
@@ -373,8 +373,8 @@
                     email: email,
                     password: password,
                 },
-                success: function(response) {
-                    if(response == 200){
+                success: function(response) {   
+                    if(response.success == true){
                         Swal.fire({
                             icon: 'success',
                             title: 'Logged in successfully',
@@ -382,16 +382,15 @@
                             timer: 2000
                         })
                         $('#modalLogin').modal('hide');
+                        window.location.reload();
+                    }else{
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Incorrect account or password',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                     }
-                        
-                    
-                    //else{
-                    //     Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Incorrect account or password',
-                    //     timer: 2000
-                    // })
-                    // }
                 },
                 // error: function(response) {
                 //     Swal.fire({
