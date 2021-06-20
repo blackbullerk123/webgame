@@ -24,15 +24,17 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' =>'required|max:50',
-            'password' =>'required|max:25',
+            'email_login' =>'required|email|max:50',
+            'password_login' =>'required|max:25',
         ];
     }
     public function messages()
     {
         return [
-            'email.max' => 'Email no more than 50 characters',
-            'password.max' => 'Password must not exceed 25 characters',
+            'email_login.max' => 'Email no more than 50 characters',
+            'email_login.email' => 'Incorrect email format',
+            'password_login.required' => 'Please enter password',
+            'password_login.max' => 'Password must not exceed 25 characters',
         ];
     }
 }
