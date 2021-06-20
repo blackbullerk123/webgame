@@ -49,8 +49,7 @@
 
     <!-- Photoswipe -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/photoswipe/dist/photoswipe.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/vendor/photoswipe/dist/default-skin/default-skin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/photoswipe/dist/default-skin/default-skin.css') }}">
 
     <!-- Seiyria Bootstrap Slider -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-slider/dist/css/bootstrap-slider.min.css') }}">

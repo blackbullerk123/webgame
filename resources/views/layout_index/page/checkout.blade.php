@@ -31,7 +31,7 @@
                       <tr>
                           <td class="nk-product-cart-thumb">
                               <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                  <img src="assets/images/product-2-xs.jpg" alt="However, I have reason" width="115">
+                                  <img src="{{ asset('assets/images/product-2-xs.jpg') }}" alt="However, I have reason" width="115">
                               </a>
                           </td>
                           <td class="nk-product-cart-title">
@@ -68,7 +68,7 @@
                       <tr>
                           <td class="nk-product-cart-thumb">
                               <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                  <img src="assets/images/product-4-xs.jpg" alt="She was bouncing" width="115">
+                                  <img src="{{ asset('assets/images/product-4-xs.jpg') }}" alt="She was bouncing" width="115">
                               </a>
                           </td>
                           <td class="nk-product-cart-title">
