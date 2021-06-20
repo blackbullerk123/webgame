@@ -2,8 +2,6 @@
 @section('content')
 <style>
 #img1{
-    height: 10%;
-    width: 16%;
     position: absolute;
 }
 @media only screen and (max-width: 762px) {
@@ -27,7 +25,7 @@
     <div class="nano">
         <div class="nano-content">
             <a href="index.html" class="nk-nav-logo">
-                <img src="assets/images/logo.png" alt="" width="120">
+                <img src="{{asset('assets/images/post-2-fw.jpg')}}" alt="" width="120">
             </a>
             <div class="nk-navbar-mobile-content">
                 <ul class="nk-nav">
@@ -157,7 +155,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-2-fw.jpg" alt="Grab your sword and fight the Horde">
+                <img src="{{asset('assets/images/post-2-fw.jpg')}}" alt="Grab your sword and fight the Horde">
             </a>
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">
@@ -176,7 +174,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-3-fw.jpg" alt="We found a witch! May we burn her?">
+                <img src="{{ asset('assets/images/post-3-fw.jpg') }}" alt="We found a witch! May we burn her?">
             </a>
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">
@@ -194,7 +192,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-4-fw.jpg" alt="For good, too though, in consequence">
+                <img src="{{ asset('assets/images/post-4-fw.jpg') }}" alt="For good, too though, in consequence">
             </a>
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">
@@ -211,7 +209,7 @@
         <!-- START: Post -->
         <div class="nk-blog-post">
             <a href="blog-article.html" class="nk-post-img">
-                <img src="assets/images/post-5-fw.jpg" alt="He made his passenger captain of one">
+                <img src="{{ asset('assets/images/post-5-fw.jpg') }}" alt="He made his passenger captain of one">
             </a>
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">

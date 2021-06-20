@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/index', function () {
+Route::get('/', function () {
     return redirect()->route('index');
 
 });
@@ -51,7 +51,7 @@ Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 //About
 Route::get('/about',[FrontendController::class,'about'])->name('about');
 //Order
-Route::get('/detail',[ProductController::class,'getDetail'])->name('product.detail');
+Route::get('/detail/{id}',[FrontendController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
 //Login
 Route::post('/login',[FrontendController::class,'postLogin'])->name('login');

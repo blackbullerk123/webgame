@@ -39,6 +39,12 @@ class FrontendController extends Controller
         return view('layout_index.index', compact('products'));
     }
 
+    public function getDetail($id)
+    {
+        $product = $this->repository->getDetailToProduct($id);
+        return view('layout_index.page.product_detail', compact('product'));
+    }
+
     public function contact()
     {
         return view('layout_index.page.contact_us');
