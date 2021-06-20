@@ -57,6 +57,12 @@ class ProductController extends Controller
         $package_by_id = $this->repository->getPackageByIdProduct($product->id);
         return view('layout_admin.product.edit', compact('product', 'package_by_id'));
     }
+
+    public function delete($id)
+    {
+       $this->repository->productdestroy($id);
+       return redirect()->back()->with('information', 'Xoá thành công!');
+    }
     public function getDetail()
     {
         return view('layout_index.page.product_detail');

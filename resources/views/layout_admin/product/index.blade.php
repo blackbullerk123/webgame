@@ -24,6 +24,11 @@
 
     <!-- Main content -->
     <section class="content">
+    <div class="box-header">
+                @if (session('information'))
+                    <div class="alert alert-success">{{ session('information') }}</div>
+                @endif
+      </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -63,7 +68,7 @@
                             </td>
                             <td class="text-center">
                                 <a href="{{route('product.edit',$pro->id)}}" edit_id="" class="edit"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
-                                <a href="#" style="margin-left: 10px" delete_id="#" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                                <a href="{{route('product.delete',$pro->id)}}" style="margin-left: 10px" delete_id="" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
                             </td>
                         </tr>
                           @endforeach

@@ -141,4 +141,14 @@ class ProductRepository
            ], 200);
     }
 
+    public function productdestroy($id)
+    {
+          $product = Product::find($id);
+          $package = Package::where('product_id', $id)->first();
+          unlink(public_path($product->image));
+          $product->delete();
+          $package->delete();
+
+    }
+
 }
