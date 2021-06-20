@@ -3,7 +3,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
         <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}"
-            placeholder="Tên game . . . . . . . . ." style="width: 760px;">
+            placeholder="Tên game . . . . . . . . ." style="width: 700px;">
     </div>
     @error('name')
         <div style="color: red"> {{ $message }} </div>

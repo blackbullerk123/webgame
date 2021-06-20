@@ -42,6 +42,7 @@ Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
 //Slide
 Route::get('/banner',[SlideController::class,'index'])->name('slide');
 Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
+Route::post('/banner-create/save',[SlideController::class,'store'])->name('slide.store');
 
 //Frontend Page
 //Home

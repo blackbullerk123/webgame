@@ -77,7 +77,7 @@
                               <h5 class="h6">Total:</h5>
                               <div class="nk-gap-1"></div>
 
-                              <strong id="tong_tien">{{$package_selected[2]}}</strong>
+                              <strong id="tong_tien">{{number_format($package_selected[2])}}</strong>
                           </td>
                           <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
                       </tr>
@@ -99,7 +99,7 @@
 
 function tinh_tong_tien(){ 
     var point = '{{$package_selected[2]}}'
-    $("#tong_tien").html($("#number").val()*point); 
+    $("#tong_tien").html(Number($("#number").val()).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')*point); 
 }
 
 $(document).ready(function(){

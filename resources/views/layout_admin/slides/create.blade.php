@@ -22,7 +22,7 @@
                 @endif
             </div>
             <div class="box box-info">
-                <form action="#" method="" enctype="multipart/form-data">
+                <form action="{{ route('slide.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @include('layout_admin.slides.template')
                     <div class="text-center">

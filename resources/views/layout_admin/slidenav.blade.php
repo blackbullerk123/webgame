@@ -13,13 +13,13 @@
             </li>
             <li class="treeview">
               <a href="{{ route('product') }}">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-gamepad"></i>
                 <span>Tất cả games</span>
               </a>
             </li>
             <li>
               <a href="{{ route('bills') }}">
-                <i class="fa fa-th"></i> <span>Hóa đơn</span>
+                <i class="fa fa-inbox"></i> <span>Hóa đơn</span>
               </a>
             </li>
             <li class="header ">
@@ -27,13 +27,13 @@
             </li>
             <li class="treeview">
               <a href="{{ route('slide') }}">
-                <i class="fa fa-pie-chart"></i>
+                <i class="fa fa-list-alt"></i>
                 <span>Banner</span>
               </a>
             </li>
             <li class="treeview">
               <a href="{{ route('logout') }}">
-                <i class="fa fa-laptop"></i>
+                <i class="fa fa-sign-out"></i>
                 <span>Đăng xuất</span>
               </a>
             </li>
