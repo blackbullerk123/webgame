@@ -48,13 +48,22 @@ class FrontendController extends Controller
         return view('layout_index.page.contact_us');
     }
 
+    public function allGames()
+    {
+        return view('layout_index.page.all_games');
+    }
+
     public function postLogin(Request $request)
     {
         $credentaials = array('email' => $request->email, 'password' => $request->password);
         if (Auth::attempt($credentaials)) {
-            return redirect()->back()->with(['flag' => 'success', 'messege' => 'Đăng nhập thành công']);
+            return response()->json([
+                'success' => true
+            ]);
         } else {
-            return redirect()->back()->with(['flag' => 'danger', 'messege' => 'Đăng nhập không thành công']);
+            return response()->json([
+                'success' => false
+            ]);
         }
     }
 
@@ -63,7 +72,7 @@ class FrontendController extends Controller
         $this->repository->createuser($request);
         return response()->json([
             'success' => true
-        ]);
+        ],200);
     }
 
     public function postLogout()
