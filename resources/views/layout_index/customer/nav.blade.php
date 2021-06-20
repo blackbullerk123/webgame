@@ -27,7 +27,7 @@
 <div class="nk-match">
     <div class="px-4 text-center mb-4">
         <span class="avatar avatar-md mb-3">
-            <img src="https://gamemobile.io/assets/uploads/1618905948.png" style="height: 80px; width: 80px"
+            <img src="{{ asset(Auth::user()->avatar ? Auth::user()->avatar :'images/no_img.jpg') }}" style="height: 80px; width: 80px"
                 class="image rounded-circle">
         </span>
         <div style="margin-top: 10px">
@@ -68,7 +68,7 @@
                     Order History
                 </span>
             </a>
-            <a href="{{ route('profile') }}" class="btn btn-secondary">
+            <a href="{{ route('profile',Auth::user()->id) }}" class="btn btn-secondary">
                 <i class="las la-user aiz-side-nav-icon"></i>
                 <span class="aiz-side-nav-text">Manage Profile</span>
             </a>

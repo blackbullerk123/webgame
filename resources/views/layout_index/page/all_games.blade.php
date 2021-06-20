@@ -61,12 +61,12 @@
     <div class="nk-blog-grid">
         <div class="row">
             
-            
+            @foreach ($products as $pro )
             <div class="col-md-6 col-lg-3">
                 <!-- START: Post -->
                 <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618905948.png" alt="He made his passenger captain of one">
+                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-post-img">
+                        <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
                         <span class="nk-post-comments-count">13</span>
                         
                         <span class="nk-post-categories">
@@ -75,185 +75,20 @@
                         
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">honkai impact 3 </a></h2>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{ $pro->name }} </a></h2>
                     
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
                     <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
                 </div>
                 <!-- END: Post -->
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618903461.png" alt="He made his passenger captain of one">
-                        <span class="nk-post-comments-count">13</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-5">Indie</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">tap tap heroes: void cage</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618902360.png" alt="At first, for some time, I was not able to answer">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-5">Racing</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Date A Live: Spirit Pledge</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-            
-            
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618642684.png" alt="At length one of them called out in a clear">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-6">MOBA</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Clash of Kings - CoK</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-            
-            
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-2">Adventure</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-2">Adventure</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-2">Adventure</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <!-- START: Post -->
-                <div class="nk-blog-post">
-                    <a href="{{ route('product.detail') }}" class="nk-post-img">
-                        <img src="https://gamemobile.io/assets/uploads/1618626980.png" alt="For good, too though, in consequence">
-                        <span class="nk-post-comments-count">0</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-2">Adventure</span>
-                                </span>
-                        
-                    </a>
-                    <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail') }}">Rise of Kingdoms</a></h2>
-                    <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail') }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 3, 2018</div>
-                </div>
-                <!-- END: Post -->
-            </div>          
+            </div>  
+            @endforeach    
         </div>
     </div>
     <!-- END: Latest News -->
-
             </aside>
             <!-- END: Sidebar -->
-            <div class="nk-pagination nk-pagination-center">
-                <a href="#" class="nk-pagination-prev">
-                    <span class="ion-ios-arrow-back"></span>
-                </a>
-                <nav>
-                    <a class="nk-pagination-current" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span>...</span>
-                    <a href="#">14</a>
-                </nav>
-                <a href="#" class="nk-pagination-next">
-                    <span class="ion-ios-arrow-forward"></span>
-                </a>
-            </div>
         </div>
     </div>
 </div>

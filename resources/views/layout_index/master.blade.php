@@ -59,7 +59,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/goodgames.css') }}">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/toastr/toastr.min.css') }}">
     <!-- jQuery -->
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
 
@@ -295,8 +294,6 @@
     <!-- nK Share -->
     <script src="{{ asset('assets/plugins/nk-share/nk-share.js') }}"></script>
 
-    
-    <script src="{{ asset('js/toastr/toastr.min.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- GoodGames -->
@@ -387,7 +384,7 @@
                 },
             });
         });
-
+    $("div.alert").delay(3000).slideUp();
     </script>
     @yield('script')
 </body>

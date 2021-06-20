@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class FrontendRepository
 {
@@ -26,7 +25,7 @@ class FrontendRepository
 
     public function getProductToIndex()
     {
-        return Product::all();
+        return Product::orderBy('created_at', 'desc')->paginate(8);
     }
 
     public function getDetailToProduct($id)
