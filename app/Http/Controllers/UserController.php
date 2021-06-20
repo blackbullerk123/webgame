@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('layout_index.customer.transaction_history');
     }
 
+    public function orderHistory()
+    {
+        return view('layout_index.customer.order_history');
+    }
+
     public function profile()
     {
         return view('layout_index.customer.profile');

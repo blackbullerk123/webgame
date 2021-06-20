@@ -184,7 +184,7 @@
                                 <p id="error-email" style="color:red"></p>
                                 <label>Phone:</label>
                                 <input type="text" value="" name="phone" id="phone" class="form-control"
-                                    placeholder="Email">
+                                    placeholder="Phone">
                                 <p id="error-phone" style="color:red"></p>
                                 <label>Password:</label>
                                 <input type="password" value="" name="password" id="password_sign" class="form-control"
@@ -307,19 +307,6 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });
-
-        function changeImg(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $('#img').click(function() {
-            $('#fImages').click();
         });
 
         $("#signup_form").submit(function(e) {

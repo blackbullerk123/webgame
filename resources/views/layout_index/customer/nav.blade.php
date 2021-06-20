@@ -62,6 +62,12 @@
                     Transaction History
                 </span>
             </a>
+            <a href="{{ route('order_history') }}" class="btn btn-secondary">
+                <i class="las la-check-circle aiz-side-nav-icon"></i>
+                <span class="aiz-side-nav-text">
+                    Order History
+                </span>
+            </a>
             <a href="{{ route('profile') }}" class="btn btn-secondary">
                 <i class="las la-user aiz-side-nav-icon"></i>
                 <span class="aiz-side-nav-text">Manage Profile</span>
