@@ -281,7 +281,7 @@
                 <!-- START: Post -->
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail', $pro->id) }}" class="nk-post-img">
-                        <img src="{{asset($pro->image)}}" alt="He made his passenger captain of one">
+                        <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
                         
                         <span class="nk-post-categories">
                                     <span class="bg-main-5">Indie</span>

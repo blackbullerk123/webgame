@@ -57,7 +57,8 @@ class FrontendController extends Controller
 
     public function allGames()
     {
-        return view('layout_index.page.all_games');
+        $products = $this->repository->getProductToIndex();
+        return view('layout_index.page.all_games', compact('products'));
     }
 
     public function postLogin(Request $request)
