@@ -17,8 +17,8 @@
         <!-- Main content -->
         <section class="content">
             <div class="box-header">
-                @if (session('error'))
-                    <div class="alert alert-danger text-center">{{ session('error') }}</div>
+                @if (session('information'))
+                    <div class="alert alert-success">{{ session('information') }}</div>
                 @endif
             </div>
             <div class="box box-info">
@@ -44,15 +44,15 @@
                 var html = '<div class="input-group" id="row'+count+'">';
                     html += "<div class='col-sm-3'>";
                     html += ' <p>Tên gói: </p>';
-                    html += "<input name='package[]' type='text' class='form-control' placeholder='Tên gói. . . . . . . . .'>";
+                    html += "<input name='package[]' type='text' class='form-control' placeholder='Tên gói. . . . . . . . .' required>";
                     html += '</div>';
                     html += "<div class='col-sm-3'>";
                     html += '<p>Giá trị: </p>';
-                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .'>";
+                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required";
                     html += '</div>';
                     html += '<div class="col-sm-3">';
                     html += '<p>Points: </p>';
-                    html += '<input name="point[]" type="text" class="form-control" placeholder="Point. . . . . . . . .">';
+                    html += '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
                     html += '</div>';
                     html += '<div class="col-sm-3">';
                     html += '<p>Thao tác:</p>';
