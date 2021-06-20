@@ -21,6 +21,7 @@
         .nk-navbar-lg
         .nk-navbar-overlay-content
 -->
+@if(isset($product))
 <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
     <div class="nano">
         <div class="nano-content">
@@ -185,5 +186,6 @@
 </div>
 
 <div class="nk-gap-2"></div>
+@endif
 
 @endsection
