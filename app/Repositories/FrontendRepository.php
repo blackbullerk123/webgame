@@ -31,11 +31,12 @@ class FrontendRepository
 
     public function getDetailToProduct($id)
     {
+        
         $product = Product::select('package.product_id', 'package.package_name', 'package.package_price', 'package.point_number', 'name', 'os_supported', 'content_1', 'image')
                             ->join('package', 'products.id', '=', 'package.product_id')
-                            ->where('package.product_id', '=', $id)
+                            ->where('package.product_id', $id)
                             ->where('products.id', $id)
-                            ->get();
+                            ->first();
         return $product;
     }
     

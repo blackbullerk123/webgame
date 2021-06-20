@@ -63,8 +63,4 @@ class ProductController extends Controller
        $this->repository->productdestroy($id);
        return redirect()->back()->with('information', 'Xoá thành công!');
     }
-    public function getDetail()
-    {
-        return view('layout_index.page.product_detail');
-    }
 }

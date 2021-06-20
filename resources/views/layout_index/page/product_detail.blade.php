@@ -68,14 +68,13 @@
     <!-- START: Posts FullWidth -->
    <h4>IOS - Yong Heroes</h4>
     <div class="nk-blog-post">
-    <img id="img1" src="https://gamemobile.io/assets/uploads/1618905948.png" alt="We found a witch! May we burn her?" >
+    <img id="img1" src="{{asset($product->image)}}" alt="We found a witch! May we burn her?" >
     </div>
         <!-- START: Post -->
     <div class="col-sm-7" style="margin-left: 25%">
         <table class="table table-striped custom-table float-left">
                 <thead>              
                     <tr>
-                    <th scope="col" style="width: 15%;">Order</th>
                     <th scope="col" style="width: 35%;">Name</th>
                     <th scope="col" style="width: 15%;">Value</th>
                     <th scope="col" style="width: 15%;">Point</th>
@@ -84,60 +83,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                @if(isset($product->package_name))
+                @for ($i = 0;$i < count(explode(',', $product->package_name)); $i++)
                     <tr scope="row">
-
-                    
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
-                    
-                    </tr>            
-                    <tr scope="row">
-
-                    
-                        <td> 1392</td>
-                        <td><a href="#">James Yates</a></td>
-                        <td>0.99$</td>
-                        <td>19,800</td>
-                        <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
-                
-                </tr>            
-                <tr scope="row">
-
-                    
-                    <td> 1392</td>
-                    <td><a href="#">James Yates</a></td>
-                    <td>0.99$</td>
-                    <td>19,800</td>
-                    <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
-            
-            </tr>            
-            <tr scope="row">
-
-                    
-                <td> 1392</td>
-                <td><a href="#">James Yates</a></td>
-                <td>0.99$</td>
-                <td>19,800</td>
-                <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
-        
-        </tr>            
-        <tr scope="row">
-
-                    
-            <td> 1392</td>
-            <td><a href="#">James Yates</a></td>
-            <td>0.99$</td>
-            <td>19,800</td>
-            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
-    
-    </tr>                    
-                    
+                            <td><a href="#">{{explode(',', $product->package_name)[$i]}}</a></td>
+                            <td>{{ explode(',', $product->package_price)[$i] }}</td>
+                            <td>{{ explode(',', $product->point_number)[$i] }}</td>
+                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>                   
+                    </tr>  
+                @endfor                            
+                @endif
                 </tbody>
             </table>
-    </div>
+    </div><br><br><br><br><br><br><br><br><br><br>
         <div class="nk-blog-post">
             <div class="nk-gap-2"></div>
             <div class="row vertical-gap">
