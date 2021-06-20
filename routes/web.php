@@ -20,12 +20,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return redirect()->route('index');
 
 });
-//Index
-Route::get('index',[FrontendController::class,'getIndex'])->name('index');
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //Product
@@ -45,7 +43,7 @@ Route::get('/banner-create',[SlideController::class,'create'])->name('slide.crea
 
 //Frontend Page
 //Home
-Route::get('/',[FrontendController::class,'index'])->name('index');
+Route::get('/',[FrontendController::class,'getIndex'])->name('index');
 //All games
 Route::get('/all-games',[FrontendController::class,'allGames'])->name('all_games');
 //Contact
