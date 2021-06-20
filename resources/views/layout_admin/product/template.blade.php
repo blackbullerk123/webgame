@@ -95,7 +95,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="width:800px">
-                        <textarea id="summernote" name="content" required>{{ isset($product) ? $product->content_1 : '' }}</textarea>
+                        <textarea id="summernote" name="content">{{ isset($product) ? $product->content_1 : '' }}</textarea>
                         </textarea>
                     </div>
                 </div>

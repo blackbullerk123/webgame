@@ -23,5 +23,10 @@ class FrontendRepository
         $user->password = hash::make($request->password);
         $user->save();
     }
+
+    public function getProductToIndex()
+    {
+        return Product::all();
+    }
     
 }

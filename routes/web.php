@@ -20,8 +20,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/',[FrontendController::class,'index'])->name('index');
+Route::get('/', function () {
+    return redirect()->route('index');
 
+});
+//Index
+Route::get('index',[FrontendController::class,'getIndex'])->name('index');
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //Product
