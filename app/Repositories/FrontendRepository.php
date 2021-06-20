@@ -26,7 +26,7 @@ class FrontendRepository
 
     public function getProductToIndex()
     {
-        return Product::all();
+        return Product::orderBy('created_at', 'desc')->paginate(8);
     }
 
     public function getDetailToProduct($id)

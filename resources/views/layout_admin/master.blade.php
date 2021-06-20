@@ -142,6 +142,8 @@
   $('#img').click(function() {
       $('#fImages').click();
   });
+
+  $("div.alert").delay(3000).slideUp();
 </script>
 @yield('script')
 </body>
