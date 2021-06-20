@@ -52,7 +52,7 @@ Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 Route::get('/about',[FrontendController::class,'about'])->name('about');
 //Order
 Route::get('/detail/{id}',[FrontendController::class,'getDetail'])->name('product.detail');
-Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+Route::get('/checkout/{id}/package/{package}',[FrontendController::class,'getCheckout'])->name('checkout.bill');
 //Login
 Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 //SignUp

@@ -107,12 +107,12 @@ class ProductRepository
      if ($request->package) {
           if(count($request->package) > 1){
                $package->package_name = implode(',' ,$request->package);
-               $package->package_price = implode(',' ,$request->value);
+               $package->package_price = number_format(implode(',' ,$request->value));
                $package->point_number = implode(',' ,$request->point);
           }
           else{
                $package->package_name = $request->package[0];
-               $package->package_price = $request->value[0];
+               $package->package_price = number_format($request->value[0]);
                $package->point_number = $request->point[0];
           }
      }
@@ -125,12 +125,12 @@ class ProductRepository
           $package = Package::where('product_id', $id)->first();
           if(count($request->package) > 1){
                $package->package_name = implode(',' ,$request->package);
-               $package->package_price = implode(',' ,$request->value);
+               $package->package_price = number_format(implode(',' ,$request->value));
                $package->point_number = implode(',' ,$request->point);
           }
           else{
                $package->package_name = $request->package[0];
-               $package->package_price = $request->value[0];
+               $package->package_price = number_format($request->value[0]);
                $package->point_number = $request->point[0];
           }
           $package->save();

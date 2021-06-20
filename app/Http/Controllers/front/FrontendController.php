@@ -45,6 +45,13 @@ class FrontendController extends Controller
         return view('layout_index.page.product_detail', compact('product'));
     }
 
+    public function getCheckout($id, $package)
+    {
+        $product_info = $this->repository->getPackageToCheckout($id);
+        $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
+        return view('layout_index.page.checkout', compact('product_info', 'package_selected'));
+    }
+
     public function contact()
     {
         return view('layout_index.page.contact_us');

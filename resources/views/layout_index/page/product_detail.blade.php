@@ -76,7 +76,7 @@
         <table class="table table-striped custom-table float-left">
                 <thead>              
                     <tr>
-                    <th scope="col" style="width: 35%;">Name</th>
+                    <th scope="col" style="width: 35%;">Package name</th>
                     <th scope="col" style="width: 15%;">Value</th>
                     <th scope="col" style="width: 15%;">Point</th>
                     <th scope="col" style="width: 15%;">Education</th>
@@ -90,7 +90,7 @@
                             <td><a href="#">{{explode(',', $product->package_name)[$i]}}</a></td>
                             <td>{{ explode(',', $product->package_price)[$i] }}</td>
                             <td>{{ explode(',', $product->point_number)[$i] }}</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>                   
+                            <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more">Details</a></td>                   
                     </tr>  
                 @endfor                            
                 @endif

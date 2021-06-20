@@ -25,13 +25,15 @@
       <div class="table-responsive">
 
           <!-- START: Products in Cart -->
+          <form action="{{route('index')}}" method="post" enctype="multipart/form-data" id="form_data">
+        @if($product_info && $package_selected)
           <table class="table nk-store-cart-products">
               <tbody>
                   
                       <tr>
                           <td class="nk-product-cart-thumb">
-                              <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                  <img src="{{ asset('assets/images/product-2-xs.jpg') }}" alt="However, I have reason" width="115">
+                              <a href="#" class="nk-image-box-1 nk-post-image">
+                                  <img src="{{ asset($product_info->image) }}" alt="However, I have reason" width="115">
                               </a>
                           </td>
                           <td class="nk-product-cart-title">
@@ -39,65 +41,43 @@
                               <div class="nk-gap-1"></div>
 
                               <h2 class="nk-post-title h4">
-                                  <a href="store-product.html">However, I have reason</a>
+                                  <a href="#">{{$product_info->name}}</a>
                               </h2>
                           </td>
-                          <td class="nk-product-cart-price">
-                              <h5 class="h6">Price:</h5>
+                          <td class="nk-product-cart-price" style="width: 16%;">
+                              <h5 class="h6">Package name:</h5>
                               <div class="nk-gap-1"></div>
 
-                              <strong>€ 32.00</strong>
+                              <strong>{{$package_selected[0]}}</strong>
+                          </td>
+                          <td class="nk-product-cart-price">
+                              <h5 class="h6">Value:</h5>
+                              <div class="nk-gap-1"></div>
+
+                              <strong>{{$package_selected[1]}}</strong>
+                          </td>
+                          <td class="nk-product-cart-price">
+                              <h5 class="h6">OS:</h5>
+                              <div class="nk-gap-1"></div>
+                                <select class="form-select" name="os" id="os" >
+                                @for($i = 0; $i < count(explode(",", $product_info->os_supported)); $i++)
+                                    <option value="{{ explode(',', $product_info->os_supported)[$i] }}">{{ explode(',', $product_info->os_supported)[$i] }}</option>
+                                @endfor
+                                </select>
                           </td>
                           <td class="nk-product-cart-quantity">
                               <h5 class="h6">Quantity:</h5>
                               <div class="nk-gap-1"></div>
 
                               <div class="nk-form">
-                                  <input type="number" class="form-control" value="1" min="1" max="21">
+                                  <input type="number" id="number" class="form-control" value="1" min="1" max="21" onchange="tinh_tong_tien()">
                               </div>
                           </td>
                           <td class="nk-product-cart-total">
                               <h5 class="h6">Total:</h5>
                               <div class="nk-gap-1"></div>
 
-                              <strong>€ 32.00</strong>
-                          </td>
-                          <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
-                      </tr>
-                  
-                      <tr>
-                          <td class="nk-product-cart-thumb">
-                              <a href="store-product.html" class="nk-image-box-1 nk-post-image">
-                                  <img src="{{ asset('assets/images/product-4-xs.jpg') }}" alt="She was bouncing" width="115">
-                              </a>
-                          </td>
-                          <td class="nk-product-cart-title">
-                              <h5 class="h6">Product:</h5>
-                              <div class="nk-gap-1"></div>
-
-                              <h2 class="nk-post-title h4">
-                                  <a href="store-product.html">She was bouncing</a>
-                              </h2>
-                          </td>
-                          <td class="nk-product-cart-price">
-                              <h5 class="h6">Price:</h5>
-                              <div class="nk-gap-1"></div>
-
-                              <strong>€ 20.00</strong>
-                          </td>
-                          <td class="nk-product-cart-quantity">
-                              <h5 class="h6">Quantity:</h5>
-                              <div class="nk-gap-1"></div>
-
-                              <div class="nk-form">
-                                  <input type="number" class="form-control" value="1" min="1" max="21">
-                              </div>
-                          </td>
-                          <td class="nk-product-cart-total">
-                              <h5 class="h6">Total:</h5>
-                              <div class="nk-gap-1"></div>
-
-                              <strong>€ 20.00</strong>
+                              <strong id="tong_tien">{{$package_selected[2]}}</strong>
                           </td>
                           <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
                       </tr>
@@ -105,81 +85,46 @@
               </tbody>
           </table>
           <!-- END: Products in Cart -->
-
+          </form>
       </div>
       <div class="nk-gap-1"></div>
-      <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#">Update Cart</a>
-
+      <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#" id="update_bill">Update Cart</a>
+    @endif
       <div class="clearfix"></div>
       <div class="nk-gap-2"></div>
-      <div class="row vertical-gap">
-          <div class="col-md-6">
-
-              <!-- START: Calculate Shipping -->
-              <h3 class="nk-title h4">Calculate Shipping</h3>
-              <form action="#" class="nk-form">
-                  <label for="country-sel">Country <span class="text-main-1">*</span>:</label>
-                  <select name="country" class="form-control required" id="country-sel">
-                      <option value="">Select a country...</option>
-                  </select>
-
-                  <div class="nk-gap-1"></div>
-                  <div class="row vertical-gap">
-                      <div class="col-sm-6">
-                          <label for="state">State / Country <span class="text-main-1">*</span>:</label>
-                          <input type="text" class="form-control required" name="state" id="state">
-                      </div>
-                      <div class="col-sm-6">
-                          <label for="zip">Postcode / ZIP <span class="text-main-1">*</span>:</label>
-                          <input type="tel" class="form-control required" name="zip" id="zip">
-                      </div>
-                  </div>
-
-                  <div class="nk-gap-1"></div>
-                  <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#">Update Totals</a>
-              </form>
-              <!-- END: Calculate Shipping -->
-
-          </div>
-          <div class="col-md-6">
-              <!-- START: Cart Totals -->
-              <h3 class="nk-title h4">Cart Totals</h3>
-              <table class="nk-table nk-table-sm">
-                  <tbody>
-                      <tr class="nk-store-cart-totals-subtotal">
-                          <td>
-                              Subtotal
-                          </td>
-                          <td>
-                              € 52.00
-                          </td>
-                      </tr>
-                      <tr class="nk-store-cart-totals-shipping">
-                          <td>
-                              Shipping
-                          </td>
-                          <td>
-                              Free Shipping
-                          </td>
-                      </tr>
-                      <tr class="nk-store-cart-totals-total">
-                          <td>
-                              Total
-                          </td>
-                          <td>
-                              € 52.00
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-              <!-- END: Cart Totals -->
-          </div>
-      </div>
-
-      <div class="nk-gap-2"></div>
-      <a class="nk-btn nk-btn-rounded nk-btn-color-main-1 float-right" href="store-checkout.html">Proceed to Checkout</a>
-      <div class="clearfix"></div>
   </div>
 </div>
 
+<script>
+
+function tinh_tong_tien(){ 
+    var point = '{{$package_selected[2]}}'
+    $("#tong_tien").html($("#number").val()*point); 
+}
+
+$(document).ready(function(){
+
+    $('#update_bill').click(function () {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        })
+    })
+
+})
+
+</script>
 @endsection
