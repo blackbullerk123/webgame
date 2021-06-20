@@ -44,7 +44,10 @@ Route::get('/banner',[SlideController::class,'index'])->name('slide');
 Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
 
 //Frontend Page
-//Page
+//Home
+Route::get('/',[FrontendController::class,'index'])->name('index');
+//All games
+Route::get('/all-games',[FrontendController::class,'allGames'])->name('all_games');
 //Contact
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 //About
@@ -58,9 +61,10 @@ Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 Route::put('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
-//Page Customer
+//Page Customer 
 Route::get('/order',[UserController::class,'order'])->name('order');
 Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
 Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
+Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 

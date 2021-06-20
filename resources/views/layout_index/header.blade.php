@@ -151,12 +151,12 @@
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
 
                     <li class=" nk-item">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ route('index') }}">
                             Home
                         </a>
                     </li>
                     <li class=" nk-item">
-                        <a href="blog-list.html">
+                        <a href="{{ route('all_games') }}">
                             All Games
                         </a>
                     </li>
