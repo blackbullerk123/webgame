@@ -1,9 +1,17 @@
 @extends('layout_index.master')
 @section('content')
-<style>
-
-
-</style>
+<?php
+    use Illuminate\Support\Facades\Auth;
+    if(Auth::check()){
+        $user = Auth::user()->id;
+        $point = Auth::user()->point;
+    }else
+    {
+        $user = '';   
+        $point = '';     
+    }
+        
+?>;
 <div class="container">
   <ul class="nk-breadcrumbs">
       
@@ -26,7 +34,6 @@
 <div class="container">
   <div class="nk-store nk-store-cart">
       <div class="table-responsive">
-
           <!-- START: Products in Cart -->
         @if($product_info && $package_selected)
         <form action="{{route('checkout.bill_detail', [$product_info->product_id, $package])}}" method="post" id="add_bill" class="nk-form text-white">
@@ -103,8 +110,8 @@
 </div>
 
 <script>
-    function tinh_tong_tien(){ 
-        var point = '{{$package_selected[2]}}'
+    var point = '{{$package_selected[2]}}'
+    function tinh_tong_tien(){        
         $("#tong_tien").html($("#number").val()*point); 
         $("#tong_tien").html(Number($("#number").val()*point).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')); 
     }
@@ -112,24 +119,48 @@
     $(document).ready(function() {
         $('#update_bill').click(function() {
             if ($('#check_terms').is(':checked')) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $('#add_bill').submit();
-                    }
-                })
+                $('#termsmodal').modal('show');
+                // Swal.fire({
+                //     title: 'Are you sure?',
+                //     text: "You won't be able to revert this!",
+                //     icon: 'warning',
+                //     showCancelButton: true,
+                //     confirmButtonColor: '#3085d6',
+                //     cancelButtonColor: '#d33',
+                //     confirmButtonText: 'Yes, delete it!'
+                // }).then((result) => {
+                //     if (result.isConfirmed) {
+                                
+                //     }
+                // })
             }
             else
             {
                 $('#errors_checked').html("You aren't checked to the terms yet");
             }
+        })
+
+        $('#confirm_terms').click(function() {
+            var user = '{{ $user }}';
+            if(user == '') {
+                $('#modalLogin').modal('show');
+            }else
+            {
+                var point_user = '{{ $point }}';
+                var point_total = $("#number").val()*point;
+                if(point_user - point_total < 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+                else
+                {
+                    $('#add_bill').submit();
+                }
+            }    
         })
     });
 </script>

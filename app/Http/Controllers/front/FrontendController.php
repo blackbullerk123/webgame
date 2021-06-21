@@ -100,6 +100,7 @@ class FrontendController extends Controller
     {
         $product_info = $this->repository->getPackageToCheckout($id);
         $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
-        
+        $this->repository->createBill($request, $product_info, $package_selected);
+        return redirect(route('index'));
     }
 }

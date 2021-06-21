@@ -94,6 +94,32 @@
         </div>
     </div>
     <!-- END: Search Modal -->
+    <!-- START: Terms Modal -->
+    <div class="modal fade" id="termsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            After clicking confirm, you much contact the supporter for assistance in loading money into the game. 
+            NOTE: please send the game account including <a href="#" style="color: red">your id + password </a> and ''<a href="#" style="color: red">sever, character name... (if the game has one)</a>''
+            Before sending, please enable <a href="#" style="color: red">Two-factor Authentication</a> for your account to avoid bad situations.
+            Webgame.vn secures 100% of customer information absolutely and safely.
+            <hr>
+            <a href="#" style="color: yellow">After clicking confirm, the money will be deducted from your account, support will contact you via facebook page or phone number/email you have registered.</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirm_terms">Confirm</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Terms Modal -->
     <!-- START: Login Modal -->
     <div class="modal fade" id="modalLogin" aria-hidden="true" aria-labelledby="modalLogin">
         <div class="modal-dialog modal-sm-8" role="document">
