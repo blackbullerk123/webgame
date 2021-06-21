@@ -15,6 +15,17 @@ class SlideRepository
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
+
+    public function getSlides()
+    {
+         return Slide::orderBy('id', 'asc')->get();
+    }
+
+    public function getSlidesById($id)
+    {
+         return Slide::find($id);
+    }
+
     public function store($request)
     {
      $slide = new Slide();
@@ -32,5 +43,38 @@ class SlideRepository
      $slide->save();
    
     }
+    public function update($request, $id)
+    {
+     $slide = Slide::find($id);
+     $date = Carbon::now()->format('d-m-Y');
+     $img = $request->avatar;
+     if (!empty($slide->avatar)) {
+        unlink(public_path($slide->images));
+         $img_name = 'upload/slide/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+         $destinationPath = public_path('upload/slide/img/' . $date);
+         $img->move($destinationPath, $img_name);
+
+         $slide->images = $img_name;
+     }else{
+        $img_name = 'upload/slide/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+        $destinationPath = public_path('upload/slide/img/' . $date);
+        $img->move($destinationPath, $img_name);
+
+        $slide->images = $img_name;
+     }  
+     
+     $slide->name = $request->name;  
+     $slide->save();
+   
+    }
     
+    public function destroy($id)
+    {
+          $slide = Slide::find($id);
+          if(!empty($slide->avatar)){
+            unlink(public_path($slide->images));
+          }
+          $slide->delete();
+
+    }
 }

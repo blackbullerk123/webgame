@@ -17,13 +17,14 @@
         <!-- Main content -->
         <section class="content">
             <div class="box-header">
-                @if (session('error'))
-                    <div class="alert alert-danger text-center">{{ session('error') }}</div>
-                @endif
+               
             </div>
             <div class="box box-info">
                 <form action="{{ route('slide.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @if (session('information'))
+                        <div class="alert alert-success">{{ session('information') }}</div>
+                    @endif
                     @include('layout_admin.slides.template')
                     <div class="text-center">
                         <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Thêm"

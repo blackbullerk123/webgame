@@ -31,6 +31,7 @@ class SlideRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'Tên không được để trống',
             'name.max' => 'Tên không vượt quá 200 ký tự',
             'avatar.mimes' => 'Chỉ những hình ảnh gắn thẻ có đuôi .jpg .jpeg .png .gif mới được chấp nhận',
             'avatar.max' => 'Giới hạn dung lượng không quá 2M',

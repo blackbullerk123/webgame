@@ -28,6 +28,9 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+              @if (session('information'))
+                <div class="alert alert-success">{{ session('information') }}</div>
+              @endif
                 <table id="slide_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -37,14 +40,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td class="text-center">
-                                <a href="#" edit_id="" class="edit"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
-                                <a href="#" style="margin-left: 10px" delete_id="#" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
-                            </td>
-                        </tr>
+                      @if(isset($slides))
+                      @foreach($slides as $slide )
+                      <tr>
+                        <td>{{ $slide->name }}</td>
+                        <td><img width="150px" height="100" src="{{asset($slide->images)}}" class="thumbnail center"></td>
+                        <td class="text-center">
+                            <a href="{{ route('slide.edit', $slide->id) }}" class="edit"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
+                            <a href="{{ route('slide.delete', $slide->id) }}" style="margin-left: 10px" delete_id="#" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                        </td>
+                      </tr>
+                      @endforeach
+                      @endif                   
                     </tbody>
                 </table>
             </div>

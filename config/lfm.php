@@ -25,7 +25,11 @@ return [
     | If both options are set to false, then shared folder will be activated.
     |
      */
-
+    // Middlewares which should be applied to all package routes.
+    // For laravel 5.1 and before, remove 'web' from the array.
+    'middlewares' => ['web', 'auth'],
+      // The url to this package. Change it if necessary.
+    'prefix' => 'laravel-filemanager',
     'allow_private_folder'     => true,
 
     // Flexible way to customize client folders accessibility
@@ -39,6 +43,8 @@ return [
 
     'shared_folder_name'       => 'shares',
     'base_directory' => 'public_html',
+
+
     /*
     |--------------------------------------------------------------------------
     | Folder Names
@@ -90,7 +96,7 @@ return [
     |--------------------------------------------------------------------------
      */
 
-    'disk'                     => 'public_html',
+    'disk'                     => 'public',
 
     'rename_file'              => false,
 
