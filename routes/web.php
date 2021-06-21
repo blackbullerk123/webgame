@@ -27,7 +27,7 @@ Route::get('/', function () {
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
-Route::put('/admin/profile/update{id}',[AdminController::class,'update'])->name('admin.profile.update');
+Route::post('/admin/profile/update{id}',[AdminController::class,'update'])->name('admin.profile.update');
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
