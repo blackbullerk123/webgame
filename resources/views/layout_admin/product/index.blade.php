@@ -68,7 +68,7 @@
                             </td>
                             <td class="text-center">
                                 <a href="{{route('product.edit',$pro->id)}}" edit_id="" class="edit"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
-                                <a href="{{route('product.delete',$pro->id)}}" style="margin-left: 10px" delete_id="" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                                <a href="javascript:;" style="margin-left: 10px" delete_id="{{ $pro->id }}" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
                             </td>
                         </tr>
                           @endforeach
@@ -103,5 +103,32 @@
       'columnDefs': []
     })
   })
+
+  $(document).on('click', '.simpleConfirm', function(e) {
+    e.preventDefault();
+    var id = $(this).attr('delete_id');
+    swal.fire({
+      title: "Bạn có muốn xóa game này không?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa ngay!',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.value) {
+        $.ajax({
+          method: 'get',
+          url: "{{route('product.delete')}}",
+          data: {
+            id: id
+          },
+          success: function(data) {
+            $('#result').html(data);
+          }
+        })
+      }
+    });
+  });
 </script>
 @stop

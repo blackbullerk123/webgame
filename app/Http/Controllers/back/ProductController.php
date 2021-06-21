@@ -58,9 +58,12 @@ class ProductController extends Controller
         return view('layout_admin.product.edit', compact('product', 'package_by_id'));
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-       $this->repository->productdestroy($id);
-       return redirect()->back()->with('information', 'Xoá thành công!');
+       $this->repository->productdestroy($request);
+    //    return redirect()->back()->with('information', 'Xoá thành công!');
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

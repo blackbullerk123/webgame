@@ -141,10 +141,10 @@ class ProductRepository
            ], 200);
     }
 
-    public function productdestroy($id)
+    public function productdestroy($request)
     {
-          $product = Product::find($id);
-          $package = Package::where('product_id', $id)->first();
+          $product = Product::find($request->id);
+          $package = Package::where('product_id', $product->id)->first();
           if(!empty($product->image)){
                unlink(public_path($product->image));
           }         
