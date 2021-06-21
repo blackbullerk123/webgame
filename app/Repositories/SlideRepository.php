@@ -48,20 +48,14 @@ class SlideRepository
      $slide = Slide::find($id);
      $date = Carbon::now()->format('d-m-Y');
      $img = $request->avatar;
-     if (!empty($slide->avatar)) {
+     if (isset($img)) {
         unlink(public_path($slide->images));
          $img_name = 'upload/slide/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
          $destinationPath = public_path('upload/slide/img/' . $date);
          $img->move($destinationPath, $img_name);
 
          $slide->images = $img_name;
-     }else{
-        $img_name = 'upload/slide/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
-        $destinationPath = public_path('upload/slide/img/' . $date);
-        $img->move($destinationPath, $img_name);
-
-        $slide->images = $img_name;
-     }  
+     }
      
      $slide->name = $request->name;  
      $slide->save();

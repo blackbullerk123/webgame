@@ -19,20 +19,14 @@ class UserRepository
         $user = User::find($id);
         $date = Carbon::now()->format('d-m-Y');
         $img = $request->avatar;
-        if (!empty($user->avatar)) {
-            unlink(public_path($user->avatar));
+        if (isset($img)) {
+            // unlink(public_path($user->avatar));
             $img_name = 'upload/user/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
             $destinationPath = public_path('upload/user/img/' . $date);
             $img->move($destinationPath, $img_name);
    
             $user->avatar = $img_name;
-        }else{
-            $img_name = 'upload/user/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
-            $destinationPath = public_path('upload/user/img/' . $date);
-            $img->move($destinationPath, $img_name);
-   
-            $user->avatar = $img_name;
-        }  
+        } 
         
         $user->name = $request->name;
         $user->phone = $request->phone;       
