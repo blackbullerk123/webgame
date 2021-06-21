@@ -59,7 +59,7 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('layout_index.page.contact_us');
+        return view('layout_index.page.about_us');
     }
 
     public function allGames()
