@@ -106,7 +106,7 @@
     function tinh_tong_tien(){ 
         var point = '{{$package_selected[2]}}'
         $("#tong_tien").html($("#number").val()*point); 
-        $("#tong_tien").html(Number($("#number").val()).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')*point); 
+        $("#tong_tien").html(Number($("#number").val()*point).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')); 
     }
 
     $(document).ready(function() {
