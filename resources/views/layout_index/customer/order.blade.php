@@ -57,7 +57,7 @@
                             <td>0.99$</td>
                             <td>19,800</td>
                             <td></td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -68,7 +68,7 @@
                             <td>0.99$</td>
                             <td>19,800</td>
                             <td></td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -79,7 +79,7 @@
                             <td>0.99$</td>
                             <td>19,800</td>
                             <td></td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -90,7 +90,7 @@
                             <td>0.99$</td>
                             <td>19,800</td>
                             <td></td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -101,7 +101,7 @@
                             <td>0.99$</td>
                             <td>19,800</td>
                             <td></td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
 

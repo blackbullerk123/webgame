@@ -40,7 +40,7 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -50,7 +50,7 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -60,7 +60,7 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -70,7 +70,7 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
                         <tr scope="row">
@@ -80,7 +80,7 @@
                             <td><a href="#">James Yates</a></td>
                             <td>0.99$</td>
                             <td>19,800</td>
-                            <td><a href="{{ route('checkout') }}" class="more">Details</a></td>
+                            <td><a href="#" class="more">Details</a></td>
 
                         </tr>
 
