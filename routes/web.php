@@ -64,7 +64,7 @@ Route::post('/checkout/bill/{id}/package/{package}',[FrontendController::class,'
 //Login
 Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 //SignUp
-Route::put('/signup',[FrontendController::class,'postSignup'])->name('signup');
+Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 //Page Customer 

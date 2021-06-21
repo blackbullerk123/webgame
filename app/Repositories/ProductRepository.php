@@ -84,21 +84,15 @@ class ProductRepository
      }
      $date = Carbon::now()->format('d-m-Y');
      $img = $request->avatar;
-     if (!empty($product->image)) {
+     if (isset($img)) {
          unlink(public_path($product->image));
          $img_name = 'upload/slide/banner/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
          $destinationPath = public_path('upload/slide/banner/' . $date);
          $img->move($destinationPath, $img_name);
 
          $product->image = $img_name;
-     }else{
-          $img_name = 'upload/slide/banner/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
-          $destinationPath = public_path('upload/slide/banner/' . $date);
-          $img->move($destinationPath, $img_name);
- 
-          $product->image = $img_name;
      }
-
+     
      $product->name = $request->name;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);

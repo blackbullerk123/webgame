@@ -28,8 +28,6 @@
                     <div class="text-center">
                         <input style="border:none; background-color:#4a4235;" type="submit" name="submit" value="Cập nhật"
                             class="btn  btn-warning btnthem btn-lg" id="update">
-                            <input style="border:none; background-color:#4a4235;" type="submit2" name="submit2" value="Cập dsdnhật"
-                            class="btn  btn-warning btnthem btn-lg" id="update2">
                     </div>
                 </form>
             </div>
