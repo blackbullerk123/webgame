@@ -144,6 +144,7 @@
             var user = '{{ $user }}';
             if(user == '') {
                 $('#modalLogin').modal('show');
+                $('#termsmodal').modal('hide');
             }else
             {
                 var point_user = '{{ $point }}';
