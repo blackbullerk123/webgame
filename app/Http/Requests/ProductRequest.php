@@ -25,7 +25,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'game_opt[]' => 'required',
+            'game_opt' => 'required',
+            'name' => 'required',           
             'content' => 'required',
             'avatar' => 'required',
 
@@ -36,9 +37,9 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên game',
-            'name.game_opt[]' => 'Vui lòng nhập hệ điều hành hổ trợ nạp',
-            'name.content' => 'Vui lòng nhập mô tả game',
-            'name.avatar' => 'Vui lòng chọn ảnh game',
+            'game_opt.required' => 'Vui lòng nhập hệ điều hành hổ trợ nạp',
+            'content.required' => 'Vui lòng nhập mô tả game',
+            'avatar.required' => 'Vui lòng chọn ảnh game',
         ];
     }
 }

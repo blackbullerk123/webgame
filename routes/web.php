@@ -43,6 +43,9 @@ Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
 Route::get('/banner',[SlideController::class,'index'])->name('slide');
 Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
 Route::post('/banner-create/save',[SlideController::class,'store'])->name('slide.store');
+Route::get('/banner-edit/{id}',[SlideController::class,'edit'])->name('slide.edit');
+Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name('slide.update');
+Route::get('/banner-delete/{id}',[SlideController::class,'delete'])->name('slide.delete');
 
 //Frontend Page
 //Home

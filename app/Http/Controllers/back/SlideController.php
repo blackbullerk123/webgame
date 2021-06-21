@@ -18,7 +18,8 @@ class SlideController extends Controller
 
     public function index()
     {
-        return view('layout_admin.slides.index');
+        $slides = $this->repository->getSlides();
+        return view('layout_admin.slides.index', compact('slides'));
     }
 
     public function create()
@@ -30,5 +31,23 @@ class SlideController extends Controller
     {
         $this->repository->store($request);
         return redirect()->back()->with('information', 'Thêm thành công');
+    }
+
+    public function edit($id)
+    {
+        $slides = $this->repository->getSlidesById($id);
+        return view('layout_admin.slides.edit', compact('slides'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->repository->update($request ,$id);
+        return redirect()->back()->with('information', 'Cập nhật thành công');
+    }
+
+    public function delete($id)
+    {
+       $this->repository->destroy($id);
+       return redirect()->back()->with('information', 'Xoá thành công!');
     }
 }

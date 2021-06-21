@@ -3,7 +3,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
         <input id="name" name="name" type="text" class="form-control" value="{{ isset($product) ? $product->name : old('name') }}"
-            placeholder="Tên game . . . . . . . . ." style="width: 760px;" required >
+            placeholder="Tên game . . . . . . . . ." style="width: 760px;" >
     </div>
     @error('name')
         <div style="color: red"> {{ $message }} </div>
@@ -12,7 +12,7 @@
     <h4><b> Loại game : </b></h4>
     <div class="input-group">
         <div class="col-sm-14">
-                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;" required>
+                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;">
                     @if(isset($product))
                         @for ($i = 0; $i < count(explode(",", $product->os_supported)); $i++)
                             <option value="{{ explode(',', $product->os_supported)[$i] }}" selected>{{ explode(",", $product->os_supported)[$i] }}</option>
@@ -26,6 +26,9 @@
             <!-- /.form-group -->
           </div>
     </div>
+    @error('game_opt')
+        <div style="color: red"> {{ $message }} </div>
+    @enderror
    <br>
    @php
         $i = 0;
@@ -66,17 +69,17 @@
                     <div class="col-sm-3">
                         <p>Tên gói: </p>
                         <input name="package[]" id="package" type="text" class="form-control"
-                            placeholder="Tên gói. . . . . . . . ." required>
+                            placeholder="Tên gói. . . . . . . . ." >
                     </div>
                     <div class="col-sm-3">
                         <p>Giá trị: </p>
                         <input name="value[]" id="value" type="text" class="form-control"
-                            placeholder="Giá trị. . . . . . . . ." required>
+                            placeholder="Giá trị. . . . . . . . ." >
                     </div>
                     <div class="col-sm-3">
                         <p>Points: </p>
                         <input name="point[]" id="point" type="number" class="form-control"
-                            placeholder="Point. . . . . . . . ." required>
+                            placeholder="Point. . . . . . . . ." >
                     </div>
                     <div class="col-sm-3">
                         <p>Thao tác:</p>
@@ -109,6 +112,10 @@
                         onchange="changeImg(this)">
                     <img id="img" class="img" style="width: 200px; height: 150px;"
                         src="{{ isset($product) ? asset($product->image) : asset('images/no_img.jpg') }}">
-        </div><br>    
+        </div>
+        @error('avatar')
+            <div style="color: red"> {{ $message }} </div>
+        @enderror
+        <br>    
         <!-- ./row -->
 </div>

@@ -41,7 +41,7 @@ class ProductController extends Controller
         return view('layout_admin.product.create', compact('os_type'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
  
            $this->repository->store($request);
