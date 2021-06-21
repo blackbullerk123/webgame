@@ -56,6 +56,8 @@ Route::get('/about',[FrontendController::class,'about'])->name('about');
 //Order
 Route::get('/detail/{id}',[FrontendController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout/{id}/package/{package}',[FrontendController::class,'getCheckout'])->name('checkout.bill');
+
+Route::post('/checkout/bill/{id}/package/{package}',[FrontendController::class,'getBill'])->name('checkout.bill_detail');
 //Login
 Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 //SignUp

@@ -1,6 +1,9 @@
 @extends('layout_index.master')
 @section('content')
+<style>
 
+
+</style>
 <div class="container">
   <ul class="nk-breadcrumbs">
       
@@ -25,17 +28,18 @@
       <div class="table-responsive">
 
           <!-- START: Products in Cart -->
-          <form action="{{route('index')}}" method="post" enctype="multipart/form-data" id="form_data">
         @if($product_info && $package_selected)
+        <form action="{{route('checkout.bill_detail', [$product_info->product_id, $package])}}" method="post" id="add_bill" class="nk-form text-white">
+        @csrf
           <table class="table nk-store-cart-products">
               <tbody>
                   
                       <tr>
-                          <td class="nk-product-cart-thumb">
+                          <td class="nk-product-cart-title">
                               <a href="#" class="nk-image-box-1 nk-post-image">
-                                  <img src="{{ asset($product_info->image) }}" alt="However, I have reason" width="115">
+                              <img src="{{ asset($product_info->image) }}" alt="However, I have reason" width="115">
                               </a>
-                          </td>
+                          </>
                           <td class="nk-product-cart-title">
                               <h5 class="h6">Product:</h5>
                               <div class="nk-gap-1"></div>
@@ -70,7 +74,7 @@
                               <div class="nk-gap-1"></div>
 
                               <div class="nk-form">
-                                  <input type="number" id="number" class="form-control" value="1" min="1" max="21" onchange="tinh_tong_tien()">
+                                  <input type="number" id="number" name="number" class="form-control" value="1" min="1" max="21" onchange="tinh_tong_tien()">
                               </div>
                           </td>
                           <td class="nk-product-cart-total">
@@ -81,11 +85,14 @@
                           </td>
                           <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
                       </tr>
-                  
               </tbody>
           </table>
+        </form>
           <!-- END: Products in Cart -->
-          </form>
+      <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check_terms">I have read and accept the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a></input>
+          <p id="errors_checked" style="color: red"></p> 
+      </div>
       </div>
       <div class="nk-gap-1"></div>
       <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#" id="update_bill">Update Cart</a>
@@ -96,35 +103,34 @@
 </div>
 
 <script>
+    function tinh_tong_tien(){ 
+        var point = '{{$package_selected[2]}}'
+        $("#tong_tien").html($("#number").val()*point); 
+        $("#tong_tien").html(Number($("#number").val()).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')*point); 
+    }
 
-function tinh_tong_tien(){ 
-    var point = '{{$package_selected[2]}}'
-    $("#tong_tien").html(Number($("#number").val()).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')*point); 
-}
-
-$(document).ready(function(){
-
-    $('#update_bill').click(function () {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-            )
-        }
+    $(document).ready(function() {
+        $('#update_bill').click(function() {
+            if ($('#check_terms').is(':checked')) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#add_bill').submit();
+                    }
+                })
+            }
+            else
+            {
+                $('#errors_checked').html("You aren't checked to the terms yet");
+            }
         })
-    })
-
-})
-
+    });
 </script>
 @endsection

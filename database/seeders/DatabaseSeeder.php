@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(OSAndroidTableSeeder::class);
         $this->call(IOSOSTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
     }
 }
 
@@ -40,6 +41,20 @@ class IOSOSTableSeeder extends Seeder
                 [
                     'id' => '2',
                     'name' => 'IOS',
+                ],
+            ]);
+        }
+    }
+
+class AdminTableSeeder extends Seeder
+    {
+        public function run()
+        {
+            DB::table('users')->insert([
+                [
+                    'name' => 'Admin',
+                    'email' => 'admin@webgame.com',
+                    'password' => Hash::make('admin@123456'),
                 ],
             ]);
         }

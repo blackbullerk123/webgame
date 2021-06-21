@@ -2,10 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Models\Bill;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendRepository
 {
@@ -53,6 +55,16 @@ class FrontendRepository
     {
         $package_selected = array(explode(',', $product->package_name)[$package], explode(',', $product->package_price)[$package], explode(',', $product->point_number)[$package]);
         return $package_selected;
+    }
+
+    public function createBill($product_info, $package_selected)
+    {
+        $bill = new Bill();
+
+        $bill->product_id = $product_info->product_id;
+        $bill->user_id = Auth::user()->id;
+        $bill->description = $package_selected[0];
+        
     }
     
 }

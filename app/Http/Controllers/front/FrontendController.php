@@ -49,7 +49,7 @@ class FrontendController extends Controller
     {
         $product_info = $this->repository->getPackageToCheckout($id);
         $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
-        return view('layout_index.page.checkout', compact('product_info', 'package_selected'));
+        return view('layout_index.page.checkout', compact('product_info', 'package_selected', 'package'));
     }
 
     public function contact()
@@ -96,4 +96,10 @@ class FrontendController extends Controller
         return redirect()->route('index');
     }
 
+    public function getBill(Request $request, $id, $package)
+    {
+        $product_info = $this->repository->getPackageToCheckout($id);
+        $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
+        
+    }
 }
