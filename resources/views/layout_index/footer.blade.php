@@ -57,9 +57,6 @@
 
     <div class="nk-copyright">
         <div class="container">
-            <div class="nk-copyright-left">
-                <a href="#">Templates Hub</a>
-            </div>
             <div class="nk-copyright-right">
                 <ul class="nk-social-links-2">
                     <li><a class="nk-social-rss" href="#"><span class="fa fa-rss"></span></a></li>
