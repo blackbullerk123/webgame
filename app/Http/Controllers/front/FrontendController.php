@@ -62,6 +62,16 @@ class FrontendController extends Controller
         return view('layout_index.page.about_us');
     }
 
+    public function service()
+    {
+        return view('layout_index.page.service');
+    }
+
+    public function privacy()
+    {
+        return view('layout_index.page.privacy');
+    }
+
     public function allGames()
     {
         $products = $this->repository->getProductToIndex();
@@ -85,6 +95,7 @@ class FrontendController extends Controller
         $products = $this->repository->getProductToIndex();
         return view('layout_index.page.view_card', compact('products'));
     }
+    
 
     public function postLogin(Request $request)
     {

@@ -68,6 +68,10 @@ Route::get('/card-itunes',[FrontendController::class,'viewCard'])->name('view_ca
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 //About
 Route::get('/about',[FrontendController::class,'about'])->name('about');
+//Service
+Route::get('/service',[FrontendController::class,'service'])->name('service');
+//Privacy
+Route::get('/privacy',[FrontendController::class,'privacy'])->name('privacy');
 //Order
 Route::get('/detail/{id}',[FrontendController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout/{id}/package/{package}',[FrontendController::class,'getCheckout'])->name('checkout.bill');
