@@ -42,7 +42,7 @@
         <ul class="list-group list-group-flush">
             <a href="{{ route('order') }}" class="btn btn-secondary">
                 <i class="las la-home aiz-side-nav-icon"></i>
-                <span class="aiz-side-nav-text">Bills</span>
+                <span class="aiz-side-nav-text">Waiting Bill</span>
             </a>
             <a href="{{ route('purchase_points') }}" class="btn btn-secondary">
                 <i class="las la-hourglass-half aiz-side-nav-icon"></i>

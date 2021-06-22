@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\PointPurchase;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -40,4 +41,15 @@ class UserRepository
         $user->save();       
     }
     
+    public function pointPurchase($request, $id, $type)
+    {
+        $point_purchase = new PointPurchase();
+
+        $point_purchase->user_id = $id;
+        $point_purchase->point_purchase = $request->amount_dep;
+        $point_purchase->description = 'Nạp '.$request->amount_dep.' point '.$type;
+        $point_purchase->order_id = $request->amount_dep.''.Str::random(4);
+        $point_purchase->save();
+
+    }
 }

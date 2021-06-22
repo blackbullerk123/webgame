@@ -45,10 +45,11 @@
                             <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
                                 transfer content recorded in the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
-                            <form action="" enctype="multipart/form-data">
+                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'bank']) }}" method="post"enctype="multipart/form-data">
+                               @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
-                                    <select class="form-control" id="amount_dep_bank">
+                                    <select class="form-control" id="amount_dep_bank" name="amount_dep">
                                         <option value="7600">7,600</option>
                                         <option value="15200">15,200</option>
                                         <option value="20000">20,000</option>
@@ -78,7 +79,7 @@
                                         <option value="100000000">100,000,000</option>
                                     </select>
                                 </div>
-                                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</a>
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
@@ -87,10 +88,11 @@
                             <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
                                 the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
-                            <form action="" enctype="multipart/form-data">
+                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'momo']) }}" method="post"enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
-                                    <select class="form-control" id="amount_dep_bank">
+                                    <select class="form-control" id="amount_dep_bank" name="amount_dep">
                                         <option value="7600">7,600</option>
                                         <option value="15200">15,200</option>
                                         <option value="20000">20,000</option>
@@ -120,7 +122,7 @@
                                         <option value="100000000">100,000,000</option>
                                     </select>
                                 </div>
-                                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</a>
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">

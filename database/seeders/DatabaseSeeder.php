@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(OSAndroidTableSeeder::class);
-        $this->call(IOSOSTableSeeder::class);
-        $this->call(AdminTableSeeder::class);
+        // $this->call(OSAndroidTableSeeder::class);
+        // $this->call(IOSOSTableSeeder::class);
+        // $this->call(AdminTableSeeder::class);
+        $this->call(TransactionTableSeeder::class);
     }
 }
 
@@ -55,6 +57,18 @@ class AdminTableSeeder extends Seeder
                     'name' => 'Admin',
                     'email' => 'admin@webgame.com',
                     'password' => Hash::make('admin@123456'),
+                ],
+            ]);
+        }
+    }
+
+class TransactionTableSeeder extends Seeder
+    {
+        public function run()
+        {
+            DB::table('admin_transaction')->insert([
+                [
+                    'transaction_type' => 'momo,bank',
                 ],
             ]);
         }

@@ -7,7 +7,7 @@ use App\Http\Controllers\back\ProductController;
 use App\Http\Controllers\back\CheckoutController;
 use App\Http\Controllers\back\SlideController;
 use App\Http\Controllers\front\FrontendController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\user\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,10 @@ Route::get('/', function () {
 //Admin
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
-Route::post('/admin/profile/update{id}',[AdminController::class,'update'])->name('admin.profile.update');
+Route::get('/admin/profile-transaction/{id}',[AdminController::class,'transaction'])->name('admin.profile.transaction');
+Route::post('/admin/profile/update/{id}',[AdminController::class,'update'])->name('admin.profile.update');
+Route::post('/admin/profile-transaction/update/{id}',[AdminController::class,'updateTransaction'])->name('admin.profile.transaction.update');
+
 //Product
 Route::get('/product',[ProductController::class,'index'])->name('product');
 Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
@@ -70,6 +73,7 @@ Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 //Page Customer 
 Route::get('/order',[UserController::class,'order'])->name('order');
 Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
+Route::post('/purchase-points/{id}/type/{type}',[UserController::class,'updatePoints'])->name('purchase_points.update');
 Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
 Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
 Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');

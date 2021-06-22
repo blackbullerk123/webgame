@@ -140,7 +140,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
+                        text: "You haven't enough points to buy it!",
                     })
                 }
                 else

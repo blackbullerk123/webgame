@@ -66,9 +66,6 @@
             </div>
             <div class="nk-widget">
                 <h4 class="nk-widget-title"><span class="text-main-1">Purchase</span> game mobile iOS & Android</h4>
-                <div class="nk-widget-content">
-                    <div class="nk-twitter-list" data-twitter-count="1"></div>
-                </div>
             </div>
         </div>
     </div>

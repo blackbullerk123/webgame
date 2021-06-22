@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\PointPurchase;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -17,7 +20,10 @@ class UserController extends Controller
 
     public function order()
     {
-        return view('layout_index.customer.order');
+        $point_purchase_info = PointPurchase::where('user_id', Auth::user()->id)
+                                            ->where('status', '0')
+                                            ->get();
+        return view('layout_index.customer.order', compact('point_purchase_info'));
     }
 
     public function loadPoints()
@@ -83,5 +89,11 @@ class UserController extends Controller
         );
         $this->repository->changePass($request, $id);
         return redirect()->back()->with('information', 'Update successful');
+    }
+
+    public function updatePoints(Request $request, $id, $type)
+    {
+        $this->repository->pointPurchase($request, $id, $type);
+        return redirect(route('order'));
     }
 }

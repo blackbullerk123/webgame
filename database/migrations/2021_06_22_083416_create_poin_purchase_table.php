@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBillTable extends Migration
+class CreatePoinPurchaseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateBillTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill', function (Blueprint $table) {
+        Schema::create('point_purchase', function (Blueprint $table) {
             $table->id();
-            $table->string('product_id')->nullable();
-            $table->string('user_id')->nullable();
+            $table->string('user_id');
+            $table->string('point_purchase')->default('0');
             $table->string('description')->nullable();
             $table->string('order_id')->nullable();
-            $table->string('product_total')->nullable();
-            $table->string('bill_total')->nullable();
-            $table->integer('status')->default(0);
+            $table->string('status')->default('0');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateBillTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bill');
+        Schema::dropIfExists('poin_purchase');
     }
 }

@@ -36,77 +36,34 @@
             <div class="col-lg-9">
                 <h3 class="text-main-1">Order</h3>
                 <div class="nk-gap"></div>
+                <div class="table-responsive" style="width: 110%;">
                 <table class="table table-striped custom-table float-left">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 10%;">#ID</th>
-                            <th scope="col" style="width: 25%;">Product</th>
-                            <th scope="col" style="width: 15%;">Quantity</th>
-                            <th scope="col" style="width: 15%;">Date</th>
-                            <th scope="col" style="width: 15%;">Status</th>
-                            <th scope="col" style="width: 15%;">Total point</th>
-                            <th scope="col"></th>
+                            <th scope="col">Bill</th>
+                            <th scope="col">ID Order</th>
+                            <th scope="col">Point purchase	</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td></td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td></td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td></td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td></td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td></td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-
+                        @if(isset($point_purchase_info))
+                            @foreach($point_purchase_info as $point_info)
+                                    <tr scope="row">
+                                    <td><button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></td>                       
+                                    <td><a href="#"> {{$point_info->order_id}}</a></td>
+                                    <td>{{number_format($point_info->point_purchase)}} Point</td>
+                                    <td>{{ $point_info->description }}</td>
+                                    <td><a href="#">{{ $point_info->status == 0 ? 'On going' : '' }}</a></td>
+                                    <td><a href="#"> {{date('d-m-Y', strtotime(str_replace('/', '-', $point_info->created_at )))}}</a></td>                          
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>

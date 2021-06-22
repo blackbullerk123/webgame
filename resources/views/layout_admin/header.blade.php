@@ -115,6 +115,7 @@
             <li class="user-footer">
               <div class="text-center">
                   <a href="{{ route('admin.profile', Auth::user()->id) }}" class="btn btn-danger btn-flat">Đổi mật khẩu</a>
+                  <a href="{{ route('admin.profile.transaction', Auth::user()->id) }}" class="btn btn-danger btn-flat">TT chuyển khoản</a>
               </div>
           </li>
           </ul>

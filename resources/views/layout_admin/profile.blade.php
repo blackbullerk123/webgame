@@ -1,11 +1,10 @@
-@extends('layout_admin.master')
+    @extends('layout_admin.master')
 @section('content')
     <style>
         .aa {
-            margin-left: 350px;
+            margin-left: auto;
+            margin-right: auto;
             width: 400px;
-
-
         }
 
     </style>
@@ -41,7 +40,6 @@
 
                             <form action="{{ route('admin.profile.update', $admin->id) }}" method="post" class="beta-form-checkout">
                                 @csrf
-                                @method('put')
                                 <div class="box-body">
                                     <!-- Date range -->
                                     <h4> Mật khẩu cũ </h4>
