@@ -280,6 +280,8 @@
     <!-- Sticky Kit -->
     <script src="{{ asset('assets/vendor/sticky-kit/dist/sticky-kit.min.js') }}"></script>
 
+    <script src="//js.pusher.com/3.1/pusher.min.js"></script>
+
     <!-- Jarallax -->
     <script src="{{ asset('assets/vendor/jarallax/dist/jarallax.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jarallax/dist/jarallax-video.min.js') }}"></script>
