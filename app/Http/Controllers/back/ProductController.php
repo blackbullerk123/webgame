@@ -61,7 +61,6 @@ class ProductController extends Controller
     public function delete(Request $request)
     {
        $this->repository->productdestroy($request);
-    //    return redirect()->back()->with('information', 'Xoá thành công!');
         return response()->json([
             'success' => true
         ]);

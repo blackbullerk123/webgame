@@ -41,13 +41,15 @@ class SlideController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->repository->update($request ,$id);
+        $this->repository->update($request, $id);
         return redirect()->back()->with('information', 'Cập nhật thành công');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-       $this->repository->destroy($id);
-       return redirect()->back()->with('information', 'Xoá thành công!');
+        $this->repository->destroy($request);
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

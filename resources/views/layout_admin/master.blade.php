@@ -138,7 +138,7 @@
       $('#fImages').click();
   });
 
-  $("div.alert").delay(3000).slideUp();
+  $("div.alert").delay(2000).slideUp();
 </script>
 @yield('script')
 </body>

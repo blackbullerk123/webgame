@@ -47,7 +47,7 @@
                         <td><img width="150px" height="100" src="{{asset($slide->images)}}" class="thumbnail center"></td>
                         <td class="text-center">
                             <a href="{{ route('slide.edit', $slide->id) }}" class="edit"><i class="glyphicon glyphicon-pencil"></i> Sửa</a>
-                            <a href="{{ route('slide.delete', $slide->id) }}" style="margin-left: 10px" delete_id="#" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
+                            <a href="javascript:;" style="margin-left: 10px" delete_id="{{ $slide->id }}" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
                         </td>
                       </tr>
                       @endforeach
@@ -82,5 +82,37 @@
       'columnDefs': []
     })
   })
+  $(document).on('click', '.simpleConfirm', function(e) {
+            e.preventDefault();
+            var id = $(this).attr('delete_id');
+            var that = $(this);
+            swal.fire({
+                title: "Bạn có muốn xóa banner này không?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xóa ngay!',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        method: 'get',
+                        url: "{{ route('slide.delete') }}",
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            that.parent().parent().remove();
+                            Swal.fire(
+                                'Xóa!',
+                                'Xóa thành công.',
+                                'success'
+                            )
+                        }
+                    })
+                }
+            });
+        });
 </script>
 @stop

@@ -68,6 +68,24 @@ class FrontendController extends Controller
         return view('layout_index.page.all_games', compact('products'));
     }
 
+    public function viewAndroid()
+    {
+        $products = $this->repository->getProductToIndex();
+        return view('layout_index.page.view_android', compact('products'));
+    }
+
+    public function viewIos()
+    {
+        $products = $this->repository->getProductToIndex();
+        return view('layout_index.page.view_ios', compact('products'));
+    }
+
+    public function viewCard()
+    {
+        $products = $this->repository->getProductToIndex();
+        return view('layout_index.page.view_card', compact('products'));
+    }
+
     public function postLogin(Request $request)
     {
         $credentaials = array('email' => $request->email, 'password' => $request->password);

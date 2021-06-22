@@ -145,7 +145,7 @@ class ProductRepository
     {
           $product = Product::find($request->id);
           $package = Package::where('product_id', $product->id)->first();
-          if(!empty($product->image)){
+          if(file_exists($product->image)){
                unlink(public_path($product->image));
           }         
           $product->delete();
