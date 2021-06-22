@@ -7,6 +7,7 @@ use App\Http\Controllers\back\ProductController;
 use App\Http\Controllers\back\CheckoutController;
 use App\Http\Controllers\back\SlideController;
 use App\Http\Controllers\front\FrontendController;
+use App\Http\Controllers\front\LoginController;
 use App\Http\Controllers\user\UserController;
 
 /*
@@ -51,6 +52,8 @@ Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name(
 Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
 
 //Frontend Page
+Route::get('/social-login/redirect/{provider}', [LoginController::class,'redirectToProvider'])->name('social.login');
+Route::get('/social-login/{provider}/callback', [LoginController::class,'handleProviderCallback'])->name('social.callback');
 //Home
 Route::get('/',[FrontendController::class,'getIndex'])->name('index');
 //All games

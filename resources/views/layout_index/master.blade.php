@@ -149,7 +149,7 @@
                                 <div class="nk-gap"></div>
 
                                 <ul class="nk-social-links-2">
-                                    <li><a class="nk-social-facebook" href="#"><span class="fab fa-facebook"></span></a>
+                                    <li><a class="nk-social-facebook" href="{{ route('social.login',['facebook']) }}"><span class="fab fa-facebook"></span></a>
                                     </li>
                                     <li><a class="nk-social-google-plus" href="#"><span
                                                 class="fab fa-google-plus"></span></a></li>
