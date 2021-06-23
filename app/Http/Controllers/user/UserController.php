@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
 use App\Models\PointPurchase;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +39,8 @@ class UserController extends Controller
 
     public function orderHistory()
     {
-        return view('layout_index.customer.order_history');
+        $all_bill = Bill::where('user_id', Auth::user()->id)->paginate(10);
+        return view('layout_index.customer.order_history', compact('all_bill'));
     }
 
     public function profile($id)

@@ -27,6 +27,15 @@ class FrontendRepository
         $user->save();
     }
 
+    public function getViewAdroid()
+    {
+        $product = Product::all();
+        foreach($product->os_supported as $pro){
+            
+        }
+        return Product::where('created_at', 'desc')->paginate(8);
+    }
+
     public function getProductToIndex()
     {
         return Product::orderBy('created_at', 'desc')->paginate(8);

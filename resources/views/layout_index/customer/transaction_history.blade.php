@@ -19,7 +19,7 @@
                 @include('layout_index.customer.nav')
             </div>
             <div class="col-lg-9">
-                <h3 class="text-main-1">Waiting Bill</h3>
+                <h3 class="text-main-1">Transaction history</h3>
                 <div class="nk-gap"></div>
                 <table class="table table-striped custom-table float-left">
                     <thead>

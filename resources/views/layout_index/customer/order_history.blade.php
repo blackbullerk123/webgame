@@ -1,14 +1,14 @@
 @extends('layout_index.master')
 @section('content')
     <!--
-        START: Navbar Mobile
+                START: Navbar Mobile
 
-        Additional Classes:
-            .nk-navbar-left-side
-            .nk-navbar-right-side
-            .nk-navbar-lg
-            .nk-navbar-overlay-content
-    -->
+                Additional Classes:
+                    .nk-navbar-left-side
+                    .nk-navbar-right-side
+                    .nk-navbar-lg
+                    .nk-navbar-overlay-content
+            -->
 
     <div class="nk-gap-1"></div>
     <!-- END: Breadcrumbs -->
@@ -24,66 +24,36 @@
                 <table class="table table-striped custom-table float-left">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 15%;">Order</th>
-                            <th scope="col" style="width: 35%;">Name</th>
-                            <th scope="col" style="width: 15%;">Value</th>
-                            <th scope="col" style="width: 15%;">Point</th>
-                            <th scope="col" style="width: 15%;">Education</th>
-                            <th scope="col"></th>
+                            <th scope="col">Order</th>
+                            <th scope="col">ID order</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Point total</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Receive date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-                        <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
-                        </tr>
-
+                        @if (isset($all_bill))
+                            @foreach ($all_bill as $bill)
+                                <tr scope="row">
+                                    <td><button type="submit"
+                                            class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></td>
+                                    <td>{{ $bill->order_id }}</a></td>
+                                    <td>{{ $bill->product->name }}</td>
+                                    <td style="text-align: center">{{ $bill->product_total }}</td>
+                                    <td>{{ $bill->point_total }}</td>
+                                    <td>
+                                        @if ($bill->status == 0)
+                                            <p style="color: #FF0000"> Chưa thanh toán</p>
+                                        @else
+                                            <p style="color: #33FF33"> Đã thanh toán </p>
+                                        @endif
+                                    </td>
+                                    <td>{{ date('d/m/Y ', strtotime($bill->created_at)) }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -91,5 +61,4 @@
     </div>
 
     <div class="nk-gap-2"></div>
-
 @endsection
