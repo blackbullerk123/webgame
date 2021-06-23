@@ -30,6 +30,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
     Route::get('/admin/profile-transaction/{id}',[AdminController::class,'transaction'])->name('admin.profile.transaction');
     Route::post('/admin/profile/update/{id}',[AdminController::class,'update'])->name('admin.profile.update');
+    Route::post('/admin/profile/updateinfo/{id}',[AdminController::class,'updateInfo'])->name('admin.profile.updateinfo');
     Route::post('/admin/profile-transaction/update/{id}',[AdminController::class,'updateTransaction'])->name('admin.profile.transaction.update');
     //Product
     Route::get('/product',[ProductController::class,'index'])->name('product');

@@ -40,6 +40,7 @@ class SlideRepository
      }  
      
      $slide->name = $request->name;  
+     $slide->description = $request->content;  
      $slide->save();
    
     }
@@ -58,6 +59,7 @@ class SlideRepository
      }
      
      $slide->name = $request->name;  
+     $slide->description = $request->content;  
      $slide->save();
    
     }

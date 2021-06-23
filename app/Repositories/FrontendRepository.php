@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Bill;
 use App\Models\Product;
+use App\Models\Slide;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +30,11 @@ class FrontendRepository
     public function getProductToIndex()
     {
         return Product::orderBy('created_at', 'desc')->paginate(8);
+    }
+
+    public function getSlides()
+    {
+        return Slide::orderBy('created_at', 'desc')->limit(10)->get();
     }
 
     public function getDetailToProduct($id)

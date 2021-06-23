@@ -69,17 +69,17 @@
                     <div class="col-sm-3">
                         <p>Tên gói: </p>
                         <input name="package[]" id="package" type="text" class="form-control"
-                            placeholder="Tên gói. . . . . . . . ." >
+                            placeholder="Tên gói. . . . . . . . ." required>
                     </div>
                     <div class="col-sm-3">
                         <p>Giá trị: </p>
                         <input name="value[]" id="value" type="text" class="form-control"
-                            placeholder="Giá trị. . . . . . . . ." >
+                            placeholder="Giá trị. . . . . . . . ." required>
                     </div>
                     <div class="col-sm-3">
                         <p>Points: </p>
                         <input name="point[]" id="point" type="number" class="form-control"
-                            placeholder="Point. . . . . . . . ." >
+                            placeholder="Point. . . . . . . . ." required>
                     </div>
                     <div class="col-sm-3">
                         <p>Thao tác:</p>
