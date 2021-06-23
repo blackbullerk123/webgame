@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             <p class="col-md-3 col-form-label">Name:</p>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="Name . . . . ." name="name" value="{{ $user->name }}">
+                                <input type="text" class="form-control" placeholder="Name . . . . ." name="name" value="{{ $user->name }}" maxlength="30">
                                 @error('name')
                                     <p style="color: red"> {{ $message }} </p>
                                 @enderror 

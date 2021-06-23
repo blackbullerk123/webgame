@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:150',
             'game_opt' => 'required',
             'name' => 'required',           
             'content' => 'required',
@@ -37,6 +37,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên game',
+            'name.max' => 'Giới hạn 150 ký tự',
             'game_opt.required' => 'Vui lòng nhập hệ điều hành hổ trợ nạp',
             'content.required' => 'Vui lòng nhập mô tả game',
             'avatar.required' => 'Vui lòng chọn ảnh game',
