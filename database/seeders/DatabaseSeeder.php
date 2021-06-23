@@ -16,11 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(OSAndroidTableSeeder::class);
-        $this->call(IOSOSTableSeeder::class);
-        $this->call(AdminTableSeeder::class);
+        // $this->call(OSAndroidTableSeeder::class);
+        // $this->call(IOSOSTableSeeder::class);
+        // $this->call(AdminTableSeeder::class);
         $this->call(CardTableSeeder::class);
-        $this->call(TransactionTableSeeder::class);
+        $this->call(ProductTypeTableSeeder::class);
+        // $this->call(TransactionTableSeeder::class);
     }
 }
 
@@ -53,10 +54,23 @@ class CardTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('operating_system')->insert([
+        DB::table('product_types')->insert([
             [
-                'id' => '3',
+                'id' => '1',
                 'name' => 'Card',
+            ],
+        ]);
+    }
+}
+
+class ProductTypeTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('product_types')->insert([
+            [
+                'id' => '2',
+                'name' => 'Product',
             ],
         ]);
     }
@@ -87,3 +101,4 @@ class TransactionTableSeeder extends Seeder
         ]);
     }
 }
+

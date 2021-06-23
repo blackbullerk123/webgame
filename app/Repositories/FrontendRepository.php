@@ -27,13 +27,16 @@ class FrontendRepository
         $user->save();
     }
 
-    public function getViewAdroid()
+    public function getView($type)
     {
-        $product = Product::all();
-        foreach($product->os_supported as $pro){
-            
-        }
-        return Product::where('created_at', 'desc')->paginate(8);
+        return Product::select('name','os_supported','content_1','image')
+                        ->when(($type == 'Android'), function($query) use ($type)
+                        {
+                            $query->where(function ($q) use ($type)
+                            {
+                                $q->where('os_supported', $type);
+                            });
+                        });
     }
 
     public function getProductToIndex()
