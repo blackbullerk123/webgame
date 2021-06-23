@@ -50,7 +50,7 @@
                       @if(isset($bills))
                         @foreach($bills as $b)
                         <tr>
-                            <td><a href="#" class="btn btn-primary">Hoá đơn</a></td>
+                            <td><a href="{{ route('bill.show', $b->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $b->order_id }}</td>
                             <td>{{ $b->product->name }}</td>
                             <td>{{ $b->product_total }}</td>

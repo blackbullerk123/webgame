@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\back\AdminController;
 use App\Http\Controllers\back\BillController;
+use App\Http\Controllers\user\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\back\ProductController;
 use App\Http\Controllers\back\CheckoutController;
@@ -48,7 +49,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
     //Bills
     Route::get('/bills/{status}',[BillController::class,'index'])->name('bills');
-    Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
+    Route::get('/bill-show/{id}',[BillController::class,'show'])->name('bill.show');
 });
 
 

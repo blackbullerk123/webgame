@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(OSAndroidTableSeeder::class);
-        // $this->call(IOSOSTableSeeder::class);
-        // $this->call(AdminTableSeeder::class);
+        $this->call(OSAndroidTableSeeder::class);
+        $this->call(IOSOSTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
         $this->call(TransactionTableSeeder::class);
     }
 }

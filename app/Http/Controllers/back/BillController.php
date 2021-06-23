@@ -22,8 +22,12 @@ class BillController extends Controller
         return view('layout_admin.bills.index', compact('bills', 'current_date'));
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('layout_admin.bills.show');
+        
+        $admin = $this->repository->getAdminInfo();
+        $user = $this->repository->getUserInfo($id);
+        $bill = $this->repository->getBill($id);
+        return view('layout_admin.bills.show', compact('user', 'admin', 'id', 'bill'));
     }
 }
