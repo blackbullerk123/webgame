@@ -42,7 +42,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
                                     <input id="name" name="name" type="text" class="form-control"
-                                        value="{{ isset($admin) ? $admin->name : old('name') }}" style="width: 700px;">
+                                        value="{{ isset($admin) ? $admin->name : old('name') }}" style="width: 700px;" maxlength="30">
                                 </div>
                                 <h4><b> Số điện thoại : </b></h4>
                                 <div class="input-group">

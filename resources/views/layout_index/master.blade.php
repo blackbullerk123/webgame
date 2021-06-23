@@ -151,10 +151,10 @@
                                 <ul class="nk-social-links-2">
                                     <li><a class="nk-social-facebook" href="{{ route('social.login',['facebook']) }}"><span class="fab fa-facebook"></span></a>
                                     </li>
-                                    <li><a class="nk-social-google-plus" href="#"><span
+                                    {{-- <li><a class="nk-social-google-plus" href="#"><span
                                                 class="fab fa-google-plus"></span></a></li>
                                     <li><a class="nk-social-twitter" href="#"><span class="fab fa-twitter"></span></a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
