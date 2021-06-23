@@ -110,8 +110,17 @@
     <script src="{{ asset('adminlte2/dist/js/demo.js') }}"></script>
     
     <script>
+    
+     
   $(document).ready(function() {
     $('#example').DataTable();
+    $('#datetimepicker').datepicker({
+      autoclose: true,
+      endDate: new Date(),
+      format: "dd/mm/yyyy",
+    });
+
+    $('#datetimepicker').datepicker('setDate', 'today');
   });
   $(function() {
       // Summernote

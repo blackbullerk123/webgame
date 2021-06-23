@@ -21,6 +21,9 @@ class UserMiddleware
             if(Auth::user()->role == 0){
                 return redirect(route('index'));
             }
+            return $next($request);
+        }else{
+            return redirect(route('index'));
         }
         return $next($request);
     }

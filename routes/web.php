@@ -48,7 +48,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name('slide.update');
     Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
     //Bills
-    Route::get('/bills',[BillController::class,'index'])->name('bills');
+    Route::get('/bills/{status}',[BillController::class,'index'])->name('bills');
     Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
 });
 
