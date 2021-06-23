@@ -25,31 +25,45 @@ Route::get('/', function () {
     return redirect()->route('index');
 
 });
-//Admin
-Route::get('/admin',[AdminController::class,'index'])->name('admin');
-Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
-Route::get('/admin/profile-transaction/{id}',[AdminController::class,'transaction'])->name('admin.profile.transaction');
-Route::post('/admin/profile/update/{id}',[AdminController::class,'update'])->name('admin.profile.update');
-Route::post('/admin/profile-transaction/update/{id}',[AdminController::class,'updateTransaction'])->name('admin.profile.transaction.update');
+Route::group(['middleware' => 'user'], function () {
+    //Admin
+    Route::get('/admin',[AdminController::class,'index'])->name('admin');
+    Route::get('/admin/profile{id}',[AdminController::class,'profile'])->name('admin.profile');
+    Route::get('/admin/profile-transaction/{id}',[AdminController::class,'transaction'])->name('admin.profile.transaction');
+    Route::post('/admin/profile/update/{id}',[AdminController::class,'update'])->name('admin.profile.update');
+    Route::post('/admin/profile-transaction/update/{id}',[AdminController::class,'updateTransaction'])->name('admin.profile.transaction.update');
+    //Product
+    Route::get('/product',[ProductController::class,'index'])->name('product');
+    Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
+    Route::post('/product-create/save',[ProductController::class,'store'])->name('product.store');
+    Route::get('/product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+    Route::post('/product-edit/update/{id}',[ProductController::class,'update'])->name('product.update');
+    Route::get('/product-delete',[ProductController::class,'delete'])->name('product.delete');
+    Route::post('/product-edit/delete-package/{id}',[ProductController::class,'deletePackage'])->name('product.package.update');
+    //Slide
+    Route::get('/banner',[SlideController::class,'index'])->name('slide');
+    Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
+    Route::post('/banner-create/save',[SlideController::class,'store'])->name('slide.store');
+    Route::get('/banner-edit/{id}',[SlideController::class,'edit'])->name('slide.edit');
+    Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name('slide.update');
+    Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
+    //Bills
+    Route::get('/bills',[BillController::class,'index'])->name('bills');
+    Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
+});
 
-//Product
-Route::get('/product',[ProductController::class,'index'])->name('product');
-Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
-Route::post('/product-create/save',[ProductController::class,'store'])->name('product.store');
-Route::get('/product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
-Route::post('/product-edit/update/{id}',[ProductController::class,'update'])->name('product.update');
-Route::get('/product-delete',[ProductController::class,'delete'])->name('product.delete');
-Route::post('/product-edit/delete-package/{id}',[ProductController::class,'deletePackage'])->name('product.package.update');
-//Bills
-Route::get('/bills',[BillController::class,'index'])->name('bills');
-Route::get('/bills-show',[BillController::class,'show'])->name('bills.show');
-//Slide
-Route::get('/banner',[SlideController::class,'index'])->name('slide');
-Route::get('/banner-create',[SlideController::class,'create'])->name('slide.create');
-Route::post('/banner-create/save',[SlideController::class,'store'])->name('slide.store');
-Route::get('/banner-edit/{id}',[SlideController::class,'edit'])->name('slide.edit');
-Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name('slide.update');
-Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
+
+Route::group(['middleware' => 'login'], function () {
+    //Page Customer 
+    Route::get('/order',[UserController::class,'order'])->name('order');
+    Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
+    Route::post('/purchase-points/{id}/type/{type}',[UserController::class,'updatePoints'])->name('purchase_points.update');
+    Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
+    Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
+    Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
+    Route::post('/profile/update/{id}',[UserController::class,'updateInfo'])->name('profile.update.info');
+    Route::post('/profile/change/{id}',[UserController::class,'changePass'])->name('profile.change_pass');
+});
 
 //Frontend Page
 Route::get('/social-login/redirect/{provider}', [LoginController::class,'redirectToProvider'])->name('social.login');
@@ -83,12 +97,4 @@ Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
-//Page Customer 
-Route::get('/order',[UserController::class,'order'])->name('order');
-Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
-Route::post('/purchase-points/{id}/type/{type}',[UserController::class,'updatePoints'])->name('purchase_points.update');
-Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
-Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
-Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
-Route::post('/profile/update/{id}',[UserController::class,'updateInfo'])->name('profile.update.info');
-Route::post('/profile/change/{id}',[UserController::class,'changePass'])->name('profile.change_pass');
+
