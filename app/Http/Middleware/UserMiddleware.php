@@ -18,15 +18,10 @@ class UserMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->email == 'admin@webgame.com'){
-                return redirect(route('admin'));
-            }else {
+            if(Auth::user()->role == 0){
                 return redirect(route('index'));
             }
-            return $next($request);
-        }else {
-            return redirect(route('index'));
         }
-            return $next($request);   
+        return $next($request);
     }
 }
