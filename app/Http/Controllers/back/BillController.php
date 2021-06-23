@@ -30,4 +30,5 @@ class BillController extends Controller
         $bill = $this->repository->getBill($id);
         return view('layout_admin.bills.show', compact('user', 'admin', 'id', 'bill'));
     }
+    
 }
