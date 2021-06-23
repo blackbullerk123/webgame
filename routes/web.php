@@ -8,6 +8,7 @@ use App\Http\Controllers\back\CheckoutController;
 use App\Http\Controllers\back\SlideController;
 use App\Http\Controllers\front\FrontendController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\user\UserController;
 
 /*
 |--------------------------------------------------------------------------
