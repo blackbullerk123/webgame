@@ -44,14 +44,12 @@
                                     <input id="name" name="name" type="text" class="form-control"
                                         value="{{ isset($admin) ? $admin->name : old('name') }}" style="width: 700px;">
                                 </div>
-                                <br>
                                 <h4><b> Số điện thoại : </b></h4>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-phone fa-lg"></i></span>
                                     <input id="phone" name="phone" type="text" class="form-control"
                                         value="{{ isset($admin) ? $admin->phone : old('phone') }}" style="width: 700px;">
                                 </div>
-                                <br>
                                 <h4><b> Email : </b></h4>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa-lg"></i></span>
@@ -59,7 +57,6 @@
                                         value="{{ isset($admin) ? $admin->email : old('name') }}" style="width: 700px;"
                                         disabled>
                                 </div>
-                                <br>
                                 <div class="input-group">
                                     <h4><b> Ảnh :</b>
                                         <h4>
@@ -87,7 +84,7 @@
                             <div class="box-body">
                                 <!-- Date range -->
                                 <h4><b> Mật khẩu cũ: </b></h4>
-                                <div class="input-group aa ">
+                                <div class="input-group ">
                                     <span class="input-group-addon"><i class="fa fa-user fa-lg"></i></span>
                                     <input required name="password_old" type="password" class="form-control"
                                         placeholder="Mật khẩu cũ. . . . . . . . ." style="width: 700px;">
@@ -96,7 +93,7 @@
                                     <p style="color: red"> {{ $message }} </p>
                                 @enderror
                                 <h4><b> Mật khẩu mới:</b></h4>
-                                <div class="input-group aa ">
+                                <div class="input-group ">
                                     <span class="input-group-addon"><i class="fa fa-user fa-lg"></i></span>
                                     <input required name="new_password" type="password" class="form-control"
                                         placeholder="Mật khẩu mới. . . . . . . . ." style="width: 700px;">
@@ -105,7 +102,7 @@
                                     <p style="color: red"> {{ $message }} </p>
                                 @enderror
                                 <h4><b> Xác nhận mật khẩu: </b></h4>
-                                <div class="input-group aa">
+                                <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa-lg"></i></span>
                                     <input required name="re_password" type="password" class="form-control"
                                         placeholder="Xác nhận mật khẩu. . . . . . . . ." style="width: 700px;">
