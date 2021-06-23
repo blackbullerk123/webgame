@@ -3,13 +3,23 @@
 namespace App\Http\Controllers\back;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
+use App\Repositories\BillRepository;
 
 class BillController extends Controller
 {
-    public function index()
+    protected $repository;
+
+    public function __construct(BillRepository $repository)
     {
-        return view('layout_admin.bills.index');
+        $this->repository = $repository;
+    }
+
+    public function index($status)
+    {   
+        $bills = $this->repository->getIndex($status);
+        $current_date = date("d/m/Y");
+        return view('layout_admin.bills.index', compact('bills', 'current_date'));
     }
 
     public function show()

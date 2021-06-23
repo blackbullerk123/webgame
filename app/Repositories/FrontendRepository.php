@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class FrontendRepository
 {
@@ -65,11 +66,12 @@ class FrontendRepository
         $bill->product_id = $product_info->product_id;
         $bill->user_id = Auth::user()->id;
         $bill->description = $package_selected[0];
+        $bill->order_id = $package_selected[2] * $request->number.''.Str::random(4);
         $bill->product_total = $request->number;
-        $bill->bill_total = $package_selected[2] * $request->number;
+        $bill->point_total = $package_selected[2] * $request->number;
         $bill->save();
 
-        $point_user->point = $point_user->point - $bill->bill_total;
+        $point_user->point = $point_user->point - $bill->point_total;
         $point_user->save();     
     }
     

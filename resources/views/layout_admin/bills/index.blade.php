@@ -22,32 +22,54 @@
                
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body"> 
+            <form id="form_data"> 
+              <div class="table-responsive">
+              <div class="col-sm-3" style="padding-left: 0px;padding-right: 10%; margin-bottom: -50px; margin-left: 70%;">
+                <div class="input-group date"  width="">
+                  <input type="text" name="datepicker" id="datetimepicker"class="form-control">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+                </div>
+            </div>
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Hoá đơn</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tên đơn hàng</th>
+                            <th>Số lượng đơn hàng</th>
+                            <th>Tổng số point</th>
+                            
+                            <th>Trạng thái</th>
+                            <th>Ngày nhận đơn</th>
                         </tr>
                     </thead>
                     <tbody>
+                      @if(isset($bills))
+                        @foreach($bills as $b)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td class="text-center">
-                                <a href="#" edit_id="" class="edit"><i class="fa fa-eye"></i> Xem</a>
-                                <a href="#" style="margin-left: 10px" delete_id="#" class="simpleConfirm"><i class="glyphicon glyphicon-trash"></i> Xóa</a>
-                            </td>
+                            <td><a href="#" class="btn btn-primary">Hoá đơn</a></td>
+                            <td>{{ $b->order_id }}</td>
+                            <td>{{ $b->product->name }}</td>
+                            <td>{{ $b->product_total }}</td>
+                            <td>{{ number_format($b->point_total) }}</td>
+                            <td>
+                            @if($b->status == 0)
+                            <button class="btn btn-warning form-control">Chưa thanh toán</button>
+                            @else
+                            <button class="btn btn-success form-control">Đã thanh toán</button>
+                            @endif
+                            </td> 
+                            <td>{{date('d/m/Y ', strtotime($b->created_at))}}</td>                                                   
                         </tr>
+                        @endforeach
+                      @endif
                     </tbody>
                 </table>
+              </div>
+              </form>  
             </div>
             <!-- /.box-body -->
           </div>

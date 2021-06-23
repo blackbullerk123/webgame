@@ -18,7 +18,7 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('bills') }}">
+              <a href="{{ route('bills', '0') }}">
                 <i class="fa fa-inbox"></i> <span>Hóa đơn</span>
               </a>
             </li>

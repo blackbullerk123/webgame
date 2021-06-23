@@ -50,6 +50,7 @@
                 <div class="nk-widget">
                     <h4 class="nk-widget-title"><span class="text-main-1">Purchase</span> game mobile iOS & Android</h4>
                 </div>
+               <p><a href="{{ route('service') }}" target="_blank">Terms of Service</a> and <a href="{{ route('privacy') }}" target="_blank">Privacy Policy</a></p>
             </div>
         </div>
         <div class="nk-gap-3"></div>
