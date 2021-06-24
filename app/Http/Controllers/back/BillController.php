@@ -18,7 +18,9 @@ class BillController extends Controller
     public function index(Request $request)
     {   
         $bills = $this->repository->getIndex($request);
-        return view('layout_admin.bills.index', compact('bills'));
+        $date = $request->date;
+        $status = $request->status;
+        return view('layout_admin.bills.index', compact('bills', 'date', 'status'));
     }
 
     public function show($id)

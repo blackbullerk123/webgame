@@ -33,9 +33,19 @@
                 </div>
                 <div class="form-group col-sm-2">
                   <select class="form-control" name="status">
-                    <option value="0">Chưa thanh toán</option>
+                    @if($status == 0)
+                    <option value="0" selected>Chưa thanh toán</option>
                     <option value="1">Đã thanh toán</option>
                     <option value="2">Đã huỷ</option>
+                    @elseif($status == 1)
+                    <option value="0">Chưa thanh toán</option>
+                    <option value="1"selected>Đã thanh toán</option>
+                    <option value="2">Đã huỷ</option>
+                    @elseif($status == 2)
+                    <option value="0">Chưa thanh toán</option>
+                    <option value="1">Đã thanh toán</option>
+                    <option value="2" selected>Đã huỷ</option>
+                    @endif
                   </select>
                 </div>
                 <div class="input-group date col-sm-2">  
@@ -117,5 +127,23 @@
       'columnDefs': []
     })
   })
+
+  $(document).ready(function() {
+    $('#example').DataTable();
+    $('#datetimepicker').datepicker({
+      autoclose: true,
+      endDate: new Date(),
+      format: "dd/mm/yyyy",
+    });
+    var date = '{{ $date }}'
+    console.log(date);
+    if (date == '') {
+      $('#datetimepicker').datepicker('setDate', 'today');
+    }
+    else
+    {
+      $('#datetimepicker').datepicker('setDate', date);
+    }
+  });
 </script>
 @stop
