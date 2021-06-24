@@ -45,7 +45,7 @@
                             <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
                                 transfer content recorded in the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
-                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'bank']) }}" method="post"enctype="multipart/form-data">
+                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'Bank']) }}" method="post"enctype="multipart/form-data">
                                @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
@@ -88,7 +88,7 @@
                             <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
                                 the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
-                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'momo']) }}" method="post"enctype="multipart/form-data">
+                            <form action="{{ route('purchase_points.update', [Auth::user()->id, 'Momo']) }}" method="post"enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>

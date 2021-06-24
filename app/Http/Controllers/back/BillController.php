@@ -36,8 +36,4 @@ class BillController extends Controller
         return redirect()->back();
     }
 
-    public function billSearch(Request $request)          
-    {
-        dd($request->all());
-    }
 }

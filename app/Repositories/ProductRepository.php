@@ -103,7 +103,7 @@ class ProductRepository
 
       $img_thumbnail = $request->thumbnail;
      if (isset($img_thumbnail)) {
-     //     unlink(public_path($product->thumbnail));
+         unlink(public_path($product->thumbnail));
          $img_name_thumbnail = 'upload/product/thumbnail/' . $date.'/'.Str::random(10).rand().'.'.$img_thumbnail->getClientOriginalExtension();
          $destinationPath = public_path('upload/product/thumbnail/' . $date);
          $img_thumbnail->move($destinationPath, $img_name_thumbnail);

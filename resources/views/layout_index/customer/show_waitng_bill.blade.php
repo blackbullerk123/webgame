@@ -7,6 +7,8 @@
   <title>Show Bill</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -124,7 +126,9 @@
             <thead>
             <tr>
               <th>Order ID #</th> 
-              <th>Description</th>
+              <th style="width: 25%">Description</th>
+              <th>Method</th>
+              <th>Status</th>
               <th>Subtotal</th>
             </tr>
             </thead>
@@ -132,6 +136,8 @@
             <tr>
               <td>{{ $point_purchase->order_id }}</td>
               <td>{{ $point_purchase->description }}</td>
+              <td>{{ $point_purchase->method }}</td>
+              <td>{{ $point_purchase->status == 0 ? 'Pending' : '' }}</td>
               <td>{{ number_format($point_purchase->point_purchase) }} Point</td>
             </tr>
             </tbody>
@@ -143,13 +149,28 @@
 
       <div class="row">
         <!-- /.col -->
-        <div class="col-xs-6">
-          @if(isset($admin_trans))
-          <p class="lead">Billing Information</p>
+        <div class="col-xs-4">
+          @if($point_purchase->method == 'Purchase point')
+          @if(explode(',',$point_purchase->description)[1] == 'Bank' )
+          <p class="lead">Transfer information</p>         
           <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
             {{ explode(',',$admin_trans->transaction_type)[1] }} : Viecombank <br>
             Account number: {{ explode(',',$admin_trans->transaction_info)[1] }} <br>
             Name: {{ $admin->name }}
+          </p>
+          @endif
+          @if(explode(',',$point_purchase->description)[1] == 'Momo' )
+          <p class="lead">Transfer information</p>         
+          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+            {{ explode(',',$admin_trans->transaction_type)[0] }} : {{ $admin->phone }} <br>
+            Name: {{ $admin->name }}
+          </p>
+          @endif
+          @endif
+          @if($point_purchase->method == 'Withdraw point')
+          <p class="lead">Transfer information</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+            {{ $point_purchase->description }}
           </p>
           @endif
         </div>

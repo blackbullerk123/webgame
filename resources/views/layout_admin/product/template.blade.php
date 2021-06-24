@@ -13,7 +13,7 @@
     <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
         <input id="short_des" name="short_des" type="text" class="form-control" value="{{ isset($product) ? $product->short_des : old('name') }}"
-            placeholder="Mô tả . . . . . . . . ." style="width: 760px;" maxlength="255" >
+            placeholder="Mô tả . . . . . . . . ." style="width: 760px;">
     </div>
     @error('short_des')
         <div style="color: red"> {{ $message }} </div>

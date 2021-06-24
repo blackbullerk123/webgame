@@ -25,7 +25,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Bill</th>
-                            <th scope="col">Type</th>
+                            <th scope="col">ID Order</th>
                             <th scope="col">Method</th>
                             <th scope="col">Point</th>
                             <th scope="col">Status</th>
@@ -34,17 +34,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if(isset($point_purchase))
+                        @foreach($point_purchase as $point)
                         <tr scope="row">
-
-
-                            <td> 1392</td>
-                            <td><a href="#">James Yates</a></td>
-                            <td>0.99$</td>
-                            <td>19,800</td>
-                            <td><a href="#" class="more">Details</a></td>
-
+                            <td><a href="{{ route('waiting.bill.show',$point->id) }}" target="_blank"> <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
+                            <td>{{ $point->order_id }}</td>
+                            <td>{{ $point->method }}</td>
+                            <td>{{ $point->point_purchase }}</td>
+                            @if($point->status == 0)
+                            <td>Pending</td>
+                            @endif
+                            @if($point->status == 1)
+                            <td>Paid</td>
+                            @endif
+                            @if($point->status == 2)
+                            <td>Cancel</td>
+                            @endif
+                            <td>{{date('d-m-Y', strtotime(str_replace('/', '-', $point->created_at )))}}</td>
                         </tr>
-
+                        @endforeach                    
+                        @endif
                     </tbody>
                 </table>
             </div>

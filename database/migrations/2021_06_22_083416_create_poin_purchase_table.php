@@ -20,6 +20,7 @@ class CreatePoinPurchaseTable extends Migration
             $table->string('description')->nullable();
             $table->string('order_id')->nullable();
             $table->string('status')->default('0');
+            $table->string('method')->nullable();
             $table->timestamps();
         });
     }

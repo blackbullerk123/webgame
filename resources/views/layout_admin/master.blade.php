@@ -7,6 +7,8 @@
   <title>Quản Lý Games</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">

@@ -1,14 +1,14 @@
 @extends('layout_index.master')
 @section('content')
     <!--
-                START: Navbar Mobile
+                    START: Navbar Mobile
 
-                Additional Classes:
-                    .nk-navbar-left-side
-                    .nk-navbar-right-side
-                    .nk-navbar-lg
-                    .nk-navbar-overlay-content
-            -->
+                    Additional Classes:
+                        .nk-navbar-left-side
+                        .nk-navbar-right-side
+                        .nk-navbar-lg
+                        .nk-navbar-overlay-content
+                -->
 
     <div class="nk-gap-1"></div>
     <!-- END: Breadcrumbs -->
@@ -37,19 +37,22 @@
                         @if (isset($all_bill))
                             @foreach ($all_bill as $bill)
                                 <tr scope="row">
-                                    <td><a href="{{ route('bill.show', $bill->id) }}" target="_blank"><button type="submit"
-                                            class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
+                                    <td><a href="{{ route('bill.show', $bill->id) }}" target="_blank"><button
+                                                type="submit"
+                                                class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
                                     <td>{{ $bill->order_id }}</a></td>
                                     <td>{{ $bill->product->name }}</td>
                                     <td style="text-align: center">{{ $bill->product_total }}</td>
                                     <td>{{ $bill->point_total }}</td>
-                                    <td>
-                                            {{-- @if ($bill->status == 0)
-                                                <p style="color: #FF0000"> Chưa thanh toán</p>
-                                            @else
-                                                <p style="color: #33FF33"> Đã thanh toán </p>
-                                            @endif --}}
-                                    </td>
+                                    @if ($bill->status == 0)
+                                        <td>Pending</td>
+                                    @endif
+                                    @if ($bill->status == 1)
+                                        <td>Paid</td>
+                                    @endif
+                                    @if ($bill->status == 2)
+                                        <td>Cancel</td>
+                                    @endif
                                     <td>{{ date('d/m/Y ', strtotime($bill->created_at)) }}</td>
                                 </tr>
                             @endforeach

@@ -87,22 +87,69 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="{{ route('withdraw_points.update',Auth::user()->id) }}" id="withdraw_form">
+                <input type="hidden" name="_token" id="csrf-token" />
             <div class="modal-body">
-                <div class="form-group"> <label>Number of withdrawal points</label> <input class="form-control"
-                        name="amount" id="amount" type="number" step="1" placeholder=" 50000 "> </div>
+                <div class="form-group"> <label>Number of withdrawal points</label> 
+                    <input class="form-control" name="amount" id="amount" type="number" step="1" placeholder=" 50000 "> 
+                        <p id="error-amount" style="color:red"></p>
+                </div>
                 <div class="form-group"> <label>Notes</label>
                     <div class="controls">
-                        <textarea name="note" id="note" class="form-control" rows="5">Tên tài khoản :  / 
-Số tài khoản: / 
-Tên ngân hàng : /                     
+                        <textarea name="note" id="note" class="form-control" rows="5">Tên tài khoản :     / 
+Số tài khoản:    / 
+Tên ngân hàng :    /                     
                     </textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Withdraw Points</button>
+                <button type="submit" class="btn btn-primary">Withdraw Points</button>
             </div>
         </div>
+    </form>
     </div>
 </div>
 <!-- END: Now Playing -->
+@section('script')
+<script>
+            $("#withdraw_form").submit(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('action');
+            var amount = $("#amount").val();
+            var note = $("#note").val();
+            $.ajax({
+                url: url,
+                type: "post",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    amount: amount,
+                    note: note,
+                },
+                success: function(response) {   
+                    if(response.success == true){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Logged in successfully',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                        $('#exampleModal').modal('hide');
+                        window.location.reload();
+                    }
+                },
+                error: function(response) {
+                    $('#withdraw_form').find('input').each(function() {
+                        $(this).next('p').text('');
+                    });
+                    var data = response.responseJSON;
+                    if ($.isEmptyObject(data.errors) == false) {
+                        $.each(data.errors, function(key, value) {
+                            $('#withdraw_form').find('input[name="' + key + '"]').next('p').text(value[0]);
+                        });
+                    }
+                }
+            });
+        });
+</script>
+@endsection

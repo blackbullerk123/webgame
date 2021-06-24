@@ -75,8 +75,4 @@ class BillRepository
         }
     }
 
-    public function search()
-    {
-        
-    }
 }

@@ -34,7 +34,8 @@ class UserController extends Controller
 
     public function transactionHistory()
     {
-        return view('layout_index.customer.transaction_history');
+        $point_purchase = PointPurchase::where('user_id',Auth::user()->id)->paginate(10);
+        return view('layout_index.customer.transaction_history', compact('point_purchase'));
     }
 
     public function orderHistory()
@@ -98,6 +99,26 @@ class UserController extends Controller
     {
         $this->repository->pointPurchase($request, $id, $type);
         return redirect(route('order'));
+    }
+
+    public function pointWithdraw(Request $request, $id)
+    {
+        $this->validate(
+            $request,
+            [
+                'amount' => 'required',
+                'note' => 'required',
+            ],
+            [
+                'amount.required' => 'Please enter the amount to withdraw',              
+                'amount.min' => 'Withdrawal must be more than 50000',
+                'note.required' => 'Please enter information',
+            ]
+        );
+        $this->repository->pointWithdraw($request, $id);
+        return response()->json([
+            'success' => true
+        ],200);
     }
 
     public function WaitingBillShow($id)
