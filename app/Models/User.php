@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Bill::class,'user_id', 'id');
     }
+
+    public function admin_transaction()
+    {
+        return $this->belongsTo(AdminTransaction::class,'user_id', 'id');
+    }
 }

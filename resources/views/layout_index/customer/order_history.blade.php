@@ -37,18 +37,18 @@
                         @if (isset($all_bill))
                             @foreach ($all_bill as $bill)
                                 <tr scope="row">
-                                    <td><button type="submit"
-                                            class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></td>
+                                    <td><a href="{{ route('bill.show', $bill->id) }}" target="_blank"><button type="submit"
+                                            class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
                                     <td>{{ $bill->order_id }}</a></td>
                                     <td>{{ $bill->product->name }}</td>
                                     <td style="text-align: center">{{ $bill->product_total }}</td>
                                     <td>{{ $bill->point_total }}</td>
                                     <td>
-                                        @if ($bill->status == 0)
-                                            <p style="color: #FF0000"> Chưa thanh toán</p>
-                                        @else
-                                            <p style="color: #33FF33"> Đã thanh toán </p>
-                                        @endif
+                                            {{-- @if ($bill->status == 0)
+                                                <p style="color: #FF0000"> Chưa thanh toán</p>
+                                            @else
+                                                <p style="color: #33FF33"> Đã thanh toán </p>
+                                            @endif --}}
                                     </td>
                                     <td>{{ date('d/m/Y ', strtotime($bill->created_at)) }}</td>
                                 </tr>

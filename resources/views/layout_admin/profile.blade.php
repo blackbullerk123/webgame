@@ -23,7 +23,6 @@
                                 alt="User Image" />
                             <p>
                                 {{ $admin->name }}
-                                {{-- <small>({{$user->role->display_name }})</small> --}}
                             </p>
                             <h1 class="box-title" style="font-size: 30px">Thông tin tài khoản</h1>
                         </div>

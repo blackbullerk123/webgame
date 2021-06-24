@@ -81,7 +81,7 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-globe"></i> Webgame
-            <small class="pull-right">Date: {{date('d/m/Y ', strtotime($bill->created_at))}}</small>
+            <small class="pull-right">Date: {{date('d/m/Y ', strtotime($point_purchase->created_at))}}</small>
           </h2>
         </div>
         <!-- /.col -->
@@ -109,8 +109,8 @@
         <div class="col-sm-4 invoice-col">
           <b>Invoice #{{ $id }}</b><br>
           <br>
-          <b>Order ID:</b> {{ $bill->order_id }}<br>
-          <b>Payment Due:</b> {{date('d/m/Y ', strtotime($bill->created_at))}}<br>
+          <b>Order ID:</b> {{ $point_purchase->order_id }}<br>
+          <b>Payment Due:</b> {{date('d/m/Y ', strtotime($point_purchase->created_at))}}<br>
           <b>Account:</b> {{$user->id}}
         </div>
         <!-- /.col -->
@@ -123,8 +123,6 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <th>Qty</th>
-              <th>Product</th>
               <th>Order ID #</th> 
               <th>Description</th>
               <th>Subtotal</th>
@@ -132,11 +130,9 @@
             </thead>
             <tbody>
             <tr>
-              <td>{{ $bill->product_total }}</td>
-              <td>{{ $bill->product->name }}</td>
-              <td>{{ $bill->order_id }}</td>
-              <td>{{ $bill->description }}</td>
-              <td>{{ number_format($bill->point_total) }} Point</td>
+              <td>{{ $point_purchase->order_id }}</td>
+              <td>{{ $point_purchase->description }}</td>
+              <td>{{ number_format($point_purchase->point_purchase) }} Point</td>
             </tr>
             </tbody>
           </table>
@@ -147,14 +143,24 @@
 
       <div class="row">
         <!-- /.col -->
+        <div class="col-xs-6">
+          @if(isset($admin_trans))
+          <p class="lead">Billing Information</p>
+          <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+            {{ explode(',',$admin_trans->transaction_type)[1] }} : Viecombank <br>
+            Account number: {{ explode(',',$admin_trans->transaction_info)[1] }} <br>
+            Name: {{ $admin->name }}
+          </p>
+          @endif
+        </div>
         <div class="col-xs-6 pull-right">
-          <p class="lead">Amount Due {{date('d/m/Y ', strtotime($bill->created_at))}}</p>
+          <p class="lead">Amount Due {{date('d/m/Y ', strtotime($point_purchase->created_at))}}</p>
 
           <div class="table-responsive">
             <table class="table">
               <tr>
                 <th style="width:50%">Subtotal:</th>
-                <td>{{ number_format($bill->point_total) }}</td>
+                <td>{{ number_format($point_purchase->point_purchase) }}</td>
               </tr>
               <tr>
                 <th>Tax</th>
@@ -166,7 +172,7 @@
               </tr>
               <tr>
                 <th>Total:</th>
-                <td>{{ number_format($bill->point_total) }}</td>
+                <td>{{ number_format($point_purchase->point_purchase) }}</td>
               </tr>
             </table>
           </div>
@@ -242,47 +248,6 @@
     <script src="{{ asset('adminlte2/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte2/dist/js/demo.js') }}"></script>
-    
-    <script>
-    
-     
-  $(document).ready(function() {
-    $('#example').DataTable();
-    $('#datetimepicker').datepicker({
-      autoclose: true,
-      endDate: new Date(),
-      format: "dd/mm/yyyy",
-    });
 
-    $('#datetimepicker').datepicker('setDate', 'today');
-  });
-  $(function() {
-      // Summernote
-      $('#summernote').summernote()
-      // Select2
-      $('.select2').select2()
-
-      $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-  })
-</script>
-<script>
-  function changeImg(input) {
-      if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function(e) {
-              $('#img').attr('src', e.target.result);
-          }
-          reader.readAsDataURL(input.files[0]);
-      }
-  }
-  $('#img').click(function() {
-      $('#fImages').click();
-  });
-
-  $("div.alert").delay(2000).slideUp();
-</script>
-@yield('script')
 </body>
 </html>

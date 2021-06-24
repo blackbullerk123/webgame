@@ -19,7 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- START: Styles -->
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet"
         type="text/css">
@@ -328,6 +327,7 @@
     <script src="{{ asset('assets/js/goodgames.min.js') }}"></script>
     <script src="{{ asset('assets/js/goodgames-init.js') }}"></script>
     <!-- END: Scripts -->
+
     <script>
         $.ajaxSetup({
             headers: {

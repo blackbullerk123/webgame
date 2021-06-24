@@ -9,6 +9,7 @@ use App\Http\Controllers\back\CheckoutController;
 use App\Http\Controllers\back\SlideController;
 use App\Http\Controllers\front\FrontendController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\front\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ Route::group(['middleware' => 'login'], function () {
 });
 
 Route::get('/bill-show/{id}',[BillController::class,'show'])->name('bill.show');
+Route::get('/waiting-bill-show/{id}',[UserController::class,'WaitingBillShow'])->name('waiting.bill.show');
 
 //Frontend Page
 Route::get('/social-login/redirect/{provider}', [LoginController::class,'redirectToProvider'])->name('social.login');

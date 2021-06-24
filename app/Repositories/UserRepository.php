@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\AdminTransaction;
 use App\Models\Bill;
 use App\Models\PointPurchase;
 use App\Models\User;
@@ -53,6 +54,31 @@ class UserRepository
         $point_purchase->order_id = $request->amount_dep.''.Str::random(4);
         $point_purchase->save();
 
+    }
+
+    public function getAdminInfo()
+    {     
+        $admin_info = User::where('role', '1')->first();
+        return $admin_info;
+    }
+
+    public function getAdminTrans()
+    {     
+        $admin_trans = AdminTransaction::where('user_id', '1')->first();
+        return $admin_trans;
+    }
+
+    public function getUserInfo($id)
+    {     
+        $user_id = PointPurchase::where('id', $id)->value('user_id');
+        $user_info = User::where('id', $user_id)->first();
+        return $user_info;
+    }
+
+    public function getPointPurchase($id)
+    {        
+        $point_purchase = PointPurchase::find($id);
+        return $point_purchase;
     }
 
 }

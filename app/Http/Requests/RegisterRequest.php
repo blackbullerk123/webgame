@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' =>'required|max:30|regex:/(^[\pL0-9 ]+$)/u',
             'email' =>'required|email|max:50|unique:users,email',
-            'phone' => 'required|numeric',
+            'phone' => 'required|numeric|max:15|unique:users,phone',
             'password' =>'required|max:25|min:6',
             'confirm_password' => 'required|same:password',
         ];
@@ -42,7 +42,9 @@ class RegisterRequest extends FormRequest
             'email.email' => 'Incorrect email format',
             'email.unique' => 'Email already exists',
             'phone.required' => 'Please enter the phone number',    
-            'phone.numeric' => 'Phones can only enter numbers', 
+            'phone.numeric' => 'Phones can only enter numbers',
+            'phone.unique' => 'Phone number already exists',  
+            'phone.max' => 'Phone no more than 15 characters', 
             'password.required' => 'Please enter password',
             'password.max' => 'Password must not exceed 25 characters',
             'password.min' => 'Minimum password 6 characters',

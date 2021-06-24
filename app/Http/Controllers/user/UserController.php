@@ -57,7 +57,7 @@ class UserController extends Controller
                 //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
                 'avatar' => 'mimes:jpg,jpeg,png,gif|max:2048',
                 'name' => 'required|max:255|regex:/(^[\pL0-9 ]+$)/u',
-                'phone' => 'required|numeric',
+                'phone' => 'required|numeric|max:15',
             ],
             [
                 //Tùy chỉnh hiển thị thông báo không thõa điều kiện
@@ -67,6 +67,7 @@ class UserController extends Controller
                 'name.max' => 'No more than 255 characters',
                 'phone.required' => 'Please enter the phone number',
                 'phone.numeric' => 'Phone can only enter numbers',
+                'phone.max' => 'Phone no more than 15 characters',
             ]
         );
         $this->repository->updateInfo($request, $id);
@@ -97,5 +98,14 @@ class UserController extends Controller
     {
         $this->repository->pointPurchase($request, $id, $type);
         return redirect(route('order'));
+    }
+
+    public function WaitingBillShow($id)
+    {
+        $admin_trans = $this->repository->getAdminTrans();
+        $admin = $this->repository->getAdminInfo();
+        $user = $this->repository->getUserInfo($id);
+        $point_purchase = $this->repository->getPointPurchase($id);
+        return view('layout_index.customer.show_waitng_bill', compact('user', 'admin', 'id', 'point_purchase','admin_trans'));
     }
 }
