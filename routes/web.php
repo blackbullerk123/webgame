@@ -50,7 +50,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
     //Bills
     Route::get('/bills/{status}',[BillController::class,'index'])->name('bills');
-    Route::get('/bill-show/{id}',[BillController::class,'show'])->name('bill.show');
+    Route::get('/bills/purchase/{id}',[BillController::class,'purchaseBill'])->name('bill.purchase');
 });
 
 
@@ -65,6 +65,8 @@ Route::group(['middleware' => 'login'], function () {
     Route::post('/profile/update/{id}',[UserController::class,'updateInfo'])->name('profile.update.info');
     Route::post('/profile/change/{id}',[UserController::class,'changePass'])->name('profile.change_pass');
 });
+
+Route::get('/bill-show/{id}',[BillController::class,'show'])->name('bill.show');
 
 //Frontend Page
 Route::get('/social-login/redirect/{provider}', [LoginController::class,'redirectToProvider'])->name('social.login');

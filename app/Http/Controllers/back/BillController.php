@@ -18,8 +18,7 @@ class BillController extends Controller
     public function index($status)
     {   
         $bills = $this->repository->getIndex($status);
-        $current_date = date("d/m/Y");
-        return view('layout_admin.bills.index', compact('bills', 'current_date'));
+        return view('layout_admin.bills.index', compact('bills'));
     }
 
     public function show($id)
@@ -31,4 +30,8 @@ class BillController extends Controller
         return view('layout_admin.bills.show', compact('user', 'admin', 'id', 'bill'));
     }
     
+    public function purchaseBill($id)
+    {
+
+    }
 }

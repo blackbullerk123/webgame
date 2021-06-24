@@ -31,7 +31,9 @@ class AdminController extends Controller
         $date = Carbon::now()->format('d-m-Y');
         $img = $request->avatar;
         if (isset($img)) {
-            unlink(public_path($admin->avatar));
+            if(isset($admin->avatar)) {
+                unlink(public_path($admin->avatar));
+            }         
             $img_name = 'upload/admin/img/' . $date . '/' . Str::random(10) . rand() . '.' . $img->getClientOriginalExtension();
             $destinationPath = public_path('upload/admin/img/' . $date);
             $img->move($destinationPath, $img_name);

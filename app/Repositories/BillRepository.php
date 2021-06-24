@@ -37,8 +37,22 @@ class BillRepository
     }
 
     public function getBill($id)
-    {     
+    {        
         $bill_info = Bill::Find($id);
         return $bill_info;
+    }
+
+    public function BillTransaction($id)
+    {
+        $bill_perchase = Bill::find($id);
+        if($bill_perchase->status == '0')
+        {
+            $bill_perchase->status = '1';
+            $bill_perchase->save();
+        }
+        else{
+            $bill_perchase->status = '2';
+            $bill_perchase->save();
+        }
     }
 }

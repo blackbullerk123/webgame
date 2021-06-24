@@ -8,7 +8,6 @@
 
 
         }
-
     </style>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -30,11 +29,12 @@
                     <div class="text-center">
                         <div class="box">
                             <div class="box-header">
-                                <img style="background-color: #ffffff"
-                                    src="{{ asset('adminlte2/dist/img/user2-160x160.jpg') }}" class="img-circle"
-                                    alt="User Image" />
+                                <img tyle="width: 100px; height: 100px"
+                                src="{{ asset(Auth::user()->avatar) }}" class="img-circle" 
+                                alt="User Image" />
+                                    s
                                 <p>
-                                    
+                                
                                 </p>
                                 <h1 class="box-title" style="font-size: 30px">Thông tin chuyển khoản</h1>
                             </div>
