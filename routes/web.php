@@ -50,8 +50,9 @@ Route::group(['middleware' => 'user'], function () {
     Route::post('/banner-edit/update/{id}',[SlideController::class,'update'])->name('slide.update');
     Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
     //Bills
-    Route::get('/bills/{status}',[BillController::class,'index'])->name('bills');
-    Route::get('/bills/purchase/{id}',[BillController::class,'purchaseBill'])->name('bill.purchase');
+    Route::get('/bills',[BillController::class,'index'])->name('bills');
+    Route::post('/bills',[BillController::class,'index'])->name('bill.search');
+    Route::get('/bills/purchase/{id}/status/{status}',[BillController::class,'purchaseBill'])->name('bill.purchase');
 });
 
 

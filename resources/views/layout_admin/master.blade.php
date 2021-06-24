@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('adminlte2/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('adminlte2/plugins/summernote/summernote-bs4.min.css') }}">
   <!-- Select2 -->
@@ -60,7 +61,7 @@
     <script src="{{ asset('js/jquery-validation/lib/jquery.js')}}"></script>
 	  <script src="{{ asset('js/jquery-validation/dist/jquery.validate.js')}}"></script>
     
-    
+
     <script src="{{ asset('adminlte2/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('adminlte2/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>

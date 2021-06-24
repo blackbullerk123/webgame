@@ -15,9 +15,9 @@ class BillController extends Controller
         $this->repository = $repository;
     }
 
-    public function index($status)
+    public function index(Request $request)
     {   
-        $bills = $this->repository->getIndex($status);
+        $bills = $this->repository->getIndex($request);
         return view('layout_admin.bills.index', compact('bills'));
     }
 
@@ -30,8 +30,14 @@ class BillController extends Controller
         return view('layout_admin.bills.show', compact('user', 'admin', 'id', 'bill'));
     }
     
-    public function purchaseBill($id)
+    public function purchaseBill($id, $status)
     {
+        $this->repository->BillTransaction($id, $status);
+        return redirect()->back();
+    }
 
+    public function billSearch(Request $request)          
+    {
+        dd($request->all());
     }
 }

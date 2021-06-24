@@ -25,19 +25,25 @@
             <!-- /.box-header -->
             
             <div class="box-body" style="margin-top:10px">   
+            <form action="{{ route('bill.search') }}" method="post" enctype="multipart/form-data">
+            @csrf
               <div class="table-responsive">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                   <input type="text" class="form-control" id="name" name="name">
                 </div>
-                <div class="col-sm-3">
-                  <input type="text" class="form-control" id="status" name="status">
+                <div class="form-group col-sm-2">
+                  <select class="form-control" name="status">
+                    <option value="0">Chưa thanh toán</option>
+                    <option value="1">Đã thanh toán</option>
+                    <option value="2">Đã huỷ</option>
+                  </select>
                 </div>
-                <div class="input-group date col-sm-3">  
+                <div class="input-group date col-sm-2">  
                   <input type="text" class="form-control" id="datetimepicker" name="date">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
-                <div class="col-sm-2 pull-right" style="margin-right: 80px">
-                  <button class="btn btn-primary bnt-sm; fa fa-search" id="btnsearch" style="float:left;margin-top:-30px;" type="button">&ensp;Tìm kiếm</button>
+                <div class="col-sm-2 pull-right" style="margin-right: 34%">
+                  <button class="btn btn-primary bnt-sm; fa fa-search" id="btnsearch" style="float:left;margin-top:-30px;" type="submit">&ensp;Tìm kiếm</button>
                 </div>
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -64,8 +70,10 @@
                             <td>
                               @if($b->status == 0)
                               <label class="label label-warning" style="padding:5px;">Chưa thanh toán</label>
+                              @elseif($b->status == 1)
+                              <label class="label label-success" style="padding:5px;" >Đã thanh toán</label>
                               @else
-                              <button class="label label-success" style="padding:5px;" >Đã thanh toán</button>
+                              <label class="label label-danger" style="padding:5px;" >Đơn đã huỷ</label>
                               @endif
                             </td> 
                             <td>{{date('d/m/Y ', strtotime($b->created_at))}}</td>        
@@ -80,6 +88,7 @@
                     </tbody>
                 </table>
               </div>
+              </form>
             </div>
             <!-- /.box-body -->
           </div>
