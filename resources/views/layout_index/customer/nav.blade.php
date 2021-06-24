@@ -96,9 +96,9 @@
                 </div>
                 <div class="form-group"> <label>Notes</label>
                     <div class="controls">
-                        <textarea name="note" id="note" class="form-control" rows="5">Tên tài khoản :     / 
-Số tài khoản:    / 
-Tên ngân hàng :    /                     
+                        <textarea name="note" id="note" class="form-control" rows="5">Account name :     / 
+Account number:    / 
+Bank  :    /                     
                     </textarea>
                     </div>
                 </div>
