@@ -132,7 +132,7 @@
 
                     <div class="nk-gap-1"></div>
                     <form action="#" method="post" id="signin_form" class="nk-form text-white">
-                        <input type="hidden" name="_token" id="csrf-token" value="{{csrf_token()}} />
+                        <input type="hidden" name="_token" id="csrf-token" value="{{csrf_token()}}" />
                         <div class="row vertical-gap">
                             <div class="col-md-6">
                                 Use email and password:
