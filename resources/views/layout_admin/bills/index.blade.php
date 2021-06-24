@@ -26,10 +26,19 @@
             
             <div class="box-body" style="margin-top:10px">   
               <div class="table-responsive">
-                    <div class="input-group date" style="width: 200px;">  
-                        <input type="text" class="form-control" id="datetimepicker" name="date">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                    </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="status" name="status">
+                </div>
+                <div class="input-group date col-sm-3">  
+                  <input type="text" class="form-control" id="datetimepicker" name="date">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <div class="col-sm-2 pull-right" style="margin-right: 80px">
+                  <button class="btn btn-primary bnt-sm; fa fa-search" id="btnsearch" style="float:left;margin-top:-30px;" type="button">&ensp;Tìm kiếm</button>
+                </div>
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>

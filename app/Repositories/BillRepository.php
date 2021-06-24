@@ -55,4 +55,9 @@ class BillRepository
             $bill_perchase->save();
         }
     }
+
+    public function search()
+    {
+        
+    }
 }

@@ -52,7 +52,7 @@
                         @if(isset($point_purchase_info))
                             @foreach($point_purchase_info as $point_info)
                                     <tr scope="row">
-                                    <td><a href="{{ route('waiting.bill.show',$point_info->id) }}"> <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>                       
+                                    <td><a href="{{ route('waiting.bill.show',$point_info->id) }}" target="_blank"> <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>                       
                                     <td><a href="#"> {{$point_info->order_id}}</a></td>
                                     <td>{{number_format($point_info->point_purchase)}} Point</td>
                                     <td>{{ $point_info->description }}</td>
