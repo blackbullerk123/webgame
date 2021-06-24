@@ -146,7 +146,18 @@
   $('#img').click(function() {
       $('#fImages').click();
   });
-
+  function changeThumbnail(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#thum').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  $('#thum').click(function() {
+      $('#thumbnail').click();
+  });
   $("div.alert").delay(2000).slideUp();
 </script>
 @yield('script')

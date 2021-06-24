@@ -47,8 +47,16 @@ class ProductRepository
          $img->move($destinationPath, $img_name);
 
          $product->image = $img_name;
-     }  
-     
+     }
+     $img_thumbnail = $request->thumbnail;
+     if (isset($img_thumbnail)) {
+         $img_name_thumbnail = 'upload/product/thumbnail/' . $date.'/'.Str::random(10).rand().'.'.$img_thumbnail->getClientOriginalExtension();
+         $destinationPath = public_path('upload/product/thumbnail/' . $date);
+         $img_thumbnail->move($destinationPath, $img_name_thumbnail);
+
+         $product->thumbnail = $img_name_thumbnail;
+     }    
+     $product->short_des = $request->short_des;
      $product->name = $request->name;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);
@@ -86,13 +94,24 @@ class ProductRepository
      $img = $request->avatar;
      if (isset($img)) {
          unlink(public_path($product->image));
-         $img_name = 'upload/slide/banner/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
-         $destinationPath = public_path('upload/slide/banner/' . $date);
+         $img_name = 'upload/product/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+         $destinationPath = public_path('upload/product/img/' . $date);
          $img->move($destinationPath, $img_name);
 
          $product->image = $img_name;
      }
-     
+
+      $img_thumbnail = $request->thumbnail;
+     if (isset($img_thumbnail)) {
+     //     unlink(public_path($product->thumbnail));
+         $img_name_thumbnail = 'upload/product/thumbnail/' . $date.'/'.Str::random(10).rand().'.'.$img_thumbnail->getClientOriginalExtension();
+         $destinationPath = public_path('upload/product/thumbnail/' . $date);
+         $img_thumbnail->move($destinationPath, $img_name_thumbnail);
+
+         $product->thumbnail = $img_name_thumbnail;
+     }    
+
+     $product->short_des = $request->short_des;
      $product->name = $request->name;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);

@@ -25,10 +25,11 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|max:150',
-            'game_opt' => 'required',
-            'name' => 'required',           
+            'short_des' => 'max:255',
+            'game_opt' => 'required',         
             'content' => 'required',
             'avatar' => 'required',
+            'thumbnail' => 'required',
 
         ];
     }
@@ -38,9 +39,11 @@ class ProductRequest extends FormRequest
         return [
             'name.required' => 'Vui lòng nhập tên game',
             'name.max' => 'Giới hạn 150 ký tự',
+            'short_des.max' => 'Giới hạn 255 ký tự',
             'game_opt.required' => 'Vui lòng nhập hệ điều hành hổ trợ nạp',
             'content.required' => 'Vui lòng nhập mô tả game',
             'avatar.required' => 'Vui lòng chọn ảnh game',
+            'thumbnail.required' => 'Vui lòng chọn ảnh thumbnail',
         ];
     }
 }
