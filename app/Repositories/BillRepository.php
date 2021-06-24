@@ -18,16 +18,8 @@ class BillRepository
      */
     public function getIndex($request)
     {   
-         if ($request->all() == null) {
-            $status = '0';
-        }
-        else
-        {
-            $status = $request->status;    
-        }
         $date = date('Y-m-d');
-        $all_bill = Bill::where('status',  $status)
-                    ->when(($request->date == null), function ($query) use ($date){
+        $all_bill = Bill::when(($request->date == null), function ($query) use ($date){
                         $query->where(function ($q) use ($date){
                             $q->whereDate('created_at', '=', $date);
                         });
@@ -35,6 +27,16 @@ class BillRepository
                     ->when(($request->date != null), function ($query) use ($request){
                         $query->where(function ($q) use ($request) {
                             $q->whereDate('created_at', date('Y-m-d', strtotime(str_replace('/', '-', $request->date))));
+                        });
+                    })
+                    ->when(($request->all() == null), function ($query) use ($request) {
+                        $query->where(function ($q) use ($request){
+                            $q->where('status', '0');
+                        });
+                    })
+                    ->when(($request->all() != null), function ($query) use ($request){
+                        $query->where(function ($q) use ($request){
+                            $q->where('status', $request->status);
                         });
                     })       
                     ->get();
