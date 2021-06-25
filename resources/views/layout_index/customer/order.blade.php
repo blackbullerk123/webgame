@@ -84,28 +84,26 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="nk-pagination nk-pagination-center">
+                    <a href="#" class="nk-pagination-prev">
+                        <span class="ion-ios-arrow-back"></span>
+                    </a>
+                    
+                    <nav>
+                        <a href="{{ route('order') }}?page=1">1</a>
+                        <a href="{{ route('order') }}?page=2">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <span>...</span>
+                        <a href="#">14</a>
+                    </nav>
+                    <a href="#" class="nk-pagination-next">
+                        <span class="ion-ios-arrow-forward"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="nk-gap-2"></div>
-
 @endsection
-@section('script')
-<script>
-    $('#example1').pagination({
-    dataSource: [{a :1}, {a :2}, {a :3}, {a :4}, ... , {a :50}],
-    pageSize: 8,
-    formatResult: function(data) {
-        for (var i = 0, len = data.length; i < len; i++) {
-            data[i].a = data[i].a + ' - bad guys';
-        }
-    },
-    callback: function(data, pagination) {
-        // template method of yourself
-        var html = template(data);
-        dataContainer.html(html);
-    }
-})
-</script>
-@stop
