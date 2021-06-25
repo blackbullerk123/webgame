@@ -10,7 +10,7 @@
                     .nk-navbar-overlay-content
             -->
     <style>
-        p{
+        p.a{
             width: 210px;
             overflow: hidden;
             white-space: nowrap;
@@ -46,7 +46,7 @@
                 <h3 class="text-main-1">Waiting Bill</h3>
                 <div class="nk-gap"></div>
                 <div class="table-responsive" style="width: 110%;">
-                    <table class="table table-striped custom-table float-left">
+                    <table class="table table-striped custom-table float-left" id="example1">
                         <thead>
                             <tr>
                                 <th scope="col">Bill</th>
@@ -66,7 +66,7 @@
                                         </td>
                                         <td>{{ $point_info->order_id }}</td>
                                         <td>{{ number_format($point_info->point_purchase) }} Point</td>
-                                        <td><p>{{ $point_info->description }}</p></td>
+                                        <td><p class="a">{{ $point_info->description }}</p></td>
                                         @if ($point_info->status == 0)
                                             <td>Pending</td>
                                         @endif
@@ -91,3 +91,21 @@
     <div class="nk-gap-2"></div>
 
 @endsection
+@section('script')
+<script>
+    $('#example1').pagination({
+    dataSource: [{a :1}, {a :2}, {a :3}, {a :4}, ... , {a :50}],
+    pageSize: 8,
+    formatResult: function(data) {
+        for (var i = 0, len = data.length; i < len; i++) {
+            data[i].a = data[i].a + ' - bad guys';
+        }
+    },
+    callback: function(data, pagination) {
+        // template method of yourself
+        var html = template(data);
+        dataContainer.html(html);
+    }
+})
+</script>
+@stop

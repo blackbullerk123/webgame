@@ -22,6 +22,10 @@ use App\Http\Controllers\front\LoginController;
 |
 */
 
+Route::get('/test', function () {
+    return view('layout_index.customer.test');
+
+});
 Route::get('/', function () {
     return redirect()->route('index');
 

@@ -11,7 +11,11 @@ use App\Models\PointPurchase;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
-{
+{    /**
+    * Get member collection paginate.
+    *
+    * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    */
     protected $repository;
 
     public function __construct(UserRepository $repository)
@@ -23,7 +27,7 @@ class UserController extends Controller
     {
         $point_purchase_info = PointPurchase::where('user_id', Auth::user()->id)
                                             ->where('status', '0')
-                                            ->get();
+                                            ->paginate(10);
         return view('layout_index.customer.order', compact('point_purchase_info'));
     }
 

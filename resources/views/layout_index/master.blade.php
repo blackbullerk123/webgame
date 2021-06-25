@@ -22,7 +22,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet"
         type="text/css">
-
+   {{-- Data table --}}
+  <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('table/fonts/icomoon/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('table/css/owl.carousel.min.css') }}">
@@ -322,12 +323,13 @@
     <script src="{{ asset('assets/plugins/nk-share/nk-share.js') }}"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="{{ asset('adminlte2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('adminlte2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
     <!-- GoodGames -->
     <script src="{{ asset('assets/js/goodgames.min.js') }}"></script>
     <script src="{{ asset('assets/js/goodgames-init.js') }}"></script>
     <!-- END: Scripts -->
-
+    @yield('script')
     <script>
         $.ajaxSetup({
             headers: {
@@ -453,7 +455,21 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
    </script>
-@yield('script')
+<script>
+           $(function() {
+            $('#product_table').DataTable({
+                "sDom": '<"row view-filter"<"col-sm-12"<"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"pull-left"l><"pull-right"p><"text-center"i>>>',
+                'paging': true,
+                'searching': true,
+                'info': true,
+                'autoWidth': false,
+                'lengthChange': false,
+                'ordering': true,
+                'aaSorting': [],
+                'columnDefs': []
+            })
+        })
+</script>
 </body>
 
 </html>

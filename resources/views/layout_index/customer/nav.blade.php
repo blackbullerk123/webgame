@@ -119,56 +119,52 @@ Bank  :    /
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        
         $("#withdraw_form").submit(function(e) {
             e.preventDefault();
             var url = $(this).attr('action');
             var amount = $("#amount").val();
             var note = $("#note").val();
-            $.ajax({
-                url: url,
-                type: "post",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    amount: amount,
-                    note: note,
-                },
-                success: function(response) {
-                    if (response.success == true) {
-                        var user_point = '{{ Auth::user()->point }}'
-                        var sum = Number(user_point) - $('#amount').val()
-                        if($('#amount').val() < 0){
-                            $('#error-amount').html('The amount must greater than 0!')
-                        }
-                        else if(sum < 0)
-                        {
-                            $('#error-amount').html('Surplus not enough')
-                        }
-                        else
-                        {
-                            Swal.fire({
-                            icon: 'success',
-                            title: 'Withdraw point in successfully',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                        $('#exampleModal').modal('hide');
-                        window.location.reload();
-                        }                 
-                    }
-                },
-                error: function(response) {
-                    $('#withdraw_form').find('input').each(function() {
-                        $(this).next('p').text('');
-                    });
-                    var data = response.responseJSON;
-                    if ($.isEmptyObject(data.errors) == false) {
-                        $.each(data.errors, function(key, value) {
-                            $('#withdraw_form').find('input[name="' + key + '"]').next('p')
-                                .text(value[0]);
+            if(amount < 0){
+                $('#error-amount').html('The amount must greater than 0!')
+            }else if( '{{ Auth::user()->point }}' - amount < 0){
+                $('#error-amount').html('Surplus not enough')
+            }else{
+                $.ajax({
+                    url: url,
+                    type: "post",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        amount: amount,
+                        note: note,
+                    },
+                    success: function(response) {
+                        if (response.success == true) {                     
+                                Swal.fire({
+                                icon: 'success',
+                                title: 'Withdraw point in successfully',
+                                showConfirmButton: false,
+                                timer: 2000
+                            })
+                            $('#exampleModal').modal('hide');
+                            window.location.reload();
+                            }                
+                    },
+                    error: function(response) {
+                        $('#withdraw_form').find('input').each(function() {
+                            $(this).next('p').text('');
                         });
+                        var data = response.responseJSON;
+                        if ($.isEmptyObject(data.errors) == false) {
+                            $.each(data.errors, function(key, value) {
+                                $('#withdraw_form').find('input[name="' + key + '"]').next('p')
+                                    .text(value[0]);
+                            });
+                        }
                     }
-                }
-            });
+                });
+            }
+            
         });
     </script>
 @endsection
