@@ -23,7 +23,7 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('point.purchase') }}">
+              <a href="#">
                 <i class="fa fa-inbox"></i> <span>Hóa đơn points</span>
               </a>
             </li>

@@ -53,7 +53,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/bills',[BillController::class,'index'])->name('bills');
     Route::post('/bills',[BillController::class,'index'])->name('bill.search');
     Route::get('/bills/purchase/{id}/status/{status}',[BillController::class,'purchaseBill'])->name('bill.purchase');
-    Route::get('/point-purchase',[BillController::class,'indexPointPurchase'])->name('bills');
+    // Route::get('/point-purchase',[BillController::class,'indexPointPurchase'])->name('bills');
 });
 
 
