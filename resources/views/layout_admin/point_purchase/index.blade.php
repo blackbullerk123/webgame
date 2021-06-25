@@ -20,6 +20,11 @@
           
           <div class="box">   
             <div class="box-header">
+            <div class="box-header">
+                @if (session('information'))
+                    <div class="alert alert-success">{{ session('information') }}</div>
+                @endif
+            </div>
                
             </div>
             <!-- /.box-header -->
@@ -61,6 +66,7 @@
                             <th>Hoá đơn</th>
                             <th>Mã đơn hàng</th>
                             <th>Tên User</th>
+                            <th>Loại hình</th>
                             <th>Nội dung</th>
                             <th>Số point</th>
                             <th>Trạng thái</th>
@@ -75,6 +81,7 @@
                             <td><a href="{{ route('waiting.bill.show', $p->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $p->order_id }}</td>
                             <td>{{ $p->user->name }}</td>
+                            <td>{{ $p->method }}</td>
                             <td>{{ $p->description }}</td>
                             <td>{{ number_format($p->point_purchase) }}</td>
                             <td>
@@ -89,12 +96,12 @@
                             <td>{{date('d/m/Y ', strtotime($p->created_at))}}</td>        
                             <td>
                               @if($p->status == 0)
-                              <a href="{{ route('point.purchase', [$p->id, '1']) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
-                              @elseif($p->status != 2)
-                              <a href="{{ route('point.purchase', [$p->id, '2']) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td>                                                    
+                              <a href="{{ route('point.purchase', [$p->id, '1', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
                               @endif
-                              
-                        </tr>
+                              @if($p->status != 2)
+                              <a href="{{ route('point.purchase', [$p->id, '2', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td> 
+                              @endif                                                   
+                       </tr>
                         @endforeach
                       @endif
                     </tbody>

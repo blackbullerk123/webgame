@@ -35,7 +35,7 @@ class BillController extends Controller
     public function purchaseBill($id, $status)
     {
         $this->repository->BillTransaction($id, $status);
-        return redirect()->back();
+        return redirect()->back()->with('information', 'Cập nhật thành công');;
     }
 
     public function indexPointPurchase(Request $request)
@@ -46,9 +46,9 @@ class BillController extends Controller
         return view('layout_admin.point_purchase.index', compact('points', 'date', 'status'));
     }
 
-    public function purchasePoint($id, $status)
+    public function purchasePoint($id, $status, $point, $user, $method)
     {
-        $this->repository->PointTransaction($id, $status);
-        return redirect()->back();
+        $this->repository->PointTransaction($id, $status, $point, $user, $method);
+        return redirect()->back()->with('information', 'Cập nhật thành công');
     }
 }

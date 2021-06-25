@@ -114,18 +114,41 @@ class BillRepository
         }
     }
 
-    public function PointTransaction($id, $status)
+    public function PointTransaction($id, $status, $point, $user, $method)
     {
-        $point_perchase = PointPurchase::find($id);
-        if($status == '1')
-        {
-            $point_perchase->status = $status;
-            $point_perchase->save();
+        $point_purchase = PointPurchase::find($id);
+        $user_purchase = User::find($user);
+        if($method == 'Purchase point'){
+            if($status == '1')
+            {
+                $point_purchase->status = $status;              
+                $point_purchase->save();
+                $user_purchase->point = $user_purchase->point + $point;
+                $user_purchase->save();
+            }
+            elseif($status == '2'){
+                $point_purchase->status = '2';
+                $point_purchase->save();
+                $user_purchase->point = $user_purchase->point - $point;
+                $user_purchase->save();
+            }
         }
-        elseif($status == '2'){
-            $point_perchase->status = '2';
-            $point_perchase->save();
+        else if ($method == 'Withdraw point'){
+            if($status == '1')
+            {
+                $point_purchase->status = $status;              
+                $point_purchase->save();
+                $user_purchase->point = $user_purchase->point - $point;
+                $user_purchase->save();
+            }
+            elseif($status == '2'){
+                $point_purchase->status = '2';
+                $point_purchase->save();
+                $user_purchase->point = $user_purchase->point + $point;
+                $user_purchase->save();
+            }
         }
+        
     }
 
 }
