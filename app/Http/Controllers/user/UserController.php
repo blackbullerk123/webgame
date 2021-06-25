@@ -109,8 +109,7 @@ class UserController extends Controller
                 'note' => 'required',
             ],
             [
-                'amount.required' => 'Please enter the amount to withdraw',              
-                'amount.min' => 'Withdrawal must be more than 50000',
+                'amount.required' => 'Please enter the amount to withdraw',
                 'note.required' => 'Please enter information',
             ]
         );

@@ -1,14 +1,23 @@
 @extends('layout_index.master')
 @section('content')
     <!--
-            START: Navbar Mobile
+                START: Navbar Mobile
 
-            Additional Classes:
-                .nk-navbar-left-side
-                .nk-navbar-right-side
-                .nk-navbar-lg
-                .nk-navbar-overlay-content
-        -->
+                Additional Classes:
+                    .nk-navbar-left-side
+                    .nk-navbar-right-side
+                    .nk-navbar-lg
+                    .nk-navbar-overlay-content
+            -->
+    <style>
+        p{
+            width: 210px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+    </style>
     <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
         <div class="nano">
             <div class="nano-content">
@@ -57,7 +66,7 @@
                                         </td>
                                         <td>{{ $point_info->order_id }}</td>
                                         <td>{{ number_format($point_info->point_purchase) }} Point</td>
-                                        <td>{{ $point_info->description }}</td>
+                                        <td><p>{{ $point_info->description }}</p></td>
                                         @if ($point_info->status == 0)
                                             <td>Pending</td>
                                         @endif

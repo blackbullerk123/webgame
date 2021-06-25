@@ -25,6 +25,11 @@ class ProductRepository
          return Operating::orderBy('id', 'asc')->get();
     }
 
+    public function getType()
+    {
+         return Operating::all();
+    }
+
     public function getProductById($id)
     {
          return Product::find($id);

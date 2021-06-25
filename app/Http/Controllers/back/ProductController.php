@@ -53,9 +53,10 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $os_type = $this->repository->getType();
         $product = $this->repository->getProductById($id);
         $package_by_id = $this->repository->getPackageByIdProduct($product->id);
-        return view('layout_admin.product.edit', compact('product', 'package_by_id'));
+        return view('layout_admin.product.edit', compact('product', 'package_by_id','os_type'));
     }
 
     public function delete(Request $request)

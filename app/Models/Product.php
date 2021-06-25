@@ -23,6 +23,6 @@ class Product extends Model
 
     public function operating()
     {
-        return $this->belongsTo(Operating::class,'os_supported', 'id');
+        return $this->hasMany(Operating::class,'os_supported', 'id');
     }
 }

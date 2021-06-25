@@ -27,8 +27,8 @@
 <div class="nk-match">
     <div class="px-4 text-center mb-4">
         <span class="avatar avatar-md mb-3">
-            <img src="{{ asset(Auth::user()->avatar ? Auth::user()->avatar :'images/no_img.jpg') }}" style="height: 80px; width: 80px"
-                class="image rounded-circle">
+            <img src="{{ asset(Auth::user()->avatar ? Auth::user()->avatar : 'images/no_img.jpg') }}"
+                style="height: 80px; width: 80px" class="image rounded-circle">
         </span>
         <div style="margin-top: 10px">
             <p class="mb-0">Surplus: <span class="text-main-1">{{ Auth::user()->point }}</span> Points</p>
@@ -68,7 +68,7 @@
                     Order History
                 </span>
             </a>
-            <a href="{{ route('profile',Auth::user()->id) }}" class="btn btn-secondary">
+            <a href="{{ route('profile', Auth::user()->id) }}" class="btn btn-secondary">
                 <i class="las la-user aiz-side-nav-icon"></i>
                 <span class="aiz-side-nav-text">Manage Profile</span>
             </a>
@@ -87,33 +87,34 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('withdraw_points.update',Auth::user()->id) }}" id="withdraw_form">
+            <form action="{{ route('withdraw_points.update', Auth::user()->id) }}" id="withdraw_form">
                 <input type="hidden" name="_token" id="csrf-token" />
-            <div class="modal-body">
-                <div class="form-group"> <label>Number of withdrawal points</label> 
-                    <input class="form-control" name="amount" id="amount" type="number" step="1" placeholder=" 50000 "> 
+                <div class="modal-body">
+                    <div class="form-group"> <label>Number of withdrawal points</label>
+                        <input class="form-control" name="amount" id="amount" type="number" step="1"
+                            placeholder="50000">
                         <p id="error-amount" style="color:red"></p>
-                </div>
-                <div class="form-group"> <label>Notes</label>
-                    <div class="controls">
-                        <textarea name="note" id="note" class="form-control" rows="5">Account name :     / 
+                    </div>
+                    <div class="form-group"> <label>Notes</label>
+                        <div class="controls">
+                            <textarea name="note" id="note" class="form-control" rows="5">Account name :     / 
 Account number:    / 
 Bank  :    /                     
                     </textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Withdraw Points</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Withdraw Points</button>
+                </div>
         </div>
-    </form>
+        </form>
     </div>
 </div>
 <!-- END: Now Playing -->
 @section('script')
-<script>
-            $("#withdraw_form").submit(function(e) {
+    <script>
+        $("#withdraw_form").submit(function(e) {
             e.preventDefault();
             var url = $(this).attr('action');
             var amount = $("#amount").val();
@@ -126,8 +127,8 @@ Bank  :    /
                     amount: amount,
                     note: note,
                 },
-                success: function(response) {   
-                    if(response.success == true){
+                success: function(response) {
+                    if (response.success == true) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Logged in successfully',
@@ -145,11 +146,12 @@ Bank  :    /
                     var data = response.responseJSON;
                     if ($.isEmptyObject(data.errors) == false) {
                         $.each(data.errors, function(key, value) {
-                            $('#withdraw_form').find('input[name="' + key + '"]').next('p').text(value[0]);
+                            $('#withdraw_form').find('input[name="' + key + '"]').next('p')
+                                .text(value[0]);
                         });
                     }
                 }
             });
         });
-</script>
+    </script>
 @endsection
