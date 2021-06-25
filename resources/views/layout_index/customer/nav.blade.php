@@ -87,12 +87,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('withdraw_points.update', Auth::user()->id) }}" id="withdraw_form">
-                <input type="hidden" name="_token" id="csrf-token" />
+            <form action="{{ route('withdraw_points.update', Auth::user()->id) }}" method="POST" id="withdraw_form">
+                @csrf
                 <div class="modal-body">
                     <div class="form-group"> <label>Number of withdrawal points</label>
-                        <input class="form-control" name="amount" id="amount" type="number" step="1"
-                            placeholder="50000">
+                        <input class="form-control" name="amount" id="amount" type="number" 
+                            placeholder="200">
                         <p id="error-amount" style="color:red"></p>
                     </div>
                     <div class="form-group"> <label>Notes</label>
@@ -114,6 +114,11 @@ Bank  :    /
 <!-- END: Now Playing -->
 @section('script')
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $("#withdraw_form").submit(function(e) {
             e.preventDefault();
             var url = $(this).attr('action');
@@ -129,14 +134,26 @@ Bank  :    /
                 },
                 success: function(response) {
                     if (response.success == true) {
-                        Swal.fire({
+                        var user_point = '{{ Auth::user()->point }}'
+                        var sum = Number(user_point) - $('#amount').val()
+                        if($('#amount').val() < 0){
+                            $('#error-amount').html('The amount must greater than 0!')
+                        }
+                        else if(sum < 0)
+                        {
+                            $('#error-amount').html('Surplus not enough')
+                        }
+                        else
+                        {
+                            Swal.fire({
                             icon: 'success',
-                            title: 'Logged in successfully',
+                            title: 'Withdraw point in successfully',
                             showConfirmButton: false,
                             timer: 2000
                         })
                         $('#exampleModal').modal('hide');
                         window.location.reload();
+                        }                 
                     }
                 },
                 error: function(response) {
