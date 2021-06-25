@@ -97,6 +97,11 @@ class FrontendController extends Controller
         return view('layout_index.page.view_card', compact('products'));
     }
     
+    public function search(Request $request)
+    {
+        $products = $this->repository->search($request);
+        return view('layout_index.page.search', compact('products'));
+    }
 
     public function postLogin(Request $request)
     {
@@ -131,6 +136,6 @@ class FrontendController extends Controller
         $product_info = $this->repository->getPackageToCheckout($id);
         $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
         $this->repository->createBill($request, $product_info, $package_selected);
-        return redirect(route('index'));
+        return redirect(route('order_history'));
     }
 }

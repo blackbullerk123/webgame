@@ -144,7 +144,7 @@
         <div class="container">
             <div class="nk-nav-table">
 
-                <a href="index.html" class="nk-nav-logo">
+                <a href="{{ route('index') }}" class="nk-nav-logo">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="GoodGames" width="199">
                 </a>
 

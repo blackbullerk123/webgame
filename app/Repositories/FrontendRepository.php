@@ -93,4 +93,10 @@ class FrontendRepository
         $point_user->save();     
     }
     
+    public function search($request)
+    {
+        $product = Product::where('name', 'like', '%' . $request->search . '%')
+            ->paginate(20);
+        return $product;
+    }
 }

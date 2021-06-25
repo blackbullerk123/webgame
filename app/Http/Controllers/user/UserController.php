@@ -58,7 +58,7 @@ class UserController extends Controller
                 //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
                 'avatar' => 'mimes:jpg,jpeg,png,gif|max:2048',
                 'name' => 'required|max:255|regex:/(^[\pL0-9 ]+$)/u',
-                'phone' => 'required|numeric|max:15',
+                'phone' => 'required|numeric',
             ],
             [
                 //Tùy chỉnh hiển thị thông báo không thõa điều kiện
@@ -67,8 +67,7 @@ class UserController extends Controller
                 'name.regex' => 'Names are not allowed to have special characters',
                 'name.max' => 'No more than 255 characters',
                 'phone.required' => 'Please enter the phone number',
-                'phone.numeric' => 'Phone can only enter numbers',
-                'phone.max' => 'Phone no more than 15 characters',
+                'phone.numeric' => 'Phone only enter numbers',
             ]
         );
         $this->repository->updateInfo($request, $id);
@@ -127,6 +126,6 @@ class UserController extends Controller
         $admin = $this->repository->getAdminInfo();
         $user = $this->repository->getUserInfo($id);
         $point_purchase = $this->repository->getPointPurchase($id);
-        return view('layout_index.customer.show_waitng_bill', compact('user', 'admin', 'id', 'point_purchase','admin_trans'));
+        return view('layout_index.customer.show_bill', compact('user', 'admin', 'id', 'point_purchase','admin_trans'));
     }
 }

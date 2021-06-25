@@ -84,7 +84,7 @@
                     <h4 class="mb-0">Search</h4>
 
                     <div class="nk-gap-1"></div>
-                    <form action="#" class="nk-form nk-form-style-1">
+                    <form action="{{ route('search') }}" method="get" class="nk-form nk-form-style-1">
                         <input type="text" value="" name="search" class="form-control"
                             placeholder="Type something and press Enter" autofocus>
                     </form>
@@ -206,7 +206,7 @@
                                     placeholder="Email">
                                 <p id="error-email" style="color:red"></p>
                                 <label>Phone:</label>
-                                <input type="text" value="" name="phone" id="phone" class="form-control"
+                                <input type="text" value="" name="phone" id="phone" maxlength="15" class="form-control"
                                     placeholder="Phone">
                                 <p id="error-phone" style="color:red"></p>
                                 <label>Password:</label>
@@ -413,6 +413,18 @@
             });
         });
     $("div.alert").delay(3000).slideUp();
+    function changeImg(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#img').click(function() {
+        $('#fImages').click();
+    });
     </script>
     <!-- Messenger Plugin chat Code -->
    <!-- Messenger Plugin chat Code -->
@@ -441,7 +453,7 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
    </script>
-    @yield('script')
+@yield('script')
 </body>
 
 </html>

@@ -34,14 +34,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#tabs-1-2" role="tab" data-toggle="tab">Momo wallet</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="#tabs-1-3" role="tab" data-toggle="tab">Phone card</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade show active" id="tabs-1-1">
                             <div class="nk-gap"></div>
-                            <p>- Conversion rate: 1000 VND = 1000 Points.</p>
+                            <p>- Conversion rate: $100 = 100 Points.</p>
                             <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
                                 transfer content recorded in the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
@@ -49,34 +49,26 @@
                                @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
-                                    <select class="form-control" id="amount_dep_bank" name="amount_dep">
-                                        <option value="7600">7,600</option>
-                                        <option value="15200">15,200</option>
-                                        <option value="20000">20,000</option>
-                                        <option value="22800">22,800</option>
-                                        <option value="38000">38,000</option>
-                                        <option value="50000">50,000</option>
-                                        <option value="76000">76,000</option>
-                                        <option value="100000">100,000</option>
-                                        <option value="152000">152,000</option>
-                                        <option value="200000">200,000</option>
-                                        <option value="228000">228,000</option>
-                                        <option value="300000">300,000</option>
-                                        <option value="365000">365,000</option>
-                                        <option value="400000">400,000</option>
-                                        <option value="500000">500,000</option>
-                                        <option value="600000">600,000</option>
-                                        <option value="700000">700,000</option>
-                                        <option value="730000">730,000</option>
-                                        <option value="800000">800,000</option>
-                                        <option value="900000">900,000</option>
-                                        <option value="1000000">1,000,000</option>
-                                        <option value="2000000">2,000,000</option>
-                                        <option value="5000000">5,000,000</option>
-                                        <option value="10000000">10,000,000</option>
-                                        <option value="20000000">20,000,000</option>
-                                        <option value="50000000">50,000,000</option>
-                                        <option value="100000000">100,000,000</option>
+                                    <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
+                                        <option value="100">100 Points</option>
+                                        <option value="200">200 Points</option>
+                                        <option value="500">500 Points</option>
+                                        <option value="1,000">1,000 Points</option>
+                                        <option value="1,200">1,200 Points</option>
+                                        <option value="1,500">1,500 Points</option>
+                                        <option value="2,000">2,000 Points</option>
+                                        <option value="2,200">2,200 Points</option>
+                                        <option value="2,500">2,500 Points</option>
+                                        <option value="3,000">3,000 Points</option>
+                                        <option value="3,200">3,200 Points</option>
+                                        <option value="3,500">3,500 Points</option>
+                                        <option value="4,000">4,000 Points</option>
+                                        <option value="4,200">4,200 Points</option>
+                                        <option value="4,500">4,500 Points</option>
+                                        <option value="5,000">5,000 Points</option>
+                                        <option value="5,200">5,200 Points</option>
+                                        <option value="5,500">5,500 Points</option>
+                                        <option value="6,000">6,000 Points</option>
                                     </select>
                                 </div>
                                 <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
@@ -84,7 +76,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
                             <div class="nk-gap"></div>
-                            <p>- Conversion rate: 1000 VND = 1000 Points.</p>
+                            <p>- Conversion rate: $100 = 100 Points.</p>
                             <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
                                 the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
@@ -92,40 +84,32 @@
                                 @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
-                                    <select class="form-control" id="amount_dep_bank" name="amount_dep">
-                                        <option value="7600">7,600</option>
-                                        <option value="15200">15,200</option>
-                                        <option value="20000">20,000</option>
-                                        <option value="22800">22,800</option>
-                                        <option value="38000">38,000</option>
-                                        <option value="50000">50,000</option>
-                                        <option value="76000">76,000</option>
-                                        <option value="100000">100,000</option>
-                                        <option value="152000">152,000</option>
-                                        <option value="200000">200,000</option>
-                                        <option value="228000">228,000</option>
-                                        <option value="300000">300,000</option>
-                                        <option value="365000">365,000</option>
-                                        <option value="400000">400,000</option>
-                                        <option value="500000">500,000</option>
-                                        <option value="600000">600,000</option>
-                                        <option value="700000">700,000</option>
-                                        <option value="730000">730,000</option>
-                                        <option value="800000">800,000</option>
-                                        <option value="900000">900,000</option>
-                                        <option value="1000000">1,000,000</option>
-                                        <option value="2000000">2,000,000</option>
-                                        <option value="5000000">5,000,000</option>
-                                        <option value="10000000">10,000,000</option>
-                                        <option value="20000000">20,000,000</option>
-                                        <option value="50000000">50,000,000</option>
-                                        <option value="100000000">100,000,000</option>
+                                    <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
+                                        <option value="100">100 Points</option>
+                                        <option value="200">200 Points</option>
+                                        <option value="500">500 Points</option>
+                                        <option value="1,000">1,000 Points</option>
+                                        <option value="1,200">1,200 Points</option>
+                                        <option value="1,500">1,500 Points</option>
+                                        <option value="2,000">2,000 Points</option>
+                                        <option value="2,200">2,200 Points</option>
+                                        <option value="2,500">2,500 Points</option>
+                                        <option value="3,000">3,000 Points</option>
+                                        <option value="3,200">3,200 Points</option>
+                                        <option value="3,500">3,500 Points</option>
+                                        <option value="4,000">4,000 Points</option>
+                                        <option value="4,200">4,200 Points</option>
+                                        <option value="4,500">4,500 Points</option>
+                                        <option value="5,000">5,000 Points</option>
+                                        <option value="5,200">5,200 Points</option>
+                                        <option value="5,500">5,500 Points</option>
+                                        <option value="6,000">6,000 Points</option>
                                     </select>
                                 </div>
                                 <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
                             </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
+                        {{-- <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
                             <div class="nk-gap"></div>
                             <h4>Vui lòng liên hệ với page hỗ trợ nạp: <a
                                     href="https://www.facebook.com/napgamesales/">https://www.facebook.com/napgamesales/
@@ -327,7 +311,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- END: Tabs -->

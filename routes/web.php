@@ -94,6 +94,8 @@ Route::get('/about',[FrontendController::class,'about'])->name('about');
 Route::get('/service',[FrontendController::class,'service'])->name('service');
 //Privacy
 Route::get('/privacy',[FrontendController::class,'privacy'])->name('privacy');
+//Search
+Route::get('/search',[FrontendController::class,'search'])->name('search');
 //Order
 Route::get('/detail/{id}',[FrontendController::class,'getDetail'])->name('product.detail');
 Route::get('/checkout/{id}/package/{package}',[FrontendController::class,'getCheckout'])->name('checkout.bill');

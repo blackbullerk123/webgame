@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <p class="col-md-3 col-form-label">Phone:</p>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="Phone . . . . . " name="phone" value="{{ $user->phone }}">
+                                <input type="text" class="form-control" placeholder="Phone . . . . . " name="phone" value="{{ $user->phone }}" maxlength="15">
                                 @error('phone')
                                     <p style="color: red"> {{ $message }} </p>
                                 @enderror
@@ -113,19 +113,3 @@
     <div class="nk-gap-2"></div>
 
 @endsection
-@section('script')
-<script>
-    function changeImg(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $('#img').click(function() {
-        $('#fImages').click();
-    });
-  </script>
-@stop
