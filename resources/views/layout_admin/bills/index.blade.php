@@ -20,6 +20,11 @@
           
           <div class="box">   
             <div class="box-header">
+            <div class="box-header">
+                @if (session('information'))
+                    <div class="alert alert-success">{{ session('information') }}</div>
+                @endif
+            </div>
                
             </div>
             <!-- /.box-header -->
@@ -90,9 +95,10 @@
                             <td>
                               @if($b->status == 0)
                               <a href="{{ route('bill.purchase', [$b->id, '1']) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
-                              @elseif($b->status != 2)
-                              <a href="{{ route('bill.purchase', [$b->id, '2']) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td>                                                    
                               @endif
+                              @if($b->status != 2)
+                              <a href="{{ route('bill.purchase', [$b->id, '2']) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td> 
+                              @endif 
                               
                         </tr>
                         @endforeach
