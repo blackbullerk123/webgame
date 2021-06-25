@@ -38,4 +38,17 @@ class BillController extends Controller
         return redirect()->back();
     }
 
+    public function indexPointPurchase(Request $request)
+    {
+        $points= $this->repository->getIndexPoint($request);
+        $date = $request->date;
+        $status = $request->status;
+        return view('layout_admin.point_purchase.index', compact('points', 'date', 'status'));
+    }
+
+    public function purchasePoint($id, $status)
+    {
+        $this->repository->PointTransaction($id, $status);
+        return redirect()->back();
+    }
 }

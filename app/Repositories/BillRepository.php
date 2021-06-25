@@ -48,6 +48,38 @@ class BillRepository
         return $all_bill;
     }
 
+    public function getIndexPoint($request)
+    {   
+        $date = date('Y-m-d');
+        $point_purchase = PointPurchase::when(($request->date == null), function ($query) use ($date){
+                        $query->where(function ($q) use ($date){
+                            $q->whereDate('created_at', '=', $date);
+                        });
+                    })
+                    ->when(($request->date != null), function ($query) use ($request){
+                        $query->where(function ($q) use ($request) {
+                            $q->whereDate('created_at', date('Y-m-d', strtotime(str_replace('/', '-', $request->date))));
+                        });
+                    })
+                    ->when(($request->all() == null), function ($query) use ($request) {
+                        $query->where(function ($q) use ($request){
+                            $q->where('status', '0');
+                        });
+                    })
+                    ->when(($request->all() != null), function ($query) use ($request){
+                        $query->where(function ($q) use ($request){
+                            $q->where('status', $request->status);
+                        });
+                    })
+                    ->when(($request->name != null), function ($query) use ($request){
+                        $query->where(function ($q) use ($request){
+                            $q->where('order_id', 'LIKE', '%' . $request->name . '%');
+                        });
+                    })       
+                    ->get();
+        return $point_purchase;
+    }
+
     public function getAdminInfo()
     {     
         $admin_info = User::where('role', '1')->first();
@@ -79,6 +111,20 @@ class BillRepository
         elseif($status == '2'){
             $bill_perchase->status = '2';
             $bill_perchase->save();
+        }
+    }
+
+    public function PointTransaction($id, $status)
+    {
+        $point_perchase = PointPurchase::find($id);
+        if($status == '1')
+        {
+            $point_perchase->status = $status;
+            $point_perchase->save();
+        }
+        elseif($status == '2'){
+            $point_perchase->status = '2';
+            $point_perchase->save();
         }
     }
 
