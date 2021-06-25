@@ -19,7 +19,12 @@
             </li>
             <li>
               <a href="{{ route('bills') }}">
-                <i class="fa fa-inbox"></i> <span>Hóa đơn</span>
+                <i class="fa fa-inbox"></i> <span>Hóa đơn games</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('point.purchase') }}">
+                <i class="fa fa-inbox"></i> <span>Hóa đơn points</span>
               </a>
             </li>
             <li class="header ">

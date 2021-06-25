@@ -38,6 +38,11 @@ class BillRepository
                         $query->where(function ($q) use ($request){
                             $q->where('status', $request->status);
                         });
+                    })
+                    ->when(($request->name != null), function ($query) use ($request){
+                        $query->where(function ($q) use ($request){
+                            $q->where('order_id', 'LIKE', '%' . $request->name . '%');
+                        });
                     })       
                     ->get();
         return $all_bill;

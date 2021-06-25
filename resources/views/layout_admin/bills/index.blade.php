@@ -29,7 +29,7 @@
             @csrf
               <div class="table-responsive">
                 <div class="col-sm-2">
-                  <input type="text" class="form-control" id="name" name="name">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Tìm kiếm theo mã đơn hàng...">
                 </div>
                 <div class="form-group col-sm-2">
                   <select class="form-control" name="status">
@@ -90,8 +90,10 @@
                             <td>
                               @if($b->status == 0)
                               <a href="{{ route('bill.purchase', [$b->id, '1']) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
-                              @endif
+                              @elseif($b->status != 2)
                               <a href="{{ route('bill.purchase', [$b->id, '2']) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td>                                                    
+                              @endif
+                              
                         </tr>
                         @endforeach
                       @endif
