@@ -52,7 +52,7 @@ class UserRepository
 
         $point_purchase->user_id = $id;
         $point_purchase->point_purchase = $request->amount_dep;
-        $point_purchase->description = 'Purchase '.$request->amount_dep.' point ,'.$type;
+        $point_purchase->description = 'Purchase '.$request->amount_dep.' point, '.$type;
         $point_purchase->order_id = $request->amount_dep.''.Str::random(4);
         $point_purchase->method = 'Purchase point';
         $point_purchase->save();
