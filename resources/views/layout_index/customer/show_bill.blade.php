@@ -136,6 +136,7 @@
                                 <th style="width: 25%">Description</th>
                                 <th>Method</th>
                                 <th>Status</th>
+                                <th>Point</th>
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
@@ -146,6 +147,7 @@
                                 <td>{{ $point_purchase->method }}</td>
                                 <td>{{ $point_purchase->status == 0 ? 'Pending' : '' }}</td>
                                 <td>{{ number_format($point_purchase->point_purchase) }} Point</td>
+                                <td>{{ number_format($point_purchase->point_purchase) }} $</td>
                             </tr>
                         </tbody>
                     </table>
@@ -192,7 +194,7 @@
                         <table class="table">
                             <tr>
                                 <th style="width:50%">Subtotal:</th>
-                                <td>{{ number_format($point_purchase->point_purchase) }}</td>
+                                <td>{{ number_format($point_purchase->point_purchase) }} $</td>
                             </tr>
                             <tr>
                                 <th>Tax</th>
@@ -204,7 +206,7 @@
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td>{{ number_format($point_purchase->point_purchase) }}</td>
+                                <td>{{ number_format($point_purchase->point_purchase) }} $</td>
                             </tr>
                         </table>
                     </div>
