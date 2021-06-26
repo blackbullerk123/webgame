@@ -1,8 +1,5 @@
 @extends('layout_admin.master')
 @section('content')
-<?php use App\Models\Product; 
-      
-?>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -69,8 +66,6 @@
                             <th>Hoá đơn</th>
                             <th>Mã đơn hàng</th>
                             <th>Tên đơn hàng</th>
-                            <th>Tên người mua</th>
-                            <th>Loại hệ điều hành</th>
                             <th>Số lượng đơn hàng</th>
                             <th>Tổng số point</th>
                             <th>Trạng thái</th>
@@ -84,9 +79,7 @@
                         <tr>
                             <td><a href="{{ route('bill.show', $b->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $b->order_id }}</td>
-                            <td>{{ Product::find($b->product_id)->name }}</td>
-                            <td>{{ $b->user->name }}</td>
-                            <td>{{ $b->os_type }}</td>
+                            <td>{{ $b->product->name }}</td>
                             <td>{{ $b->product_total }}</td>
                             <td>{{ number_format($b->point_total) }}</td>
                             <td>
@@ -151,6 +144,7 @@
       format: "dd/mm/yyyy",
     });
     var date = '{{ $date }}'
+    console.log(date);
     if (date == '') {
       $('#datetimepicker').datepicker('setDate', 'today');
     }
