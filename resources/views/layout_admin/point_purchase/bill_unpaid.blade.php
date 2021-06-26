@@ -1,5 +1,14 @@
 @extends('layout_admin.master')
 @section('content')
+<style>
+    p.a{
+        width: 210px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+</style>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -30,36 +39,7 @@
             <!-- /.box-header -->
             
             <div class="box-body" style="margin-top:10px">   
-            <form action="{{ route('point.search') }}" method="post" enctype="multipart/form-data">
-            @csrf
               <div class="table-responsive">
-                <div class="col-sm-2">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Tìm kiếm theo mã đơn hàng...">
-                </div>
-                <div class="form-group col-sm-2">
-                  <select class="form-control" name="status">
-                    @if($status == 0)
-                    <option value="0" selected>Chưa thanh toán</option>
-                    <option value="1">Đã thanh toán</option>
-                    <option value="2">Đã huỷ</option>
-                    @elseif($status == 1)
-                    <option value="0">Chưa thanh toán</option>
-                    <option value="1"selected>Đã thanh toán</option>
-                    <option value="2">Đã huỷ</option>
-                    @elseif($status == 2)
-                    <option value="0">Chưa thanh toán</option>
-                    <option value="1">Đã thanh toán</option>
-                    <option value="2" selected>Đã huỷ</option>
-                    @endif
-                  </select>
-                </div>
-                <div class="input-group date col-sm-2">  
-                  <input type="text" class="form-control" id="datetimepicker" name="date">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                </div>
-                <div class="col-sm-2 pull-right" style="margin-right: 34%">
-                  <button class="btn btn-primary bnt-sm; fa fa-search" id="btnsearch" style="float:left;margin-top:-30px;" type="submit">&ensp;Tìm kiếm</button>
-                </div>
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -81,7 +61,7 @@
                             <td><a href="{{ route('waiting.bill.show', $p->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $p->order_id }}</td>
                             <td>{{ $p->user->name }}</td>
-                            <td>{{ trans('bill_point'.$p->method) }}</td>
+                            <td>{{ $p->method }}</td>
                             <td><p class="a">{{ $p->description }}</p></td>
                             <td>{{ number_format($p->point_purchase) }}</td>
                             <td>
@@ -107,7 +87,6 @@
                     </tbody>
                 </table>
               </div>
-              </form>
             </div>
             <!-- /.box-body -->
           </div>
@@ -137,22 +116,5 @@
     })
   })
 
-  $(document).ready(function() {
-    $('#example').DataTable();
-    $('#datetimepicker').datepicker({
-      autoclose: true,
-      endDate: new Date(),
-      format: "dd/mm/yyyy",
-    });
-    var date = '{{ $date }}'
-    console.log(date);
-    if (date == '') {
-      $('#datetimepicker').datepicker('setDate', 'today');
-    }
-    else
-    {
-      $('#datetimepicker').datepicker('setDate', date);
-    }
-  });
 </script>
 @stop

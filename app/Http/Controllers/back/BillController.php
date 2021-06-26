@@ -23,6 +23,12 @@ class BillController extends Controller
         return view('layout_admin.bills.index', compact('bills', 'date', 'status'));
     }
 
+    public function billNew()
+    {   
+        $bills = $this->repository->getBillNew();
+        return view('layout_admin.bills.bill_new', compact('bills'));
+    }
+
     public function show($id)
     {
         
@@ -40,10 +46,16 @@ class BillController extends Controller
 
     public function indexPointPurchase(Request $request)
     {
-        $points= $this->repository->getIndexPoint($request);
+        $points = $this->repository->getIndexPoint($request);
         $date = $request->date;
         $status = $request->status;
         return view('layout_admin.point_purchase.index', compact('points', 'date', 'status'));
+    }
+
+    public function billUnpaidPointPurchase(Request $request)
+    {
+        $points = $this->repository->billUnpaidPoint($request);
+        return view('layout_admin.point_purchase.bill_unpaid', compact('points'));
     }
 
     public function purchasePoint($id, $status, $point, $user, $method)

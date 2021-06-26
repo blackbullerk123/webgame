@@ -51,6 +51,8 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/banner-delete',[SlideController::class,'delete'])->name('slide.delete');
     //Bills
     Route::get('/bills',[BillController::class,'index'])->name('bills');
+    Route::get('/game-bills-unpaid',[BillController::class,'billNew'])->name('bills.unpaid');
+    Route::get('/point-bills-unpaid',[BillController::class,'billUnpaidPointPurchase'])->name('bills.unpaid.point');
     Route::post('/bills',[BillController::class,'index'])->name('bill.search');
     Route::get('/bills/purchase/{id}/status/{status}',[BillController::class,'purchaseBill'])->name('bill.purchase');
     Route::get('/point-purchase',[BillController::class,'indexPointPurchase'])->name('point');

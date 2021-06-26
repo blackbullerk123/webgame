@@ -48,6 +48,18 @@ class BillRepository
         return $all_bill;
     }
 
+    public function getBillNew()
+    {
+        return Bill::where('status',0)->orderBy('created_at', 'desc')->get();
+    }
+
+    public function billUnpaidPoint()
+    {
+        return PointPurchase::where('status',0)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+    }
+
     public function getIndexPoint($request)
     {   
         $date = date('Y-m-d');
