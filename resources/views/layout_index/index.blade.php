@@ -94,11 +94,6 @@
                         </div>
                         <img src="{{ asset($game->thumbnail) }}" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
                         <h3 class="nk-news-box-item-title">{{ $game->name }}</h3>
-                        
-                        <span class="nk-news-box-item-categories">
-                            <span class="bg-main-4">MMO</span>
-                        </span>
-                        
                         <div class="nk-news-box-item-text">
                             <p>{{ $game->short_des }}</p>
                         </div>
@@ -115,9 +110,6 @@
                     <!-- There will be inserted info about selected news-->
                     <div class="nk-news-box-item-image">
                         <img src="{{ asset('assets/images/post-1.jpg') }}" alt="">
-                        <span class="nk-news-box-item-categories">
-                            <span class="bg-main-4">MMO</span>
-                        </span>
                     </div>
                     <h3 class="nk-news-box-item-title">Smell magic in the air. Or maybe barbecue</h3>
                     <div class="nk-news-box-item-text">
