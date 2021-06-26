@@ -56,14 +56,14 @@
                         <div class="form-group row">
                             <p class="col-md-3 col-form-label">Image:</p>
                             <div class="col-md-9">
-                                @if(Auth::user()->avatar)
+                                @if(Auth::user()->avatar_orginal)
+                                <img id="img" class="img" style="width: 200px; height: 150px;"
+                                    src="{{ Auth::user()->avatar_orginal}}">
+                                @else
                                 <input id="fImages" type="file" name="avatar" class="form-control hidden"
                                     onchange="changeImg(this)">
                                 <img id="img" class="img" style="width: 200px; height: 150px; margin-top: -30px"
                                     src="{{ asset($user->avatar ? $user->avatar :'images/no_img.jpg') }}">
-                                @else
-                                <img id="img" class="img" style="width: 200px; height: 150px;"
-                                    src="{{ Auth::user()->avatar_orginal}}">
                                 @endif
                                 @error('avatar')
                                     <p style="color: red"> {{ $message }} </p>
