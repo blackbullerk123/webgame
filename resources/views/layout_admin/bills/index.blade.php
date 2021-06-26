@@ -148,7 +148,6 @@
       format: "dd/mm/yyyy",
     });
     var date = '{{ $date }}'
-    console.log(date);
     if (date == '') {
       $('#datetimepicker').datepicker('setDate', 'today');
     }

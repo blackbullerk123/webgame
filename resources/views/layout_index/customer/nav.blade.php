@@ -27,8 +27,13 @@
 <div class="nk-match">
     <div class="px-4 text-center mb-4">
         <span class="avatar avatar-md mb-3">
+            @if(Auth::user()->avatar)
             <img src="{{ asset(Auth::user()->avatar ? Auth::user()->avatar : 'images/no_img.jpg') }}"
                 style="height: 80px; width: 80px" class="image rounded-circle">
+            @else
+            <img src="{{ Auth::user()->avatar_orginal}}"
+                style="height: 80px; width: 80px" class="image rounded-circle">
+            @endif
         </span>
         <div style="margin-top: 10px">
             <p class="mb-0">Surplus: <span class="text-main-1">{{ Auth::user()->point }}</span> Points</p>

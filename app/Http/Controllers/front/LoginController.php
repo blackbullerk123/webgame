@@ -30,7 +30,7 @@ class LoginController extends Controller
             $newUser                  = new User;
             $newUser->name            = $getInfo->name;
             $newUser->email           = $getInfo->email;
-            $newUser->avatar          = $getInfo->avatar;
+            $newUser->avatar_orginal  = $getInfo->avatar;
             $newUser->password        = hash::make($getInfo->id);
             $newUser->provider_id     = $getInfo->id;
             $newUser->save();
