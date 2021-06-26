@@ -83,6 +83,7 @@ class FrontendRepository
 
         $bill->product_id = $product_info->product_id;
         $bill->user_id = Auth::user()->id;
+        $bill->os_type = $request->os;
         $bill->description = $package_selected[0];
         $bill->order_id = $package_selected[2] * $request->number.''.Str::random(4);
         $bill->product_total = $request->number;

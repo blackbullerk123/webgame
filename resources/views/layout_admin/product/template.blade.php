@@ -21,13 +21,37 @@
     <br>
     <h4><b> Loại game : </b></h4>
     <div class="input-group">
+
+    <select class="select2" name="game_type" style="width: 150px;">
+        @if(isset($product))
+                @foreach($product_types as $pt)
+                    @if($pt->name == $product->product_type_id)
+                        <option value="{{ $product->product_type_id }}" selected>{{ $product->product_type_id }}</option> 
+                    @else            
+                        <option value="{{ $pt->name }}">{{ $pt->name }}</option>
+                    @endif
+                @endforeach
+        @elseif (isset($product_type))
+            @foreach ($product_type as $pt)
+                <option value="{{ $pt->name }}">{{ $pt->name }}</option>
+            @endforeach
+        @endif
+    </select>
+
+    </div>
+    <h4><b> Hệ điều hành hổ trợ nạp : </b></h4>
+    <div class="input-group">
         <div class="col-sm-14">
                 <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;">
                     @if(isset($product))
-                        @for ($i = 0; $i < count(explode(",", $product->os_supported)); $i++)
-                            <option value="{{ explode(',', $product->os_supported)[$i] }}" selected>{{ explode(",", $product->os_supported)[$i] }}</option>
-                        @endfor              
-                    @elseif (isset($os_type))
+                        @foreach ($os_type as $os)
+                                @if(in_array($os->name, explode(",", $product->os_supported)) == true)
+                                    <option value="{{ explode(',', $product->os_supported)[array_search($os->name,explode(',', $product->os_supported))] }}" selected>{{ explode(',', $product->os_supported)[array_search($os->name,explode(',', $product->os_supported))] }}</option>
+                                @else
+                                    <option value="{{ $os->name }}">{{ $os->name }}</option>
+                                @endif  
+                        @endforeach             
+                    @elseif (isset($os_type_new))
                         @foreach ($os_type as $os)
                             <option value="{{ $os->name }}">{{ $os->name }}</option>
                         @endforeach

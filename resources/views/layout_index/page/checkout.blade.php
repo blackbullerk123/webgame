@@ -5,10 +5,12 @@
     if(Auth::check()){
         $user = Auth::user()->id;
         $point = Auth::user()->point;
+        $phone = Auth::user()->phone;
     }else
     {
         $user = '';   
-        $point = '';     
+        $point = '';    
+        $phone = ''; 
     }
         
 ?>;
@@ -135,6 +137,7 @@
             }else
             {
                 var point_user = '{{ $point }}';
+                var phone_user = '{{ $phone }}'
                 var point_total = $("#number").val()*point;
                 if(point_user - point_total < 0) {
                     Swal.fire({
@@ -143,7 +146,14 @@
                         text: "You haven't enough points to buy it!",
                     })
                 }
-                else
+                else if(phone_user == '')
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: "Please update your phone number!",
+                    })
+                }else
                 {
                     $('#add_bill').submit();
                 }

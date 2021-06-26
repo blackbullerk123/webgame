@@ -46,7 +46,7 @@
                 <h3 class="text-main-1">Waiting Bill</h3>
                 <div class="nk-gap"></div>
                 <div class="table-responsive" style="width: 110%;">
-                    <table class="table table-striped custom-table float-left" id="example1">
+                    <table class="table table-striped custom-table float-left">
                         <thead>
                             <tr>
                                 <th scope="col">Bill</th>
@@ -85,21 +85,7 @@
                     </table>
                 </div>
                 <div class="nk-pagination nk-pagination-center">
-                    <a href="#" class="nk-pagination-prev">
-                        <span class="ion-ios-arrow-back"></span>
-                    </a>
-                    
-                    <nav>
-                        <a href="{{ route('order') }}?page=1">1</a>
-                        <a href="{{ route('order') }}?page=2">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <span>...</span>
-                        <a href="#">14</a>
-                    </nav>
-                    <a href="#" class="nk-pagination-next">
-                        <span class="ion-ios-arrow-forward"></span>
-                    </a>
+                        {{ $point_purchase_info->links('vendor.pagination.bootstrap-4') }}
                 </div>
             </div>
         </div>

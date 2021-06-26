@@ -6,28 +6,28 @@
 }
 </style>
 @if ($paginator->hasPages())
-    <ul class="page-pagination" role="navigation">
+    <ul class="nk-pagination" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-        <li><a class="prev page-numbers disabled">@lang('news.prev')</a></li>
+        <a class="nk-pagination-prev disabled"><span class="ion-ios-arrow-back"></span></a>
         @else
-        <li><a class="prev page-numbers" href="{{ $paginator->previousPageUrl() }}">@lang('news.prev')</a></li>
+        <a class="nk-pagination-prev" href="{{ $paginator->previousPageUrl() }}"><span class="ion-ios-arrow-back"></span></a>
         @endif
 
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
             @if (is_string($element))
-            <li><a class="page-numbers disabled" href="#">{{ $element }}</a></li>
+            <a class="page-numbers disabled" href="#">{{ $element }}</li>
             @endif
 
             {{-- Array Of Links --}}
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                    <li><a class="page-numbers current" aria-current="page">{{ $page }}</a></li>
+                    <nav><a class="page-numbers nk-pagination-current" aria-current="page">{{ $page }}</a></nav>
                     @else
-                    <li><a class="page-numbers" href="{{ $url }}">{{ $page }}</a></li>
+                    <nav><a class="page-numbers" href="{{ $url }}">{{ $page }}</a></nav>
                     @endif
                 @endforeach
             @endif
@@ -35,9 +35,9 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-        <li><a class="next page-numbers" href="{{ $paginator->nextPageUrl() }}">@lang('news.next')</a></li>
+        <a class="nk-pagination-next" href="{{ $paginator->nextPageUrl() }}"><span class="ion-ios-arrow-forward"></span></a>
         @else
-        <li><a class="next page-numbers disabled" href="{{ $paginator->nextPageUrl() }}">@lang('news.next')</a></li>
+        <a class="nk-pagination-next disabled" href="{{ $paginator->nextPageUrl() }}"><span class="ion-ios-arrow-forward"></span></a></li>
         @endif
     </ul>
 @endif

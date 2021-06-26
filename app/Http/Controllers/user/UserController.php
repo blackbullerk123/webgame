@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $point_purchase_info = PointPurchase::where('user_id', Auth::user()->id)
                                             ->where('status', '0')
-                                            ->paginate(1);
+                                            ->paginate(4);
         return view('layout_index.customer.order', compact('point_purchase_info'));
     }
 
@@ -38,13 +38,13 @@ class UserController extends Controller
 
     public function transactionHistory()
     {
-        $point_purchase = PointPurchase::where('user_id',Auth::user()->id)->paginate(10);
+        $point_purchase = PointPurchase::where('user_id',Auth::user()->id)->paginate(4);
         return view('layout_index.customer.transaction_history', compact('point_purchase'));
     }
 
     public function orderHistory()
     {
-        $all_bill = Bill::where('user_id', Auth::user()->id)->paginate(10);
+        $all_bill = Bill::where('user_id', Auth::user()->id)->paginate(4);
         return view('layout_index.customer.order_history', compact('all_bill'));
     }
 
@@ -100,8 +100,12 @@ class UserController extends Controller
 
     public function updatePoints(Request $request, $id, $type)
     {
-        $this->repository->pointPurchase($request, $id, $type);
-        return redirect(route('order'));
+        if(Auth::user()->phone == null){
+            return redirect()->back()->with('information', 'Please update your phone number');
+        }else{
+            $this->repository->pointPurchase($request, $id, $type);
+            return redirect(route('order'));
+        }    
     }
 
     public function pointWithdraw(Request $request, $id)

@@ -126,7 +126,8 @@
             <thead>
             <tr>
               <th>Qty</th>
-              <th>Product</th>
+              <th>Game</th>
+              <th>OS type</th>
               <th>Order ID #</th> 
               <th>Description</th>
               <th>Subtotal</th>
@@ -136,6 +137,7 @@
             <tr>
               <td>{{ $bill->product_total }}</td>
               <td>{{ $bill->product->name }}</td>
+              <td>{{ $bill->os_type }}</td>
               <td>{{ $bill->order_id }}</td>
               <td>{{ $bill->description }}</td>
               <td>{{ number_format($bill->point_total) }} Point</td>

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Operating;
 use App\Models\Package;
 use App\Models\Product;
+use App\Models\ProductType;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -28,6 +29,11 @@ class ProductRepository
     public function getType()
     {
          return Operating::all();
+    }
+
+    public function getTypeProduct()
+    {
+         return ProductType::all();
     }
 
     public function getProductById($id)
@@ -63,6 +69,7 @@ class ProductRepository
      }    
      $product->short_des = $request->short_des;
      $product->name = $request->name;
+     $product->product_type_id = $request->game_type;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);
      }
@@ -118,6 +125,7 @@ class ProductRepository
 
      $product->short_des = $request->short_des;
      $product->name = $request->name;
+     $product->product_type_id = $request->game_type;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);
      }

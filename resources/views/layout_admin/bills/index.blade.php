@@ -66,6 +66,8 @@
                             <th>Hoá đơn</th>
                             <th>Mã đơn hàng</th>
                             <th>Tên đơn hàng</th>
+                            <th>Tên người mua</th>
+                            <th>Loại hệ điều hành</th>
                             <th>Số lượng đơn hàng</th>
                             <th>Tổng số point</th>
                             <th>Trạng thái</th>
@@ -80,6 +82,8 @@
                             <td><a href="{{ route('bill.show', $b->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $b->order_id }}</td>
                             <td>{{ $b->product->name }}</td>
+                            <td>{{ $b->user->name }}</td>
+                            <td>{{ $b->os_type }}</td>
                             <td>{{ $b->product_total }}</td>
                             <td>{{ number_format($b->point_total) }}</td>
                             <td>
