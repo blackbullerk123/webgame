@@ -17,6 +17,7 @@ class CreateBillTable extends Migration
             $table->id();
             $table->string('product_id')->nullable();
             $table->string('user_id')->nullable();
+            $table->string('os_type')->nullable();
             $table->string('description')->nullable();
             $table->string('order_id')->nullable();
             $table->string('product_total')->nullable();
