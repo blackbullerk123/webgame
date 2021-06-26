@@ -55,7 +55,7 @@
                         <tr>
                             <td><a href="{{ route('bill.show', $b->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $b->order_id }}</td>
-                            <td>{{ Product::find($b->product_id)->name; }}</td>
+                            <td>{{ Product::find($b->product_id)->name }}</td>
                             <td>{{ $b->user->name }}</td>
                             <td>{{ $b->os_type }}</td>
                             <td>{{ $b->product_total }}</td>
