@@ -35,9 +35,10 @@ class FrontendController extends Controller
 
     public function getIndex()
     {
+        $game_top = $this->repository->gamesTop();
         $products = $this->repository->getProductToIndex();
         $slides = $this->repository->getSlides();
-        return view('layout_index.index', compact('products','slides'));
+        return view('layout_index.index', compact('products','slides','game_top'));
     }
 
     public function getDetail($id)
@@ -51,6 +52,11 @@ class FrontendController extends Controller
         $product_info = $this->repository->getPackageToCheckout($id);
         $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
         return view('layout_index.page.checkout', compact('product_info', 'package_selected', 'package'));
+    }
+
+    public function document()
+    {
+        return view('layout_index.page.document');
     }
 
     public function contact()

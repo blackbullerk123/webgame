@@ -86,6 +86,8 @@ Route::get('/',[FrontendController::class,'getIndex'])->name('index');
 Route::get('/all-games',[FrontendController::class,'allGames'])->name('all_games');
 //Type game
 Route::get('/game-type/{type}',[FrontendController::class,'viewGameType'])->name('game.type.view');
+//Document
+Route::get('/document',[FrontendController::class,'document'])->name('document');
 //Contact
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 //About

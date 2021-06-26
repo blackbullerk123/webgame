@@ -87,23 +87,23 @@
             <div class="nano">
                 <div class="nano-content">
                     
-                    @foreach ($products as $product)
+                    @foreach ($game_top as $game)
                     <div class="nk-news-box-item nk-news-box-item-active">
                         <div class="nk-news-box-item-img">
-                            <img src="{{ asset($product->image) }}" alt="Smell magic in the air. Or maybe barbecue">
+                            <img src="{{ asset($game->image) }}" alt="Smell magic in the air. Or maybe barbecue">
                         </div>
-                        <img src="{{ asset($product->thumbnail) }}" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
-                        <h3 class="nk-news-box-item-title">{{ $product->name }}</h3>
+                        <img src="{{ asset($game->thumbnail) }}" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
+                        <h3 class="nk-news-box-item-title">{{ $game->name }}</h3>
                         
                         <span class="nk-news-box-item-categories">
                             <span class="bg-main-4">MMO</span>
                         </span>
                         
                         <div class="nk-news-box-item-text">
-                            <p>{{ $product->short_des }}</p>
+                            <p>{{ $game->short_des }}</p>
                         </div>
-                        <a href="{{ route('product.detail', $product->id) }}" class="nk-news-box-item-url">ORDER</a>
-                        <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($product->created_at)) }}</div>
+                        <a href="{{ route('product.detail', $game->id) }}" class="nk-news-box-item-url">ORDER</a>
+                        <div class="nk-news-box-item-date"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($game->created_at)) }}</div>
                     </div>
                     @endforeach                                               
                 </div>
