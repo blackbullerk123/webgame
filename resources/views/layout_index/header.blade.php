@@ -207,6 +207,175 @@
         </div>
     </div>
 </div>
+    <!-- START: Search Modal -->
+    <div class="nk-modal modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="ion-android-close"></span>
+                    </button>
+
+                    <h4 class="mb-0">Search</h4>
+
+                    <div class="nk-gap-1"></div>
+                    <form action="{{ route('search') }}" method="get" class="nk-form nk-form-style-1">
+                        <input type="text" value="" name="search" class="form-control"
+                            placeholder="Type something and press Enter" autofocus>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Search Modal -->
+    <!-- START: Terms Modal -->
+    <div class="modal fade" id="termsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            After clicking confirm, you much contact the supporter for assistance in loading money into the game. 
+            NOTE: please send the game account including <a href="#" style="color: red">your id + password </a> and ''<a href="#" style="color: red">sever, character name... (if the game has one)</a>''
+            Before sending, please enable <a href="#" style="color: red">Two-factor Authentication</a> for your account to avoid bad situations.
+            Webgame.vn secures 100% of customer information absolutely and safely.
+            <hr>
+            <a href="#" style="color: yellow">After clicking confirm, the money will be deducted from your account, support will contact you via facebook page or phone number/email you have registered.</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirm_terms">Confirm</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Terms Modal -->
+    <!-- START: Login Modal -->
+    <div class="modal fade" id="modalLogin" aria-hidden="true" aria-labelledby="modalLogin">
+        <div class="modal-dialog modal-sm-8" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="ion-android-close"></span>
+                    </button>
+                    <h4 class="mb-0"><span class="text-main-1">Sign</span> In</h4>
+
+                    <div class="nk-gap-1"></div>
+                    <form action="#" method="post" id="signin_form" class="nk-form text-white">
+                        @csrf
+                        <div class="row vertical-gap">
+                            <div class="col-md-6">
+                                Use email and password:
+                                <div class="nk-gap"></div>
+                                <input type="email" value="" id="email" name="email" class="required form-control"
+                                    placeholder="Email">
+                                <div class="nk-gap"></div>
+                                <input type="password" value="" id="password" name="password" class="required form-control"
+                                    placeholder="Password">
+                            </div>
+                            <div class="col-md-6">
+                                Or social account:
+
+                                <div class="nk-gap"></div>
+
+                                <ul class="nk-social-links-2">
+                                    <li><a class="nk-social-facebook" href="{{ route('social.login',['facebook']) }}"><span class="fab fa-facebook"></span></a>
+                                    </li>
+                                    {{-- <li><a class="nk-social-google-plus" href="#"><span
+                                                class="fab fa-google-plus"></span></a></li>
+                                    <li><a class="nk-social-twitter" href="#"><span class="fab fa-twitter"></span></a>
+                                    </li> --}}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nk-gap-1"></div>
+                        <div class="row vertical-gap">
+                            <div class="col-md-6">
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block login">Sign
+                                    In</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mnt-5">
+                                    <small><a href="#">Forgot your password?</a></small>
+                                </div>
+                                <div class="mnt-5">
+                                    <small><a href="#" data-toggle="modal" data-target="#modalRegister"
+                                            data-dismiss="modal">Not a member? Sign up</a></small>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Login Modal -->
+    <!-- START: Reg Modal -->
+    <div class="modal fade" id="modalRegister" aria-hidden="true" aria-labelledby="modalRegister" tabindex="-1">
+        <div class="modal-dialog modal-sm-8" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="ion-android-close"></span>
+                    </button>
+
+                    <h4 class="mb-0"><span class="text-main-1">Sign</span> Up</h4>
+
+                    <div class="nk-gap-1"></div>
+                    <form action="#" method="post" id="signup_form" class="nk-form text-white">
+                        @csrf
+                        <div class="row vertical-gap">
+                            <div class="col-md-8">
+                                <div class="nk-gap"></div>
+                                <label>Name:</label>
+                                <input type="text" value="" name="name" id="name" class="form-control"
+                                    placeholder="Name">
+                                <p id="error-name" style="color:red"></p>
+                                <label>Email:</label>
+                                <input type="text" value="" name="email" id="email_sign" class="form-control"
+                                    placeholder="Email">
+                                <p id="error-email" style="color:red"></p>
+                                <label>Phone:</label>
+                                <input type="text" value="" name="phone" id="phone" maxlength="15" class="form-control"
+                                    placeholder="Phone">
+                                <p id="error-phone" style="color:red"></p>
+                                <label>Password:</label>
+                                <input type="password" value="" name="password" id="password_sign" class="form-control"
+                                    placeholder="Password">
+                                <p id="error-pass" style="color:red"></p>
+                                <label>Confirm Password:</label>
+                                <input type="password" value="" name="confirm_password" id="confirm_password"
+                                    class="form-control" placeholder="Password">
+                                <p id="error-confirm" style="color:red"></p>
+                            </div>
+                        </div>
+
+                        <div class="nk-gap-1"></div>
+                        <div class="row vertical-gap">
+                            <div class="col-md-6">
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Sign Up</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mnt-5">
+                                    <small><a href="#">Forgot your password?</a></small>
+                                </div>
+                                <div class="mnt-5">
+                                    <small><a href="#" data-toggle="modal" data-dismiss="modal"
+                                            data-target="#modalLogin">Is a member? Sign In</a></small>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Reg Modal -->
 <!-- END: Navbar Mobile -->
 @section('script')
 
