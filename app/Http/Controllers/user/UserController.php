@@ -26,8 +26,8 @@ class UserController extends Controller
     public function order()
     {
         $point_purchase_info = PointPurchase::where('user_id', Auth::user()->id)
-                                            ->orderBy('id', 'desc')
-                                            ->paginate(1);
+                                            ->where('status', '0')
+                                            ->paginate(4);
         return view('layout_index.customer.order', compact('point_purchase_info'));
     }
 
