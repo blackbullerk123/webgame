@@ -125,7 +125,13 @@ Bank  :    /
             var url = $(this).attr('action');
             var amount = $("#amount").val();
             var note = $("#note").val();
-            if(amount < 0){
+            if( '{{ Auth::user()->phone }}' == ''){
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: "Please update your phone number!",
+                    })
+            }else if(amount < 0){
                 $('#error-amount').html('The amount must greater than 0!')
             }else if( '{{ Auth::user()->point }}' - amount < 0){
                 $('#error-amount').html('Surplus not enough')

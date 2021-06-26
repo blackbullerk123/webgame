@@ -26,7 +26,7 @@ class UserController extends Controller
     public function order()
     {
         $point_purchase_info = PointPurchase::where('user_id', Auth::user()->id)
-                                            ->where('status', '0')
+                                            ->orderBy('id', 'desc')
                                             ->paginate(1);
         return view('layout_index.customer.order', compact('point_purchase_info'));
     }
@@ -100,8 +100,12 @@ class UserController extends Controller
 
     public function updatePoints(Request $request, $id, $type)
     {
-        $this->repository->pointPurchase($request, $id, $type);
-        return redirect(route('order'));
+        if(Auth::user()->phone == null){
+            return redirect()->back()->with('information', 'Please update your phone number');
+        }else{
+            $this->repository->pointPurchase($request, $id, $type);
+            return redirect(route('order'));
+        }    
     }
 
     public function pointWithdraw(Request $request, $id)

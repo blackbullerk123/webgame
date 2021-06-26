@@ -47,6 +47,7 @@
                                     <tr>
                                         <th style="text-align: center">Ảnh</th>
                                         <th style="text-align: center">ID Order</th>
+                                        <th style="text-align: center">Loại game</th>
                                         <th style="text-align: center">Tên game</th>
                                         <th style="text-align: center">Hệ điều hành hổ trợ nạp</th>
                                         <th style="text-align: center">Thao tác</th>
@@ -59,6 +60,7 @@
                                                 <td><img width="150px" height="100" src="{{ asset($pro->image) }}"
                                                         class="thumbnail center"></td>
                                                 <td>{{ $pro->id }}</td>
+                                                <td>{{ $pro->product_type_id }}</td>
                                                 <td>{{ $pro->name }}</td>
                                                 <td>
                                                     <ul>

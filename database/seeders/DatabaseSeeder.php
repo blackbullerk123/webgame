@@ -70,7 +70,7 @@ class ProductTypeTableSeeder extends Seeder
         DB::table('product_types')->insert([
             [
                 'id' => '2',
-                'name' => 'Product',
+                'name' => 'Game',
             ],
         ]);
     }

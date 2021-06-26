@@ -109,3 +109,4 @@ Route::post('/login',[FrontendController::class,'postLogin'])->name('login');
 Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
+

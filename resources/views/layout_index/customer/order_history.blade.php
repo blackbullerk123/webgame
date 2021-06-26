@@ -27,6 +27,7 @@
                             <th scope="col">Order</th>
                             <th scope="col">ID order</th>
                             <th scope="col">Name</th>
+                            <th scope="col">OS type</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Point total</th>
                             <th scope="col">Status</th>
@@ -42,6 +43,7 @@
                                                 class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
                                     <td>{{ $bill->order_id }}</a></td>
                                     <td>{{ $bill->product->name }}</td>
+                                    <td>{{ $bill->os_type }}</td>
                                     <td style="text-align: center">{{ $bill->product_total }}</td>
                                     <td>{{ $bill->point_total }}</td>
                                     @if ($bill->status == 0)
