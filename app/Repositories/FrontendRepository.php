@@ -123,7 +123,7 @@ class FrontendRepository
                                             $q->where('os_supported', 'like', '%' . $type . '%');
                                         });
                                     })
-                                    ->get();
+                                    ->paginate(12);
         return $view_game_for_type;
 
     }

@@ -19,45 +19,42 @@
     <!-- START: Categories -->
     <div class="nk-gap-2"></div>
     <div class="row vertical-gap">
-        @if($type == 'Card')
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
                     <img src="{{ asset('images/card-itunes.png')}}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">Card</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="#">View Card</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'Card') }}">Card</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'Card') }}">View Card</a></h4>
                 </div>
             </div>
         </div>
-        @elseif($type == 'Android')
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
                     <img src="{{ asset('images/android.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">ANDROID</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="#">View Games</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'Android') }}">ANDROID</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'Android') }}">View Games</a></h4>
                 </div>
             </div>
         </div>
-        @elseif($type == 'IOS')
         <div class="col-lg-4">
             <div class="nk-feature-1">
                 <div class="nk-feature-icon">
                     <img src="{{ asset('images/ios.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="#">IOS</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="#">View Games</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'IOS') }}">IOS</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'IOS') }}">View Games</a></h4>
                 </div>
             </div>
         </div>
-        @endif
     </div>
     <!-- END: Categories -->
+
 
     <div class="nk-gap-2"></div>
         <h3 class="nk-decorated-h-2"><span><span class="text-main-1">All</span> {{ $type }}</span></h3>
@@ -90,6 +87,9 @@
                 @endforeach  
             @endif  
         </div>
+        <div class="nk-pagination nk-pagination-center">
+            {{ $game_type->links('vendor.pagination.bootstrap-4') }}
+    </div>
     </div>
     <!-- END: Latest News -->
             </aside>
