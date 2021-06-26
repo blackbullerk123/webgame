@@ -9,9 +9,9 @@
     <ul class="nk-pagination" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-        <a class="prev page-numbers disabled">Prev</a>
+        <a class="nk-pagination-prev disabled"><span class="ion-ios-arrow-back"></span></a>
         @else
-        <a class="prev page-numbers" href="{{ $paginator->previousPageUrl() }}"><span class="ion-ios-arrow-back"></span></a>
+        <a class="nk-pagination-prev" href="{{ $paginator->previousPageUrl() }}"><span class="ion-ios-arrow-back"></span></a>
         @endif
 
         {{-- Pagination Elements --}}
@@ -35,9 +35,9 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-        <a class="next page-numbers" href="{{ $paginator->nextPageUrl() }}">Next</a>
+        <a class="nk-pagination-next" href="{{ $paginator->nextPageUrl() }}"><span class="ion-ios-arrow-forward"></span></a>
         @else
-        <a class="next page-numbers disabled" href="{{ $paginator->nextPageUrl() }}">Next</a></li>
+        <a class="nk-pagination-next disabled" href="{{ $paginator->nextPageUrl() }}"><span class="ion-ios-arrow-forward"></span></a></li>
         @endif
     </ul>
 @endif

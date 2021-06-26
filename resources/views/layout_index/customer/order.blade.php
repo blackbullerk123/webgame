@@ -46,7 +46,7 @@
                 <h3 class="text-main-1">Waiting Bill</h3>
                 <div class="nk-gap"></div>
                 <div class="table-responsive" style="width: 110%;">
-                    <table class="table table-striped custom-table float-left" id="example1">
+                    <table class="table table-striped custom-table float-left">
                         <thead>
                             <tr>
                                 <th scope="col">Bill</th>

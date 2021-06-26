@@ -38,13 +38,13 @@ class UserController extends Controller
 
     public function transactionHistory()
     {
-        $point_purchase = PointPurchase::where('user_id',Auth::user()->id)->paginate(10);
+        $point_purchase = PointPurchase::where('user_id',Auth::user()->id)->paginate(4);
         return view('layout_index.customer.transaction_history', compact('point_purchase'));
     }
 
     public function orderHistory()
     {
-        $all_bill = Bill::where('user_id', Auth::user()->id)->paginate(10);
+        $all_bill = Bill::where('user_id', Auth::user()->id)->paginate(4);
         return view('layout_index.customer.order_history', compact('all_bill'));
     }
 
