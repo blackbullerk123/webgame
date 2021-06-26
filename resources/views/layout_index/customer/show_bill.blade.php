@@ -175,7 +175,8 @@
           @endif
           <p class="lead">Payment Methods:</p>
           <img src="{{ asset('dist/img/payoneer.png') }}" alt="Payoneer">
-          <img src="{{ asset('dist/img/paypal2.png') }}" alt="Paypal">
+          <img src="{{ asset('dist/img/paypal2.png') }}" alt="Paypal" style="margin-left: 10px">
+          <img src="{{ asset('dist/img/momo.png') }}" alt="Momo" style="margin-left: 10px">
         </div>
         <div class="col-xs-6 pull-right">
           <p class="lead">Amount Due {{date('d/m/Y ', strtotime($point_purchase->created_at))}}</p>

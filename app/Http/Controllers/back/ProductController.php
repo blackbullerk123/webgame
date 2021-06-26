@@ -37,9 +37,10 @@ class ProductController extends Controller
 
     public function create()
     {
+        $os_type = $this->repository->getType();
         $os_type_new = $this->repository->getOsType();
         $product_type = $this->repository->getTypeProduct();
-        return view('layout_admin.product.create', compact('os_type_new', 'product_type'));
+        return view('layout_admin.product.create', compact('os_type_new', 'os_type','product_type'));
     }
 
     public function store(ProductRequest $request)
