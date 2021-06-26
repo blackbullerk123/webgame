@@ -25,8 +25,8 @@
     <select class="select2" name="game_type" style="width: 150px;">
         @if(isset($product))
                 @foreach($product_types as $pt)
-                    @if($pt->name == $product->product_type_id)
-                        <option value="{{ $product->product_type_id }}" selected>{{ $product->product_type_id }}</option> 
+                    @if($pt->name == $product->product_type)
+                        <option value="{{ $product->product_type }}" selected>{{ $product->product_type }}</option> 
                     @else            
                         <option value="{{ $pt->name }}">{{ $pt->name }}</option>
                     @endif

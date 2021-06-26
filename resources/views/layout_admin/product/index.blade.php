@@ -60,7 +60,7 @@
                                                 <td><img width="150px" height="100" src="{{ asset($pro->image) }}"
                                                         class="thumbnail center"></td>
                                                 <td>{{ $pro->id }}</td>
-                                                <td>{{ $pro->product_type_id }}</td>
+                                                <td>{{ $pro->product_type }}</td>
                                                 <td>{{ $pro->name }}</td>
                                                 <td>
                                                     <ul>
