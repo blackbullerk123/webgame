@@ -89,7 +89,7 @@
                                     <td><a href="#">{{explode(',', $product->package_name)[$i]}}</a></td>
                                     <td>{{ explode(',', $product->package_price)[$i] }}</td>
                                     <td>{{ number_format(explode(',', ($product->point_number))[$i]) }}</td>
-                                    <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail">Details</a></td>                   
+                                    <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail">Order</a></td>                   
                             </tr>  
                         @endfor                            
                         @endif
