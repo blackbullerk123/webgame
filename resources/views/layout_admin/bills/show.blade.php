@@ -170,7 +170,7 @@
                         <table class="table">
                             <tr>
                                 <th style="width:50%">Subtotal:</th>
-                                <td>{{ number_format($bill->point_total) }}</td>
+                                <td>{{ number_format($bill->point_total) }} Point</td>
                             </tr>
                             <tr>
                                 <th>Tax</th>
@@ -182,7 +182,7 @@
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td>{{ number_format($bill->point_total) }}</td>
+                                <td>{{ number_format($bill->point_total) }} Point</td>
                             </tr>
                         </table>
                     </div>

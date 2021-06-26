@@ -84,6 +84,10 @@
                 <!-- END: Post -->
             </div>  
             @endforeach    
+            
+        </div>
+        <div class="nk-pagination nk-pagination-center">
+            {{ $products->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
     <!-- END: Latest News -->

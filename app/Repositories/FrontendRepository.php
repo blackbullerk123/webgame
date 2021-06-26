@@ -44,6 +44,11 @@ class FrontendRepository
         return Product::orderBy('created_at', 'desc')->paginate(8);
     }
 
+    public function getAllGames()
+    {
+        return Product::orderBy('created_at', 'desc')->paginate(16);
+    }
+
     public function getSlides()
     {
         return Slide::orderBy('created_at', 'desc')->limit(10)->get();
