@@ -17,6 +17,7 @@ class CreatePoinPurchaseTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('point_purchase')->default('0');
+            $table->string('os_type')->nullable();
             $table->string('description')->nullable();
             $table->string('order_id')->nullable();
             $table->string('status')->default('0');
