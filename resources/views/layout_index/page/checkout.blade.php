@@ -16,20 +16,7 @@
 ?>;
 <div class="container">
   <ul class="nk-breadcrumbs">
-      
-      
-      <li><a href="index.html">Home</a></li>
-      
-      
-      <li><span class="fa fa-angle-right"></span></li>
-      
-      <li><a href="store.html">Store</a></li>
-      
-      
-      <li><span class="fa fa-angle-right"></span></li>
-      
-      <li><span>Cart</span></li>
-      
+      <li><span>Cart</span></li>    
   </ul>
 </div>
 <div class="nk-gap-2"></div>
@@ -104,7 +91,7 @@
       </div>
       </div>
       <div class="nk-gap-1"></div>
-      <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#" id="update_bill">Update Cart</a>
+      <a class="nk-btn nk-btn-rounded nk-btn-color-white float-right" href="#" id="update_bill">Order</a>
     @endif
       <div class="clearfix"></div>
       <div class="nk-gap-2"></div>

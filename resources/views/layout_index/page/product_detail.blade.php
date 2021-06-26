@@ -41,19 +41,7 @@
             <!-- START: Breadcrumbs -->
 <div class="nk-gap-1"></div>
 <div class="container">
-    <ul class="nk-breadcrumbs">
-        
-        
-        <li><a href="index.html">Home</a></li>
-        
-        
-        <li><span class="fa fa-angle-right"></span></li>
-        
-        <li><a href="#">Blog</a></li>
-        
-        
-        <li><span class="fa fa-angle-right"></span></li>
-        
+    <ul class="nk-breadcrumbs">            
         <li><span>Blog FullWidth</span></li>
         
     </ul>

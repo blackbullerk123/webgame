@@ -19,7 +19,7 @@
                 @include('layout_index.customer.nav')
             </div>
             <div class="col-lg-9">
-                <h3 class="text-main-1">Load points</h3>
+                <h3 class="text-main-1">Purchase points</h3>
                 <div class="box-header">
                     @if (session('information'))
                         <div class="alert alert-warning">{{ session('information') }}</div>
@@ -73,7 +73,7 @@
                                         <option value="6000">6,000 Points</option>
                                     </select>
                                 </div>
-                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Purchase</button>
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
@@ -108,7 +108,7 @@
                                         <option value="6000">6,000 Points</option>
                                     </select>
                                 </div>
-                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Button</button>
+                                <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Purchase</button>
                             </form>
                         </div>
                     </div>

@@ -68,19 +68,13 @@
                 <div class="nk-blog-post">
                     <a href="{{ route('product.detail', $pro->id) }}" class="nk-post-img">
                         <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
-                        <span class="nk-post-comments-count">13</span>
-                        
-                        <span class="nk-post-categories">
-                                    <span class="bg-main-5">Indie</span>
-                                </span>
-                        
                     </a>
                     <div class="nk-gap"></div>
                     <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{ $pro->name }} </a></h2>
                     
                     <div class="nk-gap"></div>
                     <a href="{{ route('product.detail', $pro->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> Jul 23, 2018</div>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($pro->created_at)) }}</div>
                 </div>
                 <!-- END: Post -->
             </div>  
