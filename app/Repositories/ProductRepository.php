@@ -69,7 +69,7 @@ class ProductRepository
      }    
      $product->short_des = $request->short_des;
      $product->name = $request->name;
-     $product->product_type_id = $request->game_type;
+     $product->product_type = $request->game_type;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);
      }
@@ -125,7 +125,7 @@ class ProductRepository
 
      $product->short_des = $request->short_des;
      $product->name = $request->name;
-     $product->product_type_id = $request->game_type;
+     $product->product_type = $request->game_type;
      if (count($request->game_opt) > 1) {
           $product->os_supported = implode(',' ,$request->game_opt);
      }

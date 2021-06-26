@@ -82,12 +82,8 @@ Route::get('/social-login/{provider}/callback', [LoginController::class,'handleP
 Route::get('/',[FrontendController::class,'getIndex'])->name('index');
 //All games
 Route::get('/all-games',[FrontendController::class,'allGames'])->name('all_games');
-//Android games
-Route::get('/android-games',[FrontendController::class,'viewAndroid'])->name('view_android');
-//Ios games
-Route::get('/ios-games',[FrontendController::class,'viewIos'])->name('view_ios');
-//Card games
-Route::get('/card-itunes',[FrontendController::class,'viewCard'])->name('view_card');
+//Type game
+Route::get('/game-type/{type}',[FrontendController::class,'viewGameType'])->name('game.type.view');
 //Contact
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 //About

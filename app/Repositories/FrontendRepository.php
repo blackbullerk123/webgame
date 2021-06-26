@@ -100,4 +100,26 @@ class FrontendRepository
             ->paginate(20);
         return $product;
     }
+
+    public function getGameForTypeGame($type)
+    {
+        $view_game_for_type = Product::when(($type == 'Card'), function ($query) use ($type){
+                                        $query->where(function ($q) use ($type) {
+                                            $q->where('product_type', $type);
+                                        });
+                                    })
+                                    ->when(($type == 'Android'), function ($query) use ($type){
+                                        $query->where(function ($q) use ($type){
+                                            $q->where('os_supported', 'like', '%' . $type . '%');
+                                        });
+                                    })
+                                    ->when(($type == 'IOS'), function ($query) use ($type){
+                                        $query->where(function ($q) use ($type){
+                                            $q->where('os_supported', 'like', '%' . $type . '%');
+                                        });
+                                    })
+                                    ->get();
+        return $view_game_for_type;
+
+    }
 }

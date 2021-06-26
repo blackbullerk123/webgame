@@ -138,4 +138,10 @@ class FrontendController extends Controller
         $this->repository->createBill($request, $product_info, $package_selected);
         return redirect(route('order_history'));
     }
+
+    public function viewGameType($type)
+    {
+        $game_type = $this->repository->getGameForTypeGame($type);
+        return view('layout_index.page.search_type', compact('game_type', 'type'));
+    }
 }

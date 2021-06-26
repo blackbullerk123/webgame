@@ -47,8 +47,8 @@
                     <img src="{{ asset('images/card-itunes.png')}}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="{{ route('view_card') }}">Card</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('view_card') }}">View Card</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'Card') }}">Card</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'Card') }}">View Card</a></h4>
                 </div>
             </div>
         </div>
@@ -58,8 +58,8 @@
                     <img src="{{ asset('images/android.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="{{ route('view_android') }}">ANDROID</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('view_android') }}">View Games</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'Android') }}">ANDROID</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'Android') }}">View Games</a></h4>
                 </div>
             </div>
         </div>
@@ -69,8 +69,8 @@
                     <img src="{{ asset('images/ios.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
-                    <h3 class="nk-feature-title"><a href="{{ route('view_ios') }}">IOS</a></h3>
-                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('view_ios') }}">View Games</a></h4>
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'IOS') }}">IOS</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'IOS') }}">View Games</a></h4>
                 </div>
             </div>
         </div>
