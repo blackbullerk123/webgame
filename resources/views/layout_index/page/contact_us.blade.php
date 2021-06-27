@@ -36,10 +36,10 @@
                 </div><br>
             </div>
         </div>
-        <br>
+        <div class="nk-gap-2"></div>
             <div class="row">
                 <div class="col-12 " style="text-align: center">
-                    <h3 class="text-main-4">Phản hồi khách hàng xin vui lòng gửi về email: <b>admin@gmail.com</b>
+                    <h3 class="text-main-4">CUSTOMER FEEDBACK PLEASE SEND ON EMAIL: <b>ADMIN@GMAIL.COM</b>
                     </h3> <br>
                 </div>
             </div>
