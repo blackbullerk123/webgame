@@ -44,8 +44,8 @@
     <!-- IonIcons -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/ionicons/css/ionicons.min.css') }}">
 
-    <!-- Flickity -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/flflickity/dist/flickity.min.css') }}">
+    {{-- <!-- Flickity -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/flflickity/dist/flickity.min.css') }}"> --}}
 
     <!-- Photoswipe -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/photoswipe/dist/photoswipe.css') }}">
@@ -118,9 +118,9 @@
 
     <!-- imagesLoaded -->
     <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-
+{{-- 
     <!-- Flickity -->
-    <script src="{{ asset('assets/vendor/flickity/dist/flickity.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/flickity/dist/flickity.pkgd.min.js') }}"></script> --}}
 
     <!-- Photoswipe -->
     <script src="{{ asset('assets/vendor/photoswipe/dist/photoswipe.min.js') }}"></script>

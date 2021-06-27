@@ -75,7 +75,7 @@
             <span class="label label-warning">{{ $sum }}</span>
           </a>
           <ul class="dropdown-menu">
-            <li class="header">Bạn có {{ $sum }} đơn hàng</li>
+            <li class="header">Bạn có {{ $sum }} đơn hàng chưa thanh toán</li>
             <li>
               <!-- inner menu: contains the actual data -->
               <ul class="menu">

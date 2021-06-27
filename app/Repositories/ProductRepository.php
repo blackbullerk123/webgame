@@ -81,11 +81,11 @@ class ProductRepository
      $product->content_1 = $request->content;
      $product->save();
    
-     $package->product_id = $product->id;
+     $package->product_id = $product->id;   
      if(count($request->package) > 1){
-          $package->package_name = implode(',' ,$request->package);
-          $package->package_price = implode(',' ,$request->value);
-          $package->point_number = implode(',' ,$request->point);
+          $package->package_name = json_encode($request->package);
+          $package->package_price = json_encode($request->value);
+          $package->point_number = json_encode($request->point);
      }
      else{
           $package->package_name = $request->package[0];
@@ -139,9 +139,9 @@ class ProductRepository
 
      if ($request->package) {
           if(count($request->package) > 1){
-               $package->package_name = implode(',' ,$request->package);
-               $package->package_price = implode(',' ,$request->value);
-               $package->point_number = implode(',' ,$request->point);
+               $package->package_name = json_encode($request->package);
+               $package->package_price = json_encode($request->value);
+               $package->point_number = json_encode($request->point);
           }
           else{
                $package->package_name = $request->package[0];
@@ -157,9 +157,9 @@ class ProductRepository
     {
           $package = Package::where('product_id', $id)->first();
           if(count($request->package) > 1){
-               $package->package_name = implode(',' ,$request->package);
-               $package->package_price = implode(',' ,$request->value);
-               $package->point_number = implode(',' ,$request->point);
+               $package->package_name = json_encode($request->package);
+               $package->package_price = json_encode($request->value);
+               $package->point_number = json_encode($request->point);
           }
           else{
                $package->package_name = $request->package[0];
@@ -179,8 +179,9 @@ class ProductRepository
           $product = Product::find($request->id);
           $package = Package::where('product_id', $product->id)->first();
           $bill = Bill::where('product_id', $request->id)->get();
-          if(file_exists($product->image)){
+          if(file_exists($product->image) && file_exists($product->thumbnail)){
                unlink(public_path($product->image));
+               unlink(public_path($product->thumbnail));
           } 
           foreach ($bill as $b){
                $bill_to_delete = Bill::find($b->id);

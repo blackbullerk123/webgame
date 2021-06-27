@@ -81,7 +81,7 @@
                             <td>{{ $b->order_id }}</td>
                             <td>{{ $b->product->name }}</td>
                             <td>{{ $b->product_total }}</td>
-                            <td>{{ number_format($b->point_total) }}</td>
+                            <td>{{ number_format($b->point_total) }} point</td>
                             <td>
                               @if($b->status == 0)
                               <label class="label label-warning" style="padding:5px;">Chưa thanh toán</label>

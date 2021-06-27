@@ -83,7 +83,7 @@ class FrontendRepository
 
     public function getPackageSelectedToCheckout($product, $package)
     {
-        $package_selected = array(explode(',', $product->package_name)[$package], explode(',', $product->package_price)[$package], explode(',', $product->point_number)[$package]);
+        $package_selected = array(json_decode($product->package_name)[$package], json_decode($product->package_price)[$package], json_decode($product->point_number)[$package]);
         return $package_selected;
     }
 

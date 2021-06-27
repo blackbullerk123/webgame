@@ -72,11 +72,11 @@
                         </thead>
                         <tbody>
                         @if(isset($product->package_name))
-                        @for ($i = 0;$i < count(explode(',', $product->package_name)); $i++)
+                        @for ($i = 0;$i < count(json_decode($product->package_name)); $i++)
                             <tr scope="row">
-                                    <td><a href="#">{{explode(',', $product->package_name)[$i]}}</a></td>
-                                    <td>{{ explode(',', $product->package_price)[$i] }}</td>
-                                    <td>{{ number_format(explode(',', ($product->point_number))[$i]) }} point</td>
+                                    <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
+                                    <td>{{ json_decode($product->package_price)[$i] }}</td>
+                                    <td>{{ number_format(json_decode($product->point_number)[$i]) }} point</td>
                                     <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail">Order</a></td>                   
                             </tr>  
                         @endfor                            

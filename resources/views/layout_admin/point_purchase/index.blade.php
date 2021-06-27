@@ -83,7 +83,7 @@
                             <td>{{ $p->user->name }}</td>
                             <td>{{ trans('bill_point'.$p->method) }}</td>
                             <td><p class="a">{{ $p->description }}</p></td>
-                            <td>{{ number_format($p->point_purchase) }}</td>
+                            <td>{{ number_format($p->point_purchase) }} point</td>
                             <td>
                               @if($p->status == 0)
                               <label class="label label-warning" style="padding:5px;">Chưa thanh toán</label>
