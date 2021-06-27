@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Bill;
 use App\Models\Operating;
 use App\Models\Package;
 use App\Models\Product;
@@ -177,12 +178,20 @@ class ProductRepository
     {
           $product = Product::find($request->id);
           $package = Package::where('product_id', $product->id)->first();
+          $bill = Bill::where('product_id', $request->id)->get();
           if(file_exists($product->image)){
                unlink(public_path($product->image));
-          }         
+          } 
+          foreach ($bill as $b){
+               $bill_to_delete = Bill::find($b->id);
+               $bill_to_delete->delete();
+          }      
           $product->delete();
           $package->delete();
 
+         
+          
+          
     }
 
 }

@@ -131,12 +131,22 @@
                             id: id
                         },
                         success: function(data) {
-                            that.parent().parent().remove();
-                            Swal.fire(
-                                'Xóa!',
-                                'Xóa thành công.',
-                                'success'
-                            )
+                            if(data.success == true) {
+                                that.parent().parent().remove();
+                                Swal.fire(
+                                    'Xóa!',
+                                    'Xóa thành công.',
+                                    'success'
+                                )
+                            }
+                            else
+                            {
+                                Swal.fire(
+                                    'Xóa!',
+                                    'Xoá thất bại!.',
+                                    'success'
+                                )
+                            }                         
                         }
                     })
                 }

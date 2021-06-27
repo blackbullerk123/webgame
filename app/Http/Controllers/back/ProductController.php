@@ -7,6 +7,7 @@ use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 Use Alert;
 use App\Http\Requests\ProductRequest;
+use App\Models\Bill;
 
 class ProductController extends Controller
 {
@@ -64,9 +65,25 @@ class ProductController extends Controller
 
     public function delete(Request $request)
     {
-       $this->repository->productdestroy($request);
-        return response()->json([
+       $bill_not_done = Bill::where('product_id', $request->id)
+                            ->where('status', '0')
+                            ->get(); 
+        $i = 0;
+        foreach ($bill_not_done as $b){
+            $i++;
+        }
+        if($i > 0)
+        {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+        else
+        {
+            $this->repository->productdestroy($request);
+            return response()->json([
             'success' => true
         ]);
+        }
     }
 }
