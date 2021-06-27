@@ -77,7 +77,7 @@
                               <h5 class="h6">Total:</h5>
                               <div class="nk-gap-1"></div>
 
-                              <strong id="tong_tien">{{number_format($package_selected[2])}}</strong>
+                              <strong id="tong_tien">{{number_format($package_selected[2])}} point</strong>
                           </td>
                           <td class="nk-product-cart-remove"><a href="#"><span class="ion-android-close"></span></a></td>
                       </tr>
@@ -102,7 +102,7 @@
     var point = '{{$package_selected[2]}}'
     function tinh_tong_tien(){        
         $("#tong_tien").html($("#number").val()*point); 
-        $("#tong_tien").html(Number($("#number").val()*point).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')); 
+        $("#tong_tien").html(Number($("#number").val()*point).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' point'); 
     }
 
     $(document).ready(function() {
@@ -129,16 +129,14 @@
                 if(point_user - point_total < 0) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: "You haven't enough points to buy it!",
+                        title: "You haven't enough points to buy it!",
                     })
                 }
                 else if(phone_user == '')
                 {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: "Please update your phone number!",
+                        title: "Please update your phone number!",
                     })
                 }else
                 {

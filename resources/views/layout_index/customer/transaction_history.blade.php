@@ -42,7 +42,7 @@
                                                 class="nk-btn nk-btn-rounded nk-btn-color-main-1">Bill</button></a></td>
                                     <td>{{ $point->order_id }}</td>
                                     <td>{{ $point->method }}</td>
-                                    <td>{{ $point->point_purchase }}</td>
+                                    <td>{{ $point->point_purchase }} Point</td>
                                     @if ($point->status == 0)
                                         <td>Pending</td>
                                     @endif

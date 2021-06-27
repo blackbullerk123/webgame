@@ -100,9 +100,13 @@ class UserController extends Controller
 
     public function updatePoints(Request $request, $id, $type)
     {
+        $point_purchase = PointPurchase::where('status', 0)->distinct()->count();
         if(Auth::user()->phone == null){
             return redirect()->back()->with('information', 'Please update your phone number');
-        }else{
+        }elseif($point_purchase > 3){
+            return redirect()->back()->with('information', 'Please pay the bill first');
+        }
+        else{
             $this->repository->pointPurchase($request, $id, $type);
             return redirect(route('order'));
         }    

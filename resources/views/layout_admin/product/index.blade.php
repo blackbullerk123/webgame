@@ -116,6 +116,7 @@
             var that = $(this);
             swal.fire({
                 title: "Bạn có muốn xóa game này không?",
+                text: "Hóa đơn đã thanh toán sẽ bị xóa theo!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -131,22 +132,20 @@
                             id: id
                         },
                         success: function(data) {
-                            if(data.success == true) {
+                            if (data.success == true) {
                                 that.parent().parent().remove();
                                 Swal.fire(
                                     'Xóa!',
                                     'Xóa thành công.',
                                     'success'
                                 )
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Xóa thất bại!',
+                                    text: 'Còn đơn hàng chưa thanh toán không thể xóa',
+                                })
                             }
-                            else
-                            {
-                                Swal.fire(
-                                    'Xóa!',
-                                    'Xoá thất bại!.',
-                                    'success'
-                                )
-                            }                         
                         }
                     })
                 }

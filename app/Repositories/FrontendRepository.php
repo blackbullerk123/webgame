@@ -23,6 +23,7 @@ class FrontendRepository
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->password = hash::make($request->password);
         $user->save();
     }
@@ -46,7 +47,7 @@ class FrontendRepository
 
     public function gamesTop()
     {
-        return Product::orderBy('created_at', 'asc')->paginate(6);
+        return Product::orderBy('created_at', 'asc')->paginate(8);
     }
 
     public function getAllGames()
@@ -107,7 +108,7 @@ class FrontendRepository
     public function search($request)
     {
         $product = Product::where('name', 'like', '%' . $request->search . '%')
-            ->paginate(20);
+            ->paginate(12);
         return $product;
     }
 

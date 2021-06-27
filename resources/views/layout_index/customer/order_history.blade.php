@@ -46,7 +46,7 @@
                                         <td>{{ $bill->product->name }}</td>
                                         <td>{{ $bill->os_type }}</td>
                                         <td style="text-align: center">{{ $bill->product_total }}</td>
-                                        <td>{{ $bill->point_total }}</td>
+                                        <td>{{ $bill->point_total }} Point</td>
                                         @if ($bill->status == 0)
                                             <td>Pending</td>
                                         @endif

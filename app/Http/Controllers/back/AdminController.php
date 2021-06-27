@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePassRequest;
 use App\Models\AdminTransaction;
+use App\Models\Bill;
+use App\Models\PointPurchase;
+use App\Models\Product;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -16,7 +19,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('layout_admin.index');
+        $games = Product::orderBy('created_at', 'asc')->count();
+        $user = User::where('role',0)->count();
+        $bill_games = Bill::where('status',1)->count();
+        $bill_point = PointPurchase::where('status',1)->count();
+        return view('layout_admin.index', compact('games','user','bill_games','bill_point'));
     }
 
     public function profile($id)
