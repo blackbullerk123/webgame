@@ -63,14 +63,14 @@
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Hoá đơn</th>
-                            <th>Mã đơn hàng</th>
-                            <th>Tên đơn hàng</th>
-                            <th>Số lượng đơn hàng</th>
-                            <th>Tổng số point</th>
-                            <th>Trạng thái</th>
-                            <th>Ngày nhận đơn</th>
-                            <th>Thao Tác</th>  
+                            <th style="text-align: center">Hoá đơn</th>
+                            <th style="text-align: center">Mã đơn hàng</th>
+                            <th style="text-align: center">Tên đơn hàng</th>
+                            <th style="text-align: center">Số lượng đơn hàng</th>
+                            <th style="text-align: center">Tổng số point</th>
+                            <th style="text-align: center">Trạng thái</th>
+                            <th style="text-align: center">Ngày nhận đơn</th>
+                            <th style="text-align: center">Thao Tác</th>  
                         </tr>
                     </thead>
                     <tbody>

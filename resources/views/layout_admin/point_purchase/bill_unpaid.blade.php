@@ -43,15 +43,15 @@
                 <table id="bill_table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Hoá đơn</th>
-                            <th>Mã đơn hàng</th>
-                            <th>Tên User</th>
-                            <th>Phương thức</th>
-                            <th>Nội dung</th>
-                            <th>Số point</th>
-                            <th>Trạng thái</th>
-                            <th>Ngày nhận đơn</th>
-                            <th>Thao Tác</th>  
+                            <th style="text-align: center">Hoá đơn</th>
+                            <th style="text-align: center">Mã đơn hàng</th>
+                            <th style="text-align: center">Tên User</th>
+                            <th style="text-align: center">Phương thức</th>
+                            <th style="text-align: center">Nội dung</th>
+                            <th style="text-align: center">Số point</th>
+                            <th style="text-align: center">Trạng thái</th>
+                            <th style="text-align: center">Ngày nhận đơn</th>
+                            <th style="text-align: center">Thao Tác</th>  
                         </tr>
                     </thead>
                     <tbody>
