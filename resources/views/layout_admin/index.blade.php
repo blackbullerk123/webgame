@@ -72,44 +72,6 @@
             <div class="box">
               <div class="box-header">
                 <center>
-                <h2 class="box-title"><b>Thống kê doanh thu mỗi ngày</b></h2>
-                </center>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">                               
-                <div class="col-sm-3" style="padding-left: 0px;padding-right: 2px; margin-bottom: 3px">
-                  <div class="input-group date" style=" margin-left: 0px">
-                    <input type="text" class="form-control" id="datepicker" name="date">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  
-                  </div>  
-                </div>
-                <div class="col-sm-2" style="margin-top: 32px">
-                  <button class="btn btn-primary bnt-sm; fa fa-search" id="btnsearch" style="float:left;margin-top:-30px;" type="submit">&ensp;Tìm kiếm</button>
-                </div>
-                  <table id="admin_table" class="table table-striped table-bordered" style="width:100%">
-                      <thead>
-                          <tr>
-                              <th style="text-align: center">Ngày</th>
-                              <th style="text-align: center">Doanh thu</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>ád</td>
-                              <td>ád</td>
-                          </tr>
-                          <tr>
-                            <td>ád</td>
-                            <td>ád</td>
-                        </tr>
-                      </tbody>
-                  </table>
-              </div>
-              <!-- /.box-body -->
-          </div>
-            <div class="box">
-              <div class="box-header">
-                <center>
                 <h2 class="box-title"><b>Thống kê doanh thu theo tháng</b></h2>
                 </center>
               </div>
@@ -119,11 +81,21 @@
               </div>
               <!-- /.box-body -->
           </div>
+          <div class="box">
+            <div class="box-header">
+                <center>
+                    <h3 class="box-title"><b>Thống kê doanh thu theo ngày trong tháng</b></h3>
+                </center>
+            </div>
 
+            <canvas id="buyers" width="1000px" height="300" data-list-day="{{$listDay}}" data-money-done="{{$arrRevenueMonthDone}}" data-money-pending="{{$arrRevenueMonthPending}}"></canvas>
+
+        </div><!-- /.box -->
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 @endsection
 @section('script')
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 <script>
    $(function() {
             $('#admin_table').DataTable({
@@ -138,6 +110,28 @@
                 'columnDefs': []
             })
         })
-   $('#datepicker').daterangepicker()
+   $('#datepicker').daterangepicker();
+
+   let listDay = $("#buyers").attr('data-list-day');
+    listDay = JSON.parse(listDay);
+    let dataMoneyDone = $("#buyers").attr('data-money-done');
+    dataMoneyDone = JSON.parse(dataMoneyDone);
+    let dataMoneyPending = $("#buyers").attr('data-money-pending');
+    dataMoneyPending = JSON.parse(dataMoneyPending);
+    // line chart data
+    var buyerData = {
+        labels: listDay,
+        datasets: [{
+            fillColor: "rgb(255, 206, 153)",
+            strokeColor: "#cc6600",
+            pointColor: "#fff",
+            pointStrokeColor: "#9DB86D",
+            data: dataMoneyDone
+        }]
+    }
+    // get line chart canvas
+    var buyers = document.getElementById('buyers').getContext('2d');
+    // draw line chart
+    new Chart(buyers).Line(buyerData);
 </script>
 @stop

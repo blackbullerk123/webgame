@@ -10,9 +10,11 @@ use App\Models\Bill;
 use App\Models\PointPurchase;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Date;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -23,7 +25,69 @@ class AdminController extends Controller
         $user = User::where('role',0)->count();
         $bill_games = Bill::where('status',1)->count();
         $bill_point = PointPurchase::where('status',1)->count();
-        return view('layout_admin.index', compact('games','user','bill_games','bill_point'));
+        $listDay = Date::getListDayInMonth();
+        $revenueMonthDone = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
+            ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
+            ->where('point_purchase.status', 1)
+            ->where('point_purchase.method','=','Purchase point')
+            ->groupBy('day')
+            ->get()
+            ->toArray();
+        $revenueMonthDone1 = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
+            ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
+            ->where('point_purchase.status', 1)
+            ->where('point_purchase.method','=','Withdraw point')
+            ->groupBy('day')
+            ->get()
+            ->toArray();    
+        $revenueMonthPending = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
+            ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
+            ->where('point_purchase.status', 1)
+            ->groupBy('day')
+            ->get()
+            ->toArray();
+
+        $arrRevenueMonthDone = [];
+        $arrRevenueMonthPending = [];
+        foreach ($listDay as $day) {
+            $total = 0;
+            $hieu = 0;
+            foreach ($revenueMonthDone as $key => $revenue) {
+                if ($revenue['day'] == $day) {
+                    $total = $revenue['totalMoney'];
+                    break;
+                }
+            }
+            
+            foreach ($revenueMonthDone1 as $key => $revenue1) {
+                if ($revenue1['day'] == $day) {
+                    $hieu = $revenue1['totalMoney'];
+                    break;
+                }
+            }
+            
+            $arrRevenueMonthDone[] = (int) $total - $hieu;
+            $total = 0;
+            foreach ($revenueMonthPending as $key => $revenue) {
+                if ($revenue['day'] == $day) {
+                    $total = $revenue['totalMoney'];
+                    break;
+                }
+            }
+            $arrRevenueMonthPending[] = (int) $total - $hieu;
+        }
+        $viewData = [
+            'games'                     => $games,
+            'bill_games'                => $bill_games,
+            'user'                      => $user,
+            'bill_point'                => $bill_point,
+            'listDay'                   => json_encode($listDay),
+            'arrRevenueMonthDone'       => json_encode($arrRevenueMonthDone),
+            'arrRevenueMonthPending'    => json_encode($arrRevenueMonthPending)
+        ];
+        // dd(json_encode($arrRevenueMonthDone));
+        return view('layout_admin.index', $viewData);
+        // return view('layout_admin.index', compact('games','user','bill_games','bill_point'));
     }
 
     public function profile($id)

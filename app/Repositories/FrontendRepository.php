@@ -42,17 +42,20 @@ class FrontendRepository
 
     public function getProductToIndex()
     {
-        return Product::orderBy('created_at', 'desc')->paginate(8);
+        return Product::where('product_type','=','Game')
+                        ->orderBy('created_at', 'desc')->paginate(8);
     }
 
     public function gamesTop()
     {
-        return Product::orderBy('created_at', 'asc')->paginate(8);
+        return Product::where('product_type','=','Game')
+                        ->orderBy('created_at', 'asc')->paginate(8);
     }
 
     public function getAllGames()
     {
-        return Product::orderBy('created_at', 'desc')->paginate(16);
+        return Product::where('product_type','=','Game')
+                        ->orderBy('created_at', 'desc')->paginate(16);
     }
 
     public function getSlides()
@@ -116,17 +119,20 @@ class FrontendRepository
     {
         $view_game_for_type = Product::when(($type == 'Card'), function ($query) use ($type){
                                         $query->where(function ($q) use ($type) {
-                                            $q->where('product_type', $type);
+                                            $q->where('product_type', $type)
+                                                ->where('product_type','=','Card');
                                         });
                                     })
                                     ->when(($type == 'Android'), function ($query) use ($type){
                                         $query->where(function ($q) use ($type){
-                                            $q->where('os_supported', 'like', '%' . $type . '%');
+                                            $q->where('os_supported', 'like', '%' . $type . '%')
+                                                ->where('product_type','=','Game');
                                         });
                                     })
                                     ->when(($type == 'IOS'), function ($query) use ($type){
                                         $query->where(function ($q) use ($type){
-                                            $q->where('os_supported', 'like', '%' . $type . '%');
+                                            $q->where('os_supported', 'like', '%' . $type . '%')
+                                                ->where('product_type','=','Game');
                                         });
                                     })
                                     ->paginate(12);
