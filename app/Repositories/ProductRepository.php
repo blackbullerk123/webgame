@@ -82,17 +82,11 @@ class ProductRepository
      $product->save();
    
      $package->product_id = $product->id;   
-     if(count($request->package) > 1){
+     
           $package->package_name = json_encode($request->package);
           $package->package_price = json_encode($request->value);
           $package->point_number = json_encode($request->point);
-     }
-     else{
-          $package->package_name = $request->package[0];
-          $package->package_price = $request->value[0];
-          $package->point_number = $request->point[0];
-     }
-     $package->save();
+          $package->save();
     }
 
     public function update($request, $id)
@@ -138,16 +132,9 @@ class ProductRepository
      $product->save();
 
      if ($request->package) {
-          if(count($request->package) > 1){
                $package->package_name = json_encode($request->package);
                $package->package_price = json_encode($request->value);
-               $package->point_number = json_encode($request->point);
-          }
-          else{
-               $package->package_name = $request->package[0];
-               $package->package_price = $request->value[0];
-               $package->point_number = $request->point[0];
-          }
+               $package->point_number = json_encode($request->point);       
      }
      
      $package->save();
@@ -156,16 +143,9 @@ class ProductRepository
     public function AjaxDeletePackage($request, $id)
     {
           $package = Package::where('product_id', $id)->first();
-          if(count($request->package) > 1){
                $package->package_name = json_encode($request->package);
                $package->package_price = json_encode($request->value);
                $package->point_number = json_encode($request->point);
-          }
-          else{
-               $package->package_name = $request->package[0];
-               $package->package_price = $request->value[0];
-               $package->point_number = $request->point[0];
-          }
           $package->save();
 
           return response()->json([
