@@ -55,7 +55,8 @@
                           <a href="{{ route('users.banned', $user->id) }}" class="btn btn-danger btn-sign ban"> Khóa</a> 
                           @else
                           <a href="{{ route('users.unbanned', $user->id) }}" class="btn btn-success btn-sign ban"> Mở khóa</a></td> 
-                          @endif        
+                          @endif
+                          <a href="{{ route('users.edit', $user->id) }}" style="margin-left: 10px" class="btn btn-primary btn-sign ban"> Update point</a></td>         
                         </td>
                       </tr>
                       @endforeach

@@ -162,7 +162,6 @@
                     $('#uid').val(uid)
                     $('#pass').val(pass)
                     $('#sv').val(sv)
-                    // console.log($('#username').val());
                     $('#add_bill').submit();
                 }
             }    

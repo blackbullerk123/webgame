@@ -63,6 +63,8 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/users',[AdminController::class,'indexUser'])->name('users');
     Route::get('/users/banned/{id}',[AdminController::class,'banned'])->name('users.banned');
     Route::get('/users/unbanned/{id}',[AdminController::class,'unbanned'])->name('users.unbanned');
+    Route::get('/users/edit/{id}',[AdminController::class,'editPoint'])->name('users.edit');
+    Route::post('/users/update/{id}',[AdminController::class,'updatePoint'])->name('users.update');
 });
 
 
