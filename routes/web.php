@@ -59,6 +59,10 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/point-purchase',[BillController::class,'indexPointPurchase'])->name('point');
     Route::post('/point-purchase',[BillController::class,'indexPointPurchase'])->name('point.search');
     Route::get('/point-purchase/purchase/{id}/status/{status}/point/{point}/userid/{user}/method/{method}',[BillController::class,'purchasePoint'])->name('point.purchase');
+    //User
+    Route::get('/users',[AdminController::class,'indexUser'])->name('users');
+    Route::get('/users/banned/{id}',[AdminController::class,'banned'])->name('users.banned');
+    Route::get('/users/unbanned/{id}',[AdminController::class,'unbanned'])->name('users.unbanned');
 });
 
 

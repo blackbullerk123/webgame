@@ -27,6 +27,11 @@
                 <i class="fa fa-inbox"></i> <span>Hóa đơn points</span>
               </a>
             </li>
+            <li>
+              <a href="{{ route('users') }}">
+                <i class="fa fa-user"></i> <span>Tất cả user</span>
+              </a>
+            </li>
             <li class="header ">
               <span style="font-size:18px ;color:rgb(238, 238, 238)"> THIẾT LẬP</span>
             </li>

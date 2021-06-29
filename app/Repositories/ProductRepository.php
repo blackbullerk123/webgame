@@ -19,7 +19,7 @@ class ProductRepository
      */
     public function getProducts()
     {
-         return Product::orderBy('id', 'asc')->get();
+         return Product::orderBy('created_at', 'desc')->get();
     }
 
     public function getOSType()

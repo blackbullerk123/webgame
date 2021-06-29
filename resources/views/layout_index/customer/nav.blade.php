@@ -55,12 +55,12 @@
                     Purchase Points
                 </span>
             </a>
-            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary">
+            {{-- <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary">
                 <i class="las la-luggage-cart aiz-side-nav-icon"></i>
                 <span class="aiz-side-nav-text">
                     Withdraw Points
                 </span>
-            </a>
+            </a> --}}
             <a href="{{ route('transaction_history') }}" class="btn btn-secondary">
                 <i class="las la-check-circle aiz-side-nav-icon"></i>
                 <span class="aiz-side-nav-text">
@@ -82,7 +82,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -115,7 +115,7 @@ Bank  :    /
         </div>
         </form>
     </div>
-</div>
+</div> --}}
 <!-- END: Now Playing -->
 @section('script')
     <script>

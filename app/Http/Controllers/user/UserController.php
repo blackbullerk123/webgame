@@ -112,24 +112,24 @@ class UserController extends Controller
         }    
     }
 
-    public function pointWithdraw(Request $request, $id)
-    {
-        $this->validate(
-            $request,
-            [
-                'amount' => 'required',
-                'note' => 'required',
-            ],
-            [
-                'amount.required' => 'Please enter the amount to withdraw',
-                'note.required' => 'Please enter information',
-            ]
-        );
-        $this->repository->pointWithdraw($request, $id);
-        return response()->json([
-            'success' => true
-        ],200);
-    }
+    // public function pointWithdraw(Request $request, $id)
+    // {
+    //     $this->validate(
+    //         $request,
+    //         [
+    //             'amount' => 'required',
+    //             'note' => 'required',
+    //         ],
+    //         [
+    //             'amount.required' => 'Please enter the amount to withdraw',
+    //             'note.required' => 'Please enter information',
+    //         ]
+    //     );
+    //     $this->repository->pointWithdraw($request, $id);
+    //     return response()->json([
+    //         'success' => true
+    //     ],200);
+    // }
 
     public function WaitingBillShow($id)
     {

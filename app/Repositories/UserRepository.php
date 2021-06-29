@@ -60,17 +60,17 @@ class UserRepository
         $point_purchase->save();
     }
 
-    public function pointWithdraw($request, $id)
-    {
-        $point_purchase = new PointPurchase();
+    // public function pointWithdraw($request, $id)
+    // {
+    //     $point_purchase = new PointPurchase();
 
-        $point_purchase->user_id = $id;
-        $point_purchase->point_purchase = $request->amount;
-        $point_purchase->description = $request->note;
-        $point_purchase->order_id = $request->amount . '' . Str::random(4);
-        $point_purchase->method = 'Withdraw point';
-        $point_purchase->save();
-    }
+    //     $point_purchase->user_id = $id;
+    //     $point_purchase->point_purchase = $request->amount;
+    //     $point_purchase->description = $request->note;
+    //     $point_purchase->order_id = $request->amount . '' . Str::random(4);
+    //     $point_purchase->method = 'Withdraw point';
+    //     $point_purchase->save();
+    // }
 
     public function getAdminInfo()
     {
