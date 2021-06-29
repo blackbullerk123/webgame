@@ -102,6 +102,7 @@ class FrontendRepository
         $bill->order_id = $package_selected[2] * $request->number.''.Str::random(4);
         $bill->product_total = $request->number;
         $bill->point_total = $package_selected[2] * $request->number;
+        $bill->account = $request->username.' / '.$request->password_game.' / '.$request->sever;
         $bill->save();
 
         $point_user->point = $point_user->point - $bill->point_total;

@@ -28,8 +28,10 @@
         <form action="{{route('checkout.bill_detail', [$product_info->product_id, $package])}}" method="post" id="add_bill" class="nk-form text-white">
         @csrf
           <table class="table nk-store-cart-products">
-              <tbody>
-                  
+              <tbody>   
+                <input type="text" value="" id="uid" name="username" style="display: none">      
+                <input type="text" value="" id="pass" name="password_game" style="display: none">
+                <input type="text" value="" id="sv" name="sever" style="display: none">
                       <tr>
                           <td class="nk-product-cart-title">
                               <a href="#" class="nk-image-box-1 nk-post-image">
@@ -126,7 +128,16 @@
                 var point_user = '{{ $point }}';
                 var phone_user = '{{ $phone }}'
                 var point_total = $("#number").val()*point;
-                if(point_user - point_total < 0) {
+                var username = $('#username').val();
+                var password_game = $('#password_game').val();
+                if(username == '' || password_game == '' ){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: "Please enter game account information!",
+                    })
+                }
+                else if(point_user - point_total < 0) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -142,6 +153,13 @@
                     })
                 }else
                 {
+                    var uid = $('#username').val()
+                    var pass = $('#password_game').val()
+                    var sv = $('#sever').val()
+                    $('#uid').val(uid)
+                    $('#pass').val(pass)
+                    $('#sv').val(sv)
+                    // console.log($('#username').val());
                     $('#add_bill').submit();
                 }
             }    
