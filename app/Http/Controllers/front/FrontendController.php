@@ -151,8 +151,14 @@ class FrontendController extends Controller
     {
         $product_info = $this->repository->getPackageToCheckout($id);
         $package_selected = $this->repository->getPackageSelectedToCheckout($product_info, $package);
-        $this->repository->createBill($request, $product_info, $package_selected);
-        return redirect(route('order_history'));
+        $check1 = $package_selected[2] * $request->number;
+        $check2 = Auth::user()->point;
+        if($check2 - $check1 < 0){
+            return redirect()->back()->with('mess','1');
+        }else{
+            $this->repository->createBill($request, $product_info, $package_selected);
+            return redirect(route('order_history'));
+        }      
     }
 
     public function viewGameType($type)

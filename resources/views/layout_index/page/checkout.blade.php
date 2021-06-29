@@ -108,6 +108,16 @@
     }
 
     $(document).ready(function() {
+        var msg = "{{Session::get('mess')}}";
+        var exist = "{{Session::has('mess')}}";
+        if (exist && msg == '1') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You haven't enough points to buy it!",
+            })
+        }
+
         $('#update_bill').click(function() {
             if ($('#check_terms').is(':checked')) {
                 $('#termsmodal').modal('show');
@@ -135,13 +145,6 @@
                         icon: 'error',
                         title: 'Oops...',
                         text: "Please enter game account information!",
-                    })
-                }
-                else if(point_user - point_total < 0) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: "You haven't enough points to buy it!",
                     })
                 }
                 else if(phone_user == '')
