@@ -113,9 +113,19 @@ class FrontendController extends Controller
     {
         $credentaials = array('email' => $request->email, 'password' => $request->password);
         if (Auth::attempt($credentaials)) {
-            return response()->json([
-                'success' => true
-            ]);
+            if(Auth::user()->banned_status == 0){
+                return response()->json([
+                    'success' => true
+                ]);
+            }
+            else
+            {
+                Auth::logout();
+                return response()->json([
+                    'success' => 'banned'
+                ]);
+            }
+            
         } else {
             return response()->json([
                 'success' => false

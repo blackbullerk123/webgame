@@ -20,10 +20,9 @@
 
     <!-- START: Styles -->
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet"
-        type="text/css">
-   {{-- Data table --}}
-  <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700" rel="stylesheet" type="text/css">
+    {{-- Data table --}}
+    <link rel="stylesheet" href="{{ asset('adminlte2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('table/fonts/icomoon/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('table/css/owl.carousel.min.css') }}">
@@ -118,7 +117,7 @@
 
     <!-- imagesLoaded -->
     <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-{{-- 
+    {{--
     <!-- Flickity -->
     <script src="{{ asset('assets/vendor/flickity/dist/flickity.pkgd.min.js') }}"></script> --}}
 
@@ -167,6 +166,23 @@
             }
         });
 
+        var msg = "{{Session::get('message')}}";
+        var exist = "{{Session::has('message')}}";
+        if (exist && msg == '0') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Logged in successfully',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        } else if(exist && msg == '1') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Your account has been banned!',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
         $("#signup_form").submit(function(e) {
             e.preventDefault();
             var name = $("#name").val();
@@ -223,8 +239,8 @@
                     email: email,
                     password: password,
                 },
-                success: function(response) {   
-                    if(response.success == true){
+                success: function(response) {
+                    if (response.success == true) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Logged in successfully',
@@ -233,60 +249,69 @@
                         })
                         $('#modalLogin').modal('hide');
                         window.location.reload();
-                    }else{
+                    } else if (response.success == 'banned') {
                         Swal.fire({
-                        icon: 'error',
-                        title: 'Incorrect account or password',
-                        showConfirmButton: false,
-                        timer: 2000
-                    })
+                            icon: 'error',
+                            title: 'Your account has been banned!',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Incorrect account or password',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
                     }
                 },
             });
         });
-    $("div.alert").delay(3000).slideUp();
-    function changeImg(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#img').attr('src', e.target.result);
+        $("div.alert").delay(3000).slideUp();
+
+        function changeImg(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#img').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
             }
-            reader.readAsDataURL(input.files[0]);
         }
-    }
-    $('#img').click(function() {
-        $('#fImages').click();
-    });
+        $('#img').click(function() {
+            $('#fImages').click();
+        });
     </script>
     <!-- Messenger Plugin chat Code -->
-   <!-- Messenger Plugin chat Code -->
-   <div id="fb-root"></div>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
 
-   <!-- Your Plugin chat code -->
-   <div id="fb-customer-chat" class="fb-customerchat">
-   </div>
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
 
-   <script>
-     var chatbox = document.getElementById('fb-customer-chat');
-     chatbox.setAttribute("page_id", "102755492063301");
-     chatbox.setAttribute("attribution", "biz_inbox");
-     window.fbAsyncInit = function() {
-       FB.init({
-         xfbml            : true,
-         version          : 'v11.0'
-       });
-     };
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "102755492063301");
+        chatbox.setAttribute("attribution", "biz_inbox");
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v11.0'
+            });
+        };
 
-     (function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-   </script>
-<script>
-           $(function() {
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+        $(function() {
             $('#product_table').DataTable({
                 "sDom": '<"row view-filter"<"col-sm-12"<"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"pull-left"l><"pull-right"p><"text-center"i>>>',
                 'paging': true,
@@ -299,7 +324,7 @@
                 'columnDefs': []
             })
         })
-</script>
+    </script>
 </body>
 
 </html>

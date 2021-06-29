@@ -41,7 +41,13 @@ class LoginController extends Controller
             return redirect(session('link'));
         }
         else{
-            return redirect()->route('index');
+            if(Auth::user()->banned_status == 0){
+                return redirect()->route('index')->with('message', '0');
+            }else{
+                Auth::logout();
+                return redirect()->route('index')->with('message', '1');
+            }
+            
         }
     }
 
