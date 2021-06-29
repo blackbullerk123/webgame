@@ -66,6 +66,7 @@
                             <th style="text-align: center">Hoá đơn</th>
                             <th style="text-align: center">Mã đơn hàng</th>
                             <th style="text-align: center">Tên User</th>
+                            <th style="text-align: center">Số điện thoại User</th>
                             <th style="text-align: center">Phương thức</th>
                             <th style="text-align: center">Nội dung</th>
                             <th style="text-align: center">Số point</th>
@@ -81,7 +82,8 @@
                             <td><a href="{{ route('waiting.bill.show', $p->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
                             <td>{{ $p->order_id }}</td>
                             <td>{{ $p->user->name }}</td>
-                            <td>{{ trans('bill_point'.$p->method) }}</td>
+                            <td>{{ $p->user->phone }}</td>
+                            <td>{{ $p->method }}</td>
                             <td><p class="a">{{ $p->description }}</p></td>
                             <td>{{ number_format($p->point_purchase) }} point</td>
                             <td>

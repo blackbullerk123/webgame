@@ -34,6 +34,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::post('/admin/profile/update/{id}',[AdminController::class,'update'])->name('admin.profile.update');
     Route::post('/admin/profile/updateinfo/{id}',[AdminController::class,'updateInfo'])->name('admin.profile.updateinfo');
     Route::post('/admin/profile-transaction/update/{id}',[AdminController::class,'updateTransaction'])->name('admin.profile.transaction.update');
+    Route::post('/admin',[AdminController::class,'index'])->name('admin.search');
     //Product
     Route::get('/product',[ProductController::class,'index'])->name('product');
     Route::get('/product-create',[ProductController::class,'create'])->name('product.create');

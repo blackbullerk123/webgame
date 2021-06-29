@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Date;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,13 +20,28 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $date_now = date('Y-m-d');
+        if($request->dates == null)
+        {
+            $first_day = date('Y-m-01', strtotime($date_now));
+            $last_day = date('Y-m-t', strtotime($date_now));
+        }
+        else
+        {
+            $first_day = date('Y-m-d', strtotime(str_replace('/', '-', explode(' - ', $request->dates)[0])));
+            $last_day = date('Y-m-d', strtotime(str_replace('/', '-', explode(' - ', $request->dates)[1])));
+        }
+        $period = CarbonPeriod::create($first_day, $last_day);
+        foreach($period as $date)
+        {
+            $dates[] = $date->format('Y-m-d');
+        }
         $games = Product::orderBy('created_at', 'asc')->count();
         $user = User::where('role',0)->count();
         $bill_games = Bill::where('status',1)->count();
         $bill_point = PointPurchase::where('status',1)->count();
-        $listDay = Date::getListDayInMonth();
         $revenueMonthDone = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
             ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
             ->where('point_purchase.status', 1)
@@ -33,13 +49,6 @@ class AdminController extends Controller
             ->groupBy('day')
             ->get()
             ->toArray();
-        $revenueMonthDone1 = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
-            ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
-            ->where('point_purchase.status', 1)
-            ->where('point_purchase.method','=','Withdraw point')
-            ->groupBy('day')
-            ->get()
-            ->toArray();    
         $revenueMonthPending = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
             ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
             ->where('point_purchase.status', 1)
@@ -49,9 +58,8 @@ class AdminController extends Controller
 
         $arrRevenueMonthDone = [];
         $arrRevenueMonthPending = [];
-        foreach ($listDay as $day) {
+        foreach ($dates as $day) {
             $total = 0;
-            $hieu = 0;
             foreach ($revenueMonthDone as $key => $revenue) {
                 if ($revenue['day'] == $day) {
                     $total = $revenue['totalMoney'];
@@ -59,14 +67,8 @@ class AdminController extends Controller
                 }
             }
             
-            foreach ($revenueMonthDone1 as $key => $revenue1) {
-                if ($revenue1['day'] == $day) {
-                    $hieu = $revenue1['totalMoney'];
-                    break;
-                }
-            }
             
-            $arrRevenueMonthDone[] = (int) $total - $hieu;
+            $arrRevenueMonthDone[] = (int) $total;
             $total = 0;
             foreach ($revenueMonthPending as $key => $revenue) {
                 if ($revenue['day'] == $day) {
@@ -74,16 +76,20 @@ class AdminController extends Controller
                     break;
                 }
             }
-            $arrRevenueMonthPending[] = (int) $total - $hieu;
+            $arrRevenueMonthPending[] = (int) $total;
         }
+        $totalRevenueFromToDate = array_sum($arrRevenueMonthDone);
         $viewData = [
             'games'                     => $games,
             'bill_games'                => $bill_games,
             'user'                      => $user,
             'bill_point'                => $bill_point,
-            'listDay'                   => json_encode($listDay),
-            'arrRevenueMonthDone'       => json_encode($arrRevenueMonthDone),
-            'arrRevenueMonthPending'    => json_encode($arrRevenueMonthPending)
+            'first_day'                 => $first_day,
+            'last_day'                  => $last_day,
+            'dates'                     => $dates,
+            'arrRevenueMonthDone'       => $arrRevenueMonthDone,
+            'arrRevenueMonthPending'    => json_encode($arrRevenueMonthPending),
+            'totalRevenueFromToDate'    => $totalRevenueFromToDate
         ];
         // dd(json_encode($arrRevenueMonthDone));
         return view('layout_admin.index', $viewData);
