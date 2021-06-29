@@ -71,7 +71,7 @@ Route::group(['middleware' => 'login'], function () {
     Route::get('/order',[UserController::class,'order'])->name('order');
     Route::get('/purchase-points',[UserController::class,'loadPoints'])->name('purchase_points');
     Route::post('/purchase-points/{id}/type/{type}',[UserController::class,'updatePoints'])->name('purchase_points.update');
-    Route::post('/withdraw-points/{id}',[UserController::class,'pointWithdraw'])->name('withdraw_points.update');
+    // Route::post('/withdraw-points/{id}',[UserController::class,'pointWithdraw'])->name('withdraw_points.update');
     Route::get('/transaction-history',[UserController::class,'transactionHistory'])->name('transaction_history');
     Route::get('/order-history',[UserController::class,'orderHistory'])->name('order_history');
     Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
