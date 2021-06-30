@@ -71,10 +71,10 @@
                             <td>{{date('d/m/Y ', strtotime($b->created_at))}}</td>        
                             <td>
                               @if($b->status == 0)
-                              <a href="{{ route('bill.purchase', [$b->id, '1']) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
+                              <a href="{{ route('bill.purchase', [$b->id, '1', $b->point_total, $b->user->id]) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
                               @endif
                               @if($b->status != 2)
-                              <a href="{{ route('bill.purchase', [$b->id, '2']) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td> 
+                              <a href="{{ route('bill.purchase', [$b->id, '2', $b->point_total, $b->user->id]) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td> 
                               @endif 
                               
                         </tr>

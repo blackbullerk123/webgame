@@ -55,7 +55,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/game-bills-unpaid',[BillController::class,'billNew'])->name('bills.unpaid');
     Route::get('/point-bills-unpaid',[BillController::class,'billUnpaidPointPurchase'])->name('bills.unpaid.point');
     Route::post('/bills',[BillController::class,'index'])->name('bill.search');
-    Route::get('/bills/purchase/{id}/status/{status}',[BillController::class,'purchaseBill'])->name('bill.purchase');
+    Route::get('/bills/purchase/{id}/status/{status}/point/{point}/user/{user}',[BillController::class,'purchaseBill'])->name('bill.purchase');
     Route::get('/point-purchase',[BillController::class,'indexPointPurchase'])->name('point');
     Route::post('/point-purchase',[BillController::class,'indexPointPurchase'])->name('point.search');
     Route::get('/point-purchase/purchase/{id}/status/{status}/point/{point}/userid/{user}/method/{method}',[BillController::class,'purchasePoint'])->name('point.purchase');

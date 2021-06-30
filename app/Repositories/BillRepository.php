@@ -112,17 +112,20 @@ class BillRepository
         return $bill_info;
     }
 
-    public function BillTransaction($id, $status)
+    public function BillTransaction($id, $status, $point, $user)
     {
         $bill_perchase = Bill::find($id);
+        $user = User::find($user);
         if($status == '1')
         {
             $bill_perchase->status = $status;
             $bill_perchase->save();
         }
         elseif($status == '2'){
-            $bill_perchase->status = '2';
+            $bill_perchase->status = '2';       
             $bill_perchase->save();
+            $user->point = $user->point + $point;
+            $user->save();
         }
     }
 

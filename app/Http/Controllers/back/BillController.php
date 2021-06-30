@@ -38,9 +38,9 @@ class BillController extends Controller
         return view('layout_admin.bills.show', compact('user', 'admin', 'id', 'bill'));
     }
     
-    public function purchaseBill($id, $status)
+    public function purchaseBill($id, $status, $point, $user)
     {
-        $this->repository->BillTransaction($id, $status);
+        $this->repository->BillTransaction($id, $status, $point, $user);
         return redirect()->back()->with('information', 'Cập nhật thành công');;
     }
 
