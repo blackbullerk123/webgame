@@ -60,7 +60,7 @@
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{ $bill_point }}</h3>
-                            <p>Đơn nạp - rút</p>
+                            <p>Đơn nạp</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-inbox"></i>

@@ -41,7 +41,7 @@ class BillController extends Controller
     public function purchaseBill($id, $status, $point, $user)
     {
         $this->repository->BillTransaction($id, $status, $point, $user);
-        return redirect()->back()->with('information', 'Cập nhật thành công');;
+        return redirect()->back()->with('information', 'Hủy đơn thành công');;
     }
 
     public function indexPointPurchase(Request $request)
