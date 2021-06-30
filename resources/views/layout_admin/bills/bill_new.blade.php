@@ -41,7 +41,6 @@
                             <th style="text-align: center">Loại hệ điều hành</th>
                             <th style="text-align: center">Số lượng đơn hàng</th>
                             <th style="text-align: center">Tổng số point</th>
-                            <th style="text-align: center">Tài khoản</th>
                             <th style="text-align: center">Trạng thái</th>
                             <th style="text-align: center">Ngày nhận đơn</th>
                             <th style="text-align: center">Thao Tác</th>  
@@ -52,13 +51,12 @@
                         @foreach($bills as $b)
                         <tr>
                             <td><a href="{{ route('bill.show', $b->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
-                            <td>{{ $b->order_id }}</td>
+                            <td style="text-align: center">{{ $b->order_id }}</td>
                             <td>{{ $b->product->name }}</td>
                             <td>{{ $b->user->name }}</td>
                             <td>{{ $b->os_type }}</td>
-                            <td>{{ $b->product_total }}</td>
-                            <td>{{ number_format($b->point_total) }}</td>
-                            <td>{{ $b->account }}</td>
+                            <td style="text-align: center">{{ $b->product_total }}</td>
+                            <td style="text-align: center">{{ number_format($b->point_total) }}</td>
                             <td>
                               @if($b->status == 0)
                               <label class="label label-warning" style="padding:5px;">Chưa thanh toán</label>

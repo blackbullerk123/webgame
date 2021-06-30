@@ -226,7 +226,9 @@
                 <div class="nk-gap"></div>
                 <input type="text" value="" id="password_game" name="password_game" class="required form-control" placeholder="Password">
                 <div class="nk-gap"></div>
-                <input type="text" value="" id="sever" name="sever" class="required form-control" placeholder="Sever (if there is a server)">
+                <input type="text" value="" id="sever" name="sever" class="required form-control" placeholder="Sever (if there is server)">
+                <div class="nk-gap"></div>
+                <input type="text" value="" id="code" name="code" class="required form-control" placeholder="Code (if there is code)">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

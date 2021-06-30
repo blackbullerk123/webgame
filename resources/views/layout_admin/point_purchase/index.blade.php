@@ -80,12 +80,12 @@
                         @foreach($points as $p)
                         <tr>
                             <td><a href="{{ route('waiting.bill.show', $p->id) }}" target="_blank" class="btn btn-primary">Hoá đơn</a></td>
-                            <td>{{ $p->order_id }}</td>
+                            <td style="text-align: center">{{ $p->order_id }}</td>
                             <td>{{ $p->user->name }}</td>
                             <td>{{ $p->user->phone }}</td>
                             <td>{{ $p->method }}</td>
                             <td><p class="a">{{ $p->description }}</p></td>
-                            <td>{{ number_format($p->point_purchase) }} point</td>
+                            <td style="text-align: center">{{ number_format($p->point_purchase) }} point</td>
                             <td>
                               @if($p->status == 0)
                               <label class="label label-warning" style="padding:5px;">Chưa thanh toán</label>

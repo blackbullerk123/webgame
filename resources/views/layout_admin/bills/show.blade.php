@@ -134,7 +134,6 @@
                                 <th>Qty</th>
                                 <th>Game</th>
                                 <th>OS type</th>
-                                <th>Account</th>
                                 <th>Order ID #</th>
                                 <th>Description</th>
                                 <th>Subtotal</th>
@@ -145,7 +144,6 @@
                                 <td>{{ $bill->product_total }}</td>
                                 <td>{{ $bill->product->name }}</td>
                                 <td>{{ $bill->os_type }}</td>
-                                <td>{{ $bill->account }}</td>
                                 <td>{{ $bill->order_id }}</td>
                                 <td>{{ $bill->description }}</td>
                                 <td>{{ number_format($bill->point_total) }} Point</td>
@@ -165,7 +163,30 @@
                     <img src="{{ asset('dist/img/paypal2.png') }}" alt="Paypal" style="margin-left: 10px">
                     <img src="{{ asset('dist/img/momo.png') }}" alt="Momo" style="margin-left: 10px">
                 </div>
-                <div class="col-xs-6 pull-right">
+                <div class="col-xs-4">
+                    <p class="lead">Account :</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th style="width:50%">Username:</th>
+                                <td>{{ explode('/',$bill->account)[0] }}</td>
+                            </tr>
+                            <tr>
+                                <th>Password:</th>
+                                <td>{{ explode('/',$bill->account)[1] }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sever:</th>
+                                <td>{{ explode('/',$bill->account)[2] }}</td>
+                            </tr>
+                            <tr>
+                                <th>Code:</th>
+                                <td>{{ explode('/',$bill->account)[3] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-4 pull-right">
                     <p class="lead">Amount Due {{ date('d/m/Y ', strtotime($bill->created_at)) }}</p>
 
                     <div class="table-responsive">

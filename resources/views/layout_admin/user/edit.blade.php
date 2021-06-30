@@ -67,8 +67,7 @@
         if (exist && msg == '1') {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: "Số point nhập phải cao hơn số point gốc!",
+                title: "Số point nhập phải cao hơn số point gốc!",
             })
         }
     })

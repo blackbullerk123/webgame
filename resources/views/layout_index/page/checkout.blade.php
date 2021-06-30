@@ -32,6 +32,7 @@
                 <input type="text" value="" id="uid" name="username" style="display: none">      
                 <input type="text" value="" id="pass" name="password_game" style="display: none">
                 <input type="text" value="" id="sv" name="sever" style="display: none">
+                <input type="text" value="" id="cd" name="code" style="display: none">
                       <tr>
                           <td class="nk-product-cart-title">
                               <a href="#" class="nk-image-box-1 nk-post-image">
@@ -156,12 +157,14 @@
                     })
                 }else
                 {
-                    var uid = $('#username').val()
-                    var pass = $('#password_game').val()
-                    var sv = $('#sever').val()
-                    $('#uid').val(uid)
-                    $('#pass').val(pass)
-                    $('#sv').val(sv)
+                    var uid = $('#username').val();
+                    var pass = $('#password_game').val();
+                    var sv = $('#sever').val();
+                    var cd = $('#code').val();
+                    $('#uid').val(uid);
+                    $('#pass').val(pass);
+                    $('#sv').val(sv);
+                    $('#cd').val(cd);
                     $('#add_bill').submit();
                 }
             }    
