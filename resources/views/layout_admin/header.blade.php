@@ -86,7 +86,7 @@
                 </li>
                 <li>
                   <a href="{{ route('bills.unpaid.point') }}">
-                    <i class="fa fa-inbox text-yellow"></i> Có {{ $orders_pointpurchase }} đơn hàng nạp - rút point </i> 
+                    <i class="fa fa-inbox text-yellow"></i> Có {{ $orders_pointpurchase }} đơn hàng nạp point </i> 
                   </a>
                 </li>
               </ul>

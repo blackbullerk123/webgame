@@ -38,7 +38,7 @@ class AdminController extends Controller
         {
             $dates[] = $date->format('Y-m-d');
         }
-        $games = Product::orderBy('created_at', 'asc')->count();
+        $games = Product::where('product_type','=', 'Game')->orderBy('created_at', 'asc')->count();
         $user = User::where('role',0)->count();
         $bill_games = Bill::where('status',1)->count();
         $bill_point = PointPurchase::where('status',1)->count();
