@@ -387,7 +387,7 @@
                     <div class="nk-gap-1"></div>
                     <div class="row vertical-gap">
                         <div class="col-md-6">
-                            <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Recovery</button>
+                            <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Confirm</button>
                         </div>
                         <div class="col-md-6">
                             <div class="mnt-5">
