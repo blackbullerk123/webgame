@@ -117,5 +117,5 @@ Route::post('/signup',[FrontendController::class,'postSignup'])->name('signup');
 //Logout
 Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 //Forgot password
-Route::get('/forgot-password',[FrontendController::class,'postLogout'])->name('forgot_password');
+Route::get('/reset-password',[FrontendController::class,'viewResetPass'])->name('reset_password');
 

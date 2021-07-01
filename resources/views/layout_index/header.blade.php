@@ -371,14 +371,14 @@
                 <h4 class="mb-0"><span class="text-main-1">Forgot</span> Password</h4>
 
                 <div class="nk-gap-1"></div>
-                <form action="#" method="post" id="signin_form" class="nk-form text-white">
+                <form action="#" method="post" id="forgot_form" class="nk-form text-white">
                     @csrf
                     <div class="row vertical-gap">
                         <div class="col-md-10">
                             Password recovery:
                             <div class="nk-gap"></div>
                             <p>Please provide email to retrieve password</p>
-                            <input type="email" value="" id="Reset_pass" name="Reset_pass" class="required form-control"  maxlength="100"
+                            <input type="email" value="" id="email_reset" name="email_reset" class="required form-control"  maxlength="100"
                                 placeholder="Email">
                             <div class="nk-gap"></div>
                         </div>
@@ -407,6 +407,4 @@
 </div>
 <!-- END: Login Modal -->
 <!-- END: Navbar Mobile -->
-@section('script')
 
-@stop

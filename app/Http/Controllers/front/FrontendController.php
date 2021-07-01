@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use App\Repositories\FrontendRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -165,5 +166,23 @@ class FrontendController extends Controller
     {
         $game_type = $this->repository->getGameForTypeGame($type);
         return view('layout_index.page.search_type', compact('game_type', 'type'));
+    }
+
+    public function viewResetPass()
+    {
+        return view('layout_index.customer.reset_password');
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $email = $request->email_reset;
+        $check = User::where('email', $email)->first();
+
+        if(!$check){
+            return response()->json([
+                'success' => false
+            ]);
+        }
+
     }
 }
