@@ -42,14 +42,14 @@ class AdminController extends Controller
         $user = User::where('role',0)->count();
         $bill_games = Bill::where('status',1)->count();
         $bill_point = PointPurchase::where('status',1)->count();
-        $revenueMonthDone = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
+        $revenueMonthDone = PointPurchase::whereRaw('month(point_purchase.created_at) BETWEEN "'.date('m', strtotime($first_day)).'" AND "'.date('m', strtotime($last_day)).'"')
             ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
             ->where('point_purchase.status', 1)
             ->where('point_purchase.method','=','Purchase point')
             ->groupBy('day')
             ->get()
             ->toArray();
-        $revenueMonthPending = PointPurchase::whereMonth('point_purchase.created_at', date('m'))
+        $revenueMonthPending = PointPurchase::whereRaw('month(point_purchase.created_at) BETWEEN "'.date('m', strtotime($first_day)).'" AND "'.date('m', strtotime($last_day)).'"')
             ->select(DB::raw('sum(point_purchase.point_purchase) as totalMoney'), DB::raw('DATE(point_purchase.created_at) day'))
             ->where('point_purchase.status', 1)
             ->groupBy('day')
@@ -61,6 +61,7 @@ class AdminController extends Controller
         foreach ($dates as $day) {
             $total = 0;
             foreach ($revenueMonthDone as $key => $revenue) {
+                
                 if ($revenue['day'] == $day) {
                     $total = $revenue['totalMoney'];
                     break;
@@ -91,7 +92,7 @@ class AdminController extends Controller
             'arrRevenueMonthPending'    => json_encode($arrRevenueMonthPending),
             'totalRevenueFromToDate'    => $totalRevenueFromToDate
         ];
-        // dd(json_encode($arrRevenueMonthDone));
+        // dd(date('m', strtotime($first_day)));
         return view('layout_admin.index', $viewData);
         // return view('layout_admin.index', compact('games','user','bill_games','bill_point'));
     }
