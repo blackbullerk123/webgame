@@ -378,7 +378,7 @@
                             Password recovery:
                             <div class="nk-gap"></div>
                             <p>Please provide email to retrieve password</p>
-                            <input type="email" value="" id="email" name="email" class="required form-control"  maxlength="100"
+                            <input type="email" value="" id="Reset_pass" name="Reset_pass" class="required form-control"  maxlength="100"
                                 placeholder="Email">
                             <div class="nk-gap"></div>
                         </div>
