@@ -374,9 +374,10 @@
                 <form action="#" method="post" id="signin_form" class="nk-form text-white">
                     @csrf
                     <div class="row vertical-gap">
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             Password recovery:
                             <div class="nk-gap"></div>
+                            <p>Please provide email to retrieve password</p>
                             <input type="email" value="" id="email" name="email" class="required form-control"  maxlength="100"
                                 placeholder="Email">
                             <div class="nk-gap"></div>
