@@ -222,13 +222,13 @@
                 <p style="color: yellow">After clicking confirm, the money will be deducted from your account, support
                     will contact you via facebook page or phone number/email you have registered.</p>
                 <h6 style="color:red">Account information</h6>
-                <input type="text" value="" id="username" name="username" class="required form-control" placeholder="Username">
+                <input type="text" value="" id="username" name="username" class="required form-control"  maxlength="100" placeholder="Username">
                 <div class="nk-gap"></div>
-                <input type="text" value="" id="password_game" name="password_game" class="required form-control" placeholder="Password">
+                <input type="text" value="" id="password_game" name="password_game" class="required form-control"  maxlength="100" placeholder="Password">
                 <div class="nk-gap"></div>
-                <input type="text" value="" id="sever" name="sever" class="required form-control" placeholder="Sever (if there is server)">
+                <input type="text" value="" id="sever" name="sever" class="required form-control" maxlength="100" placeholder="Sever (if there is server)">
                 <div class="nk-gap"></div>
-                <input type="text" value="" id="code" name="code" class="required form-control" placeholder="Code (if there is code)">
+                <input type="text" value="" id="code" name="code" class="required form-control" maxlength="100" placeholder="Code (if there is code)">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -255,10 +255,10 @@
                         <div class="col-md-6">
                             Use email and password:
                             <div class="nk-gap"></div>
-                            <input type="email" value="" id="email" name="email" class="required form-control"
+                            <input type="email" value="" id="email" name="email" class="required form-control"  maxlength="100"
                                 placeholder="Email">
                             <div class="nk-gap"></div>
-                            <input type="password" value="" id="password" name="password" class="required form-control"
+                            <input type="password" value="" id="password" name="password" class="required form-control"  maxlength="50"
                                 placeholder="Password">
                         </div>
                         <div class="col-md-6">
@@ -287,7 +287,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mnt-5">
-                                <small><a href="#">Forgot your password?</a></small>
+                                <small><a href="#" data-toggle="modal" data-dismiss="modal" data-target="#forgot">Forgot your password?</a></small>
                             </div>
                             <div class="mnt-5">
                                 <small><a href="#" data-toggle="modal" data-target="#modalRegister"
@@ -319,7 +319,7 @@
                         <div class="col-md-8">
                             <div class="nk-gap"></div>
                             <label>Name:</label>
-                            <input type="text" value="" name="name" id="name" class="form-control" placeholder="Name">
+                            <input type="text" value="" name="name" id="name" class="form-control"  maxlength="100" placeholder="Name">
                             <p id="error-name" style="color:red"></p>
                             <label>Email:</label>
                             <input type="text" value="" name="email" id="email_sign" class="form-control"
@@ -330,12 +330,12 @@
                                 placeholder="Phone">
                             <p id="error-phone" style="color:red"></p>
                             <label>Password:</label>
-                            <input type="password" value="" name="password" id="password_sign" class="form-control"
+                            <input type="password" value="" name="password" id="password_sign"  maxlength="100" class="form-control"
                                 placeholder="Password">
                             <p id="error-pass" style="color:red"></p>
                             <label>Confirm Password:</label>
                             <input type="password" value="" name="confirm_password" id="confirm_password"
-                                class="form-control" placeholder="Password">
+                                class="form-control"  maxlength="100" placeholder="Password">
                             <p id="error-confirm" style="color:red"></p>
                         </div>
                     </div>
@@ -347,7 +347,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mnt-5">
-                                <small><a href="#">Forgot your password?</a></small>
+                                <small><a href="#" data-toggle="modal" data-dismiss="modal" data-target="#forgot">Forgot your password?</a></small>
                             </div>
                             <div class="mnt-5">
                                 <small><a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalLogin">Is
@@ -361,6 +361,50 @@
     </div>
 </div>
 <!-- END: Reg Modal -->
+<div class="modal fade" id="forgot" aria-hidden="true" aria-labelledby="forgot" tabindex="-1">
+    <div class="modal-dialog modal-sm-8" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="ion-android-close"></span>
+                </button>
+                <h4 class="mb-0"><span class="text-main-1">Forgot</span> Password</h4>
+
+                <div class="nk-gap-1"></div>
+                <form action="#" method="post" id="signin_form" class="nk-form text-white">
+                    @csrf
+                    <div class="row vertical-gap">
+                        <div class="col-md-6">
+                            Password recovery:
+                            <div class="nk-gap"></div>
+                            <input type="email" value="" id="email" name="email" class="required form-control"  maxlength="100"
+                                placeholder="Email">
+                            <div class="nk-gap"></div>
+                        </div>
+                    </div>
+
+                    <div class="nk-gap-1"></div>
+                    <div class="row vertical-gap">
+                        <div class="col-md-6">
+                            <button class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">Recovery</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mnt-5">
+                                <small><a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalLogin">Is
+                                    a member? Sign In</a></small>
+                            </div>
+                            <div class="mnt-5">
+                                <small><a href="#" data-toggle="modal" data-target="#modalRegister"
+                                        data-dismiss="modal">Not a member? Sign up</a></small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Login Modal -->
 <!-- END: Navbar Mobile -->
 @section('script')
 

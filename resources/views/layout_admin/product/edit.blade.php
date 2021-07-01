@@ -53,7 +53,7 @@
                 var html = '<div class="input-group" id="row'+count+'">';
                     html += "<div class='col-sm-3'>";
                     html += ' <p>Tên gói: </p>';
-                    html += "<input name='package[]' type='text' class='form-control' placeholder='Tên gói. . . . . . . . .' required>";
+                    html += "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
                     html += '</div>';
                     html += "<div class='col-sm-3'>";
                     html += '<p>Giá trị: </p>';

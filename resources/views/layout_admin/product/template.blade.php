@@ -103,7 +103,7 @@
                     <div class="col-sm-3">
                         <p>Tên gói: </p>
                         <input name="package[]" id="package" type="text" class="form-control"
-                            placeholder="Tên gói. . . . . . . . ." required>
+                            placeholder="Tên gói. . . . . . . . ." maxlength="150" required>
                     </div>
                     <div class="col-sm-3">
                         <p>Giá trị: </p>

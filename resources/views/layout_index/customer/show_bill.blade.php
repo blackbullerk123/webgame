@@ -145,7 +145,15 @@
                                 <td>{{ $point_purchase->order_id }}</td>
                                 <td>{{ $point_purchase->description }}</td>
                                 <td>{{ $point_purchase->method }}</td>
-                                <td>{{ $point_purchase->status == 0 ? 'Pending' : '' }}</td>
+                                    @if ($point_purchase->status == 0)
+                                        <td>Pending</td>
+                                    @endif
+                                    @if ($point_purchase->status == 1)
+                                        <td>Paid</td>
+                                    @endif
+                                    @if ($point_purchase->status == 2)
+                                        <td>Cancel</td>
+                                    @endif
                                 <td>{{ number_format($point_purchase->point_purchase) }} Point</td>
                                 <td>{{ number_format($point_purchase->point_purchase) }} $</td>
                             </tr>
@@ -160,7 +168,7 @@
                 <!-- /.col -->
                 <div class="col-xs-4">
                     @if ($point_purchase->method == 'Purchase point')
-                        @if (explode(',', $point_purchase->description)[1] == 'Bank')
+                        @if (explode(', ', $point_purchase->description)[1] == 'Bank')
                             <p class="lead">Transfer information</p>
                             <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                                 {{ explode(',', $admin_trans->transaction_type)[1] }} : Viecombank <br>
@@ -168,7 +176,7 @@
                                 Name: {{ $admin->name }}
                             </p>
                         @endif
-                        @if (explode(',', $point_purchase->description)[1] == 'Momo')
+                        @if (explode(', ', $point_purchase->description)[1] == 'Momo')
                             <p class="lead">Transfer information</p>
                             <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                                 {{ explode(',', $admin_trans->transaction_type)[0] }} : {{ $admin->phone }} <br>
@@ -176,16 +184,12 @@
                             </p>
                         @endif
                     @endif
-                    @if ($point_purchase->method == 'Withdraw point')
-                        <p class="lead">Transfer information</p>
-                        <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                            {{ $point_purchase->description }}
-                        </p>
-                    @endif
                     <p class="lead">Payment Methods:</p>
                     <img src="{{ asset('dist/img/payoneer.png') }}" alt="Payoneer">
                     <img src="{{ asset('dist/img/paypal2.png') }}" alt="Paypal" style="margin-left: 10px">
                     <img src="{{ asset('dist/img/momo.png') }}" alt="Momo" style="margin-left: 10px">
+                    <img src="{{ asset('dist/img/bitcoin.png') }}" alt="Momo" style="margin-left: 10px">
+                    <img src="{{ asset('dist/img/tether_Logo.png') }}" alt="Momo" style="margin-left: 10px">
                 </div>
                 <div class="col-xs-6 pull-right">
                     <p class="lead">Amount Due {{ date('d/m/Y ', strtotime($point_purchase->created_at)) }}</p>

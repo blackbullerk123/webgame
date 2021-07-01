@@ -67,7 +67,7 @@ class SlideRepository
     public function destroy($request)
     {
           $slide = Slide::find($request->id);
-          if(file_exists($slide->avatar)){
+          if(file_exists($slide->images)){
             unlink(public_path($slide->images));
           }
           $slide->delete();

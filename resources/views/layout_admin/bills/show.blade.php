@@ -162,6 +162,8 @@
                     <img src="{{ asset('dist/img/payoneer.png') }}" alt="Payoneer">
                     <img src="{{ asset('dist/img/paypal2.png') }}" alt="Paypal" style="margin-left: 10px">
                     <img src="{{ asset('dist/img/momo.png') }}" alt="Momo" style="margin-left: 10px">
+                    <img src="{{ asset('dist/img/bitcoin.png') }}" alt="Momo" style="margin-left: 10px">
+                    <img src="{{ asset('dist/img/tether_Logo.png') }}" alt="Momo" style="margin-left: 10px">
                 </div>
                 <div class="col-xs-4">
                     <p class="lead">Account :</p>
