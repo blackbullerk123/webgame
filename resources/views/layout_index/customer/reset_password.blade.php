@@ -35,4 +35,5 @@
         </div>
     </div>
 </div>
+<div class="nk-gap-3"></div>
 @endsection
