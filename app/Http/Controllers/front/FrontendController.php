@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Repositories\FrontendRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -178,13 +179,14 @@ class FrontendController extends Controller
         $now = Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-y');
         $title_mail = "Recovery Pasword!".' '.$now;
         $customer = User::where('email', $data['reset_pass'])->get();
-        foreach ($customer as $key => $value){
-            $customer_id = $value->id;
-        }
-        if ($customer == null) {
-            return redirect()->back()->with('error', '1');
+        $count = $customer->count();
+        if ($count == null) {
+            return redirect()->back()->with('message', '1');
         }
         else{
+            foreach ($customer as $key => $value){
+                $customer_id = $value->id;
+            }
             $token_random = Str::random();
             $customer = User::find($customer_id);
             $customer->recovery_token = $token_random;
@@ -200,8 +202,39 @@ class FrontendController extends Controller
     
             );
 
-            Mail::send('layout_index.customer.forget_pass_notify');
+            Mail::send('layout_index.customer.forget_pass_notify', ['data' => $data], function($message) use ($title_mail, $data){
+                $message->to($data['email'])->subject($title_mail);
+                $message->from($data['email'], $title_mail);
+            });
+            return redirect()->back()->with('message', '0');
         }
         
+    }
+
+    public function updateNewPass()
+    {
+        return view('layout_index.customer.reset_password');
+    }
+
+    public function resetPass(Request $request)
+    {   
+        $data = $request->all();
+        $token_random = Str::random();
+        $customer = User::where('email', $data['email'])
+                        ->where('recovery_token', $data['token'])
+                        ->get();
+        $count = $customer->count();
+        if($count > 0){
+            foreach ($customer as $key => $cus){
+                $customer_id = $cus->id;
+            }
+            $reset = User::find($customer_id);
+            $reset->password = Hash::make($data['new_password']);
+            $reset->recovery_token = $token_random;
+            $reset->save();
+            return redirect(route('index'))->with('message', '2');
+        }else{
+            return redirect(route('index'))->with('message', '3');
+        }
     }
 }

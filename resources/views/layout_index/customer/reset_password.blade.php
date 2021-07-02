@@ -10,12 +10,18 @@
                 <div class="alert alert-success">{{ session('information') }}</div>
             @endif
             <div class="card-body text-center">
-                <form action="#" method="post" enctype="multipart/form-data">
+                @php
+                    $token = $_GET['token'];
+                    $email = $_GET['email'];
+                @endphp
+                <form action="{{ route('password.reset') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <p class="col-md-5 col-form-label">New password:</p>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Password . . . . ." name="new_password" maxlength="50">
+                            <input type="hidden" name="email" value="{{ $email }}">
+                            <input type="hidden" name="token" value="{{ $token }}">
+                            <input type="password" class="form-control" placeholder="Password . . . . ." name="new_password" maxlength="50">
                             @error('name')
                                 <p style="color: red"> {{ $message }} </p>
                             @enderror 

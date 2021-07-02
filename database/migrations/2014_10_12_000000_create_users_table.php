@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('avatar_orginal')->nullable();
             $table->integer('banned_status')->nullable()->default('0');
+            $table->string('recovery_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

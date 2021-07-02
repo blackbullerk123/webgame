@@ -321,7 +321,7 @@
                             <label>Name:</label>
                             <input type="text" value="" name="name" id="name" class="form-control"  maxlength="100" placeholder="Name">
                             <p id="error-name" style="color:red"></p>
-                            <label>Email:</label>
+                            <label>Email: <label style="color:red">*Use your real email address!</label></label>
                             <input type="text" value="" name="email" id="email_sign" class="form-control"
                                 placeholder="Email">
                             <p id="error-email" style="color:red"></p>
@@ -411,8 +411,8 @@
 <script type="text/javascript"> 
 
     $(document).ready(function () {
-        var msg = "{{Session::get('error')}}";
-        var exist = "{{Session::has('error')}}";
+        var msg = "{{Session::get('message')}}";
+        var exist = "{{Session::has('message')}}";
         if (exist && msg == '1') {
             Swal.fire({
                 icon: 'error',
@@ -420,9 +420,31 @@
                 showConfirmButton: false,
                 timer: 2000
             })
-        $('#forgot').modal('show');
+            $('#forgot').modal('show');
+        }else if (exist && msg == '0' ){
+            Swal.fire({
+                icon: 'success',
+                title: 'Send mail successfully!, please check your email!',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }else if (exist && msg == '2' ){
+            Swal.fire({
+                icon: 'success',
+                title: 'Your new password has been updated!',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            $('#modalLogin').modal('show');
+        }else if (exist && msg == '3' ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Your link is out of date, please try again!',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
     })
-
+//Send mail successfully!, please check your email!
 </script>
 @stop
