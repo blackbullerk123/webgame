@@ -177,7 +177,7 @@ class FrontendController extends Controller
         $data = $request->all();
         
         $now = Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-y');
-        $title_mail = "Recovery Pasword!".' '.$now;
+        $title_mail = "WebGame!".' '.$now;
         $customer = User::where('email', $data['reset_pass'])->get();
         $count = $customer->count();
         if ($count == null) {
