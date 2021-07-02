@@ -371,7 +371,7 @@
                 <h4 class="mb-0"><span class="text-main-1">Forgot</span> Password</h4>
 
                 <div class="nk-gap-1"></div>
-                <form action="{{ route('password.recovery') }}" method="post" id="signin_form" class="nk-form text-white">
+                <form action="{{ route('password.recovery') }}" method="post" class="nk-form text-white">
                     @csrf
                     <div class="row vertical-gap">
                         <div class="col-md-10">
