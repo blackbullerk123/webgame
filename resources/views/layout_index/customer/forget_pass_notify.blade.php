@@ -7,6 +7,6 @@
     <title>Forget Password</title>
 </head>
 <body>
-    <p>Click here {{ $data['body'] }} to reset password</p>
+    <p>Click <a href="{{ $data['body'] }}">here</a> to reset password</p>
 </body>
 </html>
