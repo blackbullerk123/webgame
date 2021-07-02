@@ -8,8 +8,11 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Repositories\FrontendRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -168,21 +171,37 @@ class FrontendController extends Controller
         return view('layout_index.page.search_type', compact('game_type', 'type'));
     }
 
-    public function viewResetPass()
+    public function recoveryPass(Request $request)
     {
-        return view('layout_index.customer.reset_password');
-    }
-
-    public function resetPassword(Request $request)
-    {
-        $email = $request->email_reset;
-        $check = User::where('email', $email)->first();
-
-        if(!$check){
-            return response()->json([
-                'success' => false
-            ]);
+        $data = $request->all();
+        
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-y');
+        $title_mail = "Recovery Pasword!".' '.$now;
+        $customer = User::where('email', $data['reset_pass'])->get();
+        foreach ($customer as $key => $value){
+            $customer_id = $value->id;
         }
+        if ($customer == null) {
+            return redirect()->back()->with('error', '1');
+        }
+        else{
+            $token_random = Str::random();
+            $customer = User::find($customer_id);
+            $customer->recovery_token = $token_random;
+            $customer->save();
+            
+            $to_email = $data['reset_pass'];
+            $link_reset_pass = url('/update-new-pass?email='.$to_email.'&token='.$token_random);
 
+            $data = array(
+                'name' => $title_mail,
+                'body' => $link_reset_pass,
+                'email' => $to_email
+    
+            );
+
+            Mail::send('layout_index.customer.forget_pass_notify');
+        }
+        
     }
 }

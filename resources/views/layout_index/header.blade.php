@@ -371,14 +371,14 @@
                 <h4 class="mb-0"><span class="text-main-1">Forgot</span> Password</h4>
 
                 <div class="nk-gap-1"></div>
-                <form action="#" method="post" id="forgot_form" class="nk-form text-white">
+                <form action="{{ route('password.recovery') }}" method="post" id="signin_form" class="nk-form text-white">
                     @csrf
                     <div class="row vertical-gap">
                         <div class="col-md-10">
                             Password recovery:
                             <div class="nk-gap"></div>
                             <p>Please provide email to retrieve password</p>
-                            <input type="email" value="" id="email_reset" name="email_reset" class="required form-control"  maxlength="100"
+                            <input type="email" value="" id="reset_pass" name="reset_pass" class="required form-control"  maxlength="100"
                                 placeholder="Email">
                             <div class="nk-gap"></div>
                         </div>
@@ -407,4 +407,22 @@
 </div>
 <!-- END: Login Modal -->
 <!-- END: Navbar Mobile -->
+@section('script')
+<script type="text/javascript"> 
 
+    $(document).ready(function () {
+        var msg = "{{Session::get('error')}}";
+        var exist = "{{Session::has('error')}}";
+        if (exist && msg == '1') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Your email does not exist!',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        $('#forgot').modal('show');
+        }
+    })
+
+</script>
+@stop
