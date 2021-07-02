@@ -421,7 +421,7 @@
                 timer: 2000
             })
             $('#forgot').modal('show');
-        }else if (exist && msg == '0' ){
+        }else if (exist && msg == '5' ){
             Swal.fire({
                 icon: 'success',
                 title: 'Send mail successfully!, please check your email!',

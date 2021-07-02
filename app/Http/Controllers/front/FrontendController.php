@@ -206,7 +206,7 @@ class FrontendController extends Controller
                 $message->to($data['email'])->subject($title_mail);
                 $message->from($data['email'], $title_mail);
             });
-            return redirect()->back()->with('message', '0');
+            return redirect()->back()->with('message', '5');
         }
         
     }
