@@ -371,7 +371,7 @@
                 <h4 class="mb-0"><span class="text-main-1">Forgot</span> Password</h4>
 
                 <div class="nk-gap-1"></div>
-                <form action="{{ route('password.recovery') }}" method="post" id="signin_form" class="nk-form text-white">
+                <form action="{{ route('password.recovery') }}" method="post" class="nk-form text-white">
                     @csrf
                     <div class="row vertical-gap">
                         <div class="col-md-10">
@@ -408,43 +408,5 @@
 <!-- END: Login Modal -->
 <!-- END: Navbar Mobile -->
 @section('script')
-<script type="text/javascript"> 
 
-    $(document).ready(function () {
-        var msg = "{{Session::get('message')}}";
-        var exist = "{{Session::has('message')}}";
-        if (exist && msg == '1') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Your email does not exist!',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            $('#forgot').modal('show');
-        }else if (exist && msg == '0' ){
-            Swal.fire({
-                icon: 'success',
-                title: 'Send mail successfully!, please check your email!',
-                showConfirmButton: false,
-                timer: 2000
-            })
-        }else if (exist && msg == '2' ){
-            Swal.fire({
-                icon: 'success',
-                title: 'Your new password has been updated!',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            $('#modalLogin').modal('show');
-        }else if (exist && msg == '3' ){
-            Swal.fire({
-                icon: 'error',
-                title: 'Your link is out of date, please try again!',
-                showConfirmButton: false,
-                timer: 2000
-            })
-        }
-    })
-//Send mail successfully!, please check your email!
-</script>
 @stop
