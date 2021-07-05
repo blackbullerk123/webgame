@@ -100,24 +100,31 @@
             @else
 
                 <div class="input-group">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <p>Tên gói: </p>
                         <input name="package[]" id="package" type="text" class="form-control"
                             placeholder="Tên gói. . . . . . . . ." maxlength="150" required>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <p>Giá trị: </p>
                         <input name="value[]" id="value" type="text" class="form-control"
                             placeholder="Giá trị. . . . . . . . ." required>
-                    </div>
-                    <div class="col-sm-3">
+                    </div>                   
+                    <div class="col-sm-2">
                         <p>Points: </p>
                         <input name="point[]" id="point" type="number" class="form-control"
                             placeholder="Point. . . . . . . . ." required>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
+                        <p>Ảnh packgame</p>
+                        <input id="img0" type="file" name="packgame[]" class="form-control hidden packgame"
+                        onchange="changeImgPack(this, 0)">
+                        <img id="0" class="img0 imgpackgame" style="width: 34px; height: 34px;"
+                        src="{{ isset($product) ? asset($product->image) : asset('images/no_img.jpg') }}">
+                    </div>
+                    <div class="col-sm-2">
                         <p>Thao tác:</p>
-                        <button type="button" class="btn btn-primary float-left" name="add_btn" id="add_btn"><i class="glyphicon glyphicon-plus"></i></button>
+                        <button type="button" class="btn btn-primary float-left" name="add_btn" id="add_btn"><i class="glyphicon glyphicon-plus"></i></button>        
                     </div>
                 </div>
             @endif

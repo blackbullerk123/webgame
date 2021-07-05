@@ -36,25 +36,40 @@
 @endsection
 @section('script')
     <script>
+        function changeImgPack(input, id_number) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('.img'+id_number+'').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
         $(document).ready(function(){
 
             var count = 1;
             
             function data_form(number) {
                 var html = '<div class="input-group" id="row'+count+'">';
-                    html += "<div class='col-sm-3'>";
+                    html += "<div class='col-sm-2'>";
                     html += ' <p>Tên gói: </p>';
                     html += "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
                     html += '</div>';
-                    html += "<div class='col-sm-3'>";
+                    html += "<div class='col-sm-2'>";
                     html += '<p>Giá trị: </p>';
                     html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
                     html += '</div>';
-                    html += '<div class="col-sm-3">';
+                    html += '<div class="col-sm-2">';
                     html += '<p>Points: </p>';
                     html += '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
                     html += '</div>';
-                    html += '<div class="col-sm-3">';
+                    html += '<div class="col-sm-2">';
+                    html += '<p>Ảnh packgame: </p>';
+                    html += '<input id="img'+count+'" type="file" name="packgame[]" class="form-control hidden packgame" onchange="changeImgPack(this, '+count+')">';
+                    html += '<img id="'+count+'" class="img'+count+' imgpackgame" style="width: 34px; height: 34px;" src="{{ isset($product) ? asset($product->image) : asset("images/no_img.jpg") }}">';
+                    html += '</div>';
+                    html += '<div class="col-sm-2">';
                     html += '<p>Thao tác:</p>';
                     html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="'+count+'"><i class="glyphicon glyphicon-trash"></i></button>';
                     html += '</div>';
@@ -69,10 +84,35 @@
                 data_form(count);
             }); 
 
-           $(document).on('click', '.btn_remove', function() {
+            $(document).on('click', '.imgpackgame', function() {
+                var input_id = $(this).attr('id');
+                $('#img'+input_id+'').click();
+            });       
+
+            $(document).on('click', '.btn_remove', function() {
                var button_id = $(this).attr('id');
                $('#row'+button_id+'').remove();
-           });
+            });
+        //    function previewImage(input,previewDiv)
+        //     {
+        //         var validExtensions;
+        //         var file = input.files[0];
+        //         var name = input.files[0].type;
+        //         var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
+        //         validExtensions = ['image/jpg','image/png','image/jpeg']; //array of valid extensions
+        //         if ($.inArray(fileNameExt.toLowerCase(), validExtensions) < 0) {
+        //             swal.fire(format_file+" "+validExtensions.join(', '));
+        //             return false;
+        //         }
+        //         if (input.files && input.files[0]) {
+        //             var reader = new FileReader();
+
+        //             reader.onload = function(e) {
+        //                 $('#'+ previewDiv).attr('src', e.target.result);
+        //             }
+        //             reader.readAsDataURL(input.files[0]);
+        //         }
+        //     }
     });
     </script>
 @stop
