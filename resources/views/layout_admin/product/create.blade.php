@@ -67,7 +67,7 @@
                     html += '<div class="col-sm-2">';
                     html += '<p>Ảnh packgame: </p>';
                     html += '<input id="img'+count+'" type="file" name="packgame[]" class="form-control hidden packgame" onchange="changeImgPack(this, '+count+')">';
-                    html += '<img id="'+count+'" class="img'+count+' imgpackgame" style="width: 34px; height: 34px;" src="{{ isset($product) ? asset($product->image) : asset("images/no_img.jpg") }}">';
+                    html += '<img id="'+count+'" class="img'+count+' imgpackgame" style="width: 50px; height: 34px;" src="{{ isset($product) ? asset($product->image) : asset("images/no_img.jpg") }}">';
                     html += '</div>';
                     html += '<div class="col-sm-2">';
                     html += '<p>Thao tác:</p>';
@@ -93,26 +93,6 @@
                var button_id = $(this).attr('id');
                $('#row'+button_id+'').remove();
             });
-        //    function previewImage(input,previewDiv)
-        //     {
-        //         var validExtensions;
-        //         var file = input.files[0];
-        //         var name = input.files[0].type;
-        //         var fileNameExt = name.substr(name.lastIndexOf('.') + 1);
-        //         validExtensions = ['image/jpg','image/png','image/jpeg']; //array of valid extensions
-        //         if ($.inArray(fileNameExt.toLowerCase(), validExtensions) < 0) {
-        //             swal.fire(format_file+" "+validExtensions.join(', '));
-        //             return false;
-        //         }
-        //         if (input.files && input.files[0]) {
-        //             var reader = new FileReader();
-
-        //             reader.onload = function(e) {
-        //                 $('#'+ previewDiv).attr('src', e.target.result);
-        //             }
-        //             reader.readAsDataURL(input.files[0]);
-        //         }
-        //     }
     });
     </script>
 @stop

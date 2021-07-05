@@ -42,7 +42,7 @@
     <h4><b> Hệ điều hành hổ trợ nạp : </b></h4>
     <div class="input-group">
         <div class="col-sm-14">
-                <select class="select2" multiple="multiple" name="game_opt[]" data-placeholder="Chọn loại game" style="width: 800px;">
+                <select class="select2" name="game_opt" style="width: 150px;" data-placeholder="Chọn loại game" style="width: 800px;">
                     @if(isset($product))
                         @foreach ($os_type as $os)
                                 @if(in_array($os->name, explode(",", $product->os_supported)) == true)
@@ -75,12 +75,6 @@
                 @if(isset($package_by_id->package_name))
                     @for($i; $i < count(json_decode($package_by_id->package_name)); $i++)
                         <div class="input-group" id="row{{ $i + 1 }}">
-                            <div class="col-sm-3">
-                                <p>Ảnh gói: </p>
-                                    <input id="imgPack" type="file" name="imgPack[]" class="form-control hidden">
-                                    <img id="img_pack" class="img" style="width: 50px; height: 40px;"
-                                        src="{{ isset($package_by_id) ? asset(json_decode($package_by_id->package_image)[$i]) : asset('images/no_img.jpg') }}">
-                            </div>
                             <div class="col-sm-3">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"
@@ -125,8 +119,8 @@
                         <p>Ảnh packgame</p>
                         <input id="img0" type="file" name="packgame[]" class="form-control hidden packgame"
                         onchange="changeImgPack(this, 0)">
-                        <img id="0" class="img0 imgpackgame" style="width: 34px; height: 34px;"
-                        src="{{ isset($product) ? asset($product->image) : asset('images/no_img.jpg') }}">
+                        <img id="0" class="img0 imgpackgame" style="width: 50px; height: 34px;"
+                        src="{{ asset('images/no_img.jpg') }}">
                     </div>
                     <div class="col-sm-2">
                         <p>Thao tác:</p>

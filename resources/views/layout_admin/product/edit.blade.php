@@ -22,7 +22,8 @@
                 @endif
             </div>
             <div class="box box-info">
-                <form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data" id="form_data">
+                <form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data"
+                    id="form_data">
                     @csrf
                     @include('layout_admin.product.template')
                     <div class="text-center">
@@ -35,41 +36,46 @@
     </div>
 @endsection
 @section('script')
-    <script>       
-    $('#update2').click(function() {
-       
-    })        
+    <script>
+        $('#update2').click(function() {
 
-        $(document).ready(function(){
-            
-           <?php if (isset($package_by_id->package_name)) {?>
-                var arr_number = '{{ count(explode(",", $package_by_id->package_name)) }}';
-                var count = '{{ count(explode(",", $package_by_id->package_name)) }}';
-           <?php }else { ?>
-                var arr_number = 0;
-                var count = 1;
-           <?php } ?>                       
+        })
+
+        $(document).ready(function() {
+
+            <?php if (isset($package_by_id->package_name)) { ?>
+            var arr_number = '{{ count(explode(',', $package_by_id->package_name)) }}';
+            var count = '{{ count(explode(',', $package_by_id->package_name)) }}';
+            <?php } else { ?>
+            var arr_number = 0;
+            var count = 1;
+            <?php } ?>
+
             function data_form(number) {
-                var html = '<div class="input-group" id="row'+count+'">';
-                    html += "<div class='col-sm-3'>";
-                    html += ' <p>Tên gói: </p>';
-                    html += "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
-                    html += '</div>';
-                    html += "<div class='col-sm-3'>";
-                    html += '<p>Giá trị: </p>';
-                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
-                    html += '</div>';
-                    html += '<div class="col-sm-3">';
-                    html += '<p>Points: </p>';
-                    html += '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
-                    html += '</div>';
-                    html += '<div class="col-sm-3">';
-                    html += '<p>Thao tác:</p>';
-                    html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="'+count+'"><i class="glyphicon glyphicon-trash"></i></button>';
-                    html += '</div>';
-                    html += '</div>';
+                var html = '<div class="input-group" id="row' + count + '">';
+                html += "<div class='col-sm-3'>";
+                html += ' <p>Tên gói: </p>';
+                html +=
+                    "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
+                html += '</div>';
+                html += "<div class='col-sm-3'>";
+                html += '<p>Giá trị: </p>';
+                html +=
+                    "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
+                html += '</div>';
+                html += '<div class="col-sm-3">';
+                html += '<p>Points: </p>';
+                html +=
+                    '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
+                html += '</div>';
+                html += '<div class="col-sm-3">';
+                html += '<p>Thao tác:</p>';
+                html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="' + count +
+                    '"><i class="glyphicon glyphicon-trash"></i></button>';
+                html += '</div>';
+                html += '</div>';
 
-                    $('#new_chq').append(html);
+                $('#new_chq').append(html);
 
             }
 
@@ -77,67 +83,67 @@
                 count++;
                 data_form(count);
                 console.log($("input[name='package[]']").val());
-            }); 
-
-           $(document).on('click', '.btn_remove', function() {
-               var button_id = $(this).attr('id');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
             });
-            Swal.fire({
-                title: 'Bạn có chắc chắn muốn xoá?',
-                text: "Bạn không thể hoàn tác sau khi xoá!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Xoá!',
-                cancelButtonText: 'Huỷ' 
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    if (button_id == 1 && arr_number != 0) {
-                        $("#package").val('');
-                        $("#value").val('');
-                        $("#point").val('');
-                    }else{
-                        $('#row'+button_id+'').remove();
-                    }
-                    $.ajax({
-                        url: "{{ route('product.package.update', $product->id) }}",
-                        method: 'POST',
-                        data: $('#form_data').serialize(),
-                        dataType: 'json',
-                        success: function (data) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                                )
-                            window.location.reload();
-                        },
-                        error: function() {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Something went wrong!',
-                                footer: '<a href="">Why do I have this issue?</a>'
-                            })
-                        }
-                    });
-                    // Swal.fire(
-                    // 'Deleted!',
-                    // 'Your file has been deleted.',
-                    // 'success'
-                    // )
-                    // $('#row'+button_id+'').remove();
-                }
-            })
 
-            $('#form_data').validate();
-               
-           });
-    });
+            $(document).on('click', '.btn_remove', function() {
+                var button_id = $(this).attr('id');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                Swal.fire({
+                    title: 'Bạn có chắc chắn muốn xoá?',
+                    text: "Bạn không thể hoàn tác sau khi xoá!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Xoá!',
+                    cancelButtonText: 'Huỷ'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (button_id == 1 && arr_number != 0) {
+                            $("#package").val('');
+                            $("#value").val('');
+                            $("#point").val('');
+                        } else {
+                            $('#row' + button_id + '').remove();
+                        }
+                        $.ajax({
+                            url: "{{ route('product.package.update', $product->id) }}",
+                            method: 'POST',
+                            data: $('#form_data').serialize(),
+                            dataType: 'json',
+                            success: function(data) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                                window.location.reload();
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong!',
+                                    footer: '<a href="">Why do I have this issue?</a>'
+                                })
+                            }
+                        });
+                        // Swal.fire(
+                        // 'Deleted!',
+                        // 'Your file has been deleted.',
+                        // 'success'
+                        // )
+                        // $('#row'+button_id+'').remove();
+                    }
+                })
+
+                $('#form_data').validate();
+
+            });
+        });
     </script>
 @stop

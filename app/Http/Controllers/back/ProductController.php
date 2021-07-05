@@ -46,7 +46,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {   
-           dd($request->packgame);
+
            $this->repository->store($request);
            return redirect()->back()->with('information', 'Thêm thành công');
     //     return back()->withError("Lỗi hệ thống! Chưa chọn loại sách")->withInput();

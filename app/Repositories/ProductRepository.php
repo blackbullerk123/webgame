@@ -71,18 +71,24 @@ class ProductRepository
      $product->short_des = $request->short_des;
      $product->name = $request->name;
      $product->product_type = $request->game_type;
-     if (count($request->game_opt) > 1) {
-          $product->os_supported = implode(',' ,$request->game_opt);
-     }
-     else{
-          $product->os_supported = $request->game_opt[0];
-     }
-     
+     $product->os_supported = $request->game_opt;
+  
      $product->content_1 = $request->content;
      $product->save();
    
      $package->product_id = $product->id;   
-     
+     $img_package = $request->packgame;
+     foreach($img_package as $img){
+          if (isset($img)) {
+               $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+               $destinationPath = public_path('upload/package/img/' . $date);
+               $img->move($destinationPath, $img_name_package);
+               $arr[] = $img_name_package;               
+           }  
+     }
+
+          $package->package_image = json_encode($arr);
+    
           $package->package_name = json_encode($request->package);
           $package->package_price = json_encode($request->value);
           $package->point_number = json_encode($request->point);
@@ -121,12 +127,7 @@ class ProductRepository
      $product->short_des = $request->short_des;
      $product->name = $request->name;
      $product->product_type = $request->game_type;
-     if (count($request->game_opt) > 1) {
-          $product->os_supported = implode(',' ,$request->game_opt);
-     }
-     else{
-          $product->os_supported = $request->game_opt[0];
-     }
+     $product->os_supported = $request->game_opt;
 
      $product->content_1 = $request->content;
      $product->save();

@@ -59,11 +59,12 @@
         </div>
             <!-- START: Post -->
         <div class="col-12 col-xs-12 col-sm-6 col-md-8 col-xl-9 ">
-            <div class="table-responsive" style="width: 120%;">
+            <div class="table-responsive" style="width: 110%;">
                 <table class="table table-striped custom-table">
                         <thead>              
                             <tr>
-                            <th scope="col">Package name</th>
+                            <th scope="col">Package Image</th>
+                            <th scope="col">Package Name</th>
                             <th scope="col">Value</th>
                             <th scope="col">Point</th>
                             <th scope="col">Education</th>
@@ -74,11 +75,16 @@
                         @if(isset($product->package_name))
                         @for ($i = 0;$i < count(json_decode($product->package_name)); $i++)
                             <tr scope="row">
+                                    <td>
+                                        <div class="hovergallery">
+                                            <img src="{{asset($product->package_image)}}" width="50" />
+                                        </div>
+                                    </td>
                                     <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
                                     <td>{{ json_decode($product->package_price)[$i] }}</td>
                                     <td>{{ number_format(json_decode($product->point_number)[$i]) }} point</td>
                                     <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail">Order</a></td>                   
-                            </tr>  
+                            </tr> 
                         @endfor                            
                         @endif
                         </tbody>
