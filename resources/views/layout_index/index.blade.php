@@ -41,9 +41,9 @@
     <!-- START: Categories -->
     <div class="nk-gap-2"></div>
     <div class="row vertical-gap">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="nk-feature-1">
-                <div class="nk-feature-icon">
+                <div class="nk-feature-icon" style="width:70px">
                     <img src="{{ asset('images/card-itunes.png')}}" alt="">
                 </div>
                 <div class="nk-feature-cont">
@@ -52,9 +52,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="nk-feature-1">
-                <div class="nk-feature-icon">
+                <div class="nk-feature-icon" style="width:70px">
                     <img src="{{ asset('images/android.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
@@ -63,14 +63,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="nk-feature-1">
-                <div class="nk-feature-icon">
+                <div class="nk-feature-icon" style="width:70px">
                     <img src="{{ asset('images/ios.png') }}" alt="">
                 </div>
                 <div class="nk-feature-cont">
                     <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'IOS') }}">IOS</a></h3>
                     <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'IOS') }}">View Games</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="nk-feature-1">
+                <div class="nk-feature-icon" style="width:70px">
+                    <img src="{{ asset('images/wallet.png') }}" alt="">
+                </div>
+                <div class="nk-feature-cont">
+                    <h3 class="nk-feature-title"><a href="{{ route('game.type.view', 'Wallet') }}">Wallet  IOS</a></h3>
+                    <h4 class="nk-feature-title text-main-1"><a href="{{ route('game.type.view', 'Wallet') }}">View Games</a></h4>
                 </div>
             </div>
         </div>
@@ -125,25 +136,25 @@
     </div>
 
     <div class="nk-gap-2"></div>
-    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games</span></h3>
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games <span class="text-main-1">Android</span></span></h3>
     <div class="nk-gap"></div>
     <div class="nk-blog-grid">
         <div class="row">
             
-            @if(isset($products))
-            @foreach($products as $pro)
+            @if(isset($android))
+            @foreach($android as $and)
             <div class="col-md-6 col-lg-3">
                 <!-- START: Post -->
                 <div class="nk-blog-post">
-                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-post-img">
-                        <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
+                    <a href="{{ route('product.detail', $and->id) }}" class="nk-post-img">
+                        <img src="{{asset($and->image)}}" style="height: 300px" alt="He made his passenger captain of one">
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{$pro->name}}</a></h2>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $and->id) }}">{{$and->name}}</a></h2>
                     
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($pro->created_at)) }}</div>
+                    <a href="{{ route('product.detail', $and->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($and->created_at)) }}</div>
                 </div>
                 <!-- END: Post -->
             </div>
@@ -152,7 +163,38 @@
             
             </div>          
         </div>
+        <div class="nk-gap-2"></div>
+        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games <span class="text-main-1">IOS</span></span></h3>
+        <div class="nk-gap"></div>
+        <div class="nk-blog-grid">
+            <div class="row">
+                
+                @if(isset($ios))
+                @foreach($ios as $io)
+                <div class="col-md-6 col-lg-3">
+                    <!-- START: Post -->
+                    <div class="nk-blog-post">
+                        <a href="{{ route('product.detail', $io->id) }}" class="nk-post-img">
+                            <img src="{{asset($io->image)}}" style="height: 300px" alt="He made his passenger captain of one">
+                        </a>
+                        <div class="nk-gap"></div>
+                        <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $io->id) }}">{{$io->name}}</a></h2>
+                        
+                        <div class="nk-gap"></div>
+                        <a href="{{ route('product.detail', $io->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                        <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($io->created_at)) }}</div>
+                    </div>
+                    <!-- END: Post -->
+                </div>
+                @endforeach
+                @endif
+                
+                </div>          
+            </div>
+        </div>
+        <!-- END: Latest News -->
     </div>
+
     <!-- END: Latest News -->
             </aside>
             <!-- END: Sidebar -->

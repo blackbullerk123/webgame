@@ -40,9 +40,17 @@ class FrontendRepository
                         });
     }
 
-    public function getProductToIndex()
+    public function getAndroidIndex()
     {
         return Product::where('product_type','=','Game')
+                        ->where('os_supported','=', 'Android')
+                        ->orderBy('created_at', 'desc')->paginate(8);
+    }
+
+    public function getIosIndex()
+    {
+        return Product::where('product_type','=','Game')
+                        ->where('os_supported','=', 'IOS')
                         ->orderBy('created_at', 'desc')->paginate(8);
     }
 
@@ -131,6 +139,12 @@ class FrontendRepository
                                         });
                                     })
                                     ->when(($type == 'IOS'), function ($query) use ($type){
+                                        $query->where(function ($q) use ($type){
+                                            $q->where('os_supported', 'like', '%' . $type . '%')
+                                                ->where('product_type','=','Game');
+                                        });
+                                    })
+                                    ->when(($type == 'Wallet'), function ($query) use ($type){
                                         $query->where(function ($q) use ($type){
                                             $q->where('os_supported', 'like', '%' . $type . '%')
                                                 ->where('product_type','=','Game');
