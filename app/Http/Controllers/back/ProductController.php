@@ -27,6 +27,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
 
     {
+        // dd(array_merge($request->pack, $request->packgame));
         $this->repository->update($request ,$id);
         return redirect()->back()->with('information', 'Cập nhật thành công');
     }
@@ -59,7 +60,7 @@ class ProductController extends Controller
         $os_type = $this->repository->getType();
         $product_types = $this->repository->getTypeProduct();
         $product = $this->repository->getProductById($id);
-        $package_by_id = $this->repository->getPackageByIdProduct($product->id);       
+        $package_by_id = $this->repository->getPackageByIdProduct($product->id);     
         return view('layout_admin.product.edit', compact('product', 'package_by_id','os_type', 'product_types'));
     }
 

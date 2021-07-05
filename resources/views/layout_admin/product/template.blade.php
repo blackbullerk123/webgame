@@ -75,22 +75,30 @@
                 @if(isset($package_by_id->package_name))
                     @for($i; $i < count(json_decode($package_by_id->package_name)); $i++)
                         <div class="input-group" id="row{{ $i + 1 }}">
-                            <div class="col-sm-3">
+                        <input type="hidden" name="pack[]" value="{{json_decode($package_by_id->package_image)[$i]}}">
+                            <div class="col-sm-2">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"
                                     placeholder="Tên gói. . . . . . . . ." maxlength="150" value="{{ json_decode($package_by_id->package_name)[$i] }}" required>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <p>Giá trị: </p>
                                 <input name="value[]" id="value" type="text" class="form-control"
                                     placeholder="Giá trị. . . . . . . . ." value="{{ json_decode($package_by_id->package_price)[$i] }}" required>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <p>Points: </p>
                                 <input name="point[]" id="point" type="number" class="form-control"
                                     placeholder="Point. . . . . . . . ." value="{{ json_decode($package_by_id->point_number)[$i] }}" required>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
+                                <p>Ảnh packgame</p>
+                                <input id="img{{$i + 1}}" type="file" name="packgame[]" class="form-control hidden packgame"
+                                onchange="changeImgPack(this, {{$i + 1}})">
+                                <img id="{{$i + 1}}" class="img{{$i + 1}} imgpackgame" style="width: 50px; height: 34px;"
+                                src="{{ asset(json_decode($package_by_id->package_image)[$i]) }}">
+                            </div>
+                            <div class="col-sm-2">
                                 <p>Thao tác:</p>
                                 <button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="{{ $i + 1 }}"><i class="glyphicon glyphicon-trash"></i></button>        
                             </div>

@@ -41,6 +41,16 @@
 
         })
 
+        function changeImgPack(input, id_number) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('.img'+id_number+'').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            
         $(document).ready(function() {
 
             <?php if (isset($package_by_id->package_name)) { ?>
@@ -52,28 +62,29 @@
             <?php } ?>
 
             function data_form(number) {
-                var html = '<div class="input-group" id="row' + count + '">';
-                html += "<div class='col-sm-3'>";
-                html += ' <p>Tên gói: </p>';
-                html +=
-                    "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
-                html += '</div>';
-                html += "<div class='col-sm-3'>";
-                html += '<p>Giá trị: </p>';
-                html +=
-                    "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
-                html += '</div>';
-                html += '<div class="col-sm-3">';
-                html += '<p>Points: </p>';
-                html +=
-                    '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
-                html += '</div>';
-                html += '<div class="col-sm-3">';
-                html += '<p>Thao tác:</p>';
-                html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="' + count +
-                    '"><i class="glyphicon glyphicon-trash"></i></button>';
-                html += '</div>';
-                html += '</div>';
+                var html = '<div class="input-group" id="row'+count+'">';
+                    html += "<div class='col-sm-2'>";
+                    html += ' <p>Tên gói: </p>';
+                    html += "<input name='package[]' type='text' class='form-control' maxlength='150' placeholder='Tên gói. . . . . . . . .' required>";
+                    html += '</div>';
+                    html += "<div class='col-sm-2'>";
+                    html += '<p>Giá trị: </p>';
+                    html += "<input name='value[]' type='text' class='form-control' placeholder='Giá trị. . . . . . . . .' required>";
+                    html += '</div>';
+                    html += '<div class="col-sm-2">';
+                    html += '<p>Points: </p>';
+                    html += '<input name="point[]" type="number" class="form-control" placeholder="Point. . . . . . . . ." required>';
+                    html += '</div>';
+                    html += '<div class="col-sm-2">';
+                    html += '<p>Ảnh packgame: </p>';
+                    html += '<input id="img'+count+'" type="file" name="packgame[]" class="form-control hidden packgame" onchange="changeImgPack(this, '+count+')">';
+                    html += '<img id="'+count+'" class="img'+count+' imgpackgame" style="width: 50px; height: 34px;" src="{{ asset("images/no_img.jpg") }}">';
+                    html += '</div>';
+                    html += '<div class="col-sm-2">';
+                    html += '<p>Thao tác:</p>';
+                    html += '<button type="button" class="btn btn-danger btn_remove" name="remove_btn" id="'+count+'"><i class="glyphicon glyphicon-trash"></i></button>';
+                    html += '</div>';
+                    html += '</div>';
 
                 $('#new_chq').append(html);
 
@@ -83,6 +94,11 @@
                 count++;
                 data_form(count);
                 console.log($("input[name='package[]']").val());
+            });
+
+            $(document).on('click', '.imgpackgame', function() {
+                var input_id = $(this).attr('id');
+                $('#img'+input_id+'').click();
             });
 
             $(document).on('click', '.btn_remove', function() {

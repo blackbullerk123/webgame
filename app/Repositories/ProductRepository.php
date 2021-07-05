@@ -86,7 +86,6 @@ class ProductRepository
                $arr[] = $img_name_package;               
            }  
      }
-
           $package->package_image = json_encode($arr);
     
           $package->package_name = json_encode($request->package);
@@ -132,6 +131,23 @@ class ProductRepository
      $product->content_1 = $request->content;
      $product->save();
 
+     
+     if($request->packgame){
+          $img_package = $request->packgame;
+          foreach($img_package as $img){
+               if (isset($img)) {
+                    $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+                    $destinationPath = public_path('upload/package/img/' . $date);
+                    $img->move($destinationPath, $img_name_package);
+                    $arr[] = $img_name_package;               
+                }  
+          }
+               $package->package_image = json_encode(array_merge($request->pack, $arr));
+     }
+     else {
+          $package->package_image = json_encode($request->pack);
+     }
+
      if ($request->package) {
                $package->package_name = json_encode($request->package);
                $package->package_price = json_encode($request->value);
@@ -144,9 +160,16 @@ class ProductRepository
     public function AjaxDeletePackage($request, $id)
     {
           $package = Package::where('product_id', $id)->first();
-               $package->package_name = json_encode($request->package);
-               $package->package_price = json_encode($request->value);
-               $package->point_number = json_encode($request->point);
+          if($request->pack){
+               // dd($request->pack, json_decode($package->package_image));
+               $img_unlink =  array_diff(json_decode($package->package_image), $request->pack);        
+                    foreach($img_unlink as $iu){
+                         unlink(public_path($iu));
+                    }         
+          }
+          $package->package_name = json_encode($request->package);
+          $package->package_price = json_encode($request->value);
+          $package->point_number = json_encode($request->point);
           $package->save();
 
           return response()->json([
