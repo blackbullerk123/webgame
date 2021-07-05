@@ -121,10 +121,10 @@
                                         <tbody id="pannel">
                                             @for ($i = 0; $i < count($arrRevenueMonthDone); $i++)
                                                 <tr role="row">
-                                                    <td style="text-align: left; font-weight: normal;">
+                                                    <td style="text-align: center; font-weight: normal;">
                                                         <h5>{{ date('d/m/Y', strtotime($dates[$i])) }}</h5>
                                                     </td>
-                                                    <td style="text-align: left; font-weight: normal;">
+                                                    <td style="text-align: center; font-weight: normal;">
                                                         <h5>{{ $arrRevenueMonthDone[$i] }} $ </h5>
                                                     </td>
                                                 </tr>

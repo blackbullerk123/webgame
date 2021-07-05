@@ -41,10 +41,9 @@ class FrontendController extends Controller
     public function getIndex()
     {
         $game_top = $this->repository->gamesTop();
-        $android = $this->repository->getAndroidIndex();
-        $ios = $this->repository->getIosIndex();
+        $products = $this->repository->getProductToIndex();
         $slides = $this->repository->getSlides();
-        return view('layout_index.index', compact('android','ios','slides','game_top'));
+        return view('layout_index.index', compact('products','slides','game_top'));
     }
 
     public function getDetail($id)

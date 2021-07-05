@@ -104,7 +104,7 @@
                             <img src="{{ asset($game->image) }}" alt="Smell magic in the air. Or maybe barbecue">
                         </div>
                         <img src="{{ asset($game->thumbnail) }}" alt="Smell magic in the air. Or maybe barbecue" class="nk-news-box-item-full-img">
-                        <h3 class="nk-news-box-item-title">{{ $game->name }}</h3>
+                        <h3 class="nk-news-box-item-title">{{ $game->name }} - {{ $game->os_supported }}</h3>
                         <div class="nk-news-box-item-text">
                             <p>{{ $game->short_des }}</p>
                         </div>
@@ -136,25 +136,25 @@
     </div>
 
     <div class="nk-gap-2"></div>
-    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games <span class="text-main-1">Android</span></span></h3>
+    <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games</span></h3>
     <div class="nk-gap"></div>
     <div class="nk-blog-grid">
         <div class="row">
             
-            @if(isset($android))
-            @foreach($android as $and)
+            @if(isset($products))
+            @foreach($products as $pro)
             <div class="col-md-6 col-lg-3">
                 <!-- START: Post -->
                 <div class="nk-blog-post">
-                    <a href="{{ route('product.detail', $and->id) }}" class="nk-post-img">
-                        <img src="{{asset($and->image)}}" style="height: 300px" alt="He made his passenger captain of one">
+                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-post-img">
+                        <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $and->id) }}">{{$and->name}}</a></h2>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{$pro->name}} - {{ $pro->os_supported }}</a></h2>
                     
                     <div class="nk-gap"></div>
-                    <a href="{{ route('product.detail', $and->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($and->created_at)) }}</div>
+                    <a href="{{ route('product.detail', $pro->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
+                    <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($pro->created_at)) }}</div>
                 </div>
                 <!-- END: Post -->
             </div>
@@ -163,38 +163,7 @@
             
             </div>          
         </div>
-        <div class="nk-gap-2"></div>
-        <h3 class="nk-decorated-h-2"><span><span class="text-main-1">New</span> Games <span class="text-main-1">IOS</span></span></h3>
-        <div class="nk-gap"></div>
-        <div class="nk-blog-grid">
-            <div class="row">
-                
-                @if(isset($ios))
-                @foreach($ios as $io)
-                <div class="col-md-6 col-lg-3">
-                    <!-- START: Post -->
-                    <div class="nk-blog-post">
-                        <a href="{{ route('product.detail', $io->id) }}" class="nk-post-img">
-                            <img src="{{asset($io->image)}}" style="height: 300px" alt="He made his passenger captain of one">
-                        </a>
-                        <div class="nk-gap"></div>
-                        <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $io->id) }}">{{$io->name}}</a></h2>
-                        
-                        <div class="nk-gap"></div>
-                        <a href="{{ route('product.detail', $io->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
-                        <div class="nk-post-date float-right"><span class="fa fa-calendar"></span> {{ date('d/m/Y ', strtotime($io->created_at)) }}</div>
-                    </div>
-                    <!-- END: Post -->
-                </div>
-                @endforeach
-                @endif
-                
-                </div>          
-            </div>
-        </div>
-        <!-- END: Latest News -->
     </div>
-
     <!-- END: Latest News -->
             </aside>
             <!-- END: Sidebar -->

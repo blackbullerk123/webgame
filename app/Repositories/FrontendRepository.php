@@ -40,23 +40,19 @@ class FrontendRepository
                         });
     }
 
-    public function getAndroidIndex()
+    public function getProductToIndex()
     {
         return Product::where('product_type','=','Game')
-                        ->where('os_supported','=', 'Android')
-                        ->orderBy('created_at', 'desc')->paginate(8);
-    }
-
-    public function getIosIndex()
-    {
-        return Product::where('product_type','=','Game')
-                        ->where('os_supported','=', 'IOS')
+                        ->where('os_supported','=','Android')
+                        ->orwhere('os_supported','=','IOS')
                         ->orderBy('created_at', 'desc')->paginate(8);
     }
 
     public function gamesTop()
     {
         return Product::where('product_type','=','Game')
+                        ->where('os_supported','=','Android')
+                        ->orwhere('os_supported','=','IOS')
                         ->orderBy('created_at', 'asc')->paginate(8);
     }
 

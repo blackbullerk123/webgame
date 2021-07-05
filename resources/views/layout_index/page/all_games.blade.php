@@ -81,7 +81,7 @@
                         <img src="{{asset($pro->image)}}" style="height: 300px" alt="He made his passenger captain of one">
                     </a>
                     <div class="nk-gap"></div>
-                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{ $pro->name }} </a></h2>
+                    <h2 class="nk-post-title h4"><a href="{{ route('product.detail', $pro->id) }}">{{ $pro->name }} - {{ $pro->os_supported }}</a></h2>
                     
                     <div class="nk-gap"></div>
                     <a href="{{ route('product.detail', $pro->id) }}" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">ORDER</a>
