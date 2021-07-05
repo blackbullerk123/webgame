@@ -9,15 +9,6 @@
                     .nk-navbar-lg
                     .nk-navbar-overlay-content
             -->
-    <style>
-        p.a{
-            width: 210px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-    </style>
     <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
         <div class="nano">
             <div class="nano-content">
@@ -66,7 +57,7 @@
                                         </td>
                                         <td>{{ $point_info->order_id }}</td>
                                         <td>{{ number_format($point_info->point_purchase) }} Point</td>
-                                        <td><p class="a">{{ $point_info->description }}</p></td>
+                                        <td>{{ $point_info->description }}</td>
                                         @if ($point_info->status == 0)
                                             <td>Pending</td>
                                         @endif

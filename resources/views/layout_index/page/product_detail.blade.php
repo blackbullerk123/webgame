@@ -6,7 +6,6 @@
     width:250px;
     height: 300px;
 }
-
 </style>  
         <!--
     START: Navbar Mobile
@@ -63,7 +62,7 @@
                 <table class="table table-striped custom-table">
                         <thead>              
                             <tr>
-                            <th scope="col">Package Image</th>
+                            <th scope="col" style="width:20%">Package Image</th>
                             <th scope="col">Package Name</th>
                             <th scope="col">Value</th>
                             <th scope="col">Point</th>
@@ -75,10 +74,8 @@
                         @if(isset($product->package_name))
                         @for ($i = 0;$i < count(json_decode($product->package_name)); $i++)
                             <tr scope="row">
-                                    <td>
-                                        <div class="hovergallery">
-                                            <img src="{{json_decode(asset($product->package_image))[$i]}}" width="50px" />
-                                        </div>
+                                    <td style="text-align: center">
+                                        <img src="{{asset(json_decode($product->package_image)[$i])}}" class="popup" width="50px" height="50px" />
                                     </td>
                                     <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
                                     <td>{{ json_decode($product->package_price)[$i] }}</td>
@@ -98,11 +95,26 @@
     </div>
     <!-- END: Posts FullWidth -->
 </div>
-
 <div class="nk-gap-2"></div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="img_package" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-body" style="text-align: center">
+          <img id="popup-img" style="width:300px; height:200px" src="" alt="image">
+        </div>
+    </div>
+  </div>
 @endif
-<script>
-
-</script>
 @endsection
+@section('script')
+<script>
+   $(document).ready(function(){
+    $('.popup').mouseover(function () {
+        var src = $(this).attr('src');
+        $('#img_package').modal('show');
+        $('#popup-img').attr('src',src);
+    })
+});
+</script>
+@stop
