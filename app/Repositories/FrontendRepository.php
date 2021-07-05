@@ -43,12 +43,16 @@ class FrontendRepository
     public function getProductToIndex()
     {
         return Product::where('product_type','=','Game')
+                        ->where('os_supported','=','Android')
+                        ->orwhere('os_supported','=','IOS')
                         ->orderBy('created_at', 'desc')->paginate(8);
     }
 
     public function gamesTop()
     {
         return Product::where('product_type','=','Game')
+                        ->where('os_supported','=','Android')
+                        ->orwhere('os_supported','=','IOS')
                         ->orderBy('created_at', 'asc')->paginate(8);
     }
 
@@ -131,6 +135,12 @@ class FrontendRepository
                                         });
                                     })
                                     ->when(($type == 'IOS'), function ($query) use ($type){
+                                        $query->where(function ($q) use ($type){
+                                            $q->where('os_supported', 'like', '%' . $type . '%')
+                                                ->where('product_type','=','Game');
+                                        });
+                                    })
+                                    ->when(($type == 'Wallet'), function ($query) use ($type){
                                         $query->where(function ($q) use ($type){
                                             $q->where('os_supported', 'like', '%' . $type . '%')
                                                 ->where('product_type','=','Game');

@@ -77,7 +77,7 @@
                             <tr scope="row">
                                     <td>
                                         <div class="hovergallery">
-                                            <img src="{{asset($product->package_image)}}" width="50" />
+                                            <img src="{{json_decode(asset($product->package_image))[$i]}}" width="50px" />
                                         </div>
                                     </td>
                                     <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
