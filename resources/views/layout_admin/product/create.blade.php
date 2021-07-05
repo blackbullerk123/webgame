@@ -22,12 +22,12 @@
                 @endif
             </div>
             <div class="box box-info">
-                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data" id="form_data">
+                <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data" id="form_data">
                     @csrf
                     @include('layout_admin.product.template')
                     <div class="text-center">
-                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" id="submit" value="Thêm"
-                            class="btn  btn-warning btnthem btn-lg">
+                        <input style="border:none; background-color:#4a4235;" type="submit" name="submit" id="submit"
+                            value="Thêm" class="btn  btn-warning btnthem btn-lg">
                     </div>
                 </form>
             </div>
@@ -49,7 +49,7 @@
         $(document).ready(function(){
 
             var count = 1;
-            
+
             function data_form(number) {
                 var html = '<div class="input-group" id="row'+count+'">';
                     html += "<div class='col-sm-2'>";
@@ -75,14 +75,14 @@
                     html += '</div>';
                     html += '</div>';
 
-                    $('#new_chq').append(html);
+                $('#new_chq').append(html);
 
             }
 
             $('#add_btn').click(function() {
                 count++;
                 data_form(count);
-            }); 
+            });
 
             $(document).on('click', '.imgpackgame', function() {
                 var input_id = $(this).attr('id');

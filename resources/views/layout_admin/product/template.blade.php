@@ -76,6 +76,12 @@
                     @for($i; $i < count(json_decode($package_by_id->package_name)); $i++)
                         <div class="input-group" id="row{{ $i + 1 }}">
                             <div class="col-sm-3">
+                                <p>Ảnh gói: </p>
+                                    <input id="imgPack" type="file" name="imgPack[]" class="form-control hidden">
+                                    <img id="img_pack" class="img" style="width: 50px; height: 40px;"
+                                        src="{{ isset($package_by_id) ? asset(json_decode($package_by_id->package_image)[$i]) : asset('images/no_img.jpg') }}">
+                            </div>
+                            <div class="col-sm-3">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"
                                     placeholder="Tên gói. . . . . . . . ." maxlength="150" value="{{ json_decode($package_by_id->package_name)[$i] }}" required>
