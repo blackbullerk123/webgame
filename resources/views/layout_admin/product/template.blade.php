@@ -75,7 +75,7 @@
                 @if(isset($package_by_id->package_name))
                     @for($i; $i < count(json_decode($package_by_id->package_name)); $i++)
                         <div class="input-group" id="row{{ $i + 1 }}">
-                        <input type="hidden" name="pack[]" value="{{json_decode($package_by_id->package_image)[$i]}}">
+                        <input type="hidden" name="pack[]" value="{{isset(json_decode($package_by_id->package_image)[$i])}}">
                             <div class="col-sm-2">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"
@@ -96,7 +96,7 @@
                                 <input id="img{{$i + 1}}" type="file" name="packgame[]" class="form-control hidden packgame"
                                 onchange="changeImgPack(this, {{$i + 1}})">
                                 <img id="{{$i + 1}}" class="img{{$i + 1}} imgpackgame" style="width: 50px; height: 34px;"
-                                src="{{ asset(json_decode($package_by_id->package_image)[$i]) }}">
+                                src="{{ asset(isset(json_decode($package_by_id->package_image)[$i]) ? json_decode($package_by_id->package_image)[$i] : 'images/no_img.jpg') }}">
                             </div>
                             <div class="col-sm-2">
                                 <p>Thao tác:</p>

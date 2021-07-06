@@ -75,7 +75,7 @@
                         @for ($i = 0;$i < count(json_decode($product->package_name)); $i++)
                             <tr scope="row">
                                     <td style="text-align: center">
-                                        <img src="{{asset(json_decode($product->package_image)[$i])}}" class="popup" width="50px" height="50px" />
+                                        <img src="{{asset(isset(json_decode($product->package_image)[$i]) ? json_decode($product->package_image)[$i] : 'images/no_img.jpg' )}}" class="popup" width="50px" height="50px" />
                                     </td>
                                     <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
                                     <td>{{ json_decode($product->package_price)[$i] }}</td>
@@ -98,7 +98,7 @@
 <div class="nk-gap-2"></div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="img_package" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="nk-modal modal fade" id="img_package" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-body" style="text-align: center">
           <img id="popup-img" style="width:300px; height:200px" src="" alt="image">
