@@ -131,18 +131,23 @@ class ProductRepository
      $product->content_1 = $request->content;
      $product->save();
 
-     
+     // dd(array_replace($request->pack, $request->packgame), $request->pack, $request->packgame);
      if($request->packgame){
-          $img_package = $request->packgame;
-          foreach($img_package as $img){
-               if (isset($img)) {
-                    $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
+          $arr_packgame = array_replace($request->pack, $request->packgame);
+     }
+     if(isset($arr_packgame)){
+          foreach($arr_packgame as $ap){   
+               if (is_string($ap) == false) {
+                    $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$ap->getClientOriginalExtension();
                     $destinationPath = public_path('upload/package/img/' . $date);
-                    $img->move($destinationPath, $img_name_package);
+                    $ap->move($destinationPath, $img_name_package);
                     $arr[] = $img_name_package;               
+                }
+                else{
+                    $arr[] = $ap; 
                 }  
           }
-               $package->package_image = json_encode(array_merge($request->pack, $arr));
+               $package->package_image = json_encode($arr);
      }
      else {
           $package->package_image = json_encode($request->pack);
@@ -160,13 +165,14 @@ class ProductRepository
     public function AjaxDeletePackage($request, $id)
     {
           $package = Package::where('product_id', $id)->first();
-          if($request->pack){
-               // dd($request->pack, json_decode($package->package_image));
-               $img_unlink =  array_diff(json_decode($package->package_image), $request->pack);        
+          if($request->pack){              
+               $img_unlink =  array_diff(json_decode($package->package_image), $request->pack);  
                     foreach($img_unlink as $iu){
+                         
                          unlink(public_path($iu));
-                    }         
+                    }      
           }
+          $package->package_image = json_encode($request->pack);   
           $package->package_name = json_encode($request->package);
           $package->package_price = json_encode($request->value);
           $package->point_number = json_encode($request->point);
