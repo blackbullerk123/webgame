@@ -75,7 +75,7 @@
                 @if(isset($package_by_id->package_name))
                     @for($i; $i < count(json_decode($package_by_id->package_name)); $i++)
                         <div class="input-group" id="row{{ $i + 1 }}">
-                        <input type="hidden" name="pack[]" value="{{isset(json_decode($package_by_id->package_image)[$i])}}">
+                        <input type="hidden" name="pack[]" value="{{isset(json_decode($package_by_id->package_image)[$i]) ? json_decode($package_by_id->package_image)[$i] : 'images/no_img.jpg'}}">
                             <div class="col-sm-2">
                                 <p>Tên gói: </p>
                                 <input name="package[]" id="package" type="text" class="form-control"

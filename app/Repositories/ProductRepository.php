@@ -132,7 +132,6 @@ class ProductRepository
      $product->content_1 = $request->content;
      $product->save();
 
-     // dd(array_replace($request->pack, $request->packgame), $request->pack, $request->packgame);
      if($request->packgame){
           $arr_packgame = array_replace($request->pack, $request->packgame);
      }
