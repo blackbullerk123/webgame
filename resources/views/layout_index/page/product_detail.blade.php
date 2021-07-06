@@ -75,7 +75,7 @@
                         @for ($i = 0;$i < count(json_decode($product->package_name)); $i++)
                             <tr scope="row">
                                     <td style="text-align: center">
-                                        <img src="{{asset(isset(json_decode($product->package_image)[$i]) ? json_decode($product->package_image)[$i] : 'images/no_img.jpg' )}}" class="popup" width="50px" height="50px" />
+                                        <img src="{{asset(isset(json_decode($product->package_image)[$i]) ? json_decode($product->package_image)[$i] : 'images/no_img.jpg' )}}" class="popup" width="50px" height="30px" />
                                     </td>
                                     <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
                                     <td>{{ json_decode($product->package_price)[$i] }}</td>

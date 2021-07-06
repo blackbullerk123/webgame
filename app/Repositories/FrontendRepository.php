@@ -43,8 +43,7 @@ class FrontendRepository
     public function getProductToIndex()
     {
         return Product::where('product_type','=','Game')
-                        ->where('os_supported','=','Android')
-                        ->orwhere('os_supported','=','IOS')
+                        ->where('os_supported','!=','Wallet')
                         ->orderBy('created_at', 'desc')->paginate(8);
     }
 
