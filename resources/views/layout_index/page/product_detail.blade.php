@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col-12 col-xs-12 col-sm-6 col-md-4 col-xl-3 text-center">
             <input type="hidden" id="id_user" value="{{ isset(Auth::user()->id) ? Auth::user()->id : ''}}">
-            <h4>{{ $product->name }}</h4>
+            <h4>{{ $product->name }} - {{ $product->os_supported }}</h4>
             <img id="img1" src="{{asset($product->image)}}" alt="We found a witch! May we burn her?" >
         </div>
             <!-- START: Post -->
