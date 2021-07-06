@@ -78,6 +78,7 @@ class ProductRepository
    
      $package->product_id = $product->id;   
      $img_package = $request->packgame;
+     if(isset($img_package)){
      foreach($img_package as $img){
           if (isset($img)) {
                $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$img->getClientOriginalExtension();
@@ -86,8 +87,8 @@ class ProductRepository
                $arr[] = $img_name_package;               
            }  
      }
-          $package->package_image = json_encode($arr);
-    
+          $package->package_image = json_encode($arr);  
+} 
           $package->package_name = json_encode($request->package);
           $package->package_price = json_encode($request->value);
           $package->point_number = json_encode($request->point);

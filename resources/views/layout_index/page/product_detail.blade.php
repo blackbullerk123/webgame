@@ -110,7 +110,7 @@
 @section('script')
 <script>
    $(document).ready(function(){
-    $('.popup').mouseover(function () {
+    $('.popup').click(function () {
         var src = $(this).attr('src');
         $('#img_package').modal('show');
         $('#popup-img').attr('src',src);

@@ -50,8 +50,7 @@ class FrontendRepository
     public function gamesTop()
     {
         return Product::where('product_type','=','Game')
-                        ->where('os_supported','=','Android')
-                        ->orwhere('os_supported','=','IOS')
+                        ->where('os_supported','!=','Wallet')
                         ->orderBy('created_at', 'asc')->paginate(8);
     }
 
