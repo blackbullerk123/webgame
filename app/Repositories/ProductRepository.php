@@ -131,12 +131,11 @@ class ProductRepository
 
      $product->content_1 = $request->content;
      $product->save();
-
      if($request->packgame){
           $arr_packgame = array_replace($request->pack, $request->packgame);
      }
      if(isset($arr_packgame)){
-          foreach($arr_packgame as $ap){   
+          foreach($arr_packgame as $ap){  
                if (is_string($ap) == false) {
                     $img_name_package = 'upload/package/img/' . $date.'/'.Str::random(10).rand().'.'.$ap->getClientOriginalExtension();
                     $destinationPath = public_path('upload/package/img/' . $date);

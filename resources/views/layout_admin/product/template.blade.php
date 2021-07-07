@@ -18,9 +18,10 @@
     @error('short_des')
         <div style="color: red"> {{ $message }} </div>
     @enderror
-    <br>
+    <div class="col-md-12" style="margin-left:-27px">
+    <div class="col-md-4">
     <h4><b> Loại game : </b></h4>
-    <div class="input-group">
+   
 
     <select class="select2" name="game_type" style="width: 150px;">
         @if(isset($product))
@@ -39,9 +40,9 @@
     </select>
 
     </div>
+    <div class="col-md-4">
     <h4><b> Hệ điều hành hổ trợ nạp : </b></h4>
-    <div class="input-group">
-        <div class="col-sm-14">
+    
                 <select class="select2" name="game_opt" style="width: 150px;" data-placeholder="Chọn loại game" style="width: 800px;">
                     @if(isset($product))
                         @foreach ($os_type as $os)
@@ -58,15 +59,16 @@
                     @endif
                   </select>
             <!-- /.form-group -->
-          </div>
     </div>
     @error('game_opt')
         <div style="color: red"> {{ $message }} </div>
     @enderror
+    </div>
    <br>
    @php
         $i = 0;
    @endphp
+   <div class="col-md-12" style="margin-left:-13px">
    <h4><b> Gói nạp game : </b> </h4>
             @if(isset($package_by_id)  && $package_by_id->package_name != '')
                 @if ($i == 0) 
@@ -138,7 +140,7 @@
             @endif
         <div id="new_chq"></div>
         <input type="hidden" value="1" id="total_chq">
-
+            </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">
@@ -160,21 +162,20 @@
                         onchange="changeImg(this)">
                     <img id="img" class="img" style="width: 200px; height: 200px;"
                         src="{{ isset($product) ? asset($product->image) : asset('images/no_img.jpg') }}">
+                        @error('avatar')
+                        <p style="color: red"> {{ $message }} </p>
+                    @enderror
         </div>
-        @error('avatar')
-            <div style="color: red"> {{ $message }} </div>
-        @enderror
         <div class="col-md-4">
             <h4><b> Thumbnail :</b></h4>
                     <input id="thumbnail" type="file" name="thumbnail" class="form-control hidden"
                         onchange="changeThumbnail(this)">
                     <img id="thum" class="thumbnail" style="width: 300px; height: 150px;"
                         src="{{ isset($product) ? asset($product->thumbnail) : asset('images/no_img.jpg') }}">
+                        @error('thumbnail')
+                        <p style="color: red"> {{ $message }} </p>
+                    @enderror
         </div>
-        @error('thumbnail')
-            <div style="color: red"> {{ $message }} </div>
-        @enderror
-
         <br>    
         <!-- ./row -->
 </div>
