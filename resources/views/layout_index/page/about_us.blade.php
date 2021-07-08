@@ -29,7 +29,7 @@
             <div class="col-lg-4" style="float: left">
                 <div class="nk-box-2">
                     <h4>3. Why safe? </h4>
-                        <li>You will be guaranteed the recharge packages when using the service at gamemobile.io</li>
+                        <li>You will be guaranteed the recharge packages when using the service at <b style="color: #dd163b">sharkertopup.com</b></li>
                         <li>Enthusiastic support team</li>
                         <li>Refund when you don't use</li>
                         <li>We do not keep logs (products, customers) to ensure the highest security</li>
