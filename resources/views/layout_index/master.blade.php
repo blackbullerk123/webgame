@@ -14,7 +14,7 @@
     <meta name="keywords" content="game, gaming, template, HTML template, responsive, Bootstrap, premium">
     <meta name="author" content="_nK">
 
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logogun.png') }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

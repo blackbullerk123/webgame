@@ -117,7 +117,7 @@
             <div class="nk-nav-table">
 
                 <a href="{{ route('index') }}" class="nk-nav-logo">
-                    <img src="{{ asset('assets/images/logogun.png') }}" alt="Sharker" width="60">
+                    <img src="{{ asset('assets/images/13.png') }}" alt="Sharker">
                 </a>
 
                 <ul class="nk-nav nk-nav-right d-none d-lg-table-cell" data-nav-mobile="#nk-nav-mobile">
