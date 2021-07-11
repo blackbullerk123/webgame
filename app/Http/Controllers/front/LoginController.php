@@ -51,22 +51,6 @@ class LoginController extends Controller
         }
     }
 
-    // function createUser($getInfo, $provider){
-    //     $user = User::where('provider_id', $getInfo->id)->orWhere('email', $getInfo->email)->first();
-    //     if($user){
-    //         // log them in
-    //         Auth::login($user, true);
-    //     } else {
-    //         $user = User::create([
-    //             'name' => $getInfo->name,
-    //             'email' => $getInfo->email,
-    //             'avatar' => $getInfo->avatar,
-    //             'provider' => $provider,
-    //             'provider_id' => $getInfo->id
-    //         ]);
-    //     }
-    // }
-
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
