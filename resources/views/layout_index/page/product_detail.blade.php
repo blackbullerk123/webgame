@@ -41,7 +41,7 @@
 <div class="nk-gap-1"></div>
 <div class="container">
     <ul class="nk-breadcrumbs">            
-        <li><span>Blog FullWidth</span></li>
+        <li><span><span class="text-main-1">Product</span> Detail</span></li>
         
     </ul>
 </div>

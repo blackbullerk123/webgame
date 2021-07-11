@@ -71,7 +71,7 @@
         .nk-page-boxed
 -->
 
-<body>
+<body style="background: url('{{ asset('assets/images/ClosedMeekDormouse-max-1mb.gif') }}')">
     <!--
     Additional Classes:
         .nk-header-opaque
@@ -85,8 +85,8 @@
 
     <!-- START: Page Background -->
 
-    <img class="nk-page-background-top" src="{{ asset('assets/images/bg-top.png') }}" alt="">
-    <img class="nk-page-background-bottom" src="{{ asset('assets/images/bg-bottom.png') }}" alt="">
+    {{-- <img class="nk-page-background-top" src="{{ asset('assets/images/bg-top.png') }}" alt="">
+    <img class="nk-page-background-bottom" src="{{ asset('assets/images/bg-bottom.png') }}" alt=""> --}}
 
     <!-- END: Page Background -->
 

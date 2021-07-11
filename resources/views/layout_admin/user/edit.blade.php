@@ -42,7 +42,7 @@
                         <h4><b> Số point : </b></h4>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
-                            <input id="point" name="point" type="number" class="form-control" value="{{ $users->point }}"
+                            <input id="point" name="point" type="number" class="form-control" value="{{ $users->point ? $users->point : 0 }}"
                                 style="width: 700px;">
                         </div>
                         @error('point')

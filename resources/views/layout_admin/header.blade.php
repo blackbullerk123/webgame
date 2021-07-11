@@ -37,11 +37,12 @@
 </style>
 <header class="main-header">
   <!-- Logo --> 
-  <a href="{{ route('admin') }}" class="logo">
+  <a href="{{ route('index') }}" target="_blank" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>A</b>LT</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
+    {{-- <span class="logo-lg"><b style="color: red">S</b><b>harker</b><b style="color: red">T</b>opup</span> --}}
+    <img src="{{ asset('assets/images/13.png') }}" alt="Sharker" style="height: 60px">
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
