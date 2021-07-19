@@ -33,6 +33,8 @@
                 <input type="text" value="" id="pass" name="password_game" style="display: none">
                 <input type="text" value="" id="sv" name="sever" style="display: none">
                 <input type="text" value="" id="cd" name="code" style="display: none">
+                <input type="text" value="" id="ch" name="character" style="display: none">
+                <input type="text" value="" id="lg" name="login_with" style="display: none">
                       <tr>
                           <td class="nk-product-cart-title">
                               <a href="#" class="nk-image-box-1 nk-post-image">
@@ -89,7 +91,7 @@
         </form>
           <!-- END: Products in Cart -->
       <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="check_terms">I have read and accept the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a></input>
+          <input type="checkbox" class="form-check-input" id="check_terms">I have read and accept the <a href="{{ route('service') }}" target="_blank">Terms of Service</a> and <a href="{{ route('privacy') }}" target="_blank">Privacy Policy</a></input>
           <p id="errors_checked" style="color: red"></p> 
       </div>
       </div>
@@ -161,10 +163,14 @@
                     var pass = $('#password_game').val();
                     var sv = $('#sever').val();
                     var cd = $('#code').val();
+                    var ch = $('#character').val();
+                    var lg = $('#note').val();
                     $('#uid').val(uid);
                     $('#pass').val(pass);
                     $('#sv').val(sv);
                     $('#cd').val(cd);
+                    $('#ch').val(ch);
+                    $('#lg').val(lg);
                     $('#add_bill').submit();
                 }
             }    

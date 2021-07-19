@@ -185,6 +185,14 @@
                                 <th>Code:</th>
                                 <td>{{ explode('/',$bill->account)[3] }}</td>
                             </tr>
+                            <tr>
+                                <th>Character:</th>
+                                <td>{{ explode('/',$bill->account)[4] }}</td>
+                            </tr>
+                            <tr>
+                                <th>Login with:</th>
+                                <td>{{ explode('/',$bill->account)[5] }}</td>
+                            </tr>
                         </table>
                     </div>
                 </div>

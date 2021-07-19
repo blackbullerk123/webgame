@@ -229,6 +229,10 @@
                 <input type="text" value="" id="sever" name="sever" class="required form-control" maxlength="100" placeholder="Sever (if there is server)">
                 <div class="nk-gap"></div>
                 <input type="text" value="" id="code" name="code" class="required form-control" maxlength="100" placeholder="Code (if there is code)">
+                <div class="nk-gap"></div>
+                <input type="text" value="" id="character" name="character" class="required form-control" maxlength="100" placeholder="Your game's name character">
+                <div class="nk-gap"></div>
+                <input type="text" value="" id="note" name="note" class="required form-control" maxlength="100" placeholder="Login with Facebook or Gmail">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

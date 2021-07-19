@@ -49,7 +49,7 @@
                     in
                     the investigation and prosecution of illegal activities according to regulations. <br>
                     - If the Customer wants to report any actions that violate these terms, please contact SHARKERTOPUP.COM via
-                    email: contact@gamemobile.io or through other SHARKERTOPUP.COM contact channels such as online or phone
+                    email: <label style="color:red">WEBTOPUPGAMES@GMAIL.COM</label> or through other <label style="color:red">SHARKERTOPUP.COM</label> contact channels such as online or phone
                     support. <br>
                     - In order to be able to support customers quickly and conveniently, when registering a member account
                     at
