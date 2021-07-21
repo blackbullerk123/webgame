@@ -51,7 +51,8 @@
                                @csrf
                                 <div class="form-group">
                                     <p>Points to purchase:</p>
-                                    <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
+                                    <input type="number" min="0" class="form-control" id="amount_dep_bank" placeholder="Your point to purchase..." name="amount_dep" style="width: 200px;">
+                                    <!-- <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
                                         <option value="100">100 Points</option>
                                         <option value="200">200 Points</option>
                                         <option value="500">500 Points</option>
@@ -71,7 +72,7 @@
                                         <option value="5200">5,200 Points</option>
                                         <option value="5500">5,500 Points</option>
                                         <option value="6000">6,000 Points</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                 <button class="nk-btn nk-btn-rounded nk-btn-color-main-1">Purchase</button>
                             </form>
