@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Bill;
 use App\Models\PointPurchase;
 use App\Models\User;
+use App\Models\Vip;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -133,8 +134,17 @@ class BillRepository
     {
         $point_purchase = PointPurchase::find($id);
         $user_purchase = User::find($user);
+        $user_vip = $user_purchase->vip;
+        $vip = Vip::find(1);
         if($method == 'Purchase point'){
-            if($status == '1')
+            if($status == '1' && $user_vip == 1)
+            {
+                $point_purchase->status = $status;              
+                $point_purchase->save();
+                $user_purchase->point = $user_purchase->point + ($point + ($point * $vip->discount / 100));
+                $user_purchase->save();
+            }
+            elseif($status == '1')
             {
                 $point_purchase->status = $status;              
                 $point_purchase->save();

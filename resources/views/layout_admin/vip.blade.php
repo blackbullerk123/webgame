@@ -28,7 +28,7 @@
                         <div class="alert alert-success">{{ session('information') }}</div>
                     @endif
                     <div class="box-body">
-                        <h4><b> Giảm giá : </b></h4>
+                        <h4><b> Ưu đãi point : </b></h4>
                         <div class="input-group" style="width: 150px;">
                             <span class="input-group-addon"><i class="fa fa-pencil fa-lg"></i></span>
                             <input id="discount" name="discount" type="number" min="0" class="form-control" value="{{ $vip->discount }}"

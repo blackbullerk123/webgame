@@ -14,7 +14,7 @@ class AddVipToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('vip')->nullable()->default(0);
+            $table->integer('vip')->after('banned_status')->nullable()->default(0);
         });
     }
 
