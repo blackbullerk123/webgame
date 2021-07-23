@@ -3,8 +3,8 @@
 <?php use Illuminate\Support\Facades\Auth;?>
 <style>
 #img1{
-    width:250px;
-    height: 300px;
+    width:220px;
+    height: 280px;
 }
 </style>  
         <!--
@@ -62,12 +62,12 @@
                 <table class="table table-striped custom-table">
                         <thead>              
                             <tr>
-                            <th scope="col" style="width:20%">Package Image</th>
-                            <th scope="col">Package Name</th>
-                            <th scope="col">Value</th>
-                            <th scope="col">Point</th>
-                            <th scope="col">Education</th>
-                            <th scope="col"></th>
+                            <th scope="col" style="width:20%;font-size: 13px">Package Image</th>
+                            <th scope="col" style="font-size: 13px">Package Name</th>
+                            <th scope="col" style="font-size: 13px">Value</th>
+                            <th scope="col" style="font-size: 13px">Point</th>
+                            <th scope="col" style="font-size: 13px">Education</th>
+                            <th scope="col" style="font-size: 13px"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,10 +77,10 @@
                                     <td style="text-align: center">
                                         <img src="{{asset(isset(json_decode($product->package_image)[$i]) ? json_decode($product->package_image)[$i] : 'images/no_img.jpg' )}}" class="popup" width="50px" height="30px" />
                                     </td>
-                                    <td><a href="#">{{json_decode($product->package_name)[$i]}}</a></td>
-                                    <td>{{ json_decode($product->package_price)[$i] }}</td>
-                                    <td>{{ number_format(json_decode($product->point_number)[$i]) }} point</td>
-                                    <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail">Order</a></td>                   
+                                    <td><a href="#" style="font-size: 18px">{{json_decode($product->package_name)[$i]}}</a></td>
+                                    <td><a href="#" style="font-size: 18px">{{ json_decode($product->package_price)[$i] }}</a></td>
+                                    <td><a href="#" style="font-size: 18px">{{ number_format(json_decode($product->point_number)[$i]) }} point</a></td>
+                                    <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail" style="font-size: 14px">Order</a></td>                   
                             </tr> 
                         @endfor                            
                         @endif
@@ -88,10 +88,19 @@
                 </table>
             </div>
             <hr>
-            {!! $product->content_1 !!}
         </div>  
             <!-- END: Post -->
         
+    </div>
+    <div class="nk-gap-2"></div>
+    <div class="container">
+        <ul class="nk-breadcrumbs">            
+            <li><span><span class="text-main-1">Description</span> Game</span></li>
+            
+        </ul>
+    </div>
+    <div class="col-12">
+        {!! $product->content_1 !!}
     </div>
     <!-- END: Posts FullWidth -->
 </div>
