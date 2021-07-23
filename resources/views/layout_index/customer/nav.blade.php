@@ -35,6 +35,10 @@
                 style="height: 80px; width: 80px" class="image rounded-circle">
             @endif
         </span>
+        @if(Auth::user()->vip == 1)
+        <div class="nk-gap-1"></div>
+        <img src="{{ asset('assets/images/vip4.png') }}" style="height: 20px; width: 50px;">
+        @endif
         <div style="margin-top: 10px">
             <p class="mb-0">Surplus: <span class="text-main-1">{{ Auth::user()->point ? Auth::user()->point : 0 }}</span> Points</p>
             <p>Hello, <b style="color: #dd163b">{{ Auth::user()->name }}</b> <br>
