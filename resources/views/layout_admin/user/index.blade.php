@@ -43,8 +43,8 @@
                       @foreach($users as $user )
                       <tr>
                         <td>{{ $user->name }}</td>
-                        @if(Auth::user()->avatar_orginal)
-                        <td><img width="150px" height="100" src="{{ asset($user->avatar_orginal ? $user->avatar_orginal : 'images/no_img.jpg') }}" class="thumbnail center"></td>
+                        @if($user->avatar_orginal)
+                        <td><img width="150px" height="100" src="{{ $user->avatar_orginal }}" class="thumbnail center"></td>
                         @else
                         <td><img width="150px" height="100" src="{{ asset($user->avatar ? $user->avatar : 'images/no_img.jpg') }}" class="thumbnail center"></td>
                         @endif
