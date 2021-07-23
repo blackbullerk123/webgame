@@ -10,7 +10,7 @@ use App\Models\Bill;
 use App\Models\PointPurchase;
 use App\Models\Product;
 use App\Models\User;
-use App\Models\Date;
+use App\Models\Vip;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Str;
@@ -194,5 +194,34 @@ class AdminController extends Controller
             $users->save();
             return redirect()->back()->with('information', 'Cập nhật point thành công');
         }      
+    }
+
+    public function onVip($id)
+    {
+        $users = User::find($id);
+        $users->vip = 1;
+        $users->save();
+        return redirect()->back()->with('information', 'Kích hoạt VIP thành công');
+    }
+
+    public function offVip($id)
+    {
+        $users = User::find($id);
+        $users->vip = 0;
+        $users->save();
+        return redirect()->back()->with('information', 'Hủy VIP thành công');
+    }
+
+    public function indexVip()
+    {
+        return view('layout_admin.vip');
+    }
+
+    public function updateVip(Request $request)
+    {
+        $vip = Vip::find(1);
+        $vip->discount = $request->discount;
+        $vip->save();
+        return redirect()->back()->with('information', 'Cập nhật ưu đãi thành công');
     }
 }

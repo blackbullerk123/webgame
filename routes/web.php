@@ -65,6 +65,11 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/users/unbanned/{id}',[AdminController::class,'unbanned'])->name('users.unbanned');
     Route::get('/users/edit/{id}',[AdminController::class,'editPoint'])->name('users.edit');
     Route::post('/users/update/{id}',[AdminController::class,'updatePoint'])->name('users.update');
+    Route::get('/users/vip/{id}',[AdminController::class,'onVip'])->name('users.vip');
+    Route::get('/users/unvip/{id}',[AdminController::class,'offVip'])->name('users.unvip');
+    //Vip
+    Route::get('/discount-vip',[AdminController::class,'indexVip'])->name('discountvip');
+    Route::post('/update-vip/{id}',[AdminController::class,'updateVip'])->name('updatevip');
 });
 
 

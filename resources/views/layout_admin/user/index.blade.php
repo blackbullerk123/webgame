@@ -34,6 +34,7 @@
                             <th style="text-align: center">Email</th>
                             <th style="text-align: center">Phone</th>
                             <th style="text-align: center">Point</th>
+                            <th style="text-align: center">VIP</th>
                             <th style="text-align: center">Thao tác</th>
                         </tr>
                     </thead>
@@ -49,7 +50,14 @@
                         @endif
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td>{{ $user->point ? $user->point : 0 }}</td>
+                        <td style="text-align: center">{{ $user->point ? $user->point : 0 }}</td>
+                        <td class="text-center">
+                          @if($user->vip == 1)
+                          <a href="{{ route('users.unvip', $user->id) }}" class="btn btn-danger btn-sign ban"> Hủy</a> 
+                          @else
+                          <a href="{{ route('users.vip', $user->id) }}" class="btn btn-success btn-sign ban"> Kích hoạt</a> 
+                          @endif
+                        </td>
                         <td class="text-center">
                           @if($user->banned_status == 0)
                           <a href="{{ route('users.banned', $user->id) }}" class="btn btn-danger btn-sign ban"> Khóa</a> 
