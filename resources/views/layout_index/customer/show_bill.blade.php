@@ -190,6 +190,7 @@
                     <img src="{{ asset('dist/img/momo.png') }}" alt="Momo" style="margin-left: 10px">
                     <img src="{{ asset('dist/img/bitcoin.png') }}" alt="Momo" style="margin-left: 10px">
                     <img src="{{ asset('dist/img/tether_Logo.png') }}" alt="Momo" style="margin-left: 10px">
+                    <img src="{{ asset('dist/img/alipay.png') }}" alt="Ali" style="margin-top: 20px">
                 </div>
                 <div class="col-xs-6 pull-right">
                     <p class="lead">Amount Due {{ date('d/m/Y ', strtotime($point_purchase->created_at)) }}</p>
