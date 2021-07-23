@@ -1,4 +1,10 @@
-@extends('layout_index.master')
+@php
+    $vip_info = '';
+    if(Auth::user()->vip == 1){
+        $vip_info = 2;
+    }
+@endphp
+@extends('layout_index.master'.$vip_info)
 @section('content')
     <!--
         START: Navbar Mobile

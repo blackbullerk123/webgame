@@ -1,4 +1,10 @@
-@extends('layout_index.master')
+@php
+    $vip_info = '';
+    if(Auth::user()->vip == 1){
+        $vip_info = 2;
+    }
+@endphp
+@extends('layout_index.master'.$vip_info)
 @section('content')
     <!--
                     START: Navbar Mobile
@@ -43,15 +49,15 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade show active" id="tabs-1-1">
                             <div class="nk-gap"></div>
-                            <p>- Conversion rate: $100 = 100 Points.</p>
-                            <p>- After pressing the deposit button, you pay online or transfer money to the bank with the
+                            <p style="color: white">- Conversion rate: $100 = 100 Points.</p>
+                            <p style="color: white">- After pressing the deposit button, you pay online or transfer money to the bank with the
                                 transfer content recorded in the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
                             <form action="{{ route('purchase_points.update', [Auth::user()->id, 'Bank']) }}" method="post"enctype="multipart/form-data">
                                @csrf
                                 <div class="form-group">
-                                    <p>Points to purchase:</p>
-                                    <input type="number" min="10" maxlength="16" class="form-control" id="amount_dep_bank" placeholder="Your point to purchase..." name="amount_dep" style="width: 300px;">
+                                    <p style="color: white">Points to purchase:</p>
+                                    <input type="number" min="10" maxlength="16" class="form-control" id="amount_dep_bank" placeholder="Your point to purchase..." name="amount_dep" style="width: 200px;">
                                     <!-- <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
                                         <option value="100">100 Points</option>
                                         <option value="200">200 Points</option>
@@ -79,15 +85,15 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tabs-1-2">
                             <div class="nk-gap"></div>
-                            <p>- Conversion rate: $100 = 100 Points.</p>
-                            <p>- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
+                            <p style="color: white">- Conversion rate: $100 = 100 Points.</p>
+                            <p style="color: white">- After pressing the deposit button, you pay via MoMo with the transfer content recorded in
                                 the Deposit - Withdrawal history table.</p>
                             <div class="nk-gap"></div>
                             <form action="{{ route('purchase_points.update', [Auth::user()->id, 'Momo']) }}" method="post"enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <p>Points to purchase:</p>
-                                    <input type="number" min="10" maxlength="16" class="form-control" id="amount_dep_bank" placeholder="Your point to purchase..." name="amount_dep" style="width: 300px;">
+                                    <p style="color: white">Points to purchase:</p>
+                                    <input type="number" min="10" maxlength="16" class="form-control" id="amount_dep_bank" placeholder="Your point to purchase..." name="amount_dep" style="width: 200px;">
                                     {{-- <select class="form-control" id="amount_dep_bank" name="amount_dep" style="width: 200px;">
                                         <option value="100">100 Points</option>
                                         <option value="200">200 Points</option>
