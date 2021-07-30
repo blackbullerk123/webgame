@@ -77,9 +77,9 @@
                                     <td style="text-align: center">
                                         <img src="{{asset(isset(json_decode($product->package_image)[$i]) ? json_decode($product->package_image)[$i] : 'images/no_img.jpg' )}}" class="popup" width="50px" height="30px" />
                                     </td>
-                                    <td><a href="#" style="font-size: 18px">{{json_decode($product->package_name)[$i]}}</a></td>
-                                    <td><a href="#" style="font-size: 18px">{{ json_decode($product->package_price)[$i] }}</a></td>
-                                    <td><a href="#" style="font-size: 18px">{{ number_format(json_decode($product->point_number)[$i]) }} point</a></td>
+                                    <td><a href="#" style="font-size: 16px">{{json_decode($product->package_name)[$i]}}</a></td>
+                                    <td><a href="#" style="font-size: 16px">{{ json_decode($product->package_price)[$i] }}</a></td>
+                                    <td><a href="#" style="font-size: 16px">{{ number_format(json_decode($product->point_number)[$i]) }} point</a></td>
                                     <td><a href="{{ route('checkout.bill', [$product->product_id, $i]) }}" class="more" id="detail" style="font-size: 14px">Order</a></td>                   
                             </tr> 
                         @endfor                            

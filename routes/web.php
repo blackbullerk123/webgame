@@ -125,4 +125,3 @@ Route::get('/logout',[FrontendController::class,'postLogout'])->name('logout');
 Route::get('/update-new-pass',[FrontendController::class,'updateNewPass'])->name('password.update');
 Route::post('/forgot-password',[FrontendController::class,'recoveryPass'])->name('password.recovery');
 Route::post('/reset-password',[FrontendController::class,'resetPass'])->name('password.reset');
-
