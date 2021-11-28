@@ -86,7 +86,7 @@
             <div class="box">
                 <div class="box-header">
                     <center>
-                        <h3 class="box-title"><b>Thống kê doanh thu theo ngày trong tháng</b></h3>
+                        <h3><b>Thống kê doanh thu theo ngày trong tháng</b></h3>
                     </center>
                 </div>
                 <form action="{{ route('admin.search') }}" id="" enctype="multipart/form-data" method="post">

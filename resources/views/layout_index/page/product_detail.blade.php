@@ -100,6 +100,7 @@
         </ul>
     </div>
     <div class="col-12">
+        <img src="{{ asset($product->image_detail) }}" alt="" width="100%">
         {!! $product->content_1 !!}
     </div>
     <!-- END: Posts FullWidth -->

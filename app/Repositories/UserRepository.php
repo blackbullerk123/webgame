@@ -51,7 +51,6 @@ class UserRepository
     public function pointPurchase($request, $id, $type)
     {
         $point_purchase = new PointPurchase();
-
         $point_purchase->user_id = $id;
         $point_purchase->point_purchase = $request->amount_dep;
         $point_purchase->description = 'Purchase ' . $request->amount_dep . ' point, ' . $type;

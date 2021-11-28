@@ -187,13 +187,11 @@ class AdminController extends Controller
     public function updatePoint(Request $request, $id)
     {
         $users = User::find($id);
-        if($request->point < $users->point){
-            return redirect()->back()->with('error', '1');
-        }else{ 
-            $users->point = $request->point;
-            $users->save();
-            return redirect()->back()->with('information', 'Cập nhật point thành công');
-        }      
+
+        $users->point = $request->point;
+        $users->save();
+        return redirect()->back()->with('information', 'Cập nhật point thành công');
+             
     }
 
     public function onVip($id)
