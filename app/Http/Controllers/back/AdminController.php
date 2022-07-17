@@ -61,14 +61,14 @@ class AdminController extends Controller
         foreach ($dates as $day) {
             $total = 0;
             foreach ($revenueMonthDone as $key => $revenue) {
-                
+
                 if ($revenue['day'] == $day) {
                     $total = $revenue['totalMoney'];
                     break;
                 }
             }
-            
-            
+
+
             $arrRevenueMonthDone[] = (int) $total;
             $total = 0;
             foreach ($revenueMonthPending as $key => $revenue) {
@@ -111,7 +111,7 @@ class AdminController extends Controller
         if (isset($img)) {
             if(isset($admin->avatar)) {
                 unlink(public_path($admin->avatar));
-            }         
+            }
             $img_name = 'upload/admin/img/' . $date . '/' . Str::random(10) . rand() . '.' . $img->getClientOriginalExtension();
             $destinationPath = public_path('upload/admin/img/' . $date);
             $img->move($destinationPath, $img_name);
@@ -191,7 +191,7 @@ class AdminController extends Controller
         $users->point = $request->point;
         $users->save();
         return redirect()->back()->with('information', 'Cập nhật point thành công');
-             
+
     }
 
     public function onVip($id)

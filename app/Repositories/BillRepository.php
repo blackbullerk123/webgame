@@ -18,7 +18,7 @@ class BillRepository
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getIndex($request)
-    {   
+    {
         $date = date('Y-m-d');
         $all_bill = Bill::when(($request->date == null), function ($query) use ($date){
                         $query->where(function ($q) use ($date){
@@ -44,7 +44,7 @@ class BillRepository
                         $query->where(function ($q) use ($request){
                             $q->where('order_id', 'LIKE', '%' . $request->name . '%');
                         });
-                    })       
+                    })
                     ->get();
         return $all_bill;
     }
@@ -62,7 +62,7 @@ class BillRepository
     }
 
     public function getIndexPoint($request)
-    {   
+    {
         $date = date('Y-m-d');
         $point_purchase = PointPurchase::when(($request->date == null), function ($query) use ($date){
                         $query->where(function ($q) use ($date){
@@ -88,27 +88,27 @@ class BillRepository
                         $query->where(function ($q) use ($request){
                             $q->where('order_id', 'LIKE', '%' . $request->name . '%');
                         });
-                    })       
+                    })
                     ->get();
         return $point_purchase;
     }
 
     public function getAdminInfo()
-    {     
+    {
         $admin_info = User::where('role', '1')->first();
-        
+
         return $admin_info;
     }
 
     public function getUserInfo($id)
-    {     
+    {
         $user_id = Bill::where('id', $id)->value('user_id');
         $user_info = User::where('id', $user_id)->first();
         return $user_info;
     }
 
     public function getBill($id)
-    {        
+    {
         $bill_info = Bill::Find($id);
         return $bill_info;
     }
@@ -123,7 +123,7 @@ class BillRepository
             $bill_perchase->save();
         }
         elseif($status == '2'){
-            $bill_perchase->status = '2';       
+            $bill_perchase->status = '2';
             $bill_perchase->save();
             $user->point = $user->point + $point;
             $user->save();
@@ -139,14 +139,14 @@ class BillRepository
         if($method == 'Purchase point'){
             if($status == '1' && $user_vip == 1)
             {
-                $point_purchase->status = $status;              
+                $point_purchase->status = $status;
                 $point_purchase->save();
                 $user_purchase->point = $user_purchase->point + ($point + ($point * $vip->discount / 100));
                 $user_purchase->save();
             }
             elseif($status == '1')
             {
-                $point_purchase->status = $status;              
+                $point_purchase->status = $status;
                 $point_purchase->save();
                 $user_purchase->point = $user_purchase->point + $point;
                 $user_purchase->save();
@@ -161,7 +161,7 @@ class BillRepository
         else if ($method == 'Withdraw point'){
             if($status == '1')
             {
-                $point_purchase->status = $status;              
+                $point_purchase->status = $status;
                 $point_purchase->save();
                 $user_purchase->point = $user_purchase->point - $point;
                 $user_purchase->save();
@@ -173,7 +173,7 @@ class BillRepository
                 $user_purchase->save();
             }
         }
-        
+
     }
 
 }

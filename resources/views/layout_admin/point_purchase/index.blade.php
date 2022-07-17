@@ -17,19 +17,19 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          
-          <div class="box">   
+
+          <div class="box">
             <div class="box-header">
             <div class="box-header">
                 @if (session('information'))
                     <div class="alert alert-success">{{ session('information') }}</div>
                 @endif
             </div>
-               
+
             </div>
             <!-- /.box-header -->
-            
-            <div class="box-body" style="margin-top:10px">   
+
+            <div class="box-body" style="margin-top:10px">
             <form action="{{ route('point.search') }}" method="post" enctype="multipart/form-data">
             @csrf
               <div class="table-responsive">
@@ -53,7 +53,7 @@
                     @endif
                   </select>
                 </div>
-                <div class="input-group date col-sm-2">  
+                <div class="input-group date col-sm-2">
                   <input type="text" class="form-control" id="datetimepicker" name="date">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
@@ -72,7 +72,7 @@
                             <th style="text-align: center">Số point</th>
                             <th style="text-align: center">Trạng thái</th>
                             <th style="text-align: center">Ngày nhận đơn</th>
-                            <th style="text-align: center">Thao Tác</th>  
+                            <th style="text-align: center">Thao Tác</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,15 +94,15 @@
                               @else
                               <label class="label label-danger" style="padding:5px;" >Đơn đã huỷ</label>
                               @endif
-                            </td> 
-                            <td>{{date('d/m/Y ', strtotime($p->created_at))}}</td>        
+                            </td>
+                            <td>{{date('d/m/Y ', strtotime($p->created_at))}}</td>
                             <td>
                               @if($p->status == 0)
-                              <a href="{{ route('point.purchase', [$p->id, '1', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a> 
+                              <a href="{{ route('point.purchase', [$p->id, '1', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-primary btn-sign fa fa-check"> Thanh toán</a>
                               @endif
                               @if($p->status != 2)
-                              <a href="{{ route('point.purchase', [$p->id, '2', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td> 
-                              @endif                                                   
+                              <a href="{{ route('point.purchase', [$p->id, '2', $p->point_purchase, $p->user_id, $p->method]) }}" class="btn btn-danger btn-sign fa fa-close"> Huỷ đơn</a></td>
+                              @endif
                        </tr>
                         @endforeach
                       @endif
